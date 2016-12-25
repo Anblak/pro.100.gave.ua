@@ -14,7 +14,7 @@ public class DiscreteMathDecussation implements DiscreteMathFunction {
 		Iterator iteratorA = A.iterator();
 
 		while (iteratorA.hasNext()) {
-			Integer integerA = iteratorA.next();
+			Integer integerA = (Integer) iteratorA.next();
 			Iterator iteratorB = B.iterator();
 			
 			while (iteratorB.hasNext()) {
