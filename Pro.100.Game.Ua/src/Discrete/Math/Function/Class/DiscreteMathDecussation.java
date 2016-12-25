@@ -16,15 +16,17 @@ public class DiscreteMathDecussation implements DiscreteMathFunction {
 		while (iteratorA.hasNext()) {
 			Integer integerA = iteratorA.next();
 			Iterator iteratorB = B.iterator();
+			
 			while (iteratorB.hasNext()) {
-				
-				if(integerA.equals(iteratorB.next())){
 
-}
+				if (integerA.equals(iteratorB.next())) {
+					space.add(integerA);
+					
+				}
 			}
 		}
 
-		return null;
+		return space;
 	}
 
 }
