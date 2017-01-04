@@ -6,7 +6,7 @@ import Discrete.Math.Function.Class.DiscreteMathDecussation;
 import Discrete.Math.Function.Class.DiscreteMathDifference;
 import Discrete.Math.Function.Interface.DiscreteMathFunction;
 
-//  alt "/\"  vid "/"  obed "+"  peretun "^" 
+//  alt "@"  vid "/"  obed "+"  peretun "^" 
 public class FunctionReader {
 	public int a;
 	public int b;
