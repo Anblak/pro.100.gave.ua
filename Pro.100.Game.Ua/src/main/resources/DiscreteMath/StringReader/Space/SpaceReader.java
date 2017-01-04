@@ -194,7 +194,7 @@ public class SpaceReader {
 				}
 			}
 		}
-		// System.out.println("tempInt" + tempInt);
+	
 		space.add(tempInt);
 		return space;
 	}
