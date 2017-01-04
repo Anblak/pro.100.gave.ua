@@ -9,7 +9,7 @@ import Discrete.Math.Function.Interface.DiscreteMathFunction;
 public class DiscreteMathAdd implements DiscreteMathFunction {
 
 	@Override
-	public HashSet<Integer> funclion(HashSet<Integer> A, HashSet<Integer> B) {
+	public HashSet<Integer> function(HashSet<Integer> A, HashSet<Integer> B) {
 		HashSet<Integer> space = new HashSet<Integer>();
 		Iterator iteratorA = A.iterator();
 

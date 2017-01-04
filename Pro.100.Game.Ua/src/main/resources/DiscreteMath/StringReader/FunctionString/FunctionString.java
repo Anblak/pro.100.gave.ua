@@ -39,7 +39,7 @@ public class FunctionString {
 	}
 
 	// шукає внутрішню відкриваючу дужку
-	public int indexBracketsStart(String formul) {
+	private int indexBracketsStart(String formul) {
 
 		int tempIndex = 0;
 
@@ -60,7 +60,7 @@ public class FunctionString {
 	}
 
 	// шукає закриваючу дужку
-	public int indexBracketsEnd(String formul) {
+	private int indexBracketsEnd(String formul) {
 
 		int tempIndex = 0;
 
@@ -78,7 +78,7 @@ public class FunctionString {
 
 	// видаляє одну дію з дужками і записує на їхнє місце символ який вказує на
 	// колекцію
-	public String removeCharFromString(String formul, int start, int end, int newFormul) {
+	private String removeCharFromString(String formul, int start, int end, int newFormul) {
 		String temp = "";
 		for (int i = 0; i < formul.length(); i++) {
 			if (i < start || i > end) {
@@ -97,7 +97,7 @@ public class FunctionString {
 	}
 
 	// повертає одну дію приклад (1+2)
-	public String getFromString(String formul, int start, int end) {
+	private String getFromString(String formul, int start, int end) {
 		String temp = "";
 		for (int i = 0; i < formul.length(); i++) {
 			if (start < i && i < end) {

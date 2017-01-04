@@ -9,20 +9,13 @@ import Discrete.*;
 import Discrete.Math.Function.Interface.DiscreteMathFunction;
 
 public class CalculatorOneFormula {
-	public HashSet<Integer> Index(String formul,List<HashSet<Integer>> IndexSpace,int indexSpaceA,int indexSpaceB) {
-		
+	public HashSet<Integer> Index(String formul, List<HashSet<Integer>> IndexSpace, int indexSpaceA, int indexSpaceB) {
+
 		FunctionReader functionReader = new FunctionReader();
 
-		
-		
-		
-		
-		
-
-		
 		DiscreteMathFunction function = functionReader.objectFunction(formul);
-		
-		return function.funclion(IndexSpace.get(indexSpaceA), IndexSpace.get(indexSpaceB));
-		
+
+		return function.function(IndexSpace.get(indexSpaceA), IndexSpace.get(indexSpaceB));
+
 	}
 }
