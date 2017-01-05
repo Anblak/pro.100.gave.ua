@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<<<<<<< HEAD
+
 
 
 
@@ -20,7 +20,4 @@
 
 </body>
 </html>
-=======
-${user.name} ${user.email} ${user.phone}
 
->>>>>>> af6e876e6705cf8f6adf18da63904d198060fabe
