@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
+
 import ua.game.pro.dto.DTOUtilMapper;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.UserService;
+import ua.game.pro.validator.UserValidationMessages;
 
 
 
@@ -31,7 +34,20 @@ public class UserController {
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute User user, Model model) {
 
-		userService.save(user);
+		try {
+			userService.save(user);
+		} catch (Exception e) {
+			if(e.getMessage().equals(UserValidationMessages.EMPTY_USERNAME_FIELD)||
+					e.getMessage().equals(UserValidationMessages.NAME_ALREADY_EXIST)){
+				model.addAttribute("usernameException", e.getMessage());
+			}else if(e.getMessage().equals(UserValidationMessages.EMPTY_EMAIl_FIELD )||
+					e.getMessage().equals(UserValidationMessages.EMAIL_ALREADY_EXIST)){
+				model.addAttribute("emailException", e.getMessage());
+			}else if(e.getMessage().equals(UserValidationMessages.EMPTY_PASSWORD_FIELD)){
+				model.addAttribute("passwordException", e.getMessage());
+			}
+			return "registration";
+		}
 
 		return "redirect:/registration";
 	}

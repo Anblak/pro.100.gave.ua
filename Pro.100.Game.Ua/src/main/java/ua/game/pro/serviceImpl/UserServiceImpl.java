@@ -3,6 +3,7 @@ package ua.game.pro.serviceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,6 +15,7 @@ import ua.game.pro.dao.UserDao;
 import ua.game.pro.entity.Role;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.UserService;
+import ua.game.pro.validator.Validator;
 
 
 @Service("userDetailsService")
@@ -24,7 +26,14 @@ public class UserServiceImpl implements UserService, UserDetailsService{
     @Autowired
     private BCryptPasswordEncoder encoder;
     
-    public void save(User user) {
+	@Autowired
+	@Qualifier("userValidator")
+	private Validator validator;
+    
+    public void save(User user) throws Exception {
+    	
+    	validator.validate(user);
+    	
         user.setRole(Role.ROLE_USER);
         user.setPassword(encoder.encode(user.getPassword()));
         userDao.save(user);
