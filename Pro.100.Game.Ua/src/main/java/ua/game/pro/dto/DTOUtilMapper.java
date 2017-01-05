@@ -3,6 +3,7 @@ package ua.game.pro.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import ua.game.pro.entity.Group;
 import ua.game.pro.entity.User;
 
 
@@ -26,4 +27,26 @@ public class DTOUtilMapper {
 		return userDTOs;
 
 	}
+	public static List<GroupDTO> groupToGroupDTO(List<Group> groups) {
+
+		List<GroupDTO> groupDTOs = new ArrayList<GroupDTO>();
+
+		for (Group group : groups) {
+
+			GroupDTO groupDTO = new GroupDTO();
+			
+			groupDTO.setId(group.getId());
+			groupDTO.setName(group.getName());
+			groupDTO.setUuid(group.getUuid());
+			
+			groupDTOs.add(groupDTO);
+
+		}
+
+		return groupDTOs;
+
+	}
+	
+	
+	
 }

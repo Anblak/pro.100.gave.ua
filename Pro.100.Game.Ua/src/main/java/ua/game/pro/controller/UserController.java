@@ -26,8 +26,8 @@ public class UserController {
 
 	@RequestMapping("/registration")
 	public String newUser(Model model) {
-		model.addAttribute("userDTOs", DTOUtilMapper.usersToUsersDTO(userService.findAll()));
-		model.addAttribute("user", new User());
+//		model.addAttribute("userDTOs", DTOUtilMapper.usersToUsersDTO(userService.findAll()));
+//		model.addAttribute("user", new User());
 		return "registration";
 	}
 

@@ -9,11 +9,13 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.ManyToOne;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+
 
 
 @Entity
@@ -25,6 +27,9 @@ public class User implements UserDetails {
 	private String name;
 	private String email;
 	private String password;
+	
+	@ManyToOne
+	private Group group;
 	
 	@Enumerated
 	private Role role;
@@ -92,6 +97,16 @@ public class User implements UserDetails {
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+	
+	
+
+	public Group getGroup() {
+		return group;
+	}
+
+	public void setGroup(Group group) {
+		this.group = group;
 	}
 
 	public Collection<? extends GrantedAuthority> getAuthorities() {
