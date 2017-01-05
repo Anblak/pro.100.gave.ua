@@ -5,3 +5,4 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 ${user.name} ${user.email} ${user.phone}
+
