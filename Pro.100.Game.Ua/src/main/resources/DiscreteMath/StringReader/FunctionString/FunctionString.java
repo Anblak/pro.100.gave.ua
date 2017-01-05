@@ -11,6 +11,8 @@ import StringReader.String.StringReaderSpace;
 
 public class FunctionString {
 
+	public List<HashSet<Integer>> indexSpace;
+
 	public HashSet<Integer> stringFunction(String formul, String space) {
 
 		CalculatorOneFormula oneFormula = new CalculatorOneFormula();
@@ -18,22 +20,23 @@ public class FunctionString {
 		StringReaderSpace readerSpace = new StringReaderSpace();
 		int tempInt;
 		List<HashSet<Integer>> indexSpace = readerSpace.redaderSpace(space);
-		HashSet<Integer> tempSet = new HashSet<Integer>();
+		HashSet<Integer> tempSet = null;
 		while (formul.length() > 1) {
-
+			// tempSet.clear();
 			FunctionReader functionReader = new FunctionReader();
 			functionReader.FunctionReader(formul);
 
-			tempSet.addAll(oneFormula.Index(getFromString(formul, indexBracketsStart(formul), indexBracketsEnd(formul)),
+			tempSet = (oneFormula.Index(getFromString(formul, indexBracketsStart(formul), indexBracketsEnd(formul)),
 					indexSpace, functionReader.a, functionReader.b));
 
-		
+			int indexSize = indexSpace.size();
 
-			indexSpace.add(indexSpace.size(),tempSet);
+			indexSpace.add(indexSize, tempSet);
 			formul = removeCharFromString(formul, indexBracketsStart(formul), indexBracketsEnd(formul),
-					indexSpace.size()-1);
+					indexSpace.size() - 1);
 		}
 
+		this.indexSpace = indexSpace;
 		return tempSet;
 
 	}

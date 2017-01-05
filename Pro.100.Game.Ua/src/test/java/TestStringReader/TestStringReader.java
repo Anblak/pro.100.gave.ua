@@ -5,17 +5,18 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
 
 import Discrete.Math.Function.Class.DiscreteMathAssociation;
+import StringReader.CalculatorOneFormula.CalculatorOneFormula;
 import StringReader.Function.FunctionReader;
+import StringReader.FunctionString.FunctionString;
 import StringReader.Space.SpaceReader;
 import StringReader.String.StringReaderSpace;
-import StringReader.CalculatorOneFormula.CalculatorOneFormula;
-import StringReader.FunctionString.FunctionString;
 
 public class TestStringReader {
 
@@ -67,15 +68,17 @@ public class TestStringReader {
 
 		assertEquals(calculatorOneFormula.Index("1+3", list, 0, 2), (HashSet<Integer>) set);
 	}
-	
+
 	@Test
 	public void testStringFunction() {
 		Set<Integer> set = new HashSet<Integer>();
-		
-		set.add(7);
-		
-		assertEquals(functionString.stringFunction("((1^2)^3)", "(7,8,9)(7,2,3)(7,5,6)"),(HashSet<Integer>)set);
-		
+
+		set.addAll(createHashSet(5, 6, 7));
+		set.add(8);
+
+		assertEquals(functionString.stringFunction("(((1^2)^4)+3)", "(7,8,9)(7,8,3)(7,5,6)(7,8,10)"),
+				(HashSet<Integer>) set);
+
 	}
 
 	private HashSet<Integer> createHashSet(int value1, int value2, int value3) {

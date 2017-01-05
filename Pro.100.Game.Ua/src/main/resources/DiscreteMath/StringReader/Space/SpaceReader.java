@@ -12,29 +12,31 @@ public class SpaceReader {
 		String tempStringInt = "";
 		for (int i = 0; i < reader.length(); i++) {
 			if (reader.charAt(i) != ',' && reader.charAt(i) != '.') {
-				if (reader.charAt(i) == '1') {
-					tempStringInt += "1";
-				} else if (reader.charAt(i) == '2') {
-					tempStringInt += "2";
-				} else if (reader.charAt(i) == '3') {
-					tempStringInt += "3";
-				} else if (reader.charAt(i) == '4') {
-					tempStringInt += "4";
-				} else if (reader.charAt(i) == '5') {
-					tempStringInt += "5";
-				} else if (reader.charAt(i) == '6') {
-					tempStringInt += "6";
-				} else if (reader.charAt(i) == '7') {
-					tempStringInt += "7";
-				} else if (reader.charAt(i) == '8') {
-					tempStringInt += "8";
-				} else if (reader.charAt(i) == '9') {
-					tempStringInt += "9";
-				} else if (reader.charAt(i) == '0') {
-					tempStringInt += "0";
-				}
+				// if (reader.charAt(i) == '1') {
+				// tempStringInt += "1";
+				// } else if (reader.charAt(i) == '2') {
+				// tempStringInt += "2";
+				// } else if (reader.charAt(i) == '3') {
+				// tempStringInt += "3";
+				// } else if (reader.charAt(i) == '4') {
+				// tempStringInt += "4";
+				// } else if (reader.charAt(i) == '5') {
+				// tempStringInt += "5";
+				// } else if (reader.charAt(i) == '6') {
+				// tempStringInt += "6";
+				// } else if (reader.charAt(i) == '7') {
+				// tempStringInt += "7";
+				// } else if (reader.charAt(i) == '8') {
+				// tempStringInt += "8";
+				// } else if (reader.charAt(i) == '9') {
+				// tempStringInt += "9";
+				// } else if (reader.charAt(i) == '0') {
+				// tempStringInt += "0";
+				// }
+
+				tempStringInt += reader.charAt(i);
 			} else {
-				IntoToString(tempStringInt, space);
+				stringoToInt(tempStringInt, space);
 				tempStringInt = "";
 			}
 		}
@@ -42,7 +44,7 @@ public class SpaceReader {
 
 	}
 
-	public HashSet<Integer> IntoToString(String stringInt, HashSet<Integer> space) {
+	public HashSet<Integer> stringoToInt(String stringInt, HashSet<Integer> space) {
 
 		int tempInt = 0;
 		for (int i = 0; i < stringInt.length(); i++) {
@@ -194,7 +196,7 @@ public class SpaceReader {
 				}
 			}
 		}
-	
+
 		space.add(tempInt);
 		return space;
 	}
