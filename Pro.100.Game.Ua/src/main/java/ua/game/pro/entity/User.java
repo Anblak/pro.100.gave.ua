@@ -28,8 +28,8 @@ public class User implements UserDetails {
 	private String email;
 	private String password;
 	
-	@ManyToOne
-	private Group group;
+//	@ManyToOne
+//	private Group group;
 	
 	@Enumerated
 	private Role role;
@@ -101,13 +101,13 @@ public class User implements UserDetails {
 	
 	
 
-	public Group getGroup() {
-		return group;
-	}
-
-	public void setGroup(Group group) {
-		this.group = group;
-	}
+//	public Group getGroup() {
+//		return group;
+//	}
+//
+//	public void setGroup(Group group) {
+//		this.group = group;
+//	}
 
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();

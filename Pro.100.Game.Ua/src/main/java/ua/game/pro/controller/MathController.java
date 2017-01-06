@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import BaseActions.BaseActions;
 import DiscreteMath.Exceptions.DiscreteMathException;
+import Parset.Parset;
+import ua.game.pro.wrapper.BaseActionWrapper;
 
 @Controller
 public class MathController {
@@ -19,13 +20,13 @@ public class MathController {
 	
 	
 	//тут твориться історія,тут ми передаєм стрінгу в контроллер і назад на сторінку,тільки круту стрінгу
-	@RequestMapping(value="/math",method=RequestMethod.GET)
-	public String doMath(@ModelAttribute String formul,@ModelAttribute String space,Model model){
+	@RequestMapping(value="/doMath",method=RequestMethod.GET)
+	public String doMath(@ModelAttribute BaseActionWrapper baseActionWrapper,Model model)throws DiscreteMathException {
 		
-		BaseActions baseActions=new BaseActions();
-		try {
-			baseActions.baseOperationOnSpace(formul, space);
-		} catch (DiscreteMathException e) {}
+		String string = "";
+		string = new Parset().HashSetIntegerToString(baseActionWrapper.getBaseActions());
+		model.addAttribute("answer", string);
+				
 		return "math";
 	}
 	
