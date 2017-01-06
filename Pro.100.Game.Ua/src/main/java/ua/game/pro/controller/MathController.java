@@ -18,51 +18,56 @@ import ua.game.pro.wrapper.BaseActionWrapper;
 @Controller
 public class MathController {
 
-	
-	
-	
-	
 	@RequestMapping("/math")
-	public String hehMath() {
+	public String Math() {
 		return "math";
 	}
-	
-	
-	//тут твориться історія,тут ми передаєм стрінгу в контроллер і назад на сторінку,тільки круту стрінгу
-	@RequestMapping(value="/domath",method=RequestMethod.GET)
-	public String doMath(@ModelAttribute BaseActionWrapper baseActionWrapper,Model model) throws DiscreteMathException{
-		String string="";
-////		if(baseActionWrapper.getFormul()!=null&&baseActionWrapper.getSpace()!=null){
-////			string =parset.HashSetIntegerToString(baseActionWrapper.getBaseActions());
-////			model.addAttribute("answer",string );}
-////		}else{
-////			string="eror";
-////			model.addAttribute("answer",string );
-////		}
-//		
-//		HashSet<Integer > set = new FunctionString().stringFunction("(1^2)", "(1,4)(3,4)");
-//		
-//		for (Integer integer : set) {
-//			System.out.println(integer);
-//		}
-//		string="test";
-//		if(string==null){
-//			System.out.println(string+"null");
-//		}else{
-//			System.out.println(string);
-//		}
-//		try{
-//			System.out.println(new Parset().HashSetIntegerToString(set));
-//		}catch (Exception e) {
-//			System.out.println("error   [ "+e+" ]");
-//		}
-		
+
+	// тут твориться історія,тут ми передаєм стрінгу в контроллер і назад на
+	// сторінку,тільки круту стрінгу
+
+	@RequestMapping(value = "/domath", method = RequestMethod.GET)
+	public String doMath(@ModelAttribute BaseActionWrapper baseActionWrapper, Model model)
+			throws DiscreteMathException {
+		String string = "";
+		//// if(baseActionWrapper.getFormul()!=null&&baseActionWrapper.getSpace()!=null){
+		//// string
+		//// =parset.HashSetIntegerToString(baseActionWrapper.getBaseActions());
+		//// model.addAttribute("answer",string );}
+		//// }else{
+		//// string="eror";
+		//// model.addAttribute("answer",string );
+		//// }
+		//
+		// HashSet<Integer > set = new FunctionString().stringFunction("(1^2)",
+		//// "(1,4)(3,4)");
+		//
+		// for (Integer integer : set) {
+		// System.out.println(integer);
+		// }
+		// string="test";
+		// if(string==null){
+		// System.out.println(string+"null");
+		// }else{
+		// System.out.println(string);
+		// }
+		// try{
+		// System.out.println(new Parset().HashSetIntegerToString(set));
+		// }catch (Exception e) {
+		// System.out.println("error [ "+e+" ]");
+		// }
+
 		string = new Parset().HashSetIntegerToString(baseActionWrapper.getBaseActions());
-		model.addAttribute("answer",string );
+		model.addAttribute("answer", string);
+
 		
+		Parset parset = new Parset();
+		String answer = parset.HashSetIntegerToString(baseActionWrapper.getBaseActions());
+
+		model.addAttribute("answer", string);
+
 		return "math";
+
 	}
-	
-	
-	
+
 }

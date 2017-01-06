@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 import BaseActions.BaseActions;
 import DiscreteMath.Exceptions.DiscreteMathException;
 
-@Service
+
 public class BaseActionWrapper {
 
 	private String formul;
 	private String space;
+
 	public ArrayList<HashSet<Integer>> list;
 
 	public HashSet<Integer> getBaseActions() {
@@ -27,6 +28,8 @@ public class BaseActionWrapper {
 		this.list = base.list;
 		return null;
 
+
+	
 	}
 
 	public HashSet<Integer> getBaseActions(String formul, String space) throws DiscreteMathException {
