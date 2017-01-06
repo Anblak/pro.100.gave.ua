@@ -46,7 +46,6 @@ public class Parset {
 			tempStringInt += numbers(tempInt);
 		}
 
-		System.out.println(tempStringInt + " st");
 		return tempStringInt;
 	}
 
