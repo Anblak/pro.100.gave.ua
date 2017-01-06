@@ -7,17 +7,18 @@ import org.springframework.stereotype.Service;
 import BaseActions.BaseActions;
 import DiscreteMath.Exceptions.DiscreteMathException;
 
-@Service
+
 public class BaseActionWrapper {
 	
 	private String formul;
 	private String space;
 	
-	public HashSet<Integer> getBaseActions(){
-		try {
+	public HashSet<Integer> getBaseActions() throws DiscreteMathException{
+		
+		
+		
 			return new BaseActions().baseOperationOnSpace(formul, space);
-		} catch (DiscreteMathException e) {}
-		return null;
+		
 		
 	}
 	

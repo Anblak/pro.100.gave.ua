@@ -15,23 +15,25 @@ import ua.game.pro.wrapper.BaseActionWrapper;
 @Controller
 public class MathController {
 
-	@Autowired
+	
 	private Parset parset; 
 	
 	
 	@RequestMapping("/math")
-	public String hehMath() {
+	public String Math() {
 		return "math";
 	}
 	
 	
 	//тут твориться історія,тут ми передаєм стрінгу в контроллер і назад на сторінку,тільки круту стрінгу
-	@RequestMapping(value="/math",method=RequestMethod.GET)
-	public String doMath(@ModelAttribute BaseActionWrapper baseActionWrapper,Model model){
+	@RequestMapping(value="/doMath",method=RequestMethod.POST)
+	public String Math(@ModelAttribute String string,Model model) throws DiscreteMathException{
 		
-		model.addAttribute("answer", parset.HashSetIntegerToString(baseActionWrapper.getBaseActions()));
+//		String answer = parset.HashSetIntegerToString(baseActionWrapper.getBaseActions());
+		
+		model.addAttribute("answer", string);
 			
-		return "math";
+		return "redirect:/math";
 	}
 	
 	
