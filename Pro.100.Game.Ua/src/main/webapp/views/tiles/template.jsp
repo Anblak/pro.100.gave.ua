@@ -5,15 +5,16 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
+<link rel="stylesheet" href="css/tiles.css">
 <title>Azerot Will Burne</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-<body>
+<body >
 
 
-	<div slyle="background: #30aed6; text-align: center;">Don`t go, pls...</div>
+	<div class="tiles" style="class="" ></div>
 	<div>
 		<tiles:insertAttribute name="body" />
 	</div>
