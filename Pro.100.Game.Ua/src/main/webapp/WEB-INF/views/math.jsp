@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>math</title>
-
+<link rel="stylesheet" href="css/math.css">
 </head>
 <body>
 
