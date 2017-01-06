@@ -13,11 +13,11 @@
 
 <h1>Math</h1>
 
-<form:form modelAttribute="baseActionWrapper"  action="doMath" method="get">
-		<input name="formul" placeholder="formul ">
-		<input name="space" placeholder="space ">
-		<button>rishyty</button>
+<form:form modelAttribute="baseActionWrapper"  action="doMath" method="get" class="formCalcul">
+		<input name="formul" placeholder="formul" class="formul">
+		<input name="space" placeholder="space" class="space">
+		<button class="buttonAnswer">rishyty</button>
 </form:form>
-		<div>${answer}</div>
+		<div class="answer">${answer}</div>
 </body>
 </html>

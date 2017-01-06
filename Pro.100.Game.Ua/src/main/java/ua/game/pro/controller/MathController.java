@@ -21,10 +21,17 @@ public class MathController {
 	
 	//тут твориться історія,тут ми передаєм стрінгу в контроллер і назад на сторінку,тільки круту стрінгу
 	@RequestMapping(value="/doMath",method=RequestMethod.GET)
-	public String doMath(@ModelAttribute BaseActionWrapper baseActionWrapper,Model model)throws DiscreteMathException {
+	public String doMath(@ModelAttribute BaseActionWrapper baseActionWrapper,Model model){
 		
 		String string = "";
-		string = new Parset().HashSetIntegerToString(baseActionWrapper.getBaseActions());
+		try {
+			string = new Parset().HashSetIntegerToString(baseActionWrapper.getBaseActions());
+		} catch (DiscreteMathException e) {
+			string=e.getLocalizedMessage();
+		} catch (Exception e) {
+			string="formul/space was :[ "+e.getLocalizedMessage()+" ] ";
+		}
+		
 		model.addAttribute("answer", string);
 				
 		return "math";

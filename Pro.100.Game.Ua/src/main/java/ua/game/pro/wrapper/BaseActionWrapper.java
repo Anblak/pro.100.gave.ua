@@ -12,20 +12,15 @@ public class BaseActionWrapper {
 	private String space;
 
 	public ArrayList<HashSet<Integer>> list;
-	public HashSet<Integer> getBaseActions() {
+
+	public HashSet<Integer> getBaseActions() throws DiscreteMathException {
 		BaseActions base = new BaseActions();
-		try {
-			
-			
-			return base.baseOperationOnSpace(formul, space);
-
-		} catch (DiscreteMathException e) {
-		}
+		HashSet<Integer> set = base.baseOperationOnSpace(formul, space);
 		this.list = base.list;
-		return null;
+		return set;
+		
 
 
-	
 	}
 
 	public HashSet<Integer> getBaseActions(String formul, String space) throws DiscreteMathException {
