@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
-
-import ua.game.pro.dto.DTOUtilMapper;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.UserService;
 import ua.game.pro.validator.UserValidationMessages;

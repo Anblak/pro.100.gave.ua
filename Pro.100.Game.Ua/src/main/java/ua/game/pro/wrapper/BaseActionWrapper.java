@@ -20,6 +20,11 @@ public class BaseActionWrapper {
 		return null;
 		
 	}
+	public HashSet<Integer> getBaseActions(String formul,String space) throws DiscreteMathException{
+		
+		return new BaseActions().baseOperationOnSpace(formul, space);
+		
+	}
 	
 	public BaseActionWrapper() {
 		// TODO Auto-generated constructor stub

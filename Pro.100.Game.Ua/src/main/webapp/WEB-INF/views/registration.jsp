@@ -16,4 +16,5 @@ ${usernameException}${emailException}${passwordException}
 <input name="password" class="validate[required,custom[password],length[0,100]] feedback-input" type="password"" placeholder="password ${passwordException}">
 <button>save user</button>
 </form:form>
+
 </fieldset>
