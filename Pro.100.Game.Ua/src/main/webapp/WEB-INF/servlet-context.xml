@@ -25,6 +25,7 @@
     </bean>
 
     <mvc:annotation-driven/>
+    <mvc:resources mapping="/img/**" location="/img/"/>
     
     <mvc:resources mapping="/css/**" location="/css/"/>
     

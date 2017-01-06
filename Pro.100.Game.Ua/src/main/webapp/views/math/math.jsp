@@ -10,10 +10,10 @@
 <title>math</title>
 
 </head>
-<body>
+<body class="body">
 
 
-<h1>Math</h1>
+
 
 <form:form modelAttribute="baseActionWrapper"  action="doMath" method="get" class="formCalcul">
 		<input name="formul" placeholder="formul" class="formul">
