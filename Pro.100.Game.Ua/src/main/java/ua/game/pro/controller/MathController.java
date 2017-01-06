@@ -24,8 +24,10 @@ public class MathController {
 	public String doMath(@ModelAttribute BaseActionWrapper baseActionWrapper,Model model){
 		
 		String string = "";
+		String space="";
 		try {
-			string = new Parset().HashSetIntegerToString(baseActionWrapper.getBaseActions());
+			string = "B:"+new Parset().HashSetIntegerToString(baseActionWrapper.getBaseActions());
+			space=new Parset().ArrayListHashSetIntegerToString(baseActionWrapper.list);
 		} catch (DiscreteMathException e) {
 			string=e.getLocalizedMessage();
 		} catch (Exception e) {
@@ -33,7 +35,7 @@ public class MathController {
 		}
 		
 		model.addAttribute("answer", string);
-				
+		model.addAttribute("space",space);
 		return "views-math-math";
 	}
 	

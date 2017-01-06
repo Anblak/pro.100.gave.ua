@@ -50,7 +50,7 @@
 </div>
 </div>
 <div class="right" style="background-image:url(img/copybookRight.png);width:469px;height:750px;position:absolute;left:900px;top:210px">
-<div  class="answer" style="width:400px;height:600px;margin:auto;position:absolute;top:62px;left:39px;">${answer}</div>
+<div  class="answer" style="width:400px;height:600px;margin:auto;position:absolute;top:62px;left:39px;">${space}${answer}</div>
 </div>
 <div class="right" style="background-image:url(img/footer.png);width:1360px;height:63px;"></div>
 

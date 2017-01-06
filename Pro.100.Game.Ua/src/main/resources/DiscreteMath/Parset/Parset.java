@@ -1,5 +1,6 @@
 package Parset;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -18,6 +19,14 @@ public class Parset {
 		}
 		string += ")";
 		return string;
+	}
+
+	public String ArrayListHashSetIntegerToString(ArrayList<HashSet<Integer>> list) {
+		String tempStringList="";
+		for(int i=0;i<list.size();i++){
+			tempStringList+="  space¹ ["+(parsetChar(i+1)+"]:{"+HashSetIntegerToString(list.get(i))+"} ");
+		}
+return tempStringList;
 	}
 
 	// 990
