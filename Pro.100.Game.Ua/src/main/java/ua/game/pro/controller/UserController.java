@@ -28,7 +28,7 @@ public class UserController {
 	public String newUser(Model model) {
 //		model.addAttribute("userDTOs", DTOUtilMapper.usersToUsersDTO(userService.findAll()));
 //		model.addAttribute("user", new User());
-		return "registration";
+		return "views-base-registration";
 	}
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
@@ -46,7 +46,7 @@ public class UserController {
 			}else if(e.getMessage().equals(UserValidationMessages.EMPTY_PASSWORD_FIELD)){
 				model.addAttribute("passwordException", e.getMessage());
 			}
-			return "registration";
+			return "views-base-registration";
 		}
 
 		return "redirect:/registration";
@@ -67,6 +67,6 @@ public class UserController {
 
 		model.addAttribute("user", user);
 
-		return "profile";
+		return "views-filecontent-profile";
 	}
 }

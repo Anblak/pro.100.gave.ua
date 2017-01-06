@@ -9,7 +9,11 @@
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/summertime" />
 			<property name="hibernate.connection.username" value="root" />
+<<<<<<< HEAD
 			<property name="hibernate.connection.password" value="yfpfh1998" />
+=======
+			<property name="hibernate.connection.password" value="yfpfh1998" /><!-- yfpfh1998 -->
+>>>>>>> 80afc1e77785048b33b3e7a52aa37dc362146c9e
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />

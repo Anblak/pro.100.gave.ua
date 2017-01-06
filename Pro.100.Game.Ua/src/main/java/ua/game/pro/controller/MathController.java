@@ -15,7 +15,7 @@ public class MathController {
 
 	@RequestMapping("/math")
 	public String hehMath() {
-		return "math";
+		return "views-math-math";
 	}
 	
 	
@@ -34,7 +34,7 @@ public class MathController {
 		
 		model.addAttribute("answer", string);
 				
-		return "math";
+		return "views-math-math";
 	}
 	
 	
