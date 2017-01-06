@@ -1,5 +1,7 @@
 package ua.game.pro.wrapper;
 
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import org.springframework.stereotype.Service;
@@ -9,23 +11,30 @@ import DiscreteMath.Exceptions.DiscreteMathException;
 
 @Service
 public class BaseActionWrapper {
-	
+
 	private String formul;
 	private String space;
-	
-	public HashSet<Integer> getBaseActions(){
+	public ArrayList<HashSet<Integer>> list;
+
+	public HashSet<Integer> getBaseActions() {
+		BaseActions base = new BaseActions();
 		try {
-			return new BaseActions().baseOperationOnSpace(formul, space);
-		} catch (DiscreteMathException e) {}
+
+			return base.baseOperationOnSpace(formul, space);
+
+		} catch (DiscreteMathException e) {
+		}
+		this.list = base.list;
 		return null;
-		
+
 	}
-	public HashSet<Integer> getBaseActions(String formul,String space) throws DiscreteMathException{
-		
+
+	public HashSet<Integer> getBaseActions(String formul, String space) throws DiscreteMathException {
+
 		return new BaseActions().baseOperationOnSpace(formul, space);
-		
+
 	}
-	
+
 	public BaseActionWrapper() {
 		// TODO Auto-generated constructor stub
 	}
@@ -87,8 +96,5 @@ public class BaseActionWrapper {
 	public String toString() {
 		return "BaseActionWrapper [formul=" + formul + ", space=" + space + "]";
 	}
-	
-	
-	
-	
+
 }
