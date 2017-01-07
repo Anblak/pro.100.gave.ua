@@ -2,3 +2,67 @@
 .formCalcul{}
 .answer{}
 .body{}
+.button0{
+	
+	width:77px;height:69px;position:absolute;top:268px;left:238px;
+}
+
+.button1{
+	
+	width:77px;height:69px;position:absolute;top:53px;left:82px;
+}
+.button2{
+	
+	width:77px;height:69px;position:absolute;top:53px;left:160px;
+}
+.button3{
+	
+	width:77px;height:69px;position:absolute;top:53px;left:238px;
+}
+.button4{
+	
+	width:77px;height:69px;position:absolute;top:124px;left:82px;
+}
+.button5{
+	
+	width:77px;height:69px;position:absolute;top:124px;left:160px;
+}
+.button6{
+	
+	width:77px;height:69px;position:absolute;top:124px;left:238px;
+}
+.button7{
+	
+	width:77px;height:69px;position:absolute;top:196px;left:82px;
+}
+.button8{
+	
+	width:77px;height:69px;position:absolute;top:196px;left:160px;
+}
+.button9{
+	
+	width:77px;height:69px;position:absolute;top:196px;left:238px;
+}
+.buttonAlt{
+	
+	width:77px;height:69px;position:absolute;top:53px;left:0px;
+}
+.buttonAssociation{
+	
+	width:77px;height:69px;position:absolute;top:268px;left:0px;
+}
+.buttonBrackets{
+	
+	width:77px;height:69px;position:absolute;top:268px;left:160px;
+}
+.buttonOdds{
+	
+	width:77px;height:69px;position:absolute;top:124px;left:0px;
+}
+.buttonDecussation{
+	
+	width:77px;height:69px;position:absolute;top:196px;left:0px;
+}.buttonComa{
+	
+	width:77px;height:69px;position:absolute;top:268px;left:82px;
+}

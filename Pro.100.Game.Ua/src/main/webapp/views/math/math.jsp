@@ -18,22 +18,22 @@
 <div class="calcul" style="position:absolute;left:503px;top:491px;witdt:313px;height:407px;">
 
 
-<button class="button"  style="background-image:url(img/0.png);width:77px;height:69px;position:absolute;top:268px;left:238px"></button>
-<button class="button"  style="background-image:url(img/1.png);width:77px;height:69px;position:absolute;top:53px;left:82px"></button>
-<button class="button"  style="background-image:url(img/2.png);width:77px;height:69px;position:absolute;top:53px;left:160px"></button>
-<button class="button"  style="background-image:url(img/3.png);width:77px;height:69px;position:absolute;top:53px;left:238px"></button>
-<button class="button"  style="background-image:url(img/4.png);width:77px;height:69px;position:absolute;top:124px;left:82px"></button>
-<button class="button"  style="background-image:url(img/5.png);width:77px;height:69px;position:absolute;top:124px;left:160px"></button>
-<button class="button"  style="background-image:url(img/6.png);width:77px;height:69px;position:absolute;top:124px;left:238px"></button>
-<button class="button"  style="background-image:url(img/7.png);width:77px;height:69px;position:absolute;top:196px;left:82px"></button>
-<button class="button"  style="background-image:url(img/8.png);width:77px;height:69px;position:absolute;top:196px;left:160px"></button>
-<button class="button"  style="background-image:url(img/9.png);width:77px;height:69px;position:absolute;top:196px;left:238px"></button>
-<button class="button"  style="background-image:url(img/alt.png);width:77px;height:69px;position:absolute;top:53px;left:0px"></button>
-<button class="button"  style="background-image:url(img/association.png);width:77px;height:69px;position:absolute;top:268px;left:0px"></button>
-<button class="button"  style="background-image:url(img/brackets.png);width:77px;height:69px;position:absolute;top:268px;left:160px"></button>
-<button class="button"  style="background-image:url(img/odds.png);width:77px;height:69px;position:absolute;top:124px;left:0px"></button>
-<button class="button"  style="background-image:url(img/decussation.png);width:77px;height:69px;position:absolute;top:196px;left:0px"></button>
-<button class="button"  style="background-image:url(img/coma.png);width:77px;height:69px;position:absolute;top:268px;left:82px"></button>
+<button class="button0"  style="background-image:url(img/0.png)"></button>
+<button class="button1"  style="background-image:url(img/1.png)"></button>
+<button class="button2"  style="background-image:url(img/2.png)"></button>
+<button class="button3"  style="background-image:url(img/3.png)"></button>
+<button class="button4"  style="background-image:url(img/4.png)"></button>
+<button class="button5"  style="background-image:url(img/5.png)"></button>
+<button class="button6"  style="background-image:url(img/6.png)"></button>
+<button class="button7"  style="background-image:url(img/7.png)"></button>
+<button class="button8"  style="background-image:url(img/8.png)"></button>
+<button class="button9"  style="background-image:url(img/9.png)"></button>
+<button class="buttonAlt"  style="background-image:url(img/alt.png)"></button>
+<button class="buttonAssociation"  style="background-image:url(img/association.png)"></button>
+<button class="buttonBrackets"  style="background-image:url(img/brackets.png)"></button>
+<button class="buttonOdds"  style="background-image:url(img/odds.png)"></button>
+<button class="buttonDecussation"  style="background-image:url(img/decussation.png)"></button>
+<button class="buttonComa"  style="background-image:url(img/coma.png)"></button>
 
 
 
