@@ -16,15 +16,16 @@
 <body >
 
 
-	<div class="tiles"><form:form  action="ua" method=get>
+	<div class="tiles"> 
+	<form  action="ua" method=get>
 <button>Ukrainian</button>
-</form:form>
+</form>
 
-<form:form  action="ru" method=get>
+<form action="ru" method=get>
 
 <button>Russian</button>
 
-</form:form>
+</form>
 </div>
 	<div>
 	
