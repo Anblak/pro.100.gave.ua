@@ -2,6 +2,8 @@
 .formCalcul{}
 .answer{}
 .body{}
+.heder{width:1360px;height:100px}
+
 .button0{
 	
 	width:77px;height:69px;position:absolute;top:268px;left:238px;
@@ -77,4 +79,9 @@
 }
 .answer{
 	width:400px;height:600px;margin:auto;position:absolute;top:62px;left:39px;
+}
+
+.left{
+	width:900px;height:750px;position:absolute;top:208px;left:8px;
+	
 }

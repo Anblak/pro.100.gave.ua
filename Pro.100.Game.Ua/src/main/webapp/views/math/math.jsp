@@ -11,14 +11,12 @@
 <title>math</title>
 
 </head>
-<body  >
+<body>
 <div class="" >
 
-
-
-<div class="heder" style="background-image:url(${heder});width:1360px;height:100px"></div>
-<div class="left" style="background-image:url(${LeftBodyDiv});width:900px;height:750px">
-<div class="calcul" style="position:absolute;left:503px;top:491px;witdt:313px;height:407px;">
+<div class="heder" style="background-image:url(${heder});">
+<div class="left" style="background-image:url(${LeftBodyDiv});">
+<div class="calcul" style="position:absolute;left:503px;top:225px;witdt:313px;height:407px;">
 
 
 <button class="button0"  style="background-image:url(img/0.png)"></button>
@@ -44,8 +42,8 @@
 <form:form modelAttribute="baseActionWrapper"  action="do" method="get" class="formCalcul">
 <div class="input" style="background-image:url(img/input.png);width:315px;height:50px;">
 
-		<input name="formul" placeholder="formul" class="formul" >
-		<input name="space" placeholder="space" class="space">
+		<input name="formul" placeholder="formul" class="formul" id="formul" >
+		<input name="space" placeholder="space" class="space" id="space"">
 		</div>
 		<button class="calcButton" style="background-image:url(img/button.png)"></button>
 </form:form>
@@ -55,9 +53,10 @@
 <div class="right" style="background-image:url(img/copybookRight.png);width:469px;height:750px;position:absolute;left:900px;top:210px">
 <div  class="answer" >${space}${answer}</div>
 </div>
-<div class="right" style="background-image:url(img/footer.png);width:1360px;height:63px;"></div>
+<div class="fotter" style="background-image:url(img/footer.png);width:1360px;height:63px;position:absolute;left0px;top:963px;"></div>
 
 
+</div>
 		</div>
 </body>
 </html>

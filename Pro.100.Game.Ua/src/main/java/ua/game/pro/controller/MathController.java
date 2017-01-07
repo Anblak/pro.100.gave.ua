@@ -32,13 +32,13 @@ public class MathController {
 	lg.setString("ru");
 		
 		//return "views-math-math";
-	return "redirect:/home";
+	return "redirect:/";
 	}
 	@RequestMapping("/ua")
 	public String MathUa() {
 		lg.setString("ua");
 		
-		return "redirect:/home";
+		return "redirect:/";
 	}
 
 //	@RequestMapping("/ua.math")
