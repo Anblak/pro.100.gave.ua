@@ -18,19 +18,19 @@
 <div class="calcul" style="position:absolute;left:503px;top:491px;witdt:313px;height:407px;">
 
 
-<button class="button"  style="background-image:url(img/0.png);width:77px;height:69px;position:absolute;top:268px;left:231px"></button>
+<button class="button"  style="background-image:url(img/0.png);width:77px;height:69px;position:absolute;top:268px;left:238px"></button>
 <button class="button"  style="background-image:url(img/1.png);width:77px;height:69px;position:absolute;top:53px;left:82px"></button>
-<button class="button"  style="background-image:url(img/2.png);width:77px;height:69px;position:absolute;top:53px;left:157px"></button>
-<button class="button"  style="background-image:url(img/3.png);width:77px;height:69px;position:absolute;top:53px;left:231px"></button>
+<button class="button"  style="background-image:url(img/2.png);width:77px;height:69px;position:absolute;top:53px;left:160px"></button>
+<button class="button"  style="background-image:url(img/3.png);width:77px;height:69px;position:absolute;top:53px;left:238px"></button>
 <button class="button"  style="background-image:url(img/4.png);width:77px;height:69px;position:absolute;top:124px;left:82px"></button>
-<button class="button"  style="background-image:url(img/5.png);width:77px;height:69px;position:absolute;top:124px;left:157px"></button>
-<button class="button"  style="background-image:url(img/6.png);width:77px;height:69px;position:absolute;top:124px;left:231px"></button>
+<button class="button"  style="background-image:url(img/5.png);width:77px;height:69px;position:absolute;top:124px;left:160px"></button>
+<button class="button"  style="background-image:url(img/6.png);width:77px;height:69px;position:absolute;top:124px;left:238px"></button>
 <button class="button"  style="background-image:url(img/7.png);width:77px;height:69px;position:absolute;top:196px;left:82px"></button>
-<button class="button"  style="background-image:url(img/8.png);width:77px;height:69px;position:absolute;top:196px;left:157px"></button>
-<button class="button"  style="background-image:url(img/9.png);width:77px;height:69px;position:absolute;top:196px;left:231px"></button>
+<button class="button"  style="background-image:url(img/8.png);width:77px;height:69px;position:absolute;top:196px;left:160px"></button>
+<button class="button"  style="background-image:url(img/9.png);width:77px;height:69px;position:absolute;top:196px;left:238px"></button>
 <button class="button"  style="background-image:url(img/alt.png);width:77px;height:69px;position:absolute;top:53px;left:0px"></button>
 <button class="button"  style="background-image:url(img/association.png);width:77px;height:69px;position:absolute;top:268px;left:0px"></button>
-<button class="button"  style="background-image:url(img/brackets.png);width:77px;height:69px;position:absolute;top:268px;left:157px"></button>
+<button class="button"  style="background-image:url(img/brackets.png);width:77px;height:69px;position:absolute;top:268px;left:160px"></button>
 <button class="button"  style="background-image:url(img/odds.png);width:77px;height:69px;position:absolute;top:124px;left:0px"></button>
 <button class="button"  style="background-image:url(img/decussation.png);width:77px;height:69px;position:absolute;top:196px;left:0px"></button>
 <button class="button"  style="background-image:url(img/coma.png);width:77px;height:69px;position:absolute;top:268px;left:82px"></button>
@@ -44,7 +44,7 @@
 		<input name="formul" placeholder="formul" class="formul" >
 		<input name="space" placeholder="space" class="space">
 		</div>
-		<button class="calcButton" style="background-image:url(img/button.png);width:308px;height:64px;position:absolute;top:342px;left:0px"></button>
+		<button class="calcButton" style="background-image:url(img/button.png);width:316px;height:64px;position:absolute;top:342px;left:0px"></button>
 </form:form>
 		
 </div>
