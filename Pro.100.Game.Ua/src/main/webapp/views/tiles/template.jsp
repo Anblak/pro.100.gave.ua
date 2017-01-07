@@ -16,8 +16,16 @@
 <body >
 
 
-	<div class="tiles" style="class="" ></div>
+	<div class="tiles"><form:form modelAttribute="string" action="ua.math" method=get>
+<button>Ukrainian</button>
+</form:form>
+
+<form:form modelAttribute="string" action="ru.math" method=get>
+<button>Russian</button>
+</form:form>
+</div>
 	<div>
+	
 		<tiles:insertAttribute name="body" />
 	</div>
 	
