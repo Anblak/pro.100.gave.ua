@@ -16,12 +16,14 @@
 <body >
 
 
-	<div class="tiles"><form:form modelAttribute="string" action="ua.math" method=get>
+	<div class="tiles"><form:form  action="ua" method=get>
 <button>Ukrainian</button>
 </form:form>
 
-<form:form modelAttribute="string" action="ru.math" method=get>
+<form:form  action="ru" method=get>
+
 <button>Russian</button>
+
 </form:form>
 </div>
 	<div>

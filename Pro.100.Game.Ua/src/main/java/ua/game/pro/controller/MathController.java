@@ -19,13 +19,26 @@ public class MathController {
 	
 	
 	@RequestMapping("/math")
-	public String MathRu(@ModelAttribute String string,Model model) {
-		
+	public String Math(@ModelAttribute String string,Model model) {
+		//"img/LeftBodyDiv"+lg.getString()+".png"
 		model.addAttribute("heder", ("img/heder"+lg.getString()+".png"));
 		model.addAttribute("LeftBodyDiv", ("img/LeftBodyDiv"+lg.getString()+".png"));
 		//model.addAttribute("lg", "do");
 		
 		return "views-math-math";
+	}
+	@RequestMapping("/ru")
+	public String MathRu() {
+	lg.setString("ru");
+		
+		//return "views-math-math";
+	return "redirect:/home";
+	}
+	@RequestMapping("/ua")
+	public String MathUa() {
+		lg.setString("ua");
+		
+		return "redirect:/home";
 	}
 
 //	@RequestMapping("/ua.math")
@@ -52,7 +65,7 @@ public class MathController {
 		}
 
 		model.addAttribute("heder", "img/heder"+lg.getString()+".png");
-		model.addAttribute("LeftBodyDiv", "img/LeftBodyDiv"+lg.getString()+".png");
+		model.addAttribute("LeftBodyDiv", ("img/LeftBodyDiv"+lg.getString()+".png"));
 		
 		model.addAttribute("answer", string);
 		model.addAttribute("space", space);
