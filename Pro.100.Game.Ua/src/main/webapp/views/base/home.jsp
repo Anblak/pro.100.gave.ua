@@ -21,7 +21,7 @@
 	<br>
 	<a href="registration">registration</a>
 	<br>
-	<a href="math">math</a>
+	<a href="ua.math">math</a>
 </sec:authorize>
 
 

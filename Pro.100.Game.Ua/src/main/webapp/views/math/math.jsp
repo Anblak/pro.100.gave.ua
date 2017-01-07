@@ -13,8 +13,8 @@
 </head>
 <body  >
 <div class="" >
-<div class="heder" style="background-image:url(img/heder.png);width:1360px;height:100px"></div>
-<div class="left" style="background-image:url(img/LeftBodyDiv.png);width:900px;height:750px">
+<div class="heder" style="background-image:url(${heder});width:1360px;height:100px"></div>
+<div class="left" style="background-image:url(${LeftBodyDiv});width:900px;height:750px">
 <div class="calcul" style="position:absolute;left:503px;top:491px;witdt:313px;height:407px;">
 
 
@@ -38,8 +38,8 @@
 
 
 
-<form:form modelAttribute="baseActionWrapper"  action="doMath" method="get" class="formCalcul" style="position:apsolute;top:0px;left:0px;width:307px;height:50px;"	>
-<div class="input" style="background-image:url(img/input.png);width:308px;height:35px;">
+<form:form modelAttribute="baseActionWrapper"  action="doMath" method="get" class="formCalcul" style="position:apsolute;top:0px;left:0px;width:315px;height:50px;"	>
+<div class="input" style="background-image:url(img/input.png);width:315px;height:50px;">
 
 		<input name="formul" placeholder="formul" class="formul" >
 		<input name="space" placeholder="space" class="space">

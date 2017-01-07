@@ -13,8 +13,16 @@ import ua.game.pro.wrapper.BaseActionWrapper;
 @Controller
 public class MathController {
 
-	@RequestMapping("/math")
-	public String hehMath() {
+	@RequestMapping("/ru.math")
+	public String MathRu(Model model) {
+		model.addAttribute("heder", "img/hederRU.png");
+		model.addAttribute("LeftBodyDiv", "img/LeftBodyDivRU.png");
+		return "views-math-math";
+	}
+	@RequestMapping("/ua.math")
+	public String MathUa(Model model) {
+		model.addAttribute("heder", "img/hederUA.png");
+		model.addAttribute("LeftBodyDiv", "img/LeftBodyDivUA.png");
 		return "views-math-math";
 	}
 	
