@@ -16,7 +16,7 @@
 <body >
 
 
-	<div class="tiles" style="class="" ></div>
+	<div class="tiles"></div>
 	<div>
 		<tiles:insertAttribute name="body" />
 	</div>

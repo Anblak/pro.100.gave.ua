@@ -14,14 +14,6 @@
 <body  >
 <div class="" >
 
-<form:form modelAttribute="string" action="ua.math" method=get>
-<button>Ukrainian</button>
-</form:form>
-
-<form:form modelAttribute="string" action="ru.math" method=get>
-<button>Russian</button>
-</form:form>
-
 <div class="heder" style="background-image:url(${heder});width:1360px;height:100px"></div>
 <div class="left" style="background-image:url(${LeftBodyDiv});width:900px;height:750px">
 <div class="calcul" style="position:absolute;left:503px;top:491px;witdt:313px;height:407px;">
@@ -50,8 +42,8 @@
 <form:form modelAttribute="baseActionWrapper"  action="doMath" method="get" class="formCalcul">
 <div class="input" style="background-image:url(img/input.png);width:315px;height:50px;">
 
-		<input name="formul" placeholder="formul" class="formul" >
-		<input name="space" placeholder="space" class="space">
+		<input name="formul" placeholder="formul" class="formul" id="formul" >
+		<input name="space" placeholder="space" class="space" id="space"">
 		</div>
 		<button class="calcButton" style="background-image:url(img/button.png)"></button>
 </form:form>
