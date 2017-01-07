@@ -62,7 +62,19 @@
 .buttonDecussation{
 	
 	width:77px;height:69px;position:absolute;top:196px;left:0px;
-}.buttonComa{
+}
+.buttonComa{
 	
 	width:77px;height:69px;position:absolute;top:268px;left:82px;
+}
+.formCalcul{
+	
+	position:apsolute;top:0px;left:0px;width:315px;height:50px;
+}
+.calcButton{
+	
+	width:316px;height:64px;position:absolute;top:342px;left:0px;
+}
+.answer{
+	width:400px;height:600px;margin:auto;position:absolute;top:62px;left:39px;
 }

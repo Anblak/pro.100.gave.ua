@@ -14,7 +14,7 @@ import ua.game.pro.wrapper.BaseActionWrapper;
 public class MathController {
 
 	@RequestMapping("/ru.math")
-	public String MathRu(Model model) {
+	public String MathRu(@ModelAttribute String string,Model model) {
 		model.addAttribute("heder", "img/hederRU.png");
 		model.addAttribute("LeftBodyDiv", "img/LeftBodyDivRU.png");
 		model.addAttribute("lg", "ru.do");
@@ -23,7 +23,7 @@ public class MathController {
 	}
 
 	@RequestMapping("/ua.math")
-	public String MathUa(Model model) {
+	public String MathUa(@ModelAttribute String string,Model model) {
 		model.addAttribute("heder", "img/hederUA.png");
 		model.addAttribute("LeftBodyDiv", "img/LeftBodyDivUA.png");
 		model.addAttribute("lg", "ua.do");

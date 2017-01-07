@@ -13,6 +13,15 @@
 </head>
 <body  >
 <div class="" >
+
+<form:form modelAttribute="string" action="ua.math" method=get>
+<button>Ukrainian</button>
+</form:form>
+
+<form:form modelAttribute="string" action="ru.math" method=get>
+<button>Russian</button>
+</form:form>
+
 <div class="heder" style="background-image:url(${heder});width:1360px;height:100px"></div>
 <div class="left" style="background-image:url(${LeftBodyDiv});width:900px;height:750px">
 <div class="calcul" style="position:absolute;left:503px;top:491px;witdt:313px;height:407px;">
@@ -38,19 +47,19 @@
 
 
 
-<form:form modelAttribute="baseActionWrapper"  action="${lg}" method="get" class="formCalcul" style="position:apsolute;top:0px;left:0px;width:315px;height:50px;"	>
+<form:form modelAttribute="baseActionWrapper"  action="doMath" method="get" class="formCalcul">
 <div class="input" style="background-image:url(img/input.png);width:315px;height:50px;">
 
 		<input name="formul" placeholder="formul" class="formul" >
 		<input name="space" placeholder="space" class="space">
 		</div>
-		<button class="calcButton" style="background-image:url(img/button.png);width:316px;height:64px;position:absolute;top:342px;left:0px"></button>
+		<button class="calcButton" style="background-image:url(img/button.png)"></button>
 </form:form>
 		
 </div>
 </div>
 <div class="right" style="background-image:url(img/copybookRight.png);width:469px;height:750px;position:absolute;left:900px;top:210px">
-<div  class="answer" style="width:400px;height:600px;margin:auto;position:absolute;top:62px;left:39px;">${space}${answer}</div>
+<div  class="answer" >${space}${answer}</div>
 </div>
 <div class="right" style="background-image:url(img/footer.png);width:1360px;height:63px;"></div>
 
