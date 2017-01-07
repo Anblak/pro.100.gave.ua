@@ -6,7 +6,9 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <link rel="stylesheet" href="css/tiles.css">
-<title>Some about math</title>
+
+<title>Pro100.game.ua</title>
+
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
