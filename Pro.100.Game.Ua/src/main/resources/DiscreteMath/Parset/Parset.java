@@ -22,24 +22,25 @@ public class Parset {
 	}
 
 	public String ArrayListHashSetIntegerToString(ArrayList<HashSet<Integer>> list) {
-		String tempStringList="";
-		for(int i=0;i<list.size();i++){
-			tempStringList+="  space¹ ["+(parsetChar(i+1)+"]:{"+HashSetIntegerToString(list.get(i))+"} ");
-		}
-return tempStringList;
-	}
-	
-	public String ArrayListHashSetIntegerToStringStart(ArrayList<HashSet<Integer>> list,int index) {
-		String tempStringList="";
-		for(int i=0;i<index-1;i++){
-			tempStringList+="  space¹ ["+(parsetChar(i+1)+"]:{"+HashSetIntegerToString(list.get(i))+"} ");
+		String tempStringList = "";
+		for (int i = 0; i < list.size(); i++) {
+			tempStringList += "  space¹ [" + (parsetChar(i + 1) + "]:{" + HashSetIntegerToString(list.get(i)) + "} ");
 		}
 		return tempStringList;
 	}
-	public String ArrayListHashSetIntegerToStringEnd(ArrayList<HashSet<Integer>> list,int index) {
-		String tempStringList="";
-		for(int i=(index-1);i<list.size();i++){
-			tempStringList+="  space¹ ["+(parsetChar(i+1)+"]:{"+HashSetIntegerToString(list.get(i))+"} ");
+
+	public String ArrayListHashSetIntegerToStringStart(ArrayList<HashSet<Integer>> list, int index) {
+		String tempStringList = "";
+		for (int i = 0; i < index ; i++) {
+			tempStringList += "  space¹ [" + (parsetChar(i + 1) + "]:{" + HashSetIntegerToString(list.get(i)) + "} ");
+		}
+		return tempStringList;
+	}
+
+	public String ArrayListHashSetIntegerToStringEnd(ArrayList<HashSet<Integer>> list, int index) {
+		String tempStringList = "";
+		for (int i = (index ),j=1; i < list.size(); i++,j++) {
+			tempStringList += "  rezaltAction¹ [" + (parsetChar(j) + "]:{" + HashSetIntegerToString(list.get(i)) + "} ");
 		}
 		return tempStringList;
 	}

@@ -21,7 +21,7 @@ public class FunctionString {
 		StringReaderSpace readerSpace = new StringReaderSpace();
 		int tempInt;
 		List<HashSet<Integer>> indexSpace = readerSpace.redaderSpace(space);
-		this.space=indexSpace;
+		this.space=readerSpace.redaderSpace(space);
 		HashSet<Integer> tempSet = null;
 		while (formul.length() > 1) {
 			// tempSet.clear();

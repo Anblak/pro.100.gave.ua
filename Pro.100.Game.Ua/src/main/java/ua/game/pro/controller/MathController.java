@@ -62,7 +62,8 @@ public class MathController {
 		
 		try {
 			string = "B:" + new Parset().HashSetIntegerToString(baseActionWrapper.getBaseActions());
-			space = new Parset().ArrayListHashSetIntegerToString((ArrayList<HashSet<Integer>>) baseActionWrapper.listSpace);
+			space = new Parset().ArrayListHashSetIntegerToStringStart((ArrayList<HashSet<Integer>>) baseActionWrapper.list,baseActionWrapper.listSpace.size());
+			System.out.println("size: "+baseActionWrapper.listSpace.size());
 			resalt= new Parset().ArrayListHashSetIntegerToStringEnd(baseActionWrapper.list,baseActionWrapper.listSpace.size());
 		} catch (DiscreteMathException e) {
 			string = e.getLocalizedMessage();
