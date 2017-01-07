@@ -1,5 +1,8 @@
 package ua.game.pro.controller;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,15 +58,19 @@ public class MathController {
 
 		String string = "";
 		String space = "";
+		String resalt ="";
+		
 		try {
 			string = "B:" + new Parset().HashSetIntegerToString(baseActionWrapper.getBaseActions());
-			space = new Parset().ArrayListHashSetIntegerToString(baseActionWrapper.list);
+			space = new Parset().ArrayListHashSetIntegerToString((ArrayList<HashSet<Integer>>) baseActionWrapper.listSpace);
+			resalt= new Parset().ArrayListHashSetIntegerToStringEnd(baseActionWrapper.list,baseActionWrapper.listSpace.size());
 		} catch (DiscreteMathException e) {
 			string = e.getLocalizedMessage();
 		} catch (Exception e) {
 			string = "formul/space was :[ " + e.getLocalizedMessage() + " ] ";
 		}
 
+		model.addAttribute("resalt", resalt);
 		model.addAttribute("heder", "img/heder"+lg.getString()+".png");
 		model.addAttribute("LeftBodyDiv", ("img/LeftBodyDiv"+lg.getString()+".png"));
 		

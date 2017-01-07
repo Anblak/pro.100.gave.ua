@@ -28,6 +28,21 @@ public class Parset {
 		}
 return tempStringList;
 	}
+	
+	public String ArrayListHashSetIntegerToStringStart(ArrayList<HashSet<Integer>> list,int index) {
+		String tempStringList="";
+		for(int i=0;i<index-1;i++){
+			tempStringList+="  space¹ ["+(parsetChar(i+1)+"]:{"+HashSetIntegerToString(list.get(i))+"} ");
+		}
+		return tempStringList;
+	}
+	public String ArrayListHashSetIntegerToStringEnd(ArrayList<HashSet<Integer>> list,int index) {
+		String tempStringList="";
+		for(int i=(index-1);i<list.size();i++){
+			tempStringList+="  space¹ ["+(parsetChar(i+1)+"]:{"+HashSetIntegerToString(list.get(i))+"} ");
+		}
+		return tempStringList;
+	}
 
 	// 990
 	private String parsetChar(int tempInt) {

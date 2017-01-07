@@ -12,6 +12,7 @@ import StringReader.String.StringReaderSpace;
 public class FunctionString {
 
 	public List<HashSet<Integer>> indexSpace;
+	public List<HashSet<Integer>> space;
 
 	public HashSet<Integer> stringFunction(String formul, String space) {
 
@@ -20,6 +21,7 @@ public class FunctionString {
 		StringReaderSpace readerSpace = new StringReaderSpace();
 		int tempInt;
 		List<HashSet<Integer>> indexSpace = readerSpace.redaderSpace(space);
+		this.space=indexSpace;
 		HashSet<Integer> tempSet = null;
 		while (formul.length() > 1) {
 			// tempSet.clear();
@@ -35,7 +37,7 @@ public class FunctionString {
 			formul = removeCharFromString(formul, indexBracketsStart(formul), indexBracketsEnd(formul),
 					indexSpace.size() - 1);
 		}
-
+		
 		this.indexSpace = indexSpace;
 		return tempSet;
 
