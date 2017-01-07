@@ -21,7 +21,7 @@
 	<br>
 	<a href="registration">registration</a>
 	<br>
-	<a href="ua.math">math</a>
+	<a href="math">math</a>
 </sec:authorize>
 
 
@@ -36,5 +36,7 @@
 </sec:authorize>
 
 
+<div style="background-image: url(img/hederua.png);width:469px;height:750px;"></div>
+<img src="img/0.png" alt="">
 
 

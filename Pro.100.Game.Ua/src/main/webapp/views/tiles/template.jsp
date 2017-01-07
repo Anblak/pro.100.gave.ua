@@ -1,22 +1,33 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <link rel="stylesheet" href="css/tiles.css">
-
 <title>Pro100.game.ua</title>
-
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <body >
 
+<div class="tiles"style="width:1360px;height:100px;">
+<form action="ua" method=get>
 
-	<div class="tiles"></div>
+	<button>Ukrainian</button>
+</form>
+
+
+<form action="ru" method=get>
+
+	<button>Russian</button>
+
+</form>
+</div>
+
 	<div>
 		<tiles:insertAttribute name="body" />
 	</div>

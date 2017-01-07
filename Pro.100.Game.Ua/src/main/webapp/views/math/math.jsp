@@ -11,11 +11,11 @@
 <title>math</title>
 
 </head>
-<body  >
+<body>
 <div class="" >
 
-<div class="heder" style="background-image:url(${heder});width:1360px;height:100px"></div>
-<div class="left" style="background-image:url(${LeftBodyDiv});width:900px;height:750px">
+<div class="heder" style="background-image:url(${heder});width:1360px;height:100px">
+<div class="left" style="background-image:url(${LeftBodyDiv});width:900px;height:750px;position:absolute;top:62px;left:39px;">
 <div class="calcul" style="position:absolute;left:503px;top:491px;witdt:313px;height:407px;">
 
 
@@ -39,7 +39,7 @@
 
 
 
-<form:form modelAttribute="baseActionWrapper"  action="doMath" method="get" class="formCalcul">
+<form:form modelAttribute="baseActionWrapper"  action="do" method="get" class="formCalcul">
 <div class="input" style="background-image:url(img/input.png);width:315px;height:50px;">
 
 		<input name="formul" placeholder="formul" class="formul" id="formul" >
@@ -56,6 +56,7 @@
 <div class="right" style="background-image:url(img/footer.png);width:1360px;height:63px;"></div>
 
 
+</div>
 		</div>
 </body>
 </html>
