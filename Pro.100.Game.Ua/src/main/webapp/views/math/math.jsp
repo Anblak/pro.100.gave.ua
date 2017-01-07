@@ -38,7 +38,7 @@
 
 
 
-<form:form modelAttribute="baseActionWrapper"  action="doMath" method="get" class="formCalcul" style="position:apsolute;top:0px;left:0px;width:315px;height:50px;"	>
+<form:form modelAttribute="baseActionWrapper"  action="${lg}" method="get" class="formCalcul" style="position:apsolute;top:0px;left:0px;width:315px;height:50px;"	>
 <div class="input" style="background-image:url(img/input.png);width:315px;height:50px;">
 
 		<input name="formul" placeholder="formul" class="formul" >

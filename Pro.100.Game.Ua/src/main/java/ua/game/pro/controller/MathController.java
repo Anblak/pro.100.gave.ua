@@ -17,36 +17,60 @@ public class MathController {
 	public String MathRu(Model model) {
 		model.addAttribute("heder", "img/hederRU.png");
 		model.addAttribute("LeftBodyDiv", "img/LeftBodyDivRU.png");
+		model.addAttribute("lg", "ru.do");
+		
 		return "views-math-math";
 	}
+
 	@RequestMapping("/ua.math")
 	public String MathUa(Model model) {
 		model.addAttribute("heder", "img/hederUA.png");
 		model.addAttribute("LeftBodyDiv", "img/LeftBodyDivUA.png");
+		model.addAttribute("lg", "ua.do");
 		return "views-math-math";
 	}
+
 	
-	
-	//тут твориться історія,тут ми передаєм стрінгу в контроллер і назад на сторінку,тільки круту стрінгу
-	@RequestMapping(value="/doMath",method=RequestMethod.GET)
-	public String doMath(@ModelAttribute BaseActionWrapper baseActionWrapper,Model model){
-		
+	@RequestMapping(value = "ru.do", method = RequestMethod.GET)
+	public String doUa(@ModelAttribute BaseActionWrapper baseActionWrapper, Model model) {
+
 		String string = "";
-		String space="";
+		String space = "";
 		try {
-			string = "B:"+new Parset().HashSetIntegerToString(baseActionWrapper.getBaseActions());
-			space=new Parset().ArrayListHashSetIntegerToString(baseActionWrapper.list);
+			string = "B:" + new Parset().HashSetIntegerToString(baseActionWrapper.getBaseActions());
+			space = new Parset().ArrayListHashSetIntegerToString(baseActionWrapper.list);
 		} catch (DiscreteMathException e) {
-			string=e.getLocalizedMessage();
+			string = e.getLocalizedMessage();
 		} catch (Exception e) {
-			string="formul/space was :[ "+e.getLocalizedMessage()+" ] ";
+			string = "formul/space was :[ " + e.getLocalizedMessage() + " ] ";
 		}
+
+		model.addAttribute("heder", "img/hederRU.png");
+		model.addAttribute("LeftBodyDiv", "img/LeftBodyDivRU.png");
 		
 		model.addAttribute("answer", string);
-		model.addAttribute("space",space);
+		model.addAttribute("space", space);
 		return "views-math-math";
 	}
-	
-	
-	
+
+	@RequestMapping(value = "ua.do", method = RequestMethod.GET)
+	public String doRu(@ModelAttribute BaseActionWrapper baseActionWrapper, Model model) {
+
+		String string = "";
+		String space = "";
+		try {
+			string = "B:" + new Parset().HashSetIntegerToString(baseActionWrapper.getBaseActions());
+			space = new Parset().ArrayListHashSetIntegerToString(baseActionWrapper.list);
+		} catch (DiscreteMathException e) {
+			string = e.getLocalizedMessage();
+		} catch (Exception e) {
+			string = "formul/space was :[ " + e.getLocalizedMessage() + " ] ";
+		}
+		model.addAttribute("heder", "img/hederUA.png");
+		model.addAttribute("LeftBodyDiv", "img/LeftBodyDivUA.png");
+		model.addAttribute("answer", string);
+		model.addAttribute("space", space);
+		return "views-math-math";
+	}
+
 }
