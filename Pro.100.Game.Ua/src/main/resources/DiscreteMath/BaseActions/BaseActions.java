@@ -3,16 +3,15 @@ package BaseActions;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import DiscreteMath.Exceptions.DiscreteMathException;
 import StringReader.FunctionString.FunctionString;
+import resources.exceptions.ProjectExceptions;
 
 public class BaseActions {
 	public ArrayList<HashSet<Integer>> list;
 	public List<HashSet<Integer>> space;
 	
-	public HashSet<Integer> baseOperationOnSpace(String formul, String space) throws DiscreteMathException {
+	public HashSet<Integer> baseOperationOnSpace(String formul, String space) throws ProjectExceptions {
 		
 		FunctionString functionString = new FunctionString();
 		HashSet<Integer> set;
@@ -24,11 +23,11 @@ public class BaseActions {
 			this.list=(ArrayList<HashSet<Integer>>) functionString.indexSpace;
 		}
 		catch(IndexOutOfBoundsException e){
-			throw new DiscreteMathException("Space number does not exist!!!");
+			throw new ProjectExceptions("Space number does not exist!!!");
 
 		}
 		catch(NullPointerException e){
-			throw new DiscreteMathException("Wrong syntax!!!");
+			throw new ProjectExceptions("Wrong syntax!!!");
 		}
 		
 		return set;

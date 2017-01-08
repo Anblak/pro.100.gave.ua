@@ -3,22 +3,19 @@ package ua.game.pro.controller;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
-import DiscreteMath.Exceptions.DiscreteMathException;
-import Parset.Parset;
-import ua.game.pro.wrapper.BaseActionWrapper;
-import ua.game.pro.wrapper.StringWrapper;
-
+import resources.exceptions.ProjectExceptions;
+import resources.parset.Parset;
+import resources.wrapper.BaseActionWrapper;
+import resources.wrapper.StringWrapper;
 @Controller
 public class MathController {
-	
+
 	private StringWrapper lg = new StringWrapper();
 	
 	
@@ -68,7 +65,7 @@ public class MathController {
 			space = new Parset().ArrayListHashSetIntegerToStringStart((ArrayList<HashSet<Integer>>) baseActionWrapper.list,baseActionWrapper.listSpace.size());
 			
 			resalt= new Parset().ArrayListHashSetIntegerToStringEnd(baseActionWrapper.list,baseActionWrapper.listSpace.size());
-		} catch (DiscreteMathException e) {
+		} catch (ProjectExceptions e) {
 			string = e.getLocalizedMessage();
 		} catch (Exception e) {
 			string = "formul/space was :[ " + e.getLocalizedMessage() + " ] ";

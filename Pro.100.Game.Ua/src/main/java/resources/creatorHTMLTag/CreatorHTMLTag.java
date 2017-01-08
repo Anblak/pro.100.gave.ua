@@ -1,4 +1,6 @@
-package Creator;
+package resources.creatorHTMLTag;
+
+import resources.filerename.FileRename;
 
 /**
  * 
@@ -17,13 +19,17 @@ public class CreatorHTMLTag {
 	public String div(String input, String style) {
 		String div = "";
 		div = "<div style='" + style + "'>" + input + "</div>";
+		FileRename fileRename = new FileRename();
+	
 		return div;
+		
 	}
 
 	/**
 	 * 
 	 * @param input
 	 * @param style
+	 * @param clas
 	 * @return div створює String для html створення елемента div input це
 	 *         внутрішня частина div style це стилізація div clas це клас
 	 *         елемента дів
@@ -38,6 +44,8 @@ public class CreatorHTMLTag {
 	 * 
 	 * @param input
 	 * @param style
+	 * @param id
+	 * @param clas
 	 * @return div створює String для html створення елемента div input це
 	 *         внутрішня частина div style це стилізація div clas це клас
 	 *         елемента дів id це id елемента div
@@ -87,19 +95,47 @@ public class CreatorHTMLTag {
 		String li = "<li >"+input+"</li>";
 		return li;
 	}
-/**
- * 
- * @param input	- наповення ul
- * @param clas - клас ul
- * @param style -  стилізація ul
- * @param id - id ul
- * @return - HTML element  <ul>input</ul>
- */
+
+	/**
+	 * 
+	 * @param input
+	 *            - наповення ul
+	 * @param clas
+	 *            - клас ul
+	 * @param style
+	 *            - стилізація ul
+	 * @param id
+	 *            - id ul
+	 * @return - HTML element
+	 *         <ul>
+	 * 		input
+	 *         </ul>
+	 */
 	public String ul(String input, String clas, String style, String id) {
 		String ul = "<<ul id='" + id + "' class='" + clas + "' style='" + style + "'>>" + input + "</ul>";
 
 		return ul;
 
+	}
+
+	/**
+	 * 
+	 * @param input
+	 *            - наповнення p
+	 * @param clas
+	 *            - клас р
+	 * @param style
+	 *            - стилізація р
+	 * @param id
+	 *            - id p
+	 * @return - HTML element
+	 *         <p>
+	 * 		input
+	 *         </p>
+	 */
+	public String p(String input, String clas, String style, String id) {
+		String p = "<p id='" + id + "' class='" + clas + "' style='" + style + "'>>" + input + "</p>";
+		return p;
 	}
 
 }

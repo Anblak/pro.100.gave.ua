@@ -1,4 +1,4 @@
-package ua.game.pro.wrapper;
+package resources.wrapper;
 
 public class StringWrapper {
 private String string;
