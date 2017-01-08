@@ -1,5 +1,7 @@
 package resources.creatorHTMLTag;
 
+import resources.filerename.FileRename;
+
 /**
  * 
  * @author prometej
@@ -17,7 +19,10 @@ public class CreatorHTMLTag {
 	public String div(String input, String style) {
 		String div = "";
 		div = "<div style='" + style + "'>" + input + "</div>";
+	FileRename fileRename = new FileRename();
+	
 		return div;
+		
 	}
 
 	/**

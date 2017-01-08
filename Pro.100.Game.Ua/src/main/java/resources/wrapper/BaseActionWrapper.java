@@ -1,11 +1,11 @@
-package ua.game.pro.wrapper;
+package resources.wrapper;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
 import BaseActions.BaseActions;
-import DiscreteMath.Exceptions.DiscreteMathException;
+import resources.exceptions.ProjectExceptions;
 
 public class BaseActionWrapper {
 
@@ -15,19 +15,17 @@ public class BaseActionWrapper {
 	public ArrayList<HashSet<Integer>> list;
 	public List<HashSet<Integer>> listSpace;
 
-	public HashSet<Integer> getBaseActions() throws DiscreteMathException {
+	public HashSet<Integer> getBaseActions() throws ProjectExceptions {
 		BaseActions base = new BaseActions();
 		HashSet<Integer> set = base.baseOperationOnSpace(formul, space);
 		this.listSpace = base.space;
-		
+
 		this.list = base.list;
 		return set;
-		
-
 
 	}
 
-	public HashSet<Integer> getBaseActions(String formul, String space) throws DiscreteMathException {
+	public HashSet<Integer> getBaseActions(String formul, String space) throws ProjectExceptions {
 
 		return new BaseActions().baseOperationOnSpace(formul, space);
 
@@ -40,7 +38,7 @@ public class BaseActionWrapper {
 	public BaseActionWrapper(String formul, String space) {
 		super();
 		this.formul = formul;
-		this.space = space;	
+		this.space = space;
 	}
 
 	public String getFormul() {
@@ -58,8 +56,6 @@ public class BaseActionWrapper {
 	public void setSpace(String space) {
 		this.space = space;
 	}
-	
-
 
 	@Override
 	public int hashCode() {

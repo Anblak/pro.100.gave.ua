@@ -9,12 +9,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import DiscreteMath.Exceptions.DiscreteMathException;
+import resources.exceptions.ProjectExceptions;
 import resources.parset.Parset;
-import ua.game.pro.wrapper.BaseActionWrapper;
-import ua.game.pro.wrapper.StringWrapper;
-import resources.*;
-import resources.creatorHTMLTag.CreatorHTMLTag;
+import resources.wrapper.BaseActionWrapper;
+import resources.wrapper.StringWrapper;
 @Controller
 public class MathController {
 
@@ -67,7 +65,7 @@ public class MathController {
 			space = new Parset().ArrayListHashSetIntegerToStringStart((ArrayList<HashSet<Integer>>) baseActionWrapper.list,baseActionWrapper.listSpace.size());
 			
 			resalt= new Parset().ArrayListHashSetIntegerToStringEnd(baseActionWrapper.list,baseActionWrapper.listSpace.size());
-		} catch (DiscreteMathException e) {
+		} catch (ProjectExceptions e) {
 			string = e.getLocalizedMessage();
 		} catch (Exception e) {
 			string = "formul/space was :[ " + e.getLocalizedMessage() + " ] ";

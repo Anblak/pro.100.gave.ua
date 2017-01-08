@@ -8,14 +8,14 @@ import java.util.Set;
 import org.junit.Test;
 
 import BaseActions.BaseActions;
-import DiscreteMath.Exceptions.DiscreteMathException;
+import resources.exceptions.ProjectExceptions;
 
 public class TestBaseActions {
 
 	private BaseActions baseActions = new BaseActions();
 
 	@Test
-	public void testBaseAction() throws DiscreteMathException {
+	public void testBaseAction() throws ProjectExceptions {
 		Set<Integer> set = new HashSet<Integer>();
 
 		//set.add(7);
