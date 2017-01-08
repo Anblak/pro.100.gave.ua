@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -30,8 +31,11 @@ public class User implements UserDetails {
 	private int phone;
 	
 	
-//	@ManyToOne
-//	private Group group;
+	@ManyToOne
+	private Group group;
+	
+	@OneToMany(mappedBy = "user")
+	private List<File> files;
 	
 	@Enumerated
 	private Role role;
@@ -104,15 +108,6 @@ public class User implements UserDetails {
 	}
 	
 	
-	
-
-//	public Group getGroup() {
-//		return group;
-//	}
-//
-//	public void setGroup(Group group) {
-//		this.group = group;
-//	}
 
 	public int getPhone() {
 		return phone;
@@ -121,6 +116,34 @@ public class User implements UserDetails {
 
 	public void setPhone(int phone) {
 		this.phone = phone;
+	}
+
+
+
+
+	public Group getGroup() {
+		return group;
+	}
+
+
+
+
+	public void setGroup(Group group) {
+		this.group = group;
+	}
+
+
+
+
+	public List<File> getFiles() {
+		return files;
+	}
+
+
+
+
+	public void setFiles(List<File> files) {
+		this.files = files;
 	}
 
 
@@ -161,4 +184,5 @@ public class User implements UserDetails {
 		
 		return true;
 	}
+	
 }
