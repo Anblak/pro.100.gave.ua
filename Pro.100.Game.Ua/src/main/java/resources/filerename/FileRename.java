@@ -68,6 +68,18 @@ public class FileRename {
 		return (grup + "." + profesor + "." + user + ".");
 	}
 
+	/**
+	 * 
+	 * @param grup
+	 *            - id.grup
+	 * @param profesor
+	 *            - id.profesor
+	 * @param user
+	 *            - id.user
+	 * @param oldName
+	 *            - початкове імя файлу
+	 * @return string : {[id.grup].[id.rpfesor].[id.user].[початкове імя файлу]}
+	 */
 	public String Name(String grup, String profesor, String user, String oldName) {
 
 		return (grup + "." + profesor + "." + user + "." + oldName);
