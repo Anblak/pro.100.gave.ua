@@ -5,6 +5,8 @@ import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+
+
 import ua.game.pro.dto.DTOUtilMapper;
+import ua.game.pro.editor.ProfesorEditor;
 import ua.game.pro.entity.FileUser;
 import ua.game.pro.entity.GroupOfUsers;
 import ua.game.pro.entity.Profesor;
@@ -39,11 +44,18 @@ public class UserController {
 	
 	@Autowired
 	private ProfesorService profesorService;
+	
+	@InitBinder
+	protected void initBinder(WebDataBinder binder){
+		binder.registerCustomEditor(Profesor.class, new ProfesorEditor(profesorService));
+	}
 
 	@RequestMapping("/registration")
 	public String newUser(Model model) {
 //		model.addAttribute("userDTOs", DTOUtilMapper.usersToUsersDTO(userService.findAll()));
 //		model.addAttribute("user", new User());
+		
+		model.addAttribute("profesors", profesorService.findAll());
 		return "views-base-registration";
 	}
 
