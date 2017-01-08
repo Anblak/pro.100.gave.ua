@@ -14,12 +14,18 @@
 
 
 	${user.name}${user.email}${user.phone}
+	<br>
+	${nameException}
 
 	<form:form modelAttribute="groupOfUsers" action="createGroup" method="post">
-		<input name="name" placeholder="name">
+		<input name="name" class="validate[required,custom[name],length[0,100]] feedback-input" placeholder="name ${nameException}">
 		<button>create group</button>
 	</form:form>
-
+	<br>
+	<form:form modelAttribute="profesor" action="newProfesor" method="post">
+		<input name="name"placeholder="name">
+		<button>new profesor</button>
+	</form:form>
 
 </body>
 </html>

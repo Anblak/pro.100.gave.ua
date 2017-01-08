@@ -19,6 +19,7 @@ import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
 import ua.game.pro.service.GroupOfUsersService;
+import ua.game.pro.service.ProfesorService;
 import ua.game.pro.service.UserService;
 import ua.game.pro.validator.GroupOfUsersValidationMessages;
 import ua.game.pro.validator.UserValidationMessages;
@@ -35,6 +36,9 @@ public class UserController {
 	
 	@Autowired
 	private GroupOfUsersService groupOfUsersService;
+	
+	@Autowired
+	private ProfesorService profesorService;
 
 	@RequestMapping("/registration")
 	public String newUser(Model model) {
@@ -97,7 +101,7 @@ public class UserController {
 	@RequestMapping(value="/createGroup",method=RequestMethod.POST)
 	public String createGroup(Principal principal, @ModelAttribute GroupOfUsers groupOfUsers,Model model) throws Exception{
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
-		if(user.getGroup().equals(null)){
+//		if(user.getGroup().equals(null)){
 			
 		
 			try{
@@ -108,12 +112,17 @@ public class UserController {
 				}
 			}
 			
-		}else{
-				
-		}
-
+//		}else{
+//				
+//		}
+		return "redirect:/profile";
+	}
+	@RequestMapping(value="/newProfesor",method=RequestMethod.POST)
+	public String newProfesor(@ModelAttribute Profesor profesor,Model model){
 		
+		profesorService.save(profesor);
 		
 		return "redirect:/profile";
+		
 	}
 }
