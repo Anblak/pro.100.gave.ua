@@ -80,16 +80,26 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	public String saveImage(@RequestParam MultipartFile multipartFile){
-		FileUser fileUser=new FileUser();
+	public String saveImage(Principal principal,@RequestParam MultipartFile multipartFile){
+		
+		
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
+		
+		
+		fileUserService.saveFile(multipartFile, user,profesor);
 		
 		
 		return "redirect:/profile";
 	}
 	
 	@RequestMapping(value="/createGroup",method=RequestMethod.POST)
-	public String createGroup(@ModelAttribute GroupOfUsers groupOfUsers,Model model){
-		groupOfUsersService.save(groupOfUsers);
+	public String createGroup(Principal principal, @ModelAttribute GroupOfUsers groupOfUsers,Model model){
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
+		if(user.getGroup().equals(null)){
+			groupOfUsersService.save(groupOfUsers);
+		}else{
+				
+		}
 		
 		return "redirect:/profile";
 	}

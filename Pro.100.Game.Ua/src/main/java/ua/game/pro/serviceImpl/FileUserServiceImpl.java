@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import ua.game.pro.dao.FileUserDao;
 import ua.game.pro.entity.FileUser;
+import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
 
 @Service
@@ -45,16 +46,18 @@ public class FileUserServiceImpl implements FileUserService {
 	}
 
 	@Transactional
-	public void saveFile(MultipartFile multipartFile, int group, int profesor, int user) {
+	public void saveFile(MultipartFile multipartFile, User users, int profesor) {
 
 		resources.file.File file = new resources.file.File();
 
 		FileUser fileUser = new FileUser(multipartFile.getOriginalFilename(),
-				"resources/" + file.newFolder(group, profesor, user) + multipartFile.getOriginalFilename());
+				"resources/" + file.newFolder(users.getGroup().getId(), profesor, users.getId())
+						+ multipartFile.getOriginalFilename());
 
 		save(fileUser);
 
-		String path = System.getProperty("catalina.home") + "/resources/" + file.newFolder(group, profesor, user)
+		String path = System.getProperty("catalina.home") + "/resources/"
+				+ file.newFolder(users.getGroup().getId(), profesor, users.getId())
 				+ multipartFile.getOriginalFilename();
 
 		File filePath = new File(path);
@@ -62,8 +65,8 @@ public class FileUserServiceImpl implements FileUserService {
 		try {
 			filePath.mkdirs();
 			try {
-				FileUtils.cleanDirectory(new File(
-						System.getProperty("catalina.home") + "/resources/" + file.newFolder(group, profesor, user)));
+				FileUtils.cleanDirectory(new File(System.getProperty("catalina.home") + "/resources/"
+						+ file.newFolder(users.getGroup().getId(), profesor, users.getId())));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
