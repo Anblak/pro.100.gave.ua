@@ -84,7 +84,7 @@ public class CreatorHTMLTag {
 	 *         <li>input</li>
 	 */
 	public String ul(String input) {
-		String li = "<li >" + "</li>";
+		String li = "<li >" +input+ "</li>";
 		return li;
 	}
 /**
@@ -101,5 +101,18 @@ public class CreatorHTMLTag {
 		return ul;
 
 	}
+	/**
+	 * 
+	 * @param input - наповнення p
+	 * @param clas  - клас р
+	 * @param style - стилізація р
+	 * @param id - id p
+	 * @return - HTML element <p>input</p>
+	 */
+	public String p(String input, String clas,String style,String id){
+		String p="<p id='" + id + "' class='" + clas + "' style='" + style + "'>>"+ input +"</p>";
+		return p;
+	}
+	
 
 }
