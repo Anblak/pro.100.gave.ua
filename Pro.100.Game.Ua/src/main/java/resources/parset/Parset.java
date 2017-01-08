@@ -1,4 +1,4 @@
-package Parset;
+package resources.parset;
 
 import java.util.ArrayList;
 import java.util.HashSet;

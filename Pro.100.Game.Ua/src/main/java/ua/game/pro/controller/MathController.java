@@ -3,22 +3,21 @@ package ua.game.pro.controller;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
 import DiscreteMath.Exceptions.DiscreteMathException;
-import Parset.Parset;
+import resources.parset.Parset;
 import ua.game.pro.wrapper.BaseActionWrapper;
 import ua.game.pro.wrapper.StringWrapper;
-
+import resources.*;
+import resources.creatorHTMLTag.CreatorHTMLTag;
 @Controller
 public class MathController {
-	
+
 	private StringWrapper lg = new StringWrapper();
 	
 	
