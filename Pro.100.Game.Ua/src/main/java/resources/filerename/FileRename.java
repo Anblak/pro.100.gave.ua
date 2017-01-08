@@ -65,7 +65,12 @@ public class FileRename {
 	 */
 	public String newName(String grup, String profesor, String user) {
 
-		return (grup + "." + profesor + "." + user);
+		return (grup + "." + profesor + "." + user + ".");
+	}
+
+	public String Name(String grup, String profesor, String user, String oldName) {
+
+		return (grup + "." + profesor + "." + user + "." + oldName);
 	}
 
 }
