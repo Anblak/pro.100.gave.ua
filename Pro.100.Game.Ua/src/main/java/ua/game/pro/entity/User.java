@@ -27,6 +27,8 @@ public class User implements UserDetails {
 	private String name;
 	private String email;
 	private String password;
+	private int phone;
+	
 	
 //	@ManyToOne
 //	private Group group;
@@ -39,15 +41,17 @@ public class User implements UserDetails {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public User(String name, String email, String password) {
+
+
+
+	public User(String name, String email, String password, int phone) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		this.phone = phone;
 	}
 
-	
-	
 
 
 	public int getId() {
@@ -100,6 +104,7 @@ public class User implements UserDetails {
 	}
 	
 	
+	
 
 //	public Group getGroup() {
 //		return group;
@@ -108,6 +113,18 @@ public class User implements UserDetails {
 //	public void setGroup(Group group) {
 //		this.group = group;
 //	}
+
+	public int getPhone() {
+		return phone;
+	}
+
+
+	public void setPhone(int phone) {
+		this.phone = phone;
+	}
+
+
+
 
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();

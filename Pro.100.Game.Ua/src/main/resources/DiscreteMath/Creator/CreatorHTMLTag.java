@@ -83,8 +83,8 @@ public class CreatorHTMLTag {
 	 * @return - HTML element
 	 *         <li>input</li>
 	 */
-	public String ul(String input) {
-		String li = "<li >" + "</li>";
+	public String li(String input) {
+		String li = "<li >"+input+"</li>";
 		return li;
 	}
 /**

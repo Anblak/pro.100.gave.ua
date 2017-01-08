@@ -3,3 +3,8 @@
     
 <link rel="stylesheet" href="css/links.css">
 	<script src="js/links.js"></script>
+
+	<form action="create" method="get">
+	
+		<button>div</button>
+	</form>

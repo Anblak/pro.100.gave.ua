@@ -4,10 +4,22 @@ public class UserDTO {
 	private int id;
 	private String name;
 	private String email;
+	private int phone;
 	
 	public UserDTO() {
 		// TODO Auto-generated constructor stub
 	}
+	
+
+	public int getPhone() {
+		return phone;
+	}
+
+
+	public void setPhone(int phone) {
+		this.phone = phone;
+	}
+
 
 	public int getId() {
 		return id;
