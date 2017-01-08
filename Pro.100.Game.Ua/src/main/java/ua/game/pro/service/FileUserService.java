@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 import ua.game.pro.entity.FileUser;
+import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 
 
@@ -16,6 +17,6 @@ public interface FileUserService {
 	FileUser findOne(int id);
 	void delete(int id);
 	
-	public void saveFile(MultipartFile multipartFile,User user,int profesor);
+	public void saveFile(MultipartFile multipartFile,User user,Profesor profesor);
 	
 }

@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ua.game.pro.dto.DTOUtilMapper;
 import ua.game.pro.entity.FileUser;
 import ua.game.pro.entity.GroupOfUsers;
+import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
 import ua.game.pro.service.GroupOfUsersService;
@@ -81,7 +82,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	public String saveImage(Principal principal,@RequestParam MultipartFile multipartFile){
+	public String saveImage(Profesor profesor,Principal principal,@RequestParam MultipartFile multipartFile){
 		
 		
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
