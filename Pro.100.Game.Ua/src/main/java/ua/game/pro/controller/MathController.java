@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 import DiscreteMath.Exceptions.DiscreteMathException;
 import Parset.Parset;
 import ua.game.pro.wrapper.BaseActionWrapper;
@@ -40,9 +41,11 @@ public class MathController {
 	@RequestMapping("/ua")
 	public String MathUa() {
 		lg.setString("ua");
-		
+				
 		return "redirect:/";
+		
 	}
+	
 
 //	@RequestMapping("/ua.math")
 //	public String MathUa(@ModelAttribute String string,Model model) {
