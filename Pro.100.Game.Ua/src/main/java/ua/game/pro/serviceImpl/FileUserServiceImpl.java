@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import ua.game.pro.dao.FileUserDao;
 import ua.game.pro.entity.FileUser;
+import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
 
@@ -46,12 +47,12 @@ public class FileUserServiceImpl implements FileUserService {
 	}
 
 	@Transactional
-	public void saveFile(MultipartFile multipartFile, User users, int profesor) {
+	public void saveFile(MultipartFile multipartFile, User users, Profesor profesor) {
 
 		resources.file.File file = new resources.file.File();
 
 		FileUser fileUser = new FileUser(multipartFile.getOriginalFilename(),
-				"resources/" + file.newFolder(users.getGroup().getId(), profesor, users.getId())
+				"resources/" + file.newFolder(users.getGroup().getId(), profesor.getId(), users.getId())
 						+ multipartFile.getOriginalFilename());
 
 		save(fileUser);
