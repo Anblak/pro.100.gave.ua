@@ -14,8 +14,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import ua.game.pro.dto.DTOUtilMapper;
 import ua.game.pro.entity.FileUser;
+import ua.game.pro.entity.GroupOfUsers;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
+import ua.game.pro.service.GroupOfUsersService;
 import ua.game.pro.service.UserService;
 import ua.game.pro.validator.UserValidationMessages;
 
@@ -28,6 +30,9 @@ public class UserController {
 	
 	@Autowired
 	private FileUserService fileUserService;
+	
+	@Autowired
+	private GroupOfUsersService groupOfUsersService;
 
 	@RequestMapping("/registration")
 	public String newUser(Model model) {
@@ -78,6 +83,13 @@ public class UserController {
 	public String saveImage(@RequestParam MultipartFile multipartFile){
 		FileUser fileUser=new FileUser();
 		
+		
+		return "redirect:/profile";
+	}
+	
+	@RequestMapping(value="/createGroup",method=RequestMethod.POST)
+	public String createGroup(@ModelAttribute GroupOfUsers groupOfUsers,Model model){
+		groupOfUsersService.save(groupOfUsers);
 		
 		return "redirect:/profile";
 	}

@@ -13,14 +13,17 @@
 
 
 
-	${user.name}${user.email}
+	${user.name}${user.email}${user.phone}
 
-
+	<form:form modelAttribute="groupOfUsers" action="createGroup" method="post">
+		<input name="name" placeholder="name">
+		<button>create group</button>
+	</form:form>
 
 
 </body>
 </html>
 
-${user.name} ${user.email} ${user.phone}
+ 
 
 
