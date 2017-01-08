@@ -6,6 +6,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources/DiscreteMath"/>
+        <wb-resource deploy-path="/" source-path="/src/main/resources/OtherResources"/>
         <property name="context-root" value="Pro.100.Game.Ua"/>
         <property name="java-output-path" value="/Pro.100.Game.Ua/target/classes"/>
     </wb-module>
