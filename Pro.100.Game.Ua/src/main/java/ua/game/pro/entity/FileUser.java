@@ -7,13 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class File {
+public class FileUser {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	private String newName;
+
 	private String path;
 	
 	@ManyToOne
@@ -22,14 +22,14 @@ public class File {
 	@ManyToOne
 	private Profesor profesor;
 	
-	public File() {
+	public FileUser() {
 		
 	}
 
-	public File(String name, String newName, String path) {
+	public FileUser(String name,  String path) {
 		super();
 		this.name = name;
-		this.newName = newName;
+	
 		this.path = path;
 	}
 
@@ -49,13 +49,6 @@ public class File {
 		this.name = name;
 	}
 
-	public String getNewName() {
-		return newName;
-	}
-
-	public void setNewName(String newName) {
-		this.newName = newName;
-	}
 
 	public String getPath() {
 		return path;

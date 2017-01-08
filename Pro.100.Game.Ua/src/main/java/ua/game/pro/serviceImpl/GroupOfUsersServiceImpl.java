@@ -5,29 +5,29 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ua.game.pro.dao.GroupDao;
-import ua.game.pro.entity.Group;
-import ua.game.pro.service.GroupService;
+import ua.game.pro.dao.GroupOfUsersDao;
+import ua.game.pro.entity.GroupOfUsers;
+import ua.game.pro.service.GroupOfUsersService;
 
 @Service
-public class GroupServiceImpl implements GroupService {
+public class GroupOfUsersServiceImpl implements GroupOfUsersService {
 
 	@Autowired
-	private GroupDao groupDao;
+	private GroupOfUsersDao groupDao;
 
 	@Override
-	public void save(Group group) {
+	public void save(GroupOfUsers group) {
 		groupDao.save(group);
 	}
 
 	@Override
-	public List<Group> findAll() {
+	public List<GroupOfUsers> findAll() {
 
 		return groupDao.findAll();
 	}
 
 	@Override
-	public Group findOne(int id) {
+	public GroupOfUsers findOne(int id) {
 
 		return groupDao.findOne(id);
 	}

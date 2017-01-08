@@ -32,10 +32,10 @@ public class User implements UserDetails {
 	
 	
 	@ManyToOne
-	private Group group;
+	private GroupOfUsers group;
 	
 	@OneToMany(mappedBy = "user")
-	private List<File> files;
+	private List<FileUser> files;
 	
 	@Enumerated
 	private Role role;
@@ -121,28 +121,28 @@ public class User implements UserDetails {
 
 
 
-	public Group getGroup() {
+	public GroupOfUsers getGroup() {
 		return group;
 	}
 
 
 
 
-	public void setGroup(Group group) {
+	public void setGroup(GroupOfUsers group) {
 		this.group = group;
 	}
 
 
 
 
-	public List<File> getFiles() {
+	public List<FileUser> getFiles() {
 		return files;
 	}
 
 
 
 
-	public void setFiles(List<File> files) {
+	public void setFiles(List<FileUser> files) {
 		this.files = files;
 	}
 

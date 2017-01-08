@@ -1,6 +1,7 @@
-package resources.filerename;
+package resources.file;
 
 import resources.exceptions.ProjectExceptions;
+import resources.parset.Parset;
 
 /*
 import java.io.File;
@@ -22,7 +23,7 @@ public class Main{
  * @author prometej
  *
  */
-public class FileRename {
+public class File {
 
 	/**
 	 * 
@@ -39,9 +40,9 @@ public class FileRename {
 	 * @return true of false
 	 * @throws ProjectExceptions
 	 */
-	public boolean renameFile(String oldName, String grup, String profesor, String user, String refFile)
+	public boolean renameFile(String oldName, int grup, int profesor, int user, String refFile)
 			throws ProjectExceptions {
-		String newName = newName(grup, profesor, user);
+		String newName = newFolder(grup, profesor, user);
 		java.io.File file = new java.io.File(refFile + oldName);
 		if (file.exists()) { // если файл существует, то переименовываем его
 			file.renameTo(new java.io.File(refFile + newName + oldName));
@@ -63,9 +64,10 @@ public class FileRename {
 	 *            - id.user
 	 * @return string : {[id.grup].[id.rpfesor].[id.user]}
 	 */
-	public String newName(String grup, String profesor, String user) {
-
-		return (grup + "." + profesor + "." + user + ".");
+	public String newFolder(int grup, int profesor, int user) {
+		Parset parset = new Parset();
+		
+		return (parset.parsetChar(grup) + "/" + parset.parsetChar(profesor) + "/" + parset.parsetChar(user) + "/");
 	}
 
 	/**

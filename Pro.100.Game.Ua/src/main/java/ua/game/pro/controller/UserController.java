@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import ua.game.pro.dto.DTOUtilMapper;
+import ua.game.pro.entity.FileUser;
 import ua.game.pro.entity.User;
+import ua.game.pro.service.FileUserService;
 import ua.game.pro.service.UserService;
 import ua.game.pro.validator.UserValidationMessages;
 
@@ -23,6 +25,9 @@ import ua.game.pro.validator.UserValidationMessages;
 public class UserController {
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private FileUserService fileUserService;
 
 	@RequestMapping("/registration")
 	public String newUser(Model model) {
@@ -64,9 +69,16 @@ public class UserController {
 	public String profile(Principal principal, Model model) {
 
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
-
 		model.addAttribute("user", user);
-
+		
 		return "views-filecontent-profile";
+	}
+	
+	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
+	public String saveImage(@RequestParam MultipartFile multipartFile){
+		FileUser fileUser=new FileUser();
+		
+		
+		return "redirect:/profile";
 	}
 }

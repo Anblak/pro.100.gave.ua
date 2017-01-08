@@ -18,7 +18,7 @@ public class Profesor {
 	private String name;
 	
 	@OneToMany(mappedBy = "profesor")
-	private List<File> files;
+	private List<FileUser> files;
 	
 	public Profesor() {
 	
@@ -45,11 +45,11 @@ public class Profesor {
 		this.name = name;
 	}
 
-	public List<File> getFiles() {
+	public List<FileUser> getFiles() {
 		return files;
 	}
 
-	public void setFiles(List<File> files) {
+	public void setFiles(List<FileUser> files) {
 		this.files = files;
 	}
 	

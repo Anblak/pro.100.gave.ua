@@ -1,6 +1,6 @@
 package resources.creatorHTMLTag;
 
-import resources.filerename.FileRename;
+import resources.file.File;
 
 /**
  * 
@@ -19,7 +19,7 @@ public class CreatorHTMLTag {
 	public String div(String input, String style) {
 		String div = "";
 		div = "<div style='" + style + "'>" + input + "</div>";
-		FileRename fileRename = new FileRename();
+		File fileRename = new File();
 	
 		return div;
 		

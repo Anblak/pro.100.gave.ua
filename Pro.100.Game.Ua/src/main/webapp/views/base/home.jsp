@@ -36,7 +36,6 @@
 </sec:authorize>
 
 
-<div style="background-image: url(img/hederua.png);width:469px;height:750px;"></div>
-<img src="img/0.png" alt="">
+
 
 

@@ -80,7 +80,7 @@ public class Parset {
 	}
 
 	// 990
-	private String parsetChar(int tempInt) {
+	public String parsetChar(int tempInt) {
 		String tempStringInt = "";
 		if (tempInt <= 999 && tempInt >= 100) {
 

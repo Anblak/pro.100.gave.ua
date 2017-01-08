@@ -8,24 +8,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
-
 @Entity
-public class Group {
+public class GroupOfUsers {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
 	private String name;
 	private String uuid;
 	
 	@OneToMany(mappedBy = "group")
 	private List<User> users;
 	
-	public Group() {}
+	public GroupOfUsers() {
+		// TODO Auto-generated constructor stub
+	}
 
-	public Group(String name) {
+	public GroupOfUsers(String name) {
 		super();
 		this.name = name;
 	}
@@ -46,14 +45,6 @@ public class Group {
 		this.name = name;
 	}
 
-	public List<User> getUser() {
-		return users;
-	}
-
-	public void setUser(List<User> user) {
-		this.users = user;
-	}
-
 	public String getUuid() {
 		return uuid;
 	}
@@ -69,6 +60,8 @@ public class Group {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
+	
+	
 	
 	
 	
