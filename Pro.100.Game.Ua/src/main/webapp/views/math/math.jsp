@@ -52,7 +52,7 @@
 </div>
 </div>
 <div class="right" style="background-image:url(img/copybookRight.png);width:469px;height:750px;position:absolute;left:900px;top:210px">
-<div  class="answer" ><p>${space}</p><p> ${resalt}</p><p> ${answer}</p>  </div>
+<div  class="answer" >${space} ${resalt} ${answer}  </div>
 </div>
 <div class="fotter" style="background-image:url(img/footer.png);width:1360px;height:63px;position:absolute;left0px;top:963px;"></div>
 
