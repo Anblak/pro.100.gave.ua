@@ -1,5 +1,9 @@
 package Creator;
-
+/**
+ * 
+ * @author prometej
+ *
+ */
 public class CreatorHTMLTag {
 	/**
 	 * 
@@ -52,7 +56,7 @@ public class CreatorHTMLTag {
 	 * @return  - string  cписок <ul><li>....</li>....</ul>
 	 */
 	 
-	public String listUl(String styleUl,String clasUl,String idUl,int numberLi,String[] inputLi){
+	public String listUWithLi(String styleUl,String clasUl,String idUl,int numberLi,String[] inputLi){
 		String ul="<ul id='"+idUl+"' class='"+clasUl+"' style='" + styleUl + "'>";
 		for(int i=0;i<numberLi;i++){
 			ul+="<li>"+inputLi[i]+"</li>";
@@ -61,4 +65,14 @@ public class CreatorHTMLTag {
 		return ul;
 		
 	}
+	/**
+	 * 
+	 * @param input - наповнення li
+	 * @return - HTML element <li>input</li>
+	 */
+	public String ul(String input){
+		String li="<li >"+"</li>";
+		return li;
+	}
+	
 }
