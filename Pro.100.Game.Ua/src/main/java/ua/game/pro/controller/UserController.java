@@ -88,8 +88,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/createGroup",method=RequestMethod.POST)
-	public String createGroup(@ModelAttribute GroupOfUsers groupOfUsers,Model model){
+	public String createGroup(@ModelAttribute GroupOfUsers groupOfUsers,Model model) throws Exception{
+		
 		groupOfUsersService.save(groupOfUsers);
+		
 		
 		return "redirect:/profile";
 	}

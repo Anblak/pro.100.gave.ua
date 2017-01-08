@@ -8,7 +8,7 @@ import ua.game.pro.entity.GroupOfUsers;
 public interface GroupOfUsersService {
 	
 	
-	void save(GroupOfUsers group);
+	void save(GroupOfUsers group)throws Exception;
 	List<GroupOfUsers> findAll();
 	GroupOfUsers findOne(int id);
 	void delete(int id);

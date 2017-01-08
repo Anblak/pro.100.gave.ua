@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService, UserDetailsService{
     private BCryptPasswordEncoder encoder;
     
 	@Autowired
-	@Qualifier("userValidator")
+	@Qualifier("GroupOfUsersValidator")
 	private Validator validator;
     
     public void save(User user) throws Exception {
