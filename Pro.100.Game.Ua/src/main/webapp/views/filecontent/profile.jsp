@@ -29,14 +29,14 @@
 		<button>new profesor</button>
 	</form:form>
 	
-	<form:form action="./saveFile?${_csrf.parameterName}=${_csrf.token}"
- 		 method="post" enctype="multipart/form-data">  
-		<input type="file" name="multipartFile"> 
+<%-- 	<form:form action="./saveFile?${_csrf.parameterName}=${_csrf.token}" --%>
+<%--  		 method="post" enctype="multipart/form-data">   --%>
+<!-- 		<input type="file" name="multipartFile">  -->
 		
-		<form:select path="profesors" items="${profesorsDTOs}" itemLabel="name" itemValue="id" >
-		</form:select>
-		<button>safe file</button> 
-	</form:form>
+<%-- 		<form:select path="profesors" items="${profesorsDTOs}" itemLabel="name" itemValue="id" > --%>
+<%-- 		</form:select> --%>
+<!-- 		<button>safe file</button>  -->
+<%-- 	</form:form> --%>
 
 </body>
 </html>

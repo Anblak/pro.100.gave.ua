@@ -131,7 +131,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/createGroup",method=RequestMethod.POST)
-	public String createGroup(Principal principal, @ModelAttribute GroupOfUsers groupOfUsers,Model model) throws Exception{
+	public String createGroup( @ModelAttribute GroupOfUsers groupOfUsers,Model model) throws Exception{
 //		User user = userService.findOne(Integer.parseInt(principal.getName()));
 //		if(user.getGroup().equals(null)){
 		
