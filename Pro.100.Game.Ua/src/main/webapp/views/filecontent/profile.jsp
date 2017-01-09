@@ -33,8 +33,7 @@
  		 method="post" enctype="multipart/form-data">  
 		<input type="file" name="multipartFile"> 
 		
-		<form:select path="profesors" items="${profesorsDTOs}" itemLabel="name" itemValue="id" >
-		</form:select>
+		
 		<button>safe file</button> 
 	</form:form>
 

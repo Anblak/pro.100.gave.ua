@@ -53,13 +53,13 @@ public class FileUserServiceImpl implements FileUserService {
 		resources.file.File file = new resources.file.File();
 
 		FileUser fileUser = new FileUser(multipartFile.getOriginalFilename(),
-				"resources/" + file.newFolder(users.getGroup().getId(), profesor.getId(), users.getId())
+				"resources/" + file.newFolder(1, 1, 3)
 						+ multipartFile.getOriginalFilename());
-
+//newFolder(users.getGroup().getId(), profesor.getId(), users.getId())
 		save(fileUser);
 
 		String path = System.getProperty("catalina.home") + "/resources/"
-				+ file.newFolder(users.getGroup().getId(), profesor.getId(), users.getId())
+				+ file.newFolder(1, 1, 3)
 				+ multipartFile.getOriginalFilename();
 
 		File filePath = new File(path);
@@ -68,7 +68,7 @@ public class FileUserServiceImpl implements FileUserService {
 			filePath.mkdirs();
 			try {
 				FileUtils.cleanDirectory(new File(System.getProperty("catalina.home") + "/resources/"
-						+ file.newFolder(users.getGroup().getId(), profesor.getId(), users.getId())));
+						+ file.newFolder(1, 1, users.getId())));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
