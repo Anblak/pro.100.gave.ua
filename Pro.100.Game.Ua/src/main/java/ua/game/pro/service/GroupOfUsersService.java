@@ -3,12 +3,13 @@ package ua.game.pro.service;
 import java.util.List;
 
 import ua.game.pro.entity.GroupOfUsers;
+import ua.game.pro.entity.User;
 
 
 public interface GroupOfUsersService {
 	
 	
-	void save(GroupOfUsers group)throws Exception;
+	void save(GroupOfUsers group,User user)throws Exception;
 	List<GroupOfUsers> findAll();
 	GroupOfUsers findOne(int id);
 	void delete(int id);

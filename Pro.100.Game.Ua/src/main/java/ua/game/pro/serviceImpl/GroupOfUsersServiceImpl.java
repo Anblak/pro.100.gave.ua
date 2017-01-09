@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ua.game.pro.dao.GroupOfUsersDao;
+import ua.game.pro.dao.UserDao;
 import ua.game.pro.entity.GroupOfUsers;
+import ua.game.pro.entity.Role;
+import ua.game.pro.entity.User;
 import ua.game.pro.service.GroupOfUsersService;
 import ua.game.pro.validator.Validator;
 
@@ -18,13 +21,19 @@ public class GroupOfUsersServiceImpl implements GroupOfUsersService {
 	private GroupOfUsersDao groupDao;
 	
 	@Autowired
+	private UserDao userDao;
+	
+	@Autowired
 	@Qualifier("GroupOfUsersValidator")
 	private Validator validator;
 
 	@Override
-	public void save(GroupOfUsers group) throws Exception {
+	public void save(GroupOfUsers group,User user) throws Exception {
 		validator.validate(group);
+		user.setRole(Role.ROLE_CREATOR);
 		groupDao.save(group);
+		user.setGroup(group);
+		userDao.save(user);
 	}
 
 	@Override

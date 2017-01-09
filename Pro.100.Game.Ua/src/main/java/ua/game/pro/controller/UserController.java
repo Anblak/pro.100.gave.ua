@@ -133,13 +133,13 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/createGroup",method=RequestMethod.POST)
-	public String createGroup( @ModelAttribute GroupOfUsers groupOfUsers,Model model){
-//		User user = userService.findOne(Integer.parseInt(principal.getName()));
+	public String createGroup(Principal principal, @ModelAttribute GroupOfUsers groupOfUsers,Model model){
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
 //		if(user.getGroup().equals(null)){
 		
 		
 			try{
-				groupOfUsersService.save(groupOfUsers);
+				groupOfUsersService.save(groupOfUsers,user);
 			}catch (Exception e) {
 				if(e.getMessage().equals(GroupOfUsersValidationMessages.EMPTY_NAME_FIELD)){
 					model.addAttribute("nameException", e.getMessage());

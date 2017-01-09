@@ -37,7 +37,9 @@
 	<a href="profile">profile</a>
 </sec:authorize>
 
-
+<sec:authorize access="hasRole('ROLE_CREATOR')">
+	<a href="profile">profile</a>
+</sec:authorize>
 
 
 
