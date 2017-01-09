@@ -52,9 +52,10 @@ public class DTOUtilMapper {
 		List<ProfesorDTO> profesorDTOs=new ArrayList<ProfesorDTO>();
 		
 		for (Profesor profesor : profesors) {
+			
 			ProfesorDTO profesorDTO=new ProfesorDTO();
 			profesorDTO.setName(profesor.getName());
-			
+			profesorDTO.setId(profesor.getId());
 			profesorDTOs.add(profesorDTO);
 			
 		}

@@ -39,4 +39,9 @@ public class ProfesorServiceImpl implements ProfesorService {
 
 	}
 
+	@Override
+	public Profesor findByName(String name) {	
+		return profesorDao.findByName(name);
+	}
+
 }

@@ -87,22 +87,46 @@ public class UserController {
 		return "redirect:/registration";
 	}
 
+	//=====================================================================
+	@RequestMapping("/some")
+	public String profile(Model model) {
+		
+		model.addAttribute("profesors", new Profesor());
+		model.addAttribute("profesorsDTOs", DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
+		
+		return "views-filecontent-some";
+	}
+	
+	
+	
+	
+	
+	
+	//=====================================================================
 	@RequestMapping("/profile")
 	public String profile(Principal principal, Model model) {
 
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		model.addAttribute("user", user);
+		
+	 try{
 		model.addAttribute("profesors", new Profesor());
 		model.addAttribute("profesorsDTOs", DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
+		 }catch (Exception e) {
+			System.out.println(e.getMessage());
+		}		
 		
 		return "views-filecontent-profile";
 	}
 	
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	public String saveImage(Profesor profesor,Principal principal,@RequestParam MultipartFile multipartFile,Model model){
+	public String saveImage(@RequestParam Profesor profesor,Principal principal,@RequestParam MultipartFile multipartFile,Model model){
 	
-		User user = userService.findOne(Integer.parseInt(principal.getName()));
+	
+		
+			 User user = userService.findOne(Integer.parseInt(principal.getName()));
 		fileUserService.saveFile(multipartFile, user,profesor);
+		
 		return "redirect:/profile";
 	}
 	

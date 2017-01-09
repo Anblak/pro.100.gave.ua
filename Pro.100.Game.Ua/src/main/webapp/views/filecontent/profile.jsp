@@ -21,13 +21,16 @@
 		<input name="name" class="validate[required,custom[name],length[0,100]] feedback-input" placeholder="name ${nameException}">
 		<button>create group</button>
 	</form:form>
+	
 	<br>
+	
 	<form:form modelAttribute="profesor" action="newProfesor" method="post">
 		<input name="name"placeholder="name">
 		<button>new profesor</button>
 	</form:form>
+	
 	<form:form action="./saveFile?${_csrf.parameterName}=${_csrf.token}"
-		 method="post" enctype="multipart/form-data">  
+ 		 method="post" enctype="multipart/form-data">  
 		<input type="file" name="multipartFile"> 
 		
 		<form:select path="profesors" items="${profesorsDTOs}" itemLabel="name" itemValue="id" >

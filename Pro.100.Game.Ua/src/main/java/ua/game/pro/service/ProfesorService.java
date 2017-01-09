@@ -12,4 +12,7 @@ public interface ProfesorService {
 	List<Profesor> findAll();
 	Profesor findOne(int id);
 	void delete(int id);
+	
+	Profesor findByName(String name);
+	
 }
