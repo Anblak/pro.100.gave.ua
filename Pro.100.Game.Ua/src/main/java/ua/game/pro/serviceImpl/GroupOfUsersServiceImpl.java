@@ -18,7 +18,7 @@ public class GroupOfUsersServiceImpl implements GroupOfUsersService {
 	private GroupOfUsersDao groupDao;
 	
 	@Autowired
-	@Qualifier("userValidator")
+	@Qualifier("GroupOfUsersValidator")
 	private Validator validator;
 
 	@Override
