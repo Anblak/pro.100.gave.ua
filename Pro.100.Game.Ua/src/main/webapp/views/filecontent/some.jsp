@@ -12,11 +12,17 @@
 
 
 
-
-
-	<div>
-<form:select path="profesors" items="${profesorsDTOs}" itemLabel="name" itemValue="id" >
+<div>
+<form:form method="POST" commandName="profesor" action="profesort">
+	
+<form:select path="name"  itemLable="name" itemValue="id"  >
+ <form:option value="-" label="--Select phone"/>
+                <form:options items="${profesorsMap}" />
 		</form:select>
+		<input type="submit" value="Submit"/>
+	</form:form>
+	<p>${profesor}</p>	
+	<p>${test}</p>	
 </div>
 
 </body>

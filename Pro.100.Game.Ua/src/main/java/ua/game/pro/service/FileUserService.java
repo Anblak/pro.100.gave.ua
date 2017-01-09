@@ -18,7 +18,7 @@ public interface FileUserService {
 	FileUser findOne(int id);
 	void delete(int id);
 	
-	public void saveFile(MultipartFile multipartFile,User user,Profesor profesor);
+	public void saveFile(MultipartFile multipartFile,User user,int profesor);
 	
 	
 }

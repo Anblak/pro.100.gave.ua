@@ -48,18 +48,18 @@ public class FileUserServiceImpl implements FileUserService {
 	}
 
 	@Transactional
-	public void saveFile(MultipartFile multipartFile, User users, Profesor profesor) {
+	public void saveFile(MultipartFile multipartFile, User user, int profesor) {
 
 		resources.file.File file = new resources.file.File();
 
 		FileUser fileUser = new FileUser(multipartFile.getOriginalFilename(),
-				"resources/" + file.newFolder(users.getGroup().getId(),  profesor.getId(), users.getId())
+				"resources/" + file.newFolder(user.getGroup().getId(),  profesor, user.getId())
 						+ multipartFile.getOriginalFilename());
 //newFolder(users.getGroup().getId(), profesor.getId(), users.getId())
 		save(fileUser);
 		
 		String path = System.getProperty("catalina.home") + "/resources/"
-				+ file.newFolder(users.getGroup().getId(),  profesor.getId(), users.getId())
+				+ file.newFolder(user.getGroup().getId(),  profesor, user.getId())
 				+ multipartFile.getOriginalFilename();
 
 		File filePath = new File(path);

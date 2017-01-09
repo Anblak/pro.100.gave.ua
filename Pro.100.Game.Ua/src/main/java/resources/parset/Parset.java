@@ -1,8 +1,12 @@
 package resources.parset;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
+
+import ua.game.pro.dto.ProfesorDTO;
 
 /**
  * 
@@ -132,6 +136,14 @@ public class Parset {
 			tempStringInt += "0";
 		}
 		return tempStringInt;
+	}
+	public HashMap<Integer, String> ArrayListToMap(List<ProfesorDTO> list){
+		HashMap<Integer, String> map = new HashMap<Integer, String>();
+		for (ProfesorDTO profesorDTO : list) {
+			map.put(profesorDTO.getId(), profesorDTO.getName());
+		}
+		
+		return map;
 	}
 
 }
