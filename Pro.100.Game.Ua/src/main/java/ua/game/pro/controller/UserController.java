@@ -165,7 +165,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	public String saveFile(@RequestParam MultipartFile multipartFile, Principal principal, Model model) {
+	public String saveFile(@RequestParam MultipartFile multipartFile, Principal principal, Model model,@RequestParam ProfesorDTO profesor) {
 
 		int profesorID = Integer.parseInt(profesor.getName());
 

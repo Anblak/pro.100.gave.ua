@@ -36,10 +36,10 @@
 		<input type="file" name="multipartFile">
 		<button>safe file</button>
 	</form:form>
-	<form:form method="POST" commandName="profesorDTO" action="saveProfesor">
+	<form:form method="POST" commandName="profesorDTO" action="saveFile">
 
 		<form:select path="name" itemLable="name" itemValue="id">
-			<form:option value="-" label="--Select phone" />
+			<form:option value="-" label="--Select profesor" />
 			<form:options items="${profesorMap}" />
 		</form:select>
 		<input type="submit" value="Submit" />
