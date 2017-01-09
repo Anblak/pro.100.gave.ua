@@ -3,7 +3,7 @@ package ua.game.pro.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 
 
@@ -48,6 +48,20 @@ public class DTOUtilMapper {
 //
 //	}
 	
+	public static List<ProfesorDTO> profesorToProfesorDTO(List<Profesor>profesors){		
+		List<ProfesorDTO> profesorDTOs=new ArrayList<ProfesorDTO>();
+		
+		for (Profesor profesor : profesors) {
+			ProfesorDTO profesorDTO=new ProfesorDTO();
+			profesorDTO.setName(profesor.getName());
+			
+			profesorDTOs.add(profesorDTO);
+			
+		}
+		return profesorDTOs;
+	}
+	
+
 	
 	
 }

@@ -2,6 +2,7 @@ package ua.game.pro.serviceImpl;
 
 import java.io.File;
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -76,5 +77,7 @@ public class FileUserServiceImpl implements FileUserService {
 			System.out.println("error with file");
 		}
 	}
+	
+	
 
 }

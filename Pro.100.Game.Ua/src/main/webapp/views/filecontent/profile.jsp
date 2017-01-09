@@ -26,10 +26,11 @@
 		<input name="name"placeholder="name">
 		<button>new profesor</button>
 	</form:form>
-	<form:form action="/saveFile" method="post" enctype="multipart/form-data"> 
+	<form:form action="./saveFile?${_csrf.parameterName}=${_csrf.token}"
+		 method="post" enctype="multipart/form-data">  
 		<input type="file" name="multipartFile"> 
 		
-		<form:select path="profesor" items="${profesors}" itemLabel="name" itemValue="id" >
+		<form:select path="profesors" items="${profesorsDTOs}" itemLabel="name" itemValue="id" >
 		</form:select>
 		<button>safe file</button> 
 	</form:form>

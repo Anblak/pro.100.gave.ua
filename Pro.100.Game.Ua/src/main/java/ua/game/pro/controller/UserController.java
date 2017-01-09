@@ -54,8 +54,7 @@ public class UserController {
 	public String newUser(Model model) {
 //		model.addAttribute("userDTOs", DTOUtilMapper.usersToUsersDTO(userService.findAll()));
 //		model.addAttribute("user", new User());
-		
-		model.addAttribute("profesors", profesorService.findAll());
+
 		return "views-base-registration";
 	}
 
@@ -77,7 +76,7 @@ public class UserController {
 			return "views-base-registration";
 		}
 
-		return "redirect:/registration";
+		return "redirect:/";
 	}
 
 	@RequestMapping("/deleteUser/{id}")
@@ -93,28 +92,25 @@ public class UserController {
 
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		model.addAttribute("user", user);
+		model.addAttribute("profesors", new Profesor());
+		model.addAttribute("profesorsDTOs", DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
 		
 		return "views-filecontent-profile";
 	}
 	
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	public String saveImage(Profesor profesor,Principal principal,@RequestParam MultipartFile multipartFile){
-		
-		
+	public String saveImage(Profesor profesor,Principal principal,@ModelAttribute MultipartFile multipartFile,Model model){
+	
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
-		
-		
 		fileUserService.saveFile(multipartFile, user,profesor);
-		
-		
 		return "redirect:/profile";
 	}
 	
 	@RequestMapping(value="/createGroup",method=RequestMethod.POST)
 	public String createGroup(Principal principal, @ModelAttribute GroupOfUsers groupOfUsers,Model model) throws Exception{
-		User user = userService.findOne(Integer.parseInt(principal.getName()));
+//		User user = userService.findOne(Integer.parseInt(principal.getName()));
 //		if(user.getGroup().equals(null)){
-			
+		
 		
 			try{
 				groupOfUsersService.save(groupOfUsers);
@@ -131,9 +127,8 @@ public class UserController {
 	}
 	@RequestMapping(value="/newProfesor",method=RequestMethod.POST)
 	public String newProfesor(@ModelAttribute Profesor profesor,Model model){
-		
 		profesorService.save(profesor);
-		
+	
 		return "redirect:/profile";
 		
 	}

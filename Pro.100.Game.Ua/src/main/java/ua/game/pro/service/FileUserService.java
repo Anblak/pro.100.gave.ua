@@ -1,5 +1,6 @@
 package ua.game.pro.service;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -18,5 +19,6 @@ public interface FileUserService {
 	void delete(int id);
 	
 	public void saveFile(MultipartFile multipartFile,User user,Profesor profesor);
+	
 	
 }
