@@ -99,7 +99,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	public String saveImage(Profesor profesor,Principal principal,@ModelAttribute MultipartFile multipartFile,Model model){
+	public String saveImage(Profesor profesor,Principal principal,@RequestParam MultipartFile multipartFile,Model model){
 	
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		fileUserService.saveFile(multipartFile, user,profesor);
