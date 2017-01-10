@@ -9,7 +9,7 @@
 
 </head>
 <body>
-  <div>${dit}</div> 
+  <div>${body}</div> 
 
 </body>
 

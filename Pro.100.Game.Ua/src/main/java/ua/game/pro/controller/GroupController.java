@@ -31,9 +31,10 @@ public class GroupController {
 		
 		
 		String p=creator.p(groupName, "pGroup", "");
+		
 		String div=creator.div(p, "width:77px;height:69px;background:green", "divWithGroup");
 		
-		model.addAttribute("dit",div);
+		model.addAttribute("body",div);
 		
 		return "views-filecontent-some";
 	}
