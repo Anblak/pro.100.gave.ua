@@ -26,6 +26,14 @@ public class FileUser {
 		
 	}
 
+	public FileUser(String name, String path, User user, Profesor profesor) {
+		super();
+		this.name = name;
+		this.path = path;
+		this.user = user;
+		this.profesor = profesor;
+	}
+
 	public FileUser(String name,  String path) {
 		super();
 		this.name = name;

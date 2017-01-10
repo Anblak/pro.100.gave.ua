@@ -2,18 +2,19 @@ package ua.game.pro.serviceImpl;
 
 import java.io.File;
 import java.io.IOException;
-import java.security.Principal;
+
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import ua.game.pro.dao.FileUserDao;
+import ua.game.pro.dao.ProfesorDao;
+import ua.game.pro.dao.UserDao;
 import ua.game.pro.entity.FileUser;
-import ua.game.pro.entity.Profesor;
+
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
 
@@ -23,8 +24,15 @@ public class FileUserServiceImpl implements FileUserService {
 	@Autowired
 	private FileUserDao fileDao;
 
+	@Autowired
+	private ProfesorDao profesorDao;
+
+	@Autowired
+	private UserDao userDao;
+
 	@Override
 	public void save(FileUser file) {
+
 		fileDao.save(file);
 	}
 
@@ -52,9 +60,12 @@ public class FileUserServiceImpl implements FileUserService {
 
 		resources.file.File file = new resources.file.File();
 
-		FileUser fileUser = new FileUser(multipartFile.getOriginalFilename(),
-				"resources/" + file.newFolder(user.getGroup().getId(),  profesor, user.getId())
-						+ multipartFile.getOriginalFilename());
+//		FileUser fileUser = new FileUser(multipartFile.getOriginalFilename(),
+//				"resources/" + file.newFolder(user.getGroup().getId(),  profesor, user.getId())
+//						+ multipartFile.getOriginalFilename());
+		
+		FileUser fileUser =new FileUser(multipartFile.getOriginalFilename(), "resources/" + file.newFolder(user.getGroup().getId(),  profesor, user.getId())
+						+ multipartFile.getOriginalFilename(), user, profesorDao.findOne(profesor));
 //newFolder(users.getGroup().getId(), profesor.getId(), users.getId())
 		save(fileUser);
 		
@@ -77,7 +88,5 @@ public class FileUserServiceImpl implements FileUserService {
 			System.out.println("error with file");
 		}
 	}
-	
-	
 
 }

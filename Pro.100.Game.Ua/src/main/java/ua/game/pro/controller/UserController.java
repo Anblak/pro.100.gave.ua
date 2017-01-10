@@ -34,6 +34,7 @@ import ua.game.pro.validator.UserValidationMessages;
 @Controller
 public class UserController {
 	private String profesor;
+	
 	@Autowired
 	private UserService userService;
 
@@ -107,9 +108,9 @@ public class UserController {
 		model.addAttribute("profesor", profesor);
 		this.profesor=profesor.getString();
 		model.addAttribute("test", this.profesor);
-		String formAddFile="<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}' method='post' enctype='multipart/form-data'> <input type='file' name='multipartFile'> <button>safe file</button> </form:form> ";
-		model.addAttribute("saveFileForm", formAddFile);
-		return "views-filecontent-some";
+//		String formAddFile="<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}' method='post' enctype='multipart/form-data'> <input type='file' name='multipartFile'> <button>safe file</button> </form:form> ";
+//		model.addAttribute("saveFileForm", formAddFile);
+		return "views-filecontent-profile";
 		
 	}
 
@@ -133,10 +134,15 @@ public class UserController {
 
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		model.addAttribute("user", user);
+		
 		HashMap<Integer, String> profesorMap = new Parset()
 				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
 		model.addAttribute("profesorMap", profesorMap);
-		model.addAttribute("profesorID", new StringWrapper());
+		model.addAttribute("profesor", new StringWrapper());
+		
+//		model.addAttribute("profesorID", new StringWrapper());
+		
+		
 
 		//
 		// try {
@@ -150,19 +156,27 @@ public class UserController {
 		return "views-filecontent-profile";
 	}
 
-	// @RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	// public String saveImage(Principal principal,@RequestParam MultipartFile
-	// multipartFile,Model model){
-	//
-	// Profesor profesorr= new Profesor("test");
-	// profesorr.setId(1);
-	//
-	//
-	// User user = userService.findOne(Integer.parseInt(principal.getName()));
-	// fileUserService.saveFile(multipartFile, user,profesorr);
-	//
-	// return "redirect:/profile";
-	// }
+	 @RequestMapping(value = "/saveFile", method = RequestMethod.POST)
+	 public String saveImage(Principal principal,@RequestParam MultipartFile
+	 multipartFile,Model model){
+		 
+		 int profesorID = Integer.parseInt(profesor);
+
+			User user = userService.findOne(Integer.parseInt(principal.getName()));
+
+			fileUserService.saveFile(multipartFile, user, profesorID);
+			
+	
+//	 Profesor profesorr= new Profesor("test");
+//	 profesorr.setId(1);
+	
+	
+//	 User user = userService.findOne(Integer.parseInt(principal.getName()));
+//	 fileUserService.saveFile(multipartFile, user,profesorr);
+
+		return "redirect:/profile";
+	}
+
 	@RequestMapping(value = "/saveProfesor", method = RequestMethod.POST)
 	public String profesor(@RequestParam StringWrapper profesorID, Model model) {
 		model.addAttribute("profesorID", profesorID);
@@ -170,17 +184,18 @@ public class UserController {
 		return "views-filecontent-profile";
 	}
 
-	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	public String saveFile(@RequestParam MultipartFile multipartFile, Principal principal, Model model) {
-
-		int profesorID = Integer.parseInt(profesor);
-
-		User user = userService.findOne(Integer.parseInt(principal.getName()));
-
-		fileUserService.saveFile(multipartFile, user, profesorID);
-
-		return "redirect:/profile";
-	}
+	// @RequestMapping(value = "/saveFile", method = RequestMethod.POST)
+	// public String saveFile(@RequestParam MultipartFile multipartFile,
+	// Principal principal, Model model) {
+	//
+	// int profesorID = Integer.parseInt(profesor);
+	//
+	// User user = userService.findOne(Integer.parseInt(principal.getName()));
+	//
+	// fileUserService.saveFile(multipartFile, user, profesorID);
+	//
+	// return "redirect:/profile";
+	// }
 
 	@RequestMapping(value = "/createGroup", method = RequestMethod.POST)
 	public String createGroup(Principal principal, @ModelAttribute GroupOfUsers groupOfUsers, Model model) {

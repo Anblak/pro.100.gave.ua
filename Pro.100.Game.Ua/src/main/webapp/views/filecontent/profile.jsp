@@ -32,22 +32,47 @@
 	</form:form>
 
 
-	<form:form method="POST" commandName="profesorID" action="saveProfesor">
+	<%-- 	<form:form method="POST" commandName="profesorID" action="saveProfesor"> --%>
 
-		<form:select path="string" itemLable="name" itemValue="id">
-			<form:option value="-" label="--Select profesor" />
-			<form:options items="${profesorMap}" />
-		</form:select>
+	<%-- 		<form:select path="string" itemLable="name" itemValue="id"> --%>
+	<%-- 			<form:option value="-" label="--Select profesor" /> --%>
+	<%-- 			<form:options items="${profesorMap}" /> --%>
+	<%-- 		</form:select> --%>
 
-		<input type="submit" value="Submit" />
-	</form:form>
-	${profesorID}
-	
-<%-- 	<form:form action="./saveFile?${_csrf.parameterName}=${_csrf.token}" --%>
-<%--  		method="post" enctype="multipart/form-data"> --%>
-<!-- 		<input type="file" name="multipartFile"> -->
-<!-- 		<button>safe file</button>  -->
-<%--  	</form:form>  --%>
+	<!-- 		<input type="submit" value="Submit" /> -->
+	<%-- 	</form:form> --%>
+	<%-- 	${profesorID} --%>
+
+<div>
+		<form:form method="POST" commandName="profesor" action="profesort">
+
+			<form:select path="string" itemLable="name" itemValue="id">
+				<form:option value="-" label="--Select phone" />
+				<form:options items="${profesorMap}" />
+			</form:select>
+			<button>submit</button>
+		</form:form>
+		<p>${profesor}</p>
+		<p>${test}</p>
+		<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
+			method='post' enctype='multipart/form-data'>
+			<input type='file' name='multipartFile'>
+			<button>safe file</button>
+		</form:form>
+</div>
+
+
+
+
+
+
+
+
+	<%-- 	<form:form action="./saveFile?${_csrf.parameterName}=${_csrf.token}" --%>
+	<%--  		method="post" enctype="multipart/form-data"> --%>
+	<!-- 		<input type="file" name="multipartFile"> -->
+	<!-- 		<button>safe file</button>  -->
+	<%--  	</form:form>  --%>
 
 
 
