@@ -58,9 +58,21 @@ public class GroupController {
 		return "views-filecontent-some";
 	}
 
-	@RequestMapping("/Group/Profesor/Users")
+	@RequestMapping("/testtt")
 	public String outPrintFile(Model model, Principal principal) {
-
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
+		String body = "";
+		
+		List<User> list=groupService.findOne(user.getGroup().getId()).getUsers();
+		for (User user2 : list) {
+			
+			body += (" " + creator.div(creator.p(user2.getName(), "pUser", ""),
+					"width:77px;height:69px;background:green", "divUserGroup") + " ");
+		}
+		
+		
+		
+		model.addAttribute("body", body);
 		return "views-filecontent-some";
 	}
 }
