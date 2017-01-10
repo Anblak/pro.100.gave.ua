@@ -20,11 +20,11 @@ ${user.name}${user.email}${user.phone}
  <form:option value="-" label="--Select phone"/>
                 <form:options items="${profesorsMap}" />
 		</form:select>
-		<input type="submit" value="Submit"/>
+		<button>submit</button>
 	</form:form>
 	<p>${profesor}</p>	
 	<p>${test}</p>	
-	${saveFileForm} }
+	${saveFileForm} 
 </div>
 <%-- <form:form action="./saveFile?${_csrf.parameterName}=${_csrf.token}" --%>
 <%--  		method="post" enctype="multipart/form-data"> --%>
