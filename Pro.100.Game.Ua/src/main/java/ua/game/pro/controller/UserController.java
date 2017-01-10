@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import resources.parset.Parset;
 import resources.wrapper.FileWrapper;
+import resources.wrapper.StringWrapper;
 import ua.game.pro.dto.DTOUtilMapper;
 import ua.game.pro.dto.ProfesorDTO;
 import ua.game.pro.editor.ProfesorEditor;
@@ -32,7 +33,7 @@ import ua.game.pro.validator.UserValidationMessages;
 
 @Controller
 public class UserController {
-	private ProfesorDTO profesor =  new ProfesorDTO();
+	private String profesor;
 	@Autowired
 	private UserService userService;
 
@@ -94,18 +95,22 @@ public class UserController {
 
 		HashMap<Integer, String> profesorMap = new Parset()
 				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
-		model.addAttribute("profesor", new ProfesorDTO());
+		model.addAttribute("profesor", new StringWrapper());
 		model.addAttribute("profesorsMap", profesorMap);
 
 		return "views-filecontent-some";
 	}
 
 	@RequestMapping("/profesort")
-	public String profile(@ModelAttribute ProfesorDTO profesor, Model model) {
+	public String profile(@ModelAttribute StringWrapper profesor, Model model) {
 
 		model.addAttribute("profesor", profesor);
-		model.addAttribute("test", profesor.getName());
+		this.profesor=profesor.getString();
+		model.addAttribute("test", this.profesor);
+		String formAddFile="<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}' method='post' enctype='multipart/form-data'> <input type='file' name='multipartFile'> <button>safe file</button> </form:form> ";
+		model.addAttribute("saveFileForm", formAddFile);
 		return "views-filecontent-some";
+		
 	}
 
 	// @RequestMapping(value = "/saveFile", method = RequestMethod.POST)
@@ -131,7 +136,7 @@ public class UserController {
 		HashMap<Integer, String> profesorMap = new Parset()
 				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
 		model.addAttribute("profesorMap", profesorMap);
-		model.addAttribute("profesorDTO", new ProfesorDTO());
+		model.addAttribute("profesorID", new StringWrapper());
 
 		//
 		// try {
@@ -159,15 +164,16 @@ public class UserController {
 	// return "redirect:/profile";
 	// }
 	@RequestMapping(value = "/saveProfesor", method = RequestMethod.POST)
-	public String profesor(@RequestParam ProfesorDTO profesor) {
-		this.profesor = profesor;
-		return "redirect:/profile";
+	public String profesor(@RequestParam StringWrapper profesorID, Model model) {
+		model.addAttribute("profesorID", profesorID);
+		// this.profesor = profesor.getName();
+		return "views-filecontent-profile";
 	}
 
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	public String saveFile(@RequestParam MultipartFile multipartFile, Principal principal, Model model,@RequestParam ProfesorDTO profesor) {
+	public String saveFile(@RequestParam MultipartFile multipartFile, Principal principal, Model model) {
 
-		int profesorID = Integer.parseInt(profesor.getName());
+		int profesorID = Integer.parseInt(profesor);
 
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 

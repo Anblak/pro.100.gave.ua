@@ -31,20 +31,23 @@
 		<button>new profesor</button>
 	</form:form>
 
-	<form:form action="./saveFile?${_csrf.parameterName}=${_csrf.token}"
-		method="post" enctype="multipart/form-data">
-		<input type="file" name="multipartFile">
-		<button>safe file</button>
-	</form:form>
-	<form:form method="POST" commandName="profesorDTO" action="saveFile">
 
-		<form:select path="name" itemLable="name" itemValue="id">
+	<form:form method="POST" commandName="profesorID" action="saveProfesor">
+
+		<form:select path="string" itemLable="name" itemValue="id">
 			<form:option value="-" label="--Select profesor" />
 			<form:options items="${profesorMap}" />
 		</form:select>
+
 		<input type="submit" value="Submit" />
 	</form:form>
-
+	${profesorID}
+	
+<%-- 	<form:form action="./saveFile?${_csrf.parameterName}=${_csrf.token}" --%>
+<%--  		method="post" enctype="multipart/form-data"> --%>
+<!-- 		<input type="file" name="multipartFile"> -->
+<!-- 		<button>safe file</button>  -->
+<%--  	</form:form>  --%>
 
 
 
