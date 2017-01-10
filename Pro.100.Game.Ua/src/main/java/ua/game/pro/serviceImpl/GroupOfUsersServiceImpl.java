@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import ua.game.pro.dao.GroupOfUsersDao;
 import ua.game.pro.dao.UserDao;
@@ -26,7 +27,7 @@ public class GroupOfUsersServiceImpl implements GroupOfUsersService {
 	@Autowired
 	@Qualifier("GroupOfUsersValidator")
 	private Validator validator;
-
+	
 	@Override
 	public void save(GroupOfUsers group,User user) throws Exception {
 		validator.validate(group);
@@ -41,13 +42,13 @@ public class GroupOfUsersServiceImpl implements GroupOfUsersService {
 
 		return groupDao.findAll();
 	}
-
+	
 	@Override
 	public GroupOfUsers findOne(int id) {
 
 		return groupDao.findOne(id);
 	}
-
+	
 	@Override
 	public void delete(int id) {
 
