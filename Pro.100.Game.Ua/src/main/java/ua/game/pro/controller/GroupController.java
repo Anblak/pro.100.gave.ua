@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import resources.creatorHTMLTag.CreatorHTMLTag;
+import ua.game.pro.entity.FileUser;
 import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
@@ -59,19 +60,38 @@ public class GroupController {
 	}
 
 	@RequestMapping("/testtt")
-	public String outPrintFile(Model model, Principal principal) {
+	public String outPrintUserOfGrup(Model model, Principal principal) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		String body = "";
-		
-		List<User> list=groupService.findOne(user.getGroup().getId()).getUsers();
-		for (User user2 : list) {
-			
-			body += (" " + creator.div(creator.p(user2.getName(), "pUser", ""),
-					"width:77px;height:69px;background:green", "divUserGroup") + " ");
+
+		for (User user2 : userService.findAll()) {
+			if (user.getGroup().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
+
+				body += (" " + creator.div(creator.p(user2.getName(), "pUser", ""),
+						"width:77px;height:69px;background:green", "divUserGroup") + " ");
+			}
 		}
-		
-		
-		
+
+		model.addAttribute("body", body);
+		return "views-filecontent-some";
+	}
+
+	@RequestMapping("/file")
+	public String outPrintFile(Model model, Principal principal) {
+		int idu = 4;// переробити
+		User user = userService.findOne(idu);
+		String body = "";
+		int id = 1;///// переробити
+		Profesor profesor = profesorService.findOne(id);
+		for (FileUser fileUser : fileUserService.findAll()) {
+			if (fileUser.getUser().getId() == user.getId()) {
+				if (fileUser.getProfesor().getId() == profesor.getId()) {
+					if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
+						
+					}
+				}
+			}
+		}
 		model.addAttribute("body", body);
 		return "views-filecontent-some";
 	}
