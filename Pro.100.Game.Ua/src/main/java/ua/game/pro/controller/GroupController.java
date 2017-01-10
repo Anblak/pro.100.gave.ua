@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import resources.creatorHTMLTag.CreatorHTMLTag;
+import ua.game.pro.entity.FileUser;
 import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
@@ -77,8 +78,20 @@ public class GroupController {
 
 	@RequestMapping("/file")
 	public String outPrintFile(Model model, Principal principal) {
-		User user = userService.findOne(Integer.parseInt(principal.getName()));
+		int idu = 4;// переробити
+		User user = userService.findOne(idu);
 		String body = "";
+		int id = 1;///// переробити
+		Profesor profesor = profesorService.findOne(id);
+		for (FileUser fileUser : fileUserService.findAll()) {
+			if (fileUser.getUser().getId() == user.getId()) {
+				if (fileUser.getProfesor().getId() == profesor.getId()) {
+					if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
+						
+					}
+				}
+			}
+		}
 		model.addAttribute("body", body);
 		return "views-filecontent-some";
 	}
