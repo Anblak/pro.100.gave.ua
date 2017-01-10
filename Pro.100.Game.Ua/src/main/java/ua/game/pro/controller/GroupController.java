@@ -62,18 +62,15 @@ public class GroupController {
 	public String outPrintFile(Model model, Principal principal) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		String body = "";
-		
-		
+
 		for (User user2 : userService.findAll()) {
-			if(user.getGroup().getId()==user2.getGroup().getId()&&user2.getGroup()!=null){
-				
-			body += (" " + creator.div(creator.p(user2.getName(), "pUser", ""),
-					"width:77px;height:69px;background:green", "divUserGroup") + " ");
+			if (user.getGroup().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
+
+				body += (" " + creator.div(creator.p(user2.getName(), "pUser", ""),
+						"width:77px;height:69px;background:green", "divUserGroup") + " ");
 			}
 		}
-		
-		
-		
+
 		model.addAttribute("body", body);
 		return "views-filecontent-some";
 	}
