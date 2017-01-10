@@ -75,7 +75,7 @@ public class GroupController {
 		return "views-filecontent-some";
 	}
 
-	@RequestMapping("/testtt")
+	@RequestMapping("/file")
 	public String outPrintFile(Model model, Principal principal) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		String body = "";
