@@ -20,9 +20,9 @@ public class CreatorHTMLTag {
 		String div = "";
 		div = "<div style='" + style + "'>" + input + "</div>";
 		File fileRename = new File();
-	
+
 		return div;
-		
+
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class CreatorHTMLTag {
 	 *         <li>input</li>
 	 */
 	public String li(String input) {
-		String li = "<li >"+input+"</li>";
+		String li = "<li >" + input + "</li>";
 		return li;
 	}
 
@@ -108,7 +108,7 @@ public class CreatorHTMLTag {
 	 *            - id ul
 	 * @return - HTML element
 	 *         <ul>
-	 * 		input
+	 *         input
 	 *         </ul>
 	 */
 	public String ul(String input, String clas, String style, String id) {
@@ -130,12 +130,45 @@ public class CreatorHTMLTag {
 	 *            - id p
 	 * @return - HTML element
 	 *         <p>
-	 * 		input
+	 *         input
 	 *         </p>
 	 */
 	public String p(String input, String clas, String style, String id) {
 		String p = "<p id='" + id + "' class='" + clas + "' style='" + style + "'>>" + input + "</p>";
 		return p;
+	}
+
+	/**
+	 * 
+	 * @param input
+	 *            - наповнення p
+	 * @param clas
+	 *            - клас р
+	 * @param style
+	 *            - стилізація р
+	 * 
+	 * @return - HTML element
+	 *         <p>
+	 *         input
+	 *         </p>
+	 */
+	public String p(String input, String clas, String style) {
+		String p = "<p  class='" + clas + "' style='" + style + "'>" + input + "</p>";
+		return p;
+	}
+/**
+ * 
+ * @param input
+ * @param clas
+ * @param name
+ * @param value
+ * @param type
+ * @param formmethod
+ * @param formaction
+ * @return button
+ */
+	public String button(String input,String clas,String name, String value, String type, String formmethod ,String formaction) {
+return " <button class='" + clas + "' name='"+name+"' value='"+value+"' type='"+type+"' formmethod='"+formmethod+"' formaction='"+formaction+"' >"+input+"</button>";
 	}
 
 }

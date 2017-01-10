@@ -9,28 +9,8 @@
 
 </head>
 <body>
+  <div>${dit}</div> 
 
-
-
-	<div>
-		${user.name}${user.email}${user.phone}
-		<form:form method="POST" commandName="profesor" action="profesort">
-
-			<form:select path="string" itemLable="name" itemValue="id">
-				<form:option value="-" label="--Select phone" />
-				<form:options items="${profesorsMap}" />
-			</form:select>
-			<button>submit</button>
-		</form:form>
-		<p>${profesor}</p>
-		<p>${test}</p>
-		${saveFileForm}
-	</div>
-	<%-- <form:form action="./saveFile?${_csrf.parameterName}=${_csrf.token}" --%>
-	<%--  		method="post" enctype="multipart/form-data"> --%>
-	<!-- 		<input type="file" name="multipartFile"> -->
-	<!-- 		<button>safe file</button>  -->
-	<%--  	</form:form>  --%>
 </body>
 
 <script src="js/some.js"></script>
