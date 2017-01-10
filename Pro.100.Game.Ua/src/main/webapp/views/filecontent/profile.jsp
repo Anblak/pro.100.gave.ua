@@ -25,7 +25,8 @@
 	</form:form>
 	
 	<br>
-	${uuidBody}
+	<p>${uuidBody}</p>
+	
 
 	<br>
 

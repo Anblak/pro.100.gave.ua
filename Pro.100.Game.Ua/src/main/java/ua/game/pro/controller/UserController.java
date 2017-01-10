@@ -140,6 +140,8 @@ public class UserController {
 				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
 		model.addAttribute("profesorMap", profesorMap);
 		model.addAttribute("profesor", new StringWrapper());
+//		model.addAttribute("uuidBody", uuidBody);
+
 		
 //		model.addAttribute("profesorID", new StringWrapper());
 		
@@ -216,19 +218,20 @@ public class UserController {
 				model.addAttribute("nameException", e.getMessage());
 			}
 		}
+		System.out.println(uuidBody);
 		model.addAttribute("uuidBody", uuidBody);
 
 		// }else{
 		//
 		// }
-		return "redirect:/profile";
+		return "views-filecontent-profile";
 	}
 	
 	
 	@RequestMapping("/confirmAdd/{uuid}")
-	public String newUserInGroup(@PathVariable String uuid) {
-	
-		userService.update(new User(), groupOfUsersService.findByUUID(uuid));
+	public String newUserInGroup(Principal principal,@PathVariable String uuid) {
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
+		userService.update(user, groupOfUsersService.findByUUID(uuid));
 		
 
 		return "redirect:/profile";
