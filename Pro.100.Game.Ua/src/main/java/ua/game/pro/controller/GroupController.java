@@ -78,7 +78,7 @@ public class GroupController {
 
 	@RequestMapping("/file")
 	public String outPrintFile(Model model, Principal principal) {
-		int idu = 3;// переробити
+		int idu = 1;// переробити
 		User user = userService.findOne(idu);
 		String body = "";
 		int id = 3;///// переробити
@@ -88,7 +88,7 @@ public class GroupController {
 				if (fileUser.getProfesor().getId() == profesor.getId()) {
 					if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
 						body += " " + (creator.div(
-								creator.a("", fileUser.getPath(), "", (creator.p(fileUser.getName(), "pFile", ""))),
+								creator.a(fileUser.getPath(), "", "", (creator.p(fileUser.getName(), "pFile", ""))),
 								"width:77px;height:69px;background:green", "divFile") + " ");
 					}
 				}
