@@ -84,12 +84,15 @@ public class GroupController {
 		int id = 3;///// переробити
 		Profesor profesor = profesorService.findOne(id);
 		for (FileUser fileUser : fileUserService.findAll()) {
+			if(fileUser!=null){
+				
 			if (fileUser.getUser().getId() == user.getId()) {
 				if (fileUser.getProfesor().getId() == profesor.getId()) {
 					if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
 						body += " " + (creator.div(
 								creator.a("", fileUser.getPath(), "", (creator.p(fileUser.getName(), "pFile", ""))),
 								"width:77px;height:69px;background:green", "divFile") + " ");
+						}
 					}
 				}
 			}
