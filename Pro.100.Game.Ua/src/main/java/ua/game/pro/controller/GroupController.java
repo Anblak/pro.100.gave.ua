@@ -1,6 +1,7 @@
 package ua.game.pro.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,9 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import resources.creatorHTMLTag.CreatorHTMLTag;
+import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
 import ua.game.pro.service.GroupOfUsersService;
+import ua.game.pro.service.ProfesorService;
 import ua.game.pro.service.UserService;
 
 @Controller
@@ -22,20 +25,42 @@ public class GroupController {
 	private GroupOfUsersService groupService;
 	@Autowired
 	private FileUserService fileUserService;
+	@Autowired
+	private ProfesorService profesorService;
 
-	@RequestMapping("/showGroup")
+	@RequestMapping("/Group")
 	public String outPrintGrup(Model model, Principal principal) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		String groupName = user.getGroup().getName();
-		
-		
-		
-		String p=creator.p(groupName, "pGroup", "");
-		
-		String div=creator.div(p, "width:77px;height:69px;background:green", "divWithGroup");
-		
-		model.addAttribute("body",div);
-		
+
+		String p = creator.p(groupName, "pGroup", "");
+
+		String div = creator.div(p, "width:77px;height:69px;background:green", "divWithGroup");
+
+		model.addAttribute("body", div);
+
+		return "views-filecontent-some";
+	}
+
+	@RequestMapping("/Group/Profesor")
+	public String outPrintProfesor(Model model, Principal principal) {
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
+		List<Profesor> listProfesor = profesorService.findAll();
+		String body = "";
+		for (Profesor profesor : listProfesor) {
+			body += (" " + creator.div(creator.p(profesor.getName(), "pProfesor", ""),
+					"width:77px;height:69px;background:green", "divProfesor") + " ");
+
+		}
+
+		model.addAttribute("body", body);
+
+		return "views-filecontent-some";
+	}
+
+	@RequestMapping("/Group/Profesor/Users")
+	public String outPrintFile(Model model, Principal principal) {
+
 		return "views-filecontent-some";
 	}
 }
