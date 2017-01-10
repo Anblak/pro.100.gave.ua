@@ -23,6 +23,9 @@
 			placeholder="name ${nameException}">
 		<button>create group</button>
 	</form:form>
+	
+	<br>
+	${uuidBody}
 
 	<br>
 

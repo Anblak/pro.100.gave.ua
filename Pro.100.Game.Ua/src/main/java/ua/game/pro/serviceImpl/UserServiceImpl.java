@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 
 import ua.game.pro.dao.UserDao;
+import ua.game.pro.entity.GroupOfUsers;
 import ua.game.pro.entity.Role;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.UserService;
@@ -58,6 +59,11 @@ public class UserServiceImpl implements UserService, UserDetailsService{
     public User findByName(String name) {
         return userDao.findByName(name);
     }
+    
+	public void update(User user,GroupOfUsers group) {
+		user.setGroup(group);
+		userDao.save(user);
+	}
     
 
 

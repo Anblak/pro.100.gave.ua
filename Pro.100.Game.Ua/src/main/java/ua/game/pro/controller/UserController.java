@@ -2,6 +2,7 @@ package ua.game.pro.controller;
 
 import java.security.Principal;
 import java.util.HashMap;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -201,6 +202,12 @@ public class UserController {
 	public String createGroup(Principal principal, @ModelAttribute GroupOfUsers groupOfUsers, Model model) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		// if(user.getGroup().equals(null)){
+		   String uuid = UUID.randomUUID().toString();
+		
+			        groupOfUsers.setUuid(uuid);
+			        
+			        String uuidBody =
+			                "hi, to add another users,give them this link    http://localhost:8080/Pro.100.GameUa/confirmAdd/" + uuid;
 
 		try {
 			groupOfUsersService.save(groupOfUsers, user);
@@ -209,12 +216,29 @@ public class UserController {
 				model.addAttribute("nameException", e.getMessage());
 			}
 		}
+		model.addAttribute("uuidBody", uuidBody);
 
 		// }else{
 		//
 		// }
 		return "redirect:/profile";
 	}
+	
+	
+	@RequestMapping("/confirmAdd/{uuid}")
+	public String newUserInGroup(@PathVariable String uuid) {
+	
+		userService.update(new User(), groupOfUsersService.findByUUID(uuid));
+		
+
+		return "redirect:/profile";
+	}
+	
+	
+	
+	
+	
+	
 
 	@RequestMapping(value = "/newProfesor", method = RequestMethod.POST)
 	public String newProfesor(@ModelAttribute Profesor profesor, Model model) {

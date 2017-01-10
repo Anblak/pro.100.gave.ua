@@ -44,7 +44,7 @@
 //	@RequestMapping(value = "/savegroup", method = RequestMethod.POST)
 //	public String newGroup(Model model,@ModelAttribute Group group) {
 //		
-//		   String uuid = UUID.randomUUID().toString();
+//	   String uuid = UUID.randomUUID().toString();
 //
 //	        group.setUuid(uuid);
 //		
