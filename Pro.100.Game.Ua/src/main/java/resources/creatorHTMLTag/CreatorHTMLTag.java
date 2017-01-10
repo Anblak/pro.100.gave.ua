@@ -170,5 +170,19 @@ public class CreatorHTMLTag {
 	public String button(String input,String clas,String name, String value, String type, String formmethod ,String formaction) {
 return " <button class='" + clas + "' name='"+name+"' value='"+value+"' type='"+type+"' formmethod='"+formmethod+"' formaction='"+formaction+"' >"+input+"</button>";
 	}
+	
+	/**
+	 * 
+	 * @param input
+	 * @param clas
+	 * @param type
+	 * @return
+	 */
+	
+	
+	public String button(String input,String clas,String type){
+		
+		return " <button class='" + clas + "' type='"+type+"' >"+input+"</button>";
+	}
 
 }
