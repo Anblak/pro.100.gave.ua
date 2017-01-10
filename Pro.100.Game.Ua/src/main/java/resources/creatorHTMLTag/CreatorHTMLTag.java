@@ -185,4 +185,50 @@ return " <button class='" + clas + "' name='"+name+"' value='"+value+"' type='"+
 		return " <button class='" + clas + "' type='"+type+"' >"+input+"</button>";
 	}
 
+	
+	/**
+	 * 
+	 * @param name
+	 * @param placeholder
+	 * @param clas
+	 * @param id
+	 * @param type
+	 * @return
+	 */
+	
+	public String input(String name,String placeholder,String clas,String id,String type){
+			
+		return "<input name='"+name+"' placeholder='"+placeholder+"' class='"+clas+"' id='"+id+"' type='"+type+"' >";
+	}
+	
+	
+	/**
+	 * 
+	 * @param href
+	 * @param download
+	 * @param name
+	 * @param title
+	 * @param type
+	 * @param input
+	 * @return
+	 */
+	public String a(String href,String download,String name,String title,String type,String input){
+		return "<a href='"+href+"' download='"+download+"' name='"+name+"' title='"+title+"' type='"+type+"' >"+input+"</a>";
+		
+	}
+	
+	/**
+	 * 
+	 * @param href
+	 * @param download
+	 * @param name
+	 * @param input
+	 * @return
+	 */
+	public String a(String href,String download,String name,String input){
+		return "<a href='"+href+"' download='"+download+"' name='"+name+"'>"+input+"</a>";
+		
+	}
+	
+	
 }
