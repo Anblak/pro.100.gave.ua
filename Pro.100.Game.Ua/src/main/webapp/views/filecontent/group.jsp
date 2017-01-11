@@ -6,11 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="css/group.css">
 <title>Insert title here</title>
 </head>
 <body>
 
-  <div>${body}</div> 
+  <div style="width:1360px;height:600px">${body}</div> 
   
   
   

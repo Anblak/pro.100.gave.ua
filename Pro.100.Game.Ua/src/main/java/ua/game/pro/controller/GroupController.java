@@ -36,9 +36,9 @@ public class GroupController {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		String groupName = user.getGroup().getName();
 
-		String input = creator.p(groupName, "pGroup", "")+creator.form(creator.button("profesor", "button", "submit"), "profesor", "get");
+		String input = creator.p(groupName, "p", "width:150px;height: 50px;")+creator.form(creator.button("profesor", "button", "submit"), "profesor", "get");
 
-		String div = creator.div(input, "width:77px;height:69px;background:green", "divWithGroup");
+		String div = creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div");
 
 		model.addAttribute("body", div);
 
@@ -51,10 +51,10 @@ public class GroupController {
 		List<Profesor> listProfesor = profesorService.findAll();
 		String body = "";
 		for (Profesor profesor : listProfesor) {
-			String input = creator.p(profesor.getName(), "pProfesor", "")
+			String input = creator.p(profesor.getName(), "p", "width:150px;height: 50px;")
 					+ creator.form(creator.button("go file of profesorUser", "button", "submit"),
 							"group/profesor/" + profesor.getId(), "get");
-			body += (" " + creator.div(input, "width:77px;height:69px;background:green", "divProfesor") + " ");
+			body += (" " + creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div") + " ");
 
 		}
 
@@ -70,11 +70,11 @@ public class GroupController {
 
 		for (User user2 : userService.findAll()) {
 			if (user.getGroup().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
-				String input = creator.p(user2.getName(), "pUser", "")
+				String input = creator.p(user2.getName(), "p", "width:150px;height: 50px;")
 						+ creator.form(creator.button("go in file user", "button", "submit"),
 								"file/" + user2.getId() + "/" + idp, "get");
 
-				body += (" " + creator.div(input, "width:77px;height:69px;background:green", "divUserGroup") + " ");
+				body += (" " + creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div") + " ");
 			}
 		}
 
@@ -99,9 +99,9 @@ public class GroupController {
 
 						if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
 							String input = creator.a(fileUser.getPath(), "", "",
-									(creator.p(fileUser.getName(), "pFile", "")));
+									(creator.p(fileUser.getName(), "p", "width:150px;height: 50px;")));
 							body += " "
-									+ (creator.div(input, "width:77px;height:69px;background:green", "divFile") + " ");
+									+ (creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div") + " ");
 						}
 					}
 				}
