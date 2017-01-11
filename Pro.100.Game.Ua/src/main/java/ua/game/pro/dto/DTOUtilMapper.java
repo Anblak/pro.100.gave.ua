@@ -56,6 +56,7 @@ public class DTOUtilMapper {
 			ProfesorDTO profesorDTO=new ProfesorDTO();
 			profesorDTO.setName(profesor.getName());
 			profesorDTO.setId(profesor.getId());
+			profesorDTO.setGroupOfUsers(profesor.getGroupOfUsers());
 			profesorDTOs.add(profesorDTO);
 			
 		}
