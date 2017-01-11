@@ -31,46 +31,50 @@ public class GroupController {
 	@Autowired
 	private ProfesorService profesorService;
 
-	@RequestMapping("/group")
+	@RequestMapping(value = "/group", method = RequestMethod.GET)
 	public String outPrintGrup(Model model, Principal principal) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		String groupName = user.getGroup().getName();
 
-		String p = creator.p(groupName, "pGroup", "");
+		String input = creator.p(groupName, "pGroup", "")+creator.form(creator.button("profesor", "button", "submit"), "profesor", "get");
 
-		String div = creator.div(p, "width:77px;height:69px;background:green", "divWithGroup");
+		String div = creator.div(input, "width:77px;height:69px;background:green", "divWithGroup");
 
 		model.addAttribute("body", div);
 
 		return "views-filecontent-group";
 	}
 
-	@RequestMapping("group/profesor")
+	@RequestMapping(value = "profesor", method = RequestMethod.GET)
 	public String outPrintProfesor(Model model, Principal principal) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		List<Profesor> listProfesor = profesorService.findAll();
 		String body = "";
 		for (Profesor profesor : listProfesor) {
-			body += (" " + creator.div(creator.p(profesor.getName(), "pProfesor", ""),
-					"width:77px;height:69px;background:green", "divProfesor") + " ");
+			String input = creator.p(profesor.getName(), "pProfesor", "")
+					+ creator.form(creator.button("go file of profesorUser", "button", "submit"),
+							"group/profesor/" + profesor.getId(), "get");
+			body += (" " + creator.div(input, "width:77px;height:69px;background:green", "divProfesor") + " ");
 
 		}
 
 		model.addAttribute("body", body);
 
-		return "views-filecontent-some";
+		return "views-filecontent-group";
 	}
 
-	@RequestMapping("/usersInTheGroup")
-	public String outPrintUserOfGrup(Model model, Principal principal) {
+	@RequestMapping(value = "group/profesor/{idp}", method = RequestMethod.GET)
+	public String outPrintUserOfGrup(Model model, Principal principal, @PathVariable String idp) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		String body = "";
 
 		for (User user2 : userService.findAll()) {
 			if (user.getGroup().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
+				String input = creator.p(user2.getName(), "pUser", "")
+						+ creator.form(creator.button("go in file user", "button", "submit"),
+								"file/" + user2.getId() + "/" + idp, "get");
 
-				body += (" " + creator.div(creator.p(user2.getName(), "pUser", ""),
-						"width:77px;height:69px;background:green", "divUserGroup") + " ");
+				body += (" " + creator.div(input, "width:77px;height:69px;background:green", "divUserGroup") + " ");
 			}
 		}
 
@@ -78,26 +82,26 @@ public class GroupController {
 		return "views-filecontent-group";
 	}
 
-	@RequestMapping(value="/file/{idu}/{id}",method=RequestMethod.GET)
-	public String outPrintFile(Model model, Principal principal,@PathVariable String idu, @PathVariable String id) {
-		System.out.println(idu+id);
+	@RequestMapping(value = "group/profesor/file/{id}/{idu}", method = RequestMethod.GET)
+	public String outPrintFile(Model model, Principal principal, @PathVariable String idu, @PathVariable String id) {
+		System.out.println(idu + id);
 		User user = userService.findOne(Integer.parseInt(idu));
 		String body = "";
-		
+
 		Profesor profesor = profesorService.findOne(Integer.parseInt(id));
-		
+
 		for (FileUser fileUser : fileUserService.findAll()) {
-			if(fileUser!=null && user !=null && profesor != null){
-				System.out.println("0");
-			if (fileUser.getUser().getId() == user.getId()) {
-				System.out.println("1");
-				if (fileUser.getProfesor().getId() == profesor.getId()) {
-					System.out.println("2");
-					if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
-						System.out.println("3");
-						body += " " + (creator.div(
-								creator.a(fileUser.getPath(), "", "", (creator.p(fileUser.getName(), "pFile", ""))),
-								"width:77px;height:69px;background:green", "divFile") + " ");
+			if (fileUser != null && user != null && profesor != null) {
+
+				if (fileUser.getUser().getId() == user.getId()) {
+
+					if (fileUser.getProfesor().getId() == profesor.getId()) {
+
+						if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
+							String input = creator.a(fileUser.getPath(), "", "",
+									(creator.p(fileUser.getName(), "pFile", "")));
+							body += " "
+									+ (creator.div(input, "width:77px;height:69px;background:green", "divFile") + " ");
 						}
 					}
 				}
