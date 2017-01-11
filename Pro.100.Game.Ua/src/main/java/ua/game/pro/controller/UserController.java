@@ -140,7 +140,7 @@ public class UserController {
 		model.addAttribute("user", user);
 
 		HashMap<Integer, String> profesorMap = new Parset()
-				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
+				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()),user);
 		model.addAttribute("profesorMap", profesorMap);
 		model.addAttribute("profesor", new StringWrapper());
 		// model.addAttribute("uuidBody", uuidBody);
