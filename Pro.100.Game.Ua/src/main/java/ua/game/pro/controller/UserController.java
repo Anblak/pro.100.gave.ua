@@ -138,13 +138,19 @@ public class UserController {
 
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		model.addAttribute("user", user);
-if(user.getGroup()!=(null)){
-		HashMap<Integer, String> profesorMap = new Parset()
-				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()),user);
-		model.addAttribute("profesorMap", profesorMap);
-		model.addAttribute("profesor", new StringWrapper());
-		
-}
+		//System.out.println(user.getGroup());
+
+		if (user.getGroup()!=null) {
+			String list = "<form:form method=\"POST\" commandName=\"profesor\" action=\"profesort\"><form:select path=\"string\" itemLable=\"name\" itemValue=\"id\">	<form:option value=\"-\" label=\"--Select profesor\" /><form:options items=\"${profesorMap}\" /></form:select><button>submit</button>	</form:form>";
+			model.addAttribute("list", list);
+			System.out.println(user.getGroup());
+			HashMap<Integer, String> profesorMap = new Parset()
+					.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()), user);
+
+			model.addAttribute("profesorMap", profesorMap);
+			model.addAttribute("profesor", new StringWrapper());
+		}
+
 		// model.addAttribute("uuidBody", uuidBody);
 
 		// model.addAttribute("profesorID", new StringWrapper());

@@ -25,10 +25,10 @@
 			placeholder="name ${nameException}">
 		<button>create group</button>
 	</form:form>
-	
+
 	<br>
 	<p>${uuidBody}</p>
-	
+
 
 	<br>
 
@@ -49,15 +49,8 @@
 	<%-- 	</form:form> --%>
 	<%-- 	${profesorID} --%>
 
-<div>
-		<form:form method="POST" commandName="profesor" action="profesort">
-
-			<form:select path="string" itemLable="name" itemValue="id">
-				<form:option value="-" label="--Select profesor" />
-				<form:options items="${profesorMap}" />
-			</form:select>
-			<button>submit</button>
-		</form:form>
+	<div>
+		<div>${list}</div>
 		<p>${profesor}</p>
 		<p>${test}</p>
 		<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
@@ -65,17 +58,17 @@
 			<input type='file' name='multipartFile'>
 			<button>safe file</button>
 		</form:form>
-</div>
+	</div>
 
 
 
-<sec:authorize access="hasRole('ROLE_USER')">
-	<a href="group">group</a>
-</sec:authorize>
+	<sec:authorize access="hasRole('ROLE_USER')">
+		<a href="group">group</a>
+	</sec:authorize>
 
-<sec:authorize access="hasRole('ROLE_CREATOR')">
-	<a href="group">group</a>
-</sec:authorize>
+	<sec:authorize access="hasRole('ROLE_CREATOR')">
+		<a href="group">group</a>
+	</sec:authorize>
 
 
 

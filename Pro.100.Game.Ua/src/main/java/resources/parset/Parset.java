@@ -149,7 +149,7 @@ public class Parset {
 	public HashMap<Integer, String> ArrayListToMap(List<ProfesorDTO> list,User user){
 		HashMap<Integer, String> map = new HashMap<Integer, String>();
 		for (ProfesorDTO profesorDTO : list) {
-			if(profesorDTO.getGroupOfUsers().getId()==user.getGroup().getId()&& !(user.getGroup().equals(null))){
+			if(profesorDTO.getGroupOfUsers().getId()==user.getGroup().getId()){
 				
 			map.put(profesorDTO.getId(), profesorDTO.getName());
 			}
