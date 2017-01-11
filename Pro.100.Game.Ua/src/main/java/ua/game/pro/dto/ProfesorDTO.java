@@ -1,8 +1,12 @@
 package ua.game.pro.dto;
 
+import ua.game.pro.entity.GroupOfUsers;
+
 public class ProfesorDTO {
 	private int id;
 	private String name;
+	
+	private GroupOfUsers groupOfUsers;
 	
 	public ProfesorDTO() {
 		
@@ -23,6 +27,16 @@ public class ProfesorDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public GroupOfUsers getGroupOfUsers() {
+		return groupOfUsers;
+	}
+
+	public void setGroupOfUsers(GroupOfUsers groupOfUsers) {
+		this.groupOfUsers = groupOfUsers;
+	}
+	
+	
 	
 	
 
