@@ -54,9 +54,11 @@ public class CreateJScript {
 	 * @param input
 	 *            - innerHTML = input
 	 * @return "innerHTML+=" + input
+	 * innerHTML використавується для добавлення до елемента 
 	 */
 	public String innerHTMLadd(String input) {
 		return "innerHTML+=" + input;
 	}
+	
 
 }
