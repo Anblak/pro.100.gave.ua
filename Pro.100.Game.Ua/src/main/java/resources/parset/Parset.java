@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import ua.game.pro.dto.ProfesorDTO;
+import ua.game.pro.entity.User;
 
 /**
  * 
@@ -141,6 +142,17 @@ public class Parset {
 		HashMap<Integer, String> map = new HashMap<Integer, String>();
 		for (ProfesorDTO profesorDTO : list) {
 			map.put(profesorDTO.getId(), profesorDTO.getName());
+		}
+		
+		return map;
+	}
+	public HashMap<Integer, String> ArrayListToMap(List<ProfesorDTO> list,User user){
+		HashMap<Integer, String> map = new HashMap<Integer, String>();
+		for (ProfesorDTO profesorDTO : list) {
+			if(profesorDTO.getGr==user.getGroup().getId()){
+				
+			map.put(profesorDTO.getId(), profesorDTO.getName());
+			}
 		}
 		
 		return map;
