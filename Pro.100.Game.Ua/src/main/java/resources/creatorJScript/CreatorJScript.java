@@ -5,7 +5,7 @@ package resources.creatorJScript;
  * @author prometej
  *
  */
-public class CreateJScript {
+public class CreatorJScript {
 	/**
 	 * 
 	 * @param input
