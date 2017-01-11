@@ -50,7 +50,14 @@
 	<%-- 	${profesorID} --%>
 
 	<div>
-		<div>${list}</div>
+		<!--${list}  -->
+		<form:form method="POST"  ommandName= profesor" action="profesort">
+			<form:select path= "string" itemLable= "name" itemValue="id">
+				<form:option value= "-" label= "--Select profesor" />
+				<form:options items= "${profesorMap}" />
+			</form:select>
+			<button>submit</button>
+		</form:form>
 		<p>${profesor}</p>
 		<p>${test}</p>
 		<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
