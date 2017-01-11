@@ -227,6 +227,14 @@ public class UserController {
 		return "views-filecontent-profile";
 	}
 	
+	@RequestMapping("/deleteGroup/{id}")
+	public String deleteGroup(Principal principal,@PathVariable int id){
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
+		groupOfUsersService.delete(id, user);
+		
+		return "redirect:/profile";
+	}
+	
 	
 	@RequestMapping("/confirmAdd/{uuid}")
 	public String newUserInGroup(Principal principal,@PathVariable String uuid) {
@@ -244,7 +252,9 @@ public class UserController {
 	
 
 	@RequestMapping(value = "/newProfesor", method = RequestMethod.POST)
-	public String newProfesor(@ModelAttribute Profesor profesor, Model model) {
+	public String newProfesor(Principal principal,@ModelAttribute Profesor profesor, Model model) {
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
+		 profesor.setGroupOfUsers(user.getGroup());
 		profesorService.save(profesor);
 
 		return "redirect:/profile";

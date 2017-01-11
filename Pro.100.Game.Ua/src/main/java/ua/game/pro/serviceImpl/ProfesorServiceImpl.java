@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ua.game.pro.dao.GroupOfUsersDao;
 import ua.game.pro.dao.ProfesorDao;
+import ua.game.pro.entity.GroupOfUsers;
 import ua.game.pro.entity.Profesor;
 import ua.game.pro.service.ProfesorService;
 
@@ -14,10 +16,14 @@ public class ProfesorServiceImpl implements ProfesorService {
 	
 	@Autowired
 	private ProfesorDao profesorDao;
+	
+
 
 	@Override
-	public void save(Profesor profesor) {
+	public void save(Profesor profesor){
+		
 		profesorDao.save(profesor);
+		
 	}
 
 	@Override

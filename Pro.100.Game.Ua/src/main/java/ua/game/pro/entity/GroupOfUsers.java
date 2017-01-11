@@ -20,6 +20,9 @@ public class GroupOfUsers {
 	@OneToMany(mappedBy = "group")
 	private List<User> users;
 	
+	@OneToMany(mappedBy = "groupOfUsers")
+	private List<Profesor> profesors;
+	
 	public GroupOfUsers() {
 		// TODO Auto-generated constructor stub
 	}
@@ -59,6 +62,14 @@ public class GroupOfUsers {
 
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	public List<Profesor> getProfesors() {
+		return profesors;
+	}
+
+	public void setProfesors(List<Profesor> profesors) {
+		this.profesors = profesors;
 	}
 	
 	

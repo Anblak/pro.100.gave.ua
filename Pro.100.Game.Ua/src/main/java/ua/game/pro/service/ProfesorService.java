@@ -2,6 +2,7 @@ package ua.game.pro.service;
 
 import java.util.List;
 
+import ua.game.pro.entity.GroupOfUsers;
 import ua.game.pro.entity.Profesor;
 
 

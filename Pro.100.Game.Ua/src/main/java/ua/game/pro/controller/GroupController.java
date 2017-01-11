@@ -84,7 +84,6 @@ public class GroupController {
 
 	@RequestMapping(value = "group/profesor/file/{id}/{idu}", method = RequestMethod.GET)
 	public String outPrintFile(Model model, Principal principal, @PathVariable String idu, @PathVariable String id) {
-		System.out.println(idu + id);
 		User user = userService.findOne(Integer.parseInt(idu));
 		String body = "";
 
@@ -107,7 +106,7 @@ public class GroupController {
 				}
 			}
 		}
-		System.out.println(body);
+	
 		model.addAttribute("body", body);
 		return "views-filecontent-group";
 	}

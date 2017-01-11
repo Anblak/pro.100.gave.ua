@@ -12,7 +12,7 @@ public interface GroupOfUsersService {
 	void save(GroupOfUsers group,User user)throws Exception;
 	List<GroupOfUsers> findAll();
 	GroupOfUsers findOne(int id);
-	void delete(int id);
+	void delete(int id,User user);
 	
 //	GroupOfUsers findByUUID(String uuid,User user);
 	GroupOfUsers findByUUID(String uuid);

@@ -50,9 +50,10 @@ public class GroupOfUsersServiceImpl implements GroupOfUsersService {
 	}
 	
 	@Override
-	public void delete(int id) {
-
+	public void delete(int id,User user) {
+		user.setRole(Role.ROLE_USER);
 		groupDao.delete(id);
+		userDao.save(user);
 
 	}
 

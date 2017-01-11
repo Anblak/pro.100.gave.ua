@@ -53,7 +53,7 @@
 		<form:form method="POST" commandName="profesor" action="profesort">
 
 			<form:select path="string" itemLable="name" itemValue="id">
-				<form:option value="-" label="--Select phone" />
+				<form:option value="-" label="--Select profesor" />
 				<form:options items="${profesorMap}" />
 			</form:select>
 			<button>submit</button>
