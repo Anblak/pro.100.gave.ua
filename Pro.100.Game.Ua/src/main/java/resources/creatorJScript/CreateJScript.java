@@ -46,7 +46,7 @@ public class CreateJScript {
 	 * @return "innerHTML=" + input
 	 */
 	public String innerHTML(String input) {
-		return "innerHTML=" + input;
+		return "innerHTML=" + "'"+input+"'";
 	}
 
 	/**
