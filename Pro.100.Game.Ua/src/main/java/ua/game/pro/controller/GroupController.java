@@ -51,10 +51,13 @@ public class GroupController {
 		List<Profesor> listProfesor = profesorService.findAll();
 		String body = "";
 		for (Profesor profesor : listProfesor) {
+			if(profesor.getGroupOfUsers().getId()==user.getGroup().getId()){
+				
 			String input = creator.p(profesor.getName(), "p", "width:150px;height: 50px;")
 					+ creator.form(creator.button("go file of profesorUser", "button", "submit"),
 							"group/profesor/" + profesor.getId(), "get");
 			body += (" " + creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div") + " ");
+			}
 
 		}
 
