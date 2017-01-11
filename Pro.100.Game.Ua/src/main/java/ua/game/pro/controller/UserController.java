@@ -209,7 +209,7 @@ public class UserController {
 			        groupOfUsers.setUuid(uuid);
 			        
 			        String uuidBody =
-			                "hi, to add another users,give them this link    http://localhost:8080/Pro.100.GameUa/confirmAdd/" + uuid;
+			                "hi, to add another users,give them this link    http://localhost:8080/Pro.100.Game.Ua/confirmAdd/" + uuid;
 
 		try {
 			groupOfUsersService.save(groupOfUsers, user);
