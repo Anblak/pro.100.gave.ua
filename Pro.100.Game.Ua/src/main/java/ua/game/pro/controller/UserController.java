@@ -35,7 +35,7 @@ import ua.game.pro.validator.UserValidationMessages;
 @Controller
 public class UserController {
 	private String profesor;
-	
+
 	@Autowired
 	private UserService userService;
 
@@ -93,10 +93,10 @@ public class UserController {
 
 	// =====================================================================
 	@RequestMapping("/some")
-	public String profile(Model model) {
-
+	public String profile(Model model, Principal principal) {
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		HashMap<Integer, String> profesorMap = new Parset()
-				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
+				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()), user);
 		model.addAttribute("profesor", new StringWrapper());
 		model.addAttribute("profesorsMap", profesorMap);
 
@@ -107,12 +107,15 @@ public class UserController {
 	public String profile(@ModelAttribute StringWrapper profesor, Model model) {
 
 		model.addAttribute("profesor", profesor);
-		this.profesor=profesor.getString();
+		this.profesor = profesor.getString();
 		model.addAttribute("test", this.profesor);
-//		String formAddFile="<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}' method='post' enctype='multipart/form-data'> <input type='file' name='multipartFile'> <button>safe file</button> </form:form> ";
-//		model.addAttribute("saveFileForm", formAddFile);
+		// String formAddFile="<form:form
+		// action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
+		// method='post' enctype='multipart/form-data'> <input type='file'
+		// name='multipartFile'> <button>safe file</button> </form:form> ";
+		// model.addAttribute("saveFileForm", formAddFile);
 		return "views-filecontent-profile";
-		
+
 	}
 
 	// @RequestMapping(value = "/saveFile", method = RequestMethod.POST)
@@ -135,17 +138,14 @@ public class UserController {
 
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		model.addAttribute("user", user);
-		
+
 		HashMap<Integer, String> profesorMap = new Parset()
 				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
 		model.addAttribute("profesorMap", profesorMap);
 		model.addAttribute("profesor", new StringWrapper());
-//		model.addAttribute("uuidBody", uuidBody);
+		// model.addAttribute("uuidBody", uuidBody);
 
-		
-//		model.addAttribute("profesorID", new StringWrapper());
-		
-		
+		// model.addAttribute("profesorID", new StringWrapper());
 
 		//
 		// try {
@@ -159,23 +159,21 @@ public class UserController {
 		return "views-filecontent-profile";
 	}
 
-	 @RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	 public String saveImage(Principal principal,@RequestParam MultipartFile
-	 multipartFile,Model model){
-		 
-		 int profesorID = Integer.parseInt(profesor);
+	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
+	public String saveImage(Principal principal, @RequestParam MultipartFile multipartFile, Model model) {
 
-			User user = userService.findOne(Integer.parseInt(principal.getName()));
+		int profesorID = Integer.parseInt(profesor);
 
-			fileUserService.saveFile(multipartFile, user, profesorID);
-			
-	
-//	 Profesor profesorr= new Profesor("test");
-//	 profesorr.setId(1);
-	
-	
-//	 User user = userService.findOne(Integer.parseInt(principal.getName()));
-//	 fileUserService.saveFile(multipartFile, user,profesorr);
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
+
+		fileUserService.saveFile(multipartFile, user, profesorID);
+
+		// Profesor profesorr= new Profesor("test");
+		// profesorr.setId(1);
+
+		// User user =
+		// userService.findOne(Integer.parseInt(principal.getName()));
+		// fileUserService.saveFile(multipartFile, user,profesorr);
 
 		return "redirect:/profile";
 	}
@@ -204,12 +202,12 @@ public class UserController {
 	public String createGroup(Principal principal, @ModelAttribute GroupOfUsers groupOfUsers, Model model) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		// if(user.getGroup().equals(null)){
-		   String uuid = UUID.randomUUID().toString();
-		
-			        groupOfUsers.setUuid(uuid);
-			        
-			        String uuidBody =
-			                "hi, to add another users,give them this link    http://localhost:8080/Pro.100.Game.Ua/confirmAdd/" + uuid;
+		String uuid = UUID.randomUUID().toString();
+
+		groupOfUsers.setUuid(uuid);
+
+		String uuidBody = "hi, to add another users,give them this link    http://localhost:8080/Pro.100.Game.Ua/confirmAdd/"
+				+ uuid;
 
 		try {
 			groupOfUsersService.save(groupOfUsers, user);
@@ -226,35 +224,27 @@ public class UserController {
 		// }
 		return "views-filecontent-profile";
 	}
-	
+
 	@RequestMapping("/deleteGroup/{id}")
-	public String deleteGroup(Principal principal,@PathVariable int id){
+	public String deleteGroup(Principal principal, @PathVariable int id) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		groupOfUsersService.delete(id, user);
-		
+
 		return "redirect:/profile";
 	}
-	
-	
+
 	@RequestMapping("/confirmAdd/{uuid}")
-	public String newUserInGroup(Principal principal,@PathVariable String uuid) {
+	public String newUserInGroup(Principal principal, @PathVariable String uuid) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		userService.update(user, groupOfUsersService.findByUUID(uuid));
-		
 
 		return "redirect:/profile";
 	}
-	
-	
-	
-	
-	
-	
 
 	@RequestMapping(value = "/newProfesor", method = RequestMethod.POST)
-	public String newProfesor(Principal principal,@ModelAttribute Profesor profesor, Model model) {
+	public String newProfesor(Principal principal, @ModelAttribute Profesor profesor, Model model) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
-		 profesor.setGroupOfUsers(user.getGroup());
+		profesor.setGroupOfUsers(user.getGroup());
 		profesorService.save(profesor);
 
 		return "redirect:/profile";
