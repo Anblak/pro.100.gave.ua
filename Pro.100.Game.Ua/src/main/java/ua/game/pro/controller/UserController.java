@@ -138,11 +138,13 @@ public class UserController {
 
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		model.addAttribute("user", user);
-
+if(user.getGroup()!=(null)){
 		HashMap<Integer, String> profesorMap = new Parset()
 				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()),user);
 		model.addAttribute("profesorMap", profesorMap);
 		model.addAttribute("profesor", new StringWrapper());
+		
+}
 		// model.addAttribute("uuidBody", uuidBody);
 
 		// model.addAttribute("profesorID", new StringWrapper());
@@ -222,7 +224,7 @@ public class UserController {
 		// }else{
 		//
 		// }
-		return "views-filecontent-profile";
+		return "redirect:/profile";
 	}
 
 	@RequestMapping("/deleteGroup/{id}")
