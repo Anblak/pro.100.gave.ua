@@ -43,8 +43,8 @@
 <form:form modelAttribute="baseActionWrapper"  action="do" method="get" class="formCalcul">
 <div class="input" style="background-image:url(img/input.png);width:315px;height:50px;">
 
-		<input name="formul" placeholder="formul" class="formul" id="formul" >
-		<input name="space" placeholder="space" class="space" id="space"">
+		<p id="pInputFormul" class="formulP"><input name="formul" placeholder="formul" class="formul" id="formul" onfocus="inputFormul()" ></p>
+		<p id="pInputSpace" class="spaceP"><input name="space" placeholder="space" class="space" id="space" onfocus="inputSpace()"  ></p>
 		</div>
 		<button class="calcButton" style="background-image:url(img/button.png)"></button>
 </form:form>

@@ -1,87 +1,208 @@
 @CHARSET "UTF-8";
-.formCalcul{}
-.answer{}
-.body{}
-.heder{width:1360px;height:100px}
 
-.button0{
+.formCalcul {
 	
-	width:77px;height:69px;position:absolute;top:268px;left:238px;
 }
 
-.button1{
+.answer {
 	
-	width:77px;height:69px;position:absolute;top:53px;left:82px;
-}
-.button2{
-	
-	width:77px;height:69px;position:absolute;top:53px;left:160px;
-}
-.button3{
-	
-	width:77px;height:69px;position:absolute;top:53px;left:238px;
-}
-.button4{
-	
-	width:77px;height:69px;position:absolute;top:124px;left:82px;
-}
-.button5{
-	
-	width:77px;height:69px;position:absolute;top:124px;left:160px;
-}
-.button6{
-	
-	width:77px;height:69px;position:absolute;top:124px;left:238px;
-}
-.button7{
-	
-	width:77px;height:69px;position:absolute;top:196px;left:82px;
-}
-.button8{
-	
-	width:77px;height:69px;position:absolute;top:196px;left:160px;
-}
-.button9{
-	
-	width:77px;height:69px;position:absolute;top:196px;left:238px;
-}
-.buttonAlt{
-	
-	width:77px;height:69px;position:absolute;top:53px;left:0px;
-}
-.buttonAssociation{
-	
-	width:77px;height:69px;position:absolute;top:268px;left:0px;
-}
-.buttonBrackets{
-	
-	width:77px;height:69px;position:absolute;top:268px;left:160px;
-}
-.buttonOdds{
-	
-	width:77px;height:69px;position:absolute;top:124px;left:0px;
-}
-.buttonDecussation{
-	
-	width:77px;height:69px;position:absolute;top:196px;left:0px;
-}
-.buttonComa{
-	
-	width:77px;height:69px;position:absolute;top:268px;left:82px;
-}
-.formCalcul{
-	
-	position:apsolute;top:0px;left:0px;width:315px;height:50px;
-}
-.calcButton{
-	
-	width:316px;height:64px;position:absolute;top:342px;left:0px;
-}
-.answer{
-	width:400px;height:600px;margin:auto;position:absolute;top:62px;left:39px;
 }
 
-.left{
-	width:900px;height:750px;position:absolute;top:208px;left:8px;
+.body {
 	
+}
+
+.input {
+	
+}
+
+.heder {
+	/* 	width: 1360px; */
+	/* 	height: 100px */
+	
+}
+
+.formul {
+	width: 310px;
+	height: 19px;
+	border: 1px
+}
+
+.formulP {
+	width: 310px;
+	height: 21px;
+	margin: auto;
+}
+
+.space {
+	width: 310px;
+	height: 19px;
+	border: 1px
+}
+
+.spaceP {
+	width: 310px;
+	height: 21px;
+	margin: auto;
+}
+
+.button0 {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 268px;
+	left: 238px;
+}
+
+.button1 {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 53px;
+	left: 82px;
+}
+
+.button2 {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 53px;
+	left: 160px;
+}
+
+.button3 {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 53px;
+	left: 238px;
+}
+
+.button4 {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 124px;
+	left: 82px;
+}
+
+.button5 {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 124px;
+	left: 160px;
+}
+
+.button6 {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 124px;
+	left: 238px;
+}
+
+.button7 {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 196px;
+	left: 82px;
+}
+
+.button8 {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 196px;
+	left: 160px;
+}
+
+.button9 {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 196px;
+	left: 238px;
+}
+
+.buttonAlt {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 53px;
+	left: 0px;
+}
+
+.buttonAssociation {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 268px;
+	left: 0px;
+}
+
+.buttonBrackets {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 268px;
+	left: 160px;
+}
+
+.buttonOdds {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 124px;
+	left: 0px;
+}
+
+.buttonDecussation {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 196px;
+	left: 0px;
+}
+
+.buttonComa {
+	width: 77px;
+	height: 69px;
+	position: absolute;
+	top: 268px;
+	left: 82px;
+}
+
+.formCalcul {
+	position: apsolute;
+	top: 0px;
+	left: 0px;
+	width: 315px;
+	height: 50px;
+}
+
+.calcButton {
+	width: 316px;
+	height: 64px;
+	position: absolute;
+	top: 342px;
+	left: 0px;
+}
+
+.answer {
+	width: 400px;
+	height: 600px;
+	margin: auto;
+	position: absolute;
+	top: 62px;
+	left: 39px;
+}
+
+.left {
+	width: 900px;
+	height: 750px;
+	position: absolute;
+	top: 208px;
+	left: 8px;
 }

@@ -153,8 +153,8 @@ public class UserController {
 
 		}else
 		{
-			profesorMap = new HashMap<>();
-			profesorMap.put(0, "null");
+		profesorMap = new HashMap<>();
+//			profesorMap.put(0, "null");
 		}
 
 			model.addAttribute("profesorMap", profesorMap);
