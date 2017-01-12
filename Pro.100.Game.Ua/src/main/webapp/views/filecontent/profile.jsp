@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 </head>
+
 <body>
 
 
@@ -27,7 +28,7 @@
 	</form:form>
 
 	<br>
-	<p>${uuidBody}</p>
+	<!--  	<p>${uuidBody}</p>-->
 
 
 	<br>
@@ -51,12 +52,13 @@
 
 	<div>
 		<!--${list}  -->
-		<form:form method="POST"  ommandName= profesor" action="profesort">
-			<form:select path= "string" itemLable= "name" itemValue="id">
-				<form:option value= "-" label= "--Select profesor" />
-				<form:options items= "${profesorMap}" />
+		
+		<form:form method="POST" commandName="profesor" action="profesort">
+			<form:select path="string" itemLable="name" itemValue="id">
+				<form:option value="-" label="--Select profesor" />
+				<form:options items="${profesorMap}" />
 			</form:select>
-			<button>submit</button>
+			<button type="submit">submit</button>
 		</form:form>
 		<p>${profesor}</p>
 		<p>${test}</p>

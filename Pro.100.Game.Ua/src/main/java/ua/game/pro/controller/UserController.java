@@ -138,7 +138,7 @@ public class UserController {
 
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		model.addAttribute("user", user);
-		HashMap<Integer, String> profesorMap = new HashMap<>();
+		HashMap<Integer, String> profesorMap ;
 		
 		//System.out.println(user.getGroup());
 
@@ -149,12 +149,12 @@ public class UserController {
 			//model.addAttribute("list", list);
 			System.out.println(user.getGroup());
 			 profesorMap = new Parset()
-					.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()), user);
+					.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()),user);
 
 		}else
 		{
 			profesorMap = new HashMap<>();
-			profesorMap.put(1, "null");
+			profesorMap.put(0, "null");
 		}
 
 			model.addAttribute("profesorMap", profesorMap);
