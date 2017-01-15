@@ -1,2 +1,57 @@
 @CHARSET "UTF-8";
-.tiles{width:1360px;height:100px;}
+
+.tiles {
+	width: 1360px;
+	height: 100px;
+}
+
+.buttonUA {
+	display: inline-block;
+	border-color: white; /* color borderUA */
+	border-style: solid;
+	width: 40px;
+	height: 40px;
+}
+
+.lg {
+	height: 40px;
+	width: 84px;
+	background:red;
+	margin:auto;
+	
+}
+.lgWrapper {
+	height: 49px;
+	width: 100px;
+	background:green;
+	padding-top:8px;
+	
+}
+
+.buttonRU {
+	display: inline-block;
+	border-color: white; /* color borderRU */
+	border-style: solid;
+	width: 40px;
+	height: 40px;
+}
+
+.formUA {
+	display: inline-block;
+}
+
+.formRU {
+	display: inline-block;
+}
+
+.pUA {
+	
+}
+
+.pRU {
+	
+}
+
+.pRU {
+	
+}

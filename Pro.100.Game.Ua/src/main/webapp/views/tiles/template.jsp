@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,27 +12,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-<body >
+<body>
 
-<div class="tiles"style="width:1360px;height:100px;">
+	<div class="tiles" style="width: 1360px; height: 100px;">
 
 
+		<div class="lgWrapper" style="">
+			<div class="lg" style="">
+				<p style="margin: auto">
+				<form action="ua" method=get class="formUA">
+					<button class="buttonUA" id="buttonUA" style="">
+						<p class="pUA">UA</p>
+					</button>
+				</form>
 
-	<div class="tiles"> 
-	<form  action="ua" method=get>
-<button>Ukrainian</button>
-</form>
+				<form action="ru" method=get class="formRU">
 
-<form action="ru" method=get>
+					<button class="buttonRU" id="buttonRU" style="">
+						<p class="pRU">RU</p>
+					</button>
 
-	<button>Russian</button>
-
-</form>
-</div>
-
+				</form>
+				</p>
+			</div>
+		</div>
+	</div>
 	<div>
 		<tiles:insertAttribute name="body" />
 	</div>
-	
 </body>
 </html>
