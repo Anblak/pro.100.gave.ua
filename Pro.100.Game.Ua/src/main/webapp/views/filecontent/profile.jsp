@@ -11,32 +11,95 @@
 </head>
 
 <body>
+	<div>
+		${user.name}${user.email}${user.phone} <br> ${nameException}
+	</div>
+
+	<button onclick="document.getElementById('id01').style.display='block'"
+		style="width: auto;">Create Group</button>
+
+	<div id="id01" class="modal">
+
+		<form:form modelAttribute="groupOfUsers" action="createGroup"
+			class="modal-content animate" method="post">
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('id01').style.display='none'"
+					class="close" title="Close Modal">&times;</span> <img
+					src="img/useranon.png" alt="Avatar" class="avatar">
+			</div>
+
+			<div class="container">
+
+				<label><b>Group Name</b></label> <input type="text" name="name"
+					class="validate[required,custom[name],length[0,100]] feedback-input"
+					placeholder="name ${nameException}" required>
+
+
+				<button class="button" type="submit">Create</button>
+				<!--  <input type="checkbox" checked="checked"> Remember me-->
+
+			</div>
+			<div class="container" style="background-color: #f1f1f1">
+				<button type="button"
+					onclick="document.getElementById('id01').style.display='none'"
+					class="cancelbtn">Cancel</button>
+
+			</div>
+		</form:form>
+	</div>
 
 
 
-
-
-	${user.name}${user.email}${user.phone}
-	<br> ${nameException}
-
-	<form:form modelAttribute="groupOfUsers" action="createGroup"
-		method="post">
-		<input name="name"
-			class="validate[required,custom[name],length[0,100]] feedback-input"
-			placeholder="name ${nameException}">
-		<button class="button">create group</button>
-	</form:form>
+	<%-- 	<form:form modelAttribute="groupOfUsers" action="createGroup" --%>
+	<%-- 		method="post"> --%>
+	<!-- 		<input name="name" -->
+	<!-- 			class="validate[required,custom[name],length[0,100]] feedback-input" -->
+	<%-- 			placeholder="name ${nameException}"> --%>
+	<!-- 		<button class="button">create group</button> -->
+	<%-- 	</form:form> --%>
 
 	<br>
 	<!--  	<p>${uuidBody}</p>-->
 
 
 	<br>
+	<button onclick="document.getElementById('id02').style.display='block'"
+		style="width: auto;">add Profesor</button>
 
-	<form:form modelAttribute="profesor" action="newProfesor" method="post">
-		<input name="name" placeholder="name">
-		<button class="button">new profesor</button>
-	</form:form>
+	<div id="id02" class="modal">
+
+		<form:form modelAttribute="profesor" action="newProfesor"
+			class="modal-content animate" method="post">
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('id02').style.display='none'"
+					class="close" title="Close Modal">&times;</span> <img
+					src="img/useranon.png" alt="Avatar" class="avatar">
+			</div>
+
+			<div class="container">
+
+				<label><b>Profesor Full Name</b></label> <input type="text"
+					name="name"
+					class="validate[required,custom[name],length[0,100]] feedback-input"
+					placeholder="name ${nameException}" required>
+
+
+				<button class="button" type="submit">Create</button>
+				<!--  <input type="checkbox" checked="checked"> Remember me-->
+
+			</div>
+			<div class="container" style="background-color: #f1f1f1">
+				<button type="button"
+					onclick="document.getElementById('id02').style.display='none'"
+					class="cancelbtn">Cancel</button>
+
+			</div>
+		</form:form>
+	</div>
+	<%-- 	<form:form modelAttribute="profesor" action="newProfesor" method="post"> --%>
+	<!-- 		<input name="name" placeholder="name"> -->
+	<!-- 		<button class="button">new profesor</button> -->
+	<%-- 	</form:form> --%>
 
 
 	<%-- 	<form:form method="POST" commandName="profesorID" action="saveProfesor"> --%>
@@ -52,21 +115,57 @@
 
 	<div>
 		<!--${list}  -->
-		
 
-	
-		<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
-			method='post' enctype='multipart/form-data'>
-			<input type='file' name='multipartFile'>
-			<form:form method="POST" commandName="profesor" >
-			<form:select path="string" itemLable="name" itemValue="id">
-				<form:option value="-" label="--Select profesor" />
-				<form:options items="${profesorMap}" />
-			</form:select>
-			<button class="button">safe file</button>
-			
-		</form:form>
-		</form:form>
+
+		<button
+			onclick="document.getElementById('id03').style.display='block'"
+			style="width: auto;">add File</button>
+
+		<div id="id03" class="modal">
+
+			<form:form class="modal-content animate" action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
+				method='post' enctype='multipart/form-data'>
+				<div class="imgcontainer">
+					<span
+						onclick="document.getElementById('id03').style.display='none'"
+						class="close" title="Close Modal">&times;</span> <img
+						src="img/useranon.png" alt="Avatar" class="avatar">
+				</div>
+
+				<div class="container">
+
+					<label><b></b></label> <input type='file'
+						name='multipartFile'>
+					<form:form  class="modal-content animate" method="POST" commandName="profesor">
+						<form:select path="string" itemLable="name" itemValue="id">
+							<form:option value="-" label="--Select profesor" />
+							<form:options items="${profesorMap}" />
+						</form:select>
+						<button class="button">safe file</button>
+
+				<div class="container" style="background-color: #f1f1f1">
+					<button type="button"
+						onclick="document.getElementById('id03').style.display='none'"
+						class="cancelbtn">Cancel</button>
+
+				</div>
+					</form:form>
+
+				</div>
+			</form:form>
+		</div>
+<%-- 		<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}' --%>
+<%-- 			method='post' enctype='multipart/form-data'> --%>
+<!-- 			<input type='file' name='multipartFile'> -->
+<%-- 			<form:form method="POST" commandName="profesor"> --%>
+<%-- 				<form:select path="string" itemLable="name" itemValue="id"> --%>
+<%-- 					<form:option value="-" label="--Select profesor" /> --%>
+<%-- 					<form:options items="${profesorMap}" /> --%>
+<%-- 				</form:select> --%>
+<!-- 				<button class="button">safe file</button> -->
+
+<%-- 			</form:form> --%>
+<%-- 		</form:form> --%>
 	</div>
 
 
@@ -103,9 +202,6 @@
 	<%-- 		</form:select> --%>
 	<!-- 		<input type="submit" value="Submit" /> -->
 	<%-- 	</form:form> --%>
-
-
-
 </body>
 </html>
 

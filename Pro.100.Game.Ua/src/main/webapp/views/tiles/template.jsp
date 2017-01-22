@@ -39,7 +39,7 @@
 					<div class="imgcontainer">
 						<span
 							onclick="document.getElementById('id01').style.display='none'"
-							class="close" title="Close Modal">&times;</span> <img 
+							class="close" title="Close Modal">&times;</span> <img
 							src="img/useranon.png" alt="Avatar" class="avatar">
 					</div>
 
@@ -50,7 +50,7 @@
 						<input type="password" placeholder="Enter Password"
 							name="password" required>
 
-						<button  type="submit">Login</button>
+						<button type="submit">Login</button>
 						<!--  <input type="checkbox" checked="checked"> Remember me-->
 
 					</div>
@@ -69,7 +69,8 @@
 
 			<div id="id02" class="modal">
 
-				<form:form class="modal-content animate" modelAttribute="user" action="saveUser" method="post">
+				<form:form class="modal-content animate" modelAttribute="user"
+					action="saveUser" method="post">
 					<div class="imgcontainer">
 						<span
 							onclick="document.getElementById('id02').style.display='none'"
@@ -79,14 +80,17 @@
 
 					<div class="container">
 
-<label><b>name</b></label>
-<input name="name" class="validate[required,custom[username],length[0,100]] feedback-input" type="text" placeholder="name ${usernameException}">
-<label><b>email</b></label>
-<input name="email" class="validate[required,custom[email],length[0,100]] feedback-input" type="email" placeholder="email ${emailException}">
-<label><b>password</b></label>
-<input name="password" class="validate[required,custom[password],length[0,100]] feedback-input" type="password"" placeholder="password ${passwordException}">
-<label><b>phone</b></label>
-<input name="phone" placeholder="phone" type="text">
+						<label><b>name</b></label> <input name="name"
+							class="validate[required,custom[username],length[0,100]] feedback-input"
+							type="text" placeholder="name ${usernameException}"> <label><b>email</b></label>
+						<input name="email"
+							class="validate[required,custom[email],length[0,100]] feedback-input"
+							type="email" placeholder="email ${emailException}"> <label><b>password</b></label>
+						<input name="password"
+							class="validate[required,custom[password],length[0,100]] feedback-input"
+							type="password" " placeholder="password ${passwordException}">
+						<label><b>phone</b></label> <input name="phone"
+							placeholder="phone" type="text">
 
 						<button type="submit">Login</button>
 						<!--  <input type="checkbox" checked="checked"> Remember me-->

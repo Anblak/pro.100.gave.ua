@@ -84,7 +84,7 @@ public class GroupController {
 			if (profesor.getGroupOfUsers().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
 				String input = creator.p(user2.getName(), "p", "width:150px;height: 17px;")
 						+ creator.form(creator.button("go in file user", "buttonNext", "submit"),
-								""+user.getGroup().getId() + "/" + idp + "/" + user2.getId(), "GET");
+								"" + user.getGroup().getId() + "/" + idp + "/" + user2.getId(), "GET");
 
 				body += (" "
 						+ creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div")
@@ -111,15 +111,18 @@ public class GroupController {
 					if (fileUser.getProfesor().getId() == profesor.getId()) {
 
 						if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
-							String input = creator.a("/Pro.100.Game.Ua/"+fileUser.getPath(), "", "",
-									(creator.p(fileUser.getName(), "p", "width:150px;height: 17px;")));;
+							String input = creator.a("/Pro.100.Game.Ua/" + fileUser.getPath(), "", "",
+									(creator.p(fileUser.getName(), "p", "width:150px;height: 17px;")));
+							;
 							body += " " + (creator.div(input,
 									"width:300px;height:100px;background:green;display:inline-block;", "div") + " ");
-//							creator.button((creator.p(fileUser.getName(), "p", "width:150px;height: 17px;")), "", "",
-//									fileUser.getPath(), "submit", "", "");
-//
-//							creator.a(fileUser.getPath(), "", "",
-//									(creator.p(fileUser.getName(), "p", "width:150px;height: 17px;")));
+							// creator.button((creator.p(fileUser.getName(),
+							// "p", "width:150px;height: 17px;")), "", "",
+							// fileUser.getPath(), "submit", "", "");
+							//
+							// creator.a(fileUser.getPath(), "", "",
+							// (creator.p(fileUser.getName(), "p",
+							// "width:150px;height: 17px;")));
 						}
 					}
 				}
@@ -129,8 +132,6 @@ public class GroupController {
 		model.addAttribute("body", body);
 		return "views-filecontent-group";
 	}
-
-	
 
 }
 
