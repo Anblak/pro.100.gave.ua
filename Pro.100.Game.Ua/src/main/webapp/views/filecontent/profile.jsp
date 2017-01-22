@@ -65,7 +65,14 @@
 		<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
 			method='post' enctype='multipart/form-data'>
 			<input type='file' name='multipartFile'>
+			<form:form method="POST" commandName="profesor" >
+			<form:select path="string" itemLable="name" itemValue="id">
+				<form:option value="-" label="--Select profesor" />
+				<form:options items="${profesorMap}" />
+			</form:select>
 			<button class="button">safe file</button>
+			
+		</form:form>
 		</form:form>
 	</div>
 
