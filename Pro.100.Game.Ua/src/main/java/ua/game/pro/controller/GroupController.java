@@ -37,8 +37,8 @@ public class GroupController {
 		String groupName = user.getGroup().getName();
 
 		String input = creator.p(groupName, "p", "width:150px;height: 17px;")
-				+ creator.div(creator.form(creator.button("profesor", "buttonNext", "submit"), "profesor", "get"), "display:inline-block;")
-				+ creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deleteProfesor", "get"), "display:inline-block;");
+				+ creator.div(creator.form(creator.button("profesor", "buttonNext", "submit"), "profesor", "GET"), "display:inline-block;")
+				+ creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deleteProfesor", "GET"), "display:inline-block;");
 
 		String div = creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div");
 
@@ -80,7 +80,7 @@ public class GroupController {
 			if (profesor.getGroupOfUsers().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
 				String input = creator.p(user2.getName(), "p", "width:150px;height: 17px;")
 						+ creator.form(creator.button("go in file user", "buttonNext", "submit"),
-								"file/" + user2.getId() + "/" + idp, "get");
+								"file/" + user2.getId() + "/" + idp, "GET");
 
 				body += (" "
 						+ creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div")
@@ -107,10 +107,12 @@ public class GroupController {
 					if (fileUser.getProfesor().getId() == profesor.getId()) {
 
 						if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
-							String input = creator.a(fileUser.getPath(), "", "",
+							String input = creator.a("http://localhost:8080/Pro.100.Game.Ua/"+fileUser.getPath(), "", "",
 									(creator.p(fileUser.getName(), "p", "width:150px;height: 17px;")));
 							body += " " + (creator.div(input,
 									"width:300px;height:100px;background:green;display:inline-block;", "div") + " ");
+							creator.button((creator.p(fileUser.getName(), "p", "width:150px;height: 17px;")), "", "", fileUser.getPath(), "submit", "", "");
+							
 						}
 					}
 				}
