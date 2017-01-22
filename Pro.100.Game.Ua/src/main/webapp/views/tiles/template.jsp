@@ -39,8 +39,8 @@
 					<div class="imgcontainer">
 						<span
 							onclick="document.getElementById('id01').style.display='none'"
-							class="close" title="Close Modal">&times;</span> <img
-							src="img_avatar2.png" alt="Avatar" class="avatar">
+							class="close" title="Close Modal">&times;</span> <img 
+							src="img/useranon.png" alt="Avatar" class="avatar">
 					</div>
 
 					<div class="container">
@@ -74,7 +74,7 @@
 						<span
 							onclick="document.getElementById('id02').style.display='none'"
 							class="close" title="Close Modal">&times;</span> <img
-							src="img_avatar2.png" alt="Avatar" class="avatar">
+							src="img/useranon.png" alt="Avatar" class="avatar">
 					</div>
 
 					<div class="container">
