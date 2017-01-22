@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
+<link rel="stylesheet" href="css/button.css">
 </head>
 
 <body>
@@ -24,7 +24,7 @@
 		<input name="name"
 			class="validate[required,custom[name],length[0,100]] feedback-input"
 			placeholder="name ${nameException}">
-		<button>create group</button>
+		<button class="button">create group</button>
 	</form:form>
 
 	<br>
@@ -35,7 +35,7 @@
 
 	<form:form modelAttribute="profesor" action="newProfesor" method="post">
 		<input name="name" placeholder="name">
-		<button>new profesor</button>
+		<button class="button">new profesor</button>
 	</form:form>
 
 
@@ -58,14 +58,14 @@
 				<form:option value="-" label="--Select profesor" />
 				<form:options items="${profesorMap}" />
 			</form:select>
-			<button type="submit">submit</button>
+			<button class="button" type="submit">submit</button>
 		</form:form>
 		<p>${profesor}</p>
 		<p>${test}</p>
 		<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
 			method='post' enctype='multipart/form-data'>
 			<input type='file' name='multipartFile'>
-			<button>safe file</button>
+			<button class="button">safe file</button>
 		</form:form>
 	</div>
 
