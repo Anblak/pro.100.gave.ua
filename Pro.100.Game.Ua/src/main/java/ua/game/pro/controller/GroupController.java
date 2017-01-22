@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.mysql.fabric.xmlrpc.base.Value;
+
 import resources.creatorHTMLTag.CreatorHTMLTag;
 import ua.game.pro.entity.FileUser;
 import ua.game.pro.entity.Profesor;
@@ -37,8 +39,10 @@ public class GroupController {
 		String groupName = user.getGroup().getName();
 
 		String input = creator.p(groupName, "p", "width:150px;height: 17px;")
-				+ creator.div(creator.form(creator.button("profesor", "buttonNext", "submit"), "profesor", "GET"), "display:inline-block;")
-				+ creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deleteProfesor", "GET"), "display:inline-block;");
+				+ creator.div(creator.form(creator.button("profesor", "buttonNext", "submit"), "profesor", "GET"),
+						"display:inline-block;")
+				+ creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deleteProfesor", "GET"),
+						"display:inline-block;");
 
 		String div = creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div");
 
@@ -57,7 +61,7 @@ public class GroupController {
 
 				String input = creator.p(profesor.getName(), "p", "width:150px;height: 17px;")
 						+ creator.form(creator.button("go file of profesorUser", "buttonNext", "submit"),
-								"group/profesor/" + profesor.getId(), "get");
+								"" + profesor.getId(), "get");
 				body += (" "
 						+ creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div")
 						+ " ");
@@ -70,7 +74,7 @@ public class GroupController {
 		return "views-filecontent-group";
 	}
 
-	@RequestMapping(value = "group/profesor/{idp}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{idp}", method = RequestMethod.GET)
 	public String outPrintUserOfGrup(Model model, Principal principal, @PathVariable String idp) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		String body = "";
@@ -80,7 +84,7 @@ public class GroupController {
 			if (profesor.getGroupOfUsers().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
 				String input = creator.p(user2.getName(), "p", "width:150px;height: 17px;")
 						+ creator.form(creator.button("go in file user", "buttonNext", "submit"),
-								"file/" + user2.getId() + "/" + idp, "GET");
+								user.getGroup().getId() + "/" + idp + "/" + user2.getId(), "GET");
 
 				body += (" "
 						+ creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div")
@@ -92,7 +96,7 @@ public class GroupController {
 		return "views-filecontent-group";
 	}
 
-	@RequestMapping(value = "group/profesor/file/{id}/{idu}", method = RequestMethod.GET)
+	@RequestMapping(value = "{idg}/{id}/{idu}", method = RequestMethod.GET)
 	public String outPrintFile(Model model, Principal principal, @PathVariable String idu, @PathVariable String id) {
 		User user = userService.findOne(Integer.parseInt(idu));
 		String body = "";
@@ -107,12 +111,15 @@ public class GroupController {
 					if (fileUser.getProfesor().getId() == profesor.getId()) {
 
 						if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
-							String input = creator.a("http://localhost:8080/Pro.100.Game.Ua/"+fileUser.getPath(), "", "",
-									(creator.p(fileUser.getName(), "p", "width:150px;height: 17px;")));
+							String input = creator.a("/Pro.100.Game.Ua/"+fileUser.getPath(), "", "",
+									(creator.p(fileUser.getName(), "p", "width:150px;height: 17px;")));;
 							body += " " + (creator.div(input,
 									"width:300px;height:100px;background:green;display:inline-block;", "div") + " ");
-							creator.button((creator.p(fileUser.getName(), "p", "width:150px;height: 17px;")), "", "", fileUser.getPath(), "submit", "", "");
-							
+//							creator.button((creator.p(fileUser.getName(), "p", "width:150px;height: 17px;")), "", "",
+//									fileUser.getPath(), "submit", "", "");
+//
+//							creator.a(fileUser.getPath(), "", "",
+//									(creator.p(fileUser.getName(), "p", "width:150px;height: 17px;")));
 						}
 					}
 				}
@@ -122,6 +129,9 @@ public class GroupController {
 		model.addAttribute("body", body);
 		return "views-filecontent-group";
 	}
+
+	
+
 }
 
 // @Autowired
