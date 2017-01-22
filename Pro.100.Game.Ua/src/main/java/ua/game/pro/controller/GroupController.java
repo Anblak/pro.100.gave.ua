@@ -36,9 +36,9 @@ public class GroupController {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		String groupName = user.getGroup().getName();
 
-		String input = creator.p(groupName, "p", "width:150px;height: 46px;")
-				+ creator.div(creator.form(creator.button("profesor", "buttonNext", "submit"), "profesor", "get"), "width:65px;height: 22px;display:inline-block;")
-				+ creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deleteProfesor", "get"), "width:65px;height: 22px;display:inline-block;");
+		String input = creator.p(groupName, "p", "width:150px;height: 17px;")
+				+ creator.div(creator.form(creator.button("profesor", "buttonNext", "submit"), "profesor", "get"), "display:inline-block;")
+				+ creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deleteProfesor", "get"), "display:inline-block;");
 
 		String div = creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div");
 
@@ -55,7 +55,7 @@ public class GroupController {
 		for (Profesor profesor : listProfesor) {
 			if (profesor.getGroupOfUsers().getId() == user.getGroup().getId()) {
 
-				String input = creator.p(profesor.getName(), "p", "width:150px;height: 46px;")
+				String input = creator.p(profesor.getName(), "p", "width:150px;height: 17px;")
 						+ creator.form(creator.button("go file of profesorUser", "buttonNext", "submit"),
 								"group/profesor/" + profesor.getId(), "get");
 				body += (" "
@@ -78,7 +78,7 @@ public class GroupController {
 
 		for (User user2 : userService.findAll()) {
 			if (profesor.getGroupOfUsers().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
-				String input = creator.p(user2.getName(), "p", "width:150px;height: 46px;")
+				String input = creator.p(user2.getName(), "p", "width:150px;height: 17px;")
 						+ creator.form(creator.button("go in file user", "buttonNext", "submit"),
 								"file/" + user2.getId() + "/" + idp, "get");
 
@@ -108,7 +108,7 @@ public class GroupController {
 
 						if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
 							String input = creator.a(fileUser.getPath(), "", "",
-									(creator.p(fileUser.getName(), "p", "width:150px;height: 46px;")));
+									(creator.p(fileUser.getName(), "p", "width:150px;height: 17px;")));
 							body += " " + (creator.div(input,
 									"width:300px;height:100px;background:green;display:inline-block;", "div") + " ");
 						}
