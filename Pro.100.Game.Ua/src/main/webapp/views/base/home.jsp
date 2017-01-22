@@ -10,14 +10,11 @@
 
 <sec:authorize access="isAuthenticated()">
 
-	<form:form action="logout" method="post">
-		<button>logout</button>
-	</form:form>
+	
 </sec:authorize>
 
 <sec:authorize access="!isAuthenticated()">
-	<br>
-	<a href="loginpage">login</a>
+	
 	<br>
 	<a href="registration">registration</a>
 	<br>

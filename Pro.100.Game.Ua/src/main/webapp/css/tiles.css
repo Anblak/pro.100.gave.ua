@@ -13,7 +13,7 @@
 	height: 40px;
 }
 
-.lg {
+.wrapperlg {
 	height: 40px;
 	width: 84px;
 	background:green;
@@ -55,3 +55,4 @@
 .pRU {
 	
 }
+.logout{width:71px;height: 43px}
