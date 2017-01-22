@@ -1,4 +1,4 @@
 @CHARSET "UTF-8";
-.buttonNext{}
-.buttonDelete{}
+.buttonNext{width: auto;background-color: white;}
+.buttonDelete{width: auto;background-color: white;}
 .button{width: auto;}
