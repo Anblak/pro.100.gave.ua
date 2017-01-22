@@ -84,7 +84,7 @@ public class GroupController {
 			if (profesor.getGroupOfUsers().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
 				String input = creator.p(user2.getName(), "p", "width:150px;height: 17px;")
 						+ creator.form(creator.button("go in file user", "buttonNext", "submit"),
-								user.getGroup().getId() + "/" + idp + "/" + user2.getId(), "GET");
+								""+user.getGroup().getId() + "/" + idp + "/" + user2.getId(), "GET");
 
 				body += (" "
 						+ creator.div(input, "width:300px;height:100px;background:green;display:inline-block;", "div")
@@ -97,11 +97,11 @@ public class GroupController {
 	}
 
 	@RequestMapping(value = "{idg}/{id}/{idu}", method = RequestMethod.GET)
-	public String outPrintFile(Model model, Principal principal, @PathVariable String idu, @PathVariable String id) {
-		User user = userService.findOne(Integer.parseInt(idu));
+	public String outPrintFile(Model model, Principal principal, @PathVariable int idu, @PathVariable int id) {
+		User user = userService.findOne(idu);
 		String body = "";
 
-		Profesor profesor = profesorService.findOne(Integer.parseInt(id));
+		Profesor profesor = profesorService.findOne(id);
 
 		for (FileUser fileUser : fileUserService.findAll()) {
 			if (fileUser != null && user != null && profesor != null) {
