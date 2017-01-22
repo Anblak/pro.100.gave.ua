@@ -15,8 +15,7 @@
 
 <sec:authorize access="!isAuthenticated()">
 	
-	<br>
-	<a href="registration">registration</a>
+	
 	<br>
 	<a href="math">math</a>
 	
