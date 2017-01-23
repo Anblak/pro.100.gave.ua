@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
 /* Full-width input fields */
-input[type=text], input[type=password],input[type=email],input[type=file] {
+input[type=text], input[type=password], input[type=email], input[type=file]
+	{
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -8,7 +9,11 @@ input[type=text], input[type=password],input[type=email],input[type=file] {
 	border: 1px solid #ccc;
 	box-sizing: border-box;
 }
-img{width:100px;height: 100px}
+
+img {
+	width: 100px;
+	height: 100px
+}
 
 /* Set a style for all buttons */
 button {
@@ -37,6 +42,7 @@ button {
 
 img.avatar {
 	width: 10%;
+	height: 10%;
 	border-radius: 50%;
 }
 
@@ -116,12 +122,17 @@ to {
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 400px) {
 	span.psw {
-		display: block;
+		display: inline-block;
 		float: none;
 	}
-	.cancelbtn {
+button.cancelbtn {
 		width: 100%;
 	}
+	img.avatar {
+		width: 50%;
+		height: 50%;
+		border-radius: 50%;
+	}	
 }
