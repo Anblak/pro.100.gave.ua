@@ -200,6 +200,7 @@ public class UserController {
 		return "views-filecontent-profile";
 	}
 
+
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
 	public String saveImage(Principal principal, @RequestParam MultipartFile multipartFile, Model model,@ModelAttribute StringWrapper profesor) {
 
@@ -293,4 +294,16 @@ public class UserController {
 		return "redirect:/profile";
 
 	}
+	@RequestMapping(value = "/user{id}", method = RequestMethod.GET)
+	public String newProfesor(Principal principal, @PathVariable String id, Model model) {
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
+	
+		User userStore = userService.findOne(Integer.parseInt(id));
+		
+		model.addAttribute("userT",userStore);
+		model.addAttribute("user",user);
+		return "views-user-user";
+
+	}
+	
 }

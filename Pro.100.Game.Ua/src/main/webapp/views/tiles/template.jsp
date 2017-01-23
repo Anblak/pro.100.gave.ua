@@ -161,7 +161,7 @@
 					</form:form>
 					<!-- cancel -->
 					<div class="container" style="background-color: #f1f1f1">
-						<form action="/user/${user.id}" method="get" id="formprofile">
+						<form action="user${user.id}" method="get" id="formprofile">
 							<button type="button"
 								onclick="document.getElementById('userSettings').style.display='none'"
 								class="cancelbtn">Cancel</button>

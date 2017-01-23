@@ -45,7 +45,7 @@ public class GroupController {
 						"","wrapperButton");
 
 		String div = creator.div(input, "", "div");
-
+		model.addAttribute("user", user);
 		model.addAttribute("body", div);
 
 		return "views-filecontent-group";
