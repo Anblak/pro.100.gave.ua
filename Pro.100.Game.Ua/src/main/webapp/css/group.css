@@ -17,6 +17,8 @@
 }
 
 .containerDiv {
+	width:80%;
+	height:600px;
 	overflow-x: hidden;
 }
 .wrapperButton{
