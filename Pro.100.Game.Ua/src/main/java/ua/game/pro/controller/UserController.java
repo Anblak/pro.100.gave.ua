@@ -17,16 +17,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import resources.parset.Parset;
-import resources.wrapper.FileWrapper;
+
 import resources.wrapper.StringWrapper;
 import ua.game.pro.dto.DTOUtilMapper;
-import ua.game.pro.dto.ProfesorDTO;
+
 import ua.game.pro.editor.ProfesorEditor;
 import ua.game.pro.entity.GroupOfUsers;
 import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
 import ua.game.pro.service.GroupOfUsersService;
+import ua.game.pro.service.MailSenderService;
 import ua.game.pro.service.ProfesorService;
 import ua.game.pro.service.UserService;
 import ua.game.pro.validator.GroupOfUsersValidationMessages;
@@ -47,6 +48,9 @@ public class UserController {
 
 	@Autowired
 	private ProfesorService profesorService;
+	
+	@Autowired
+    private MailSenderService mailSenderService;
 
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
@@ -64,7 +68,10 @@ public class UserController {
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute User user, Model model) {
+		
+	       String uuid = UUID.randomUUID().toString();
 
+	        user.setUuid(uuid);
 		try {
 			userService.save(user);
 		} catch (Exception e) {
@@ -78,10 +85,28 @@ public class UserController {
 				model.addAttribute("passwordException", e.getMessage());
 			}
 			return "views-base-registration";
+			
+
 		}
+		String theme = "thank's for registration";
+        String mailBody =
+                "gl & hf       http://localhost:8080/Pro.100.Game.Ua/confirm/" + uuid;
+
+        mailSenderService.sendMail(theme, mailBody, user.getEmail());
 
 		return "redirect:/";
 	}
+	
+    @RequestMapping(value = "/confirm/{uuid}", method = RequestMethod.GET)
+    public String confirm(@PathVariable String uuid) {
+
+        User user = userService.findByUUID(uuid);
+        user.setEnabled(true);
+
+        userService.updateUser(user);
+
+        return "redirect:/";
+    }
 
 	@RequestMapping("/deleteUser/{id}")
 	public String newUser(@PathVariable int id) {
