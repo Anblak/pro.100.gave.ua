@@ -64,7 +64,14 @@ public class UserServiceImpl implements UserService, UserDetailsService{
 		user.setGroup(group);
 		userDao.save(user);
 	}
-    
+	
+	public User findByUUID(String uuid) {
+		return userDao.findByUUID(uuid);
+	}
+	
+	public void updateUser(User user) {
+		userDao.save(user);
+	}
 
 
 }

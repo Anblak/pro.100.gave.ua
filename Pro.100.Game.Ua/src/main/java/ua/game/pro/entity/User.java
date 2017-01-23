@@ -30,6 +30,9 @@ public class User implements UserDetails {
 	private String password;
 	private int phone;
 	
+    private boolean enabled;
+	private String uuid;
+	
 	
 	@ManyToOne
 	private GroupOfUsers group;
@@ -55,6 +58,28 @@ public class User implements UserDetails {
 		this.password = password;
 		this.phone = phone;
 	}
+
+
+
+	
+	public String getUuid() {
+		return uuid;
+	}
+
+
+
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
+
+
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
 
 
 
@@ -182,7 +207,7 @@ public class User implements UserDetails {
 
 	public boolean isEnabled() {
 		
-		return true;
+		return enabled;
 	}
 	
 }
