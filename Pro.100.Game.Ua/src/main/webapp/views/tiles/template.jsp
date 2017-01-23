@@ -10,6 +10,8 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <link rel="stylesheet" href="css/tiles.css">
 <link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/group.css">
+
 <title>Pro100.game.ua</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -100,7 +102,7 @@
 						<button type="button"
 							onclick="document.getElementById('id02').style.display='none'"
 							class="cancelbtn">Cancel</button>
-						<span class="psw">Forgot <a href="#">password?</a></span>
+					
 					</div>
 				</form:form>
 			</div>
