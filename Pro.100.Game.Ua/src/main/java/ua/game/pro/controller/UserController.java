@@ -48,9 +48,9 @@ public class UserController {
 
 	@Autowired
 	private ProfesorService profesorService;
-	
+
 	@Autowired
-    private MailSenderService mailSenderService;
+	private MailSenderService mailSenderService;
 
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
@@ -68,10 +68,10 @@ public class UserController {
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute User user, Model model) {
-		
-	       String uuid = UUID.randomUUID().toString();
 
-	        user.setUuid(uuid);
+		String uuid = UUID.randomUUID().toString();
+
+		user.setUuid(uuid);
 		try {
 			userService.save(user);
 		} catch (Exception e) {
@@ -85,28 +85,26 @@ public class UserController {
 				model.addAttribute("passwordException", e.getMessage());
 			}
 			return "views-base-registration";
-			
 
 		}
 		String theme = "thank's for registration";
-        String mailBody =
-                "gl & hf       http://localhost:8080/Pro.100.Game.Ua/confirm/" + uuid;
+		String mailBody = "gl & hf       http://localhost:8080/Pro.100.Game.Ua/confirm/" + uuid;
 
-        mailSenderService.sendMail(theme, mailBody, user.getEmail());
+		mailSenderService.sendMail(theme, mailBody, user.getEmail());
 
 		return "redirect:/";
 	}
-	
-    @RequestMapping(value = "/confirm/{uuid}", method = RequestMethod.GET)
-    public String confirm(@PathVariable String uuid) {
 
-        User user = userService.findByUUID(uuid);
-        user.setEnabled(true);
+	@RequestMapping(value = "/confirm/{uuid}", method = RequestMethod.GET)
+	public String confirm(@PathVariable String uuid) {
 
-        userService.updateUser(user);
+		User user = userService.findByUUID(uuid);
+		user.setEnabled(true);
 
-        return "redirect:/";
-    }
+		userService.updateUser(user);
+
+		return "redirect:/";
+	}
 
 	@RequestMapping("/deleteUser/{id}")
 	public String newUser(@PathVariable int id) {
@@ -163,27 +161,30 @@ public class UserController {
 
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		model.addAttribute("user", user);
-		HashMap<Integer, String> profesorMap ;
-		
-		//System.out.println(user.getGroup());
+		HashMap<Integer, String> profesorMap;
 
-		//String list = "<form:form method=\"POST\" commandName=\"profesor\" action=\"profesort\"><form:select path=\"string\" itemLable=\"name\" itemValue=\"id\">	<form:option value=\"-\" label=\"--Select profesor\" /><form:options items=\"${profesorMap}\" /></form:select><button>submit</button>	</form:form>";
-		//System.out.println(list);
-		if (user.getGroup()!=null) {
-		
-			//model.addAttribute("list", list);
+		// System.out.println(user.getGroup());
+
+		// String list = "<form:form method=\"POST\" commandName=\"profesor\"
+		// action=\"profesort\"><form:select path=\"string\" itemLable=\"name\"
+		// itemValue=\"id\"> <form:option value=\"-\" label=\"--Select
+		// profesor\" /><form:options items=\"${profesorMap}\"
+		// /></form:select><button>submit</button> </form:form>";
+		// System.out.println(list);
+		if (user.getGroup() != null) {
+
+			// model.addAttribute("list", list);
 			System.out.println(user.getGroup());
-			 profesorMap = new Parset()
-					.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()),user);
+			profesorMap = new Parset().ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()),
+					user);
 
-		}else
-		{
-		profesorMap = new HashMap<>();
-//			profesorMap.put(0, "null");
+		} else {
+			profesorMap = new HashMap<>();
+			// profesorMap.put(0, "null");
 		}
 
-			model.addAttribute("profesorMap", profesorMap);
-			model.addAttribute("profesor", new StringWrapper());
+		model.addAttribute("profesorMap", profesorMap);
+		model.addAttribute("profesor", new StringWrapper());
 		// model.addAttribute("uuidBody", uuidBody);
 
 		// model.addAttribute("profesorID", new StringWrapper());
@@ -200,9 +201,9 @@ public class UserController {
 		return "views-filecontent-profile";
 	}
 
-
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	public String saveImage(Principal principal, @RequestParam MultipartFile multipartFile, Model model,@ModelAttribute StringWrapper profesor) {
+	public String saveImage(Principal principal, @RequestParam MultipartFile multipartFile, Model model,
+			@ModelAttribute StringWrapper profesor) {
 
 		int profesorID = Integer.parseInt(profesor.getString());
 
@@ -255,13 +256,11 @@ public class UserController {
 				model.addAttribute("nameException", e.getMessage());
 			}
 		}
-		
-		String uuidBody = "http://localhost:8080/Pro.100.Game.Ua/confirmAdd/"
-				+ uuid;
-		
-		
-	GroupOfUsers groupOfUsers2 = user.getGroup();
-		model.addAttribute("groupUID",groupOfUsers );
+
+		String uuidBody = "http://localhost:8080/Pro.100.Game.Ua/confirmAdd/" + uuid;
+
+		GroupOfUsers groupOfUsers2 = user.getGroup();
+		model.addAttribute("groupUID", groupOfUsers);
 
 		// }else{
 		//
@@ -294,16 +293,24 @@ public class UserController {
 		return "redirect:/profile";
 
 	}
+
 	@RequestMapping(value = "/user{id}", method = RequestMethod.GET)
 	public String newProfesor(Principal principal, @PathVariable String id, Model model) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
-	
+
 		User userStore = userService.findOne(Integer.parseInt(id));
-		
-		model.addAttribute("userT",userStore);
-		model.addAttribute("user",user);
+
+		model.addAttribute("userT", userStore);
+		model.addAttribute("user", user);
+		if (userStore.getGroup() != null && user.getGroup() != null) {
+
+			if (userStore.getGroup().getId() == user.getGroup().getId()) {
+				model.addAttribute("groupUID", user.getGroup());
+			}
+		}
+
 		return "views-user-user";
 
 	}
-	
+
 }

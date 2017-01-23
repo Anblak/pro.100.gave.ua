@@ -33,7 +33,7 @@
 										<b>uidGroup: </b>
 										<p class="pu">http://localhost:8080/</p>
 										<p class="pu">Pro.100.Game.Ua/confirmAdd/</p>
-										<p class="pu">${userT.group.uuid}</p>
+										<p class="pu">${groupUID.uuid}</p>
 									</div></label>
 							</sec:authorize>
 						</div>
