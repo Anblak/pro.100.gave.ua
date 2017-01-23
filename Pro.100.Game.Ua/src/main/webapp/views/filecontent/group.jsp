@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <div class="container">${body}</div> 
+  <div class="containerDiv">${body}</div> 
   
   
   
