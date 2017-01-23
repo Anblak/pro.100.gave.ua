@@ -125,7 +125,7 @@
 
 			<div id="userSettings" class="modal">
 
-				<form class="modal-content animate">
+				<div class="modal-content animate">
 					<div class="imgcontainer">
 						<span
 							onclick="document.getElementById('userSettings').style.display='none'"
@@ -147,28 +147,31 @@
 						</div>
 						<div class="container">
 							<sec:authorize access="hasRole('ROLE_CREATOR')">
-								<label><b>uidGroup</b>${group}</label>
+								<label><b>uidGroup: </b>http://localhost:8080/Pro.100.Game.Ua/confirmAdd/${user.uuid}</label>
+							</sec:authorize>
 						</div>
 					</div>
-		</sec:authorize>
-		<form:form action="logout" method="post" class="logout">
-			<button type="submit">logout</button>
-			<!-- cancel -->
-			<div class="container" style="background-color: #f1f1f1">
-				<button type="button"
-					onclick="document.getElementById('userSettings').style.display='none'"
-					class="cancelbtn">Cancel</button>
-				<span class="pswb"><form:form action="user/${user.id}" method=get>
-						<button class="button" type="submit">User Page</button>
-					</form:form></span>
+					<form:form action="logout" method="post" id="formlogaut">
+						<button type="submit" form="formlogaut">logout</button>
+					</form:form>
+					<!-- cancel -->
+					<div class="container" style="background-color: #f1f1f1">
+					<form action="/user/${user.id}"
+								method="get" id="formprofile"><span class="pwn">
+						<button type="button"
+							onclick="document.getElementById('userSettings').style.display='none'"
+							class="cancelbtn">Cancel</button>
+						
+								<button class="button" form="formprofile">profile</button>
+							</span></form>
+
+					</div>
+
+				</div>
+
+				<!--  <input type="checkbox" checked="checked"> Remember me-->
 
 			</div>
-		</form:form>
-		<!--  <input type="checkbox" checked="checked"> Remember me-->
-
-	</div>
-
-	</form>
 	</div>
 
 

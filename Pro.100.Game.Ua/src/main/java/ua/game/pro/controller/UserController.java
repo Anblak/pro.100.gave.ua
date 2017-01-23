@@ -247,9 +247,6 @@ public class UserController {
 
 		groupOfUsers.setUuid(uuid);
 
-		String uuidBody = "hi, to add another users,give them this link    http://localhost:8080/Pro.100.Game.Ua/confirmAdd/"
-				+ uuid;
-
 		try {
 			groupOfUsersService.save(groupOfUsers, user);
 		} catch (Exception e) {
@@ -257,8 +254,13 @@ public class UserController {
 				model.addAttribute("nameException", e.getMessage());
 			}
 		}
-		System.out.println(uuidBody);
-		model.addAttribute("uuidBody", uuidBody);
+		
+		String uuidBody = "http://localhost:8080/Pro.100.Game.Ua/confirmAdd/"
+				+ uuid;
+		
+		
+	GroupOfUsers groupOfUsers2 = user.getGroup();
+		model.addAttribute("groupUID",groupOfUsers );
 
 		// }else{
 		//

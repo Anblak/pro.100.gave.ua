@@ -13,7 +13,7 @@
 
 <body>
 	<div>
-		${user.name}${user.email}${user.phone} <br> ${nameException}
+		${groupUID.name}<br>${user.name}${user.email}${user.phone} <br> ${nameException}
 	</div>
 
 	<button onclick="document.getElementById('creategroup').style.display='block'"
