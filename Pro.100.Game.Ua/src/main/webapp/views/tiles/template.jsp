@@ -147,7 +147,12 @@
 						</div>
 						<div class="container">
 							<sec:authorize access="hasRole('ROLE_CREATOR')">
-								<label><b>uidGroup: </b>http://localhost:8080/Pro.100.Game.Ua/confirmAdd/${user.uuid}</label>
+								<label><div class="uidGroup">
+										<b>uidGroup: </b>
+										<p class="pu">http://localhost:8080/</p>
+										<p class="pu">Pro.100.Game.Ua/confirmAdd/</p>
+										<p class="pu">${user.uuid}</p>
+									</div></label>
 							</sec:authorize>
 						</div>
 					</div>
@@ -156,14 +161,14 @@
 					</form:form>
 					<!-- cancel -->
 					<div class="container" style="background-color: #f1f1f1">
-					<form action="/user/${user.id}"
-								method="get" id="formprofile"><span class="pwn">
-						<button type="button"
-							onclick="document.getElementById('userSettings').style.display='none'"
-							class="cancelbtn">Cancel</button>
-						
-								<button class="button" form="formprofile">profile</button>
-							</span></form>
+						<form action="/user/${user.id}" method="get" id="formprofile">
+							<button type="button"
+								onclick="document.getElementById('userSettings').style.display='none'"
+								class="cancelbtn">Cancel</button>
+							<span class="pwn">
+								<button class="profilebutton" form="formprofile">profile</button>
+							</span>
+						</form>
 
 					</div>
 

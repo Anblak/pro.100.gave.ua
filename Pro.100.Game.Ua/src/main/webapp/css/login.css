@@ -9,11 +9,16 @@ input[type=text], input[type=password], input[type=email], input[type=file]
 	border: 1px solid #ccc;
 	box-sizing: border-box;
 }
+.profilebutton {
+	width: auto;
+	padding: 10px 18px;
+}
 
 img {
 	width: 100px;
 	height: 100px
 }
+
 
 /* Set a style for all buttons */
 button {
@@ -54,6 +59,7 @@ span.psw {
 	float: right;
 	padding-top: 16px;
 }
+
 span.pswb {
 	float: right;
 	padding-top: 8px;
@@ -91,7 +97,6 @@ span.pswb {
 	color: #000;
 	font-size: 35px;
 	font-weight: bold;
-
 }
 
 .close:hover, .close:focus {
@@ -132,12 +137,15 @@ to {
 		display: inline-block;
 		float: none;
 	}
-button.cancelbtn {
+	button.cancelbtn {
 		width: 100%;
 	}
 	img.avatar {
 		width: 50%;
 		height: 50%;
 		border-radius: 50%;
-	}	
+	}
+	.profilebutton {
+		width: 100%;
+	}
 }

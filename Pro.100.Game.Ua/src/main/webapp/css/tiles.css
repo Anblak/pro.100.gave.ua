@@ -4,25 +4,31 @@ body {
 	width: 100%;
 	margin: 0px
 }
-.imgUserSettings{
-	width:auto;
-	height: 50%;
-	margin:0px;
+
+.pu {
+	display: inline-block;
+}
+
+.uidGroup {
 	
 }
-.userSettings {
-	background:white;
-	
 
+.imgUserSettings {
 	width: auto;
-	height: 100px;	
+	height: 50%;
+	margin: 0px;
+}
+
+.userSettings {
+	background: white;
+	width: auto;
+	height: 100px;
 	margin: auto;
-	
 }
 
 .avatarUser {
 	width: 25%;
-	height: 100px;	
+	height: 100px;
 }
 
 .tiles {
