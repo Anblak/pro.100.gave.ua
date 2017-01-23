@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<div class="tiles" style="width: 1360px; height: 100px;">
+	<div class="tiles" style="">
 
 
 
@@ -102,41 +102,97 @@
 						<button type="button"
 							onclick="document.getElementById('id02').style.display='none'"
 							class="cancelbtn">Cancel</button>
-					
+
 					</div>
 				</form:form>
 			</div>
 
+
+
 		</sec:authorize>
+
+
+
 		<sec:authorize access="isAuthenticated()">
-			<form:form action="logout" method="post" class="logout">
-				<button type="submit">logout</button>
-			</form:form>
 
+			<!------------- user ------------>
+			<button
+				onclick="document.getElementById('userSettings').style.display='block'"
+				style="" class="userSettings">
+				<img class="imgUserSettings" src="img/useranon.png" />
+			</button>
 
+			<div id="userSettings" class="modal">
+
+				<form:form class="modal-content animate" action="saveUser"
+					method="post">
+					<div class="imgcontainer">
+						<span
+							onclick="document.getElementById('userSettings').style.display='none'"
+							class="close" title="Close Modal">&times;</span> <img
+							src="img/useranon.png" alt="Avatar" class="avatar">
+					</div>
+
+					<div class="container">
+						<!-- info -->
+						<div class="container">
+							<label><b>name</b>: ${user.name}</label>
+
+						</div>
+						<div class="container">
+							<label><b>email</b>:${user.email}</label>
+						</div>
+						<div class="container">
+							<label><b>phone</b>:${user.phone}</label>
+						</div>
+						<div class="container">
+							<sec:authorize access="hasRole('ROLE_CREATOR')">
+								<label><b>uidGroup</b>${group}</label>
+						</div>
+					</div>
 		</sec:authorize>
+		<form:form action="logout" method="post" class="logout">
+			<button type="submit">logout</button>
+			<!-- cancel -->
+			<div class="container" style="background-color: #f1f1f1">
+				<button type="button"
+					onclick="document.getElementById('userSettings').style.display='none'"
+					class="cancelbtn">Cancel</button>
+
+			</div>
+		</form:form>
+		<!--  <input type="checkbox" checked="checked"> Remember me-->
+
+	</div>
+
+	</form:form>
+	</div>
 
 
 
-		<!-- 		<div class="lgWrapper" style=""> -->
-		<!-- 			<div class="wrapperlg" style=""> -->
-		<!-- 				<p style="margin: auto"> -->
-		<%-- 				<form action="ua" method=get class="formUA"> --%>
-		<!-- 					<button class="buttonUA" id="buttonUA" style=""> -->
-		<!-- 						<p class="pUA">UA</p> -->
-		<!-- 					</button> -->
-		<%-- 				</form> --%>
+	</sec:authorize>
 
-		<%-- 				<form action="ru" method=get class="formRU"> --%>
 
-		<!-- 					<button class="buttonRU" id="buttonRU" style=""> -->
-		<!-- 						<p class="pRU">RU</p> -->
-		<!-- 					</button> -->
 
-		<%-- 				</form> --%>
-		<!-- 				</p> -->
-		<!-- 			</div> -->
-		<!-- 		</div> -->
+	<!-- 		<div class="lgWrapper" style=""> -->
+	<!-- 			<div class="wrapperlg" style=""> -->
+	<!-- 				<p style="margin: auto"> -->
+	<%-- 				<form action="ua" method=get class="formUA"> --%>
+	<!-- 					<button class="buttonUA" id="buttonUA" style=""> -->
+	<!-- 						<p class="pUA">UA</p> -->
+	<!-- 					</button> -->
+	<%-- 				</form> --%>
+
+	<%-- 				<form action="ru" method=get class="formRU"> --%>
+
+	<!-- 					<button class="buttonRU" id="buttonRU" style=""> -->
+	<!-- 						<p class="pRU">RU</p> -->
+	<!-- 					</button> -->
+
+	<%-- 				</form> --%>
+	<!-- 				</p> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
 	</div>
 	<div>
 		<tiles:insertAttribute name="body" />

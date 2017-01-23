@@ -1,8 +1,32 @@
 @CHARSET "UTF-8";
 
+body {
+	width: 100%;
+	margin: 0px
+}
+.imgUserSettings{
+	width:auto;
+	height: 50%;
+	margin:0px;
+	
+}
+.userSettings {
+	background:white;
+	
+
+	width: auto;
+	height: 100px;	
+	margin: auto;
+	
+}
+
+.avatarUser {
+	width: 25%;
+	height: 100px;	
+}
+
 .tiles {
-	width: 1360px;
-	height: 100px;
+	width: 100% height: 100px;
 }
 
 .buttonUA {
@@ -16,16 +40,15 @@
 .wrapperlg {
 	height: 40px;
 	width: 84px;
-	background:green;
-	margin:auto;
-	
+	background: green;
+	margin: auto;
 }
+
 .lgWrapper {
 	height: 49px;
 	width: 100px;
-	background:green;
-	padding-top:8px;
-	
+	background: green;
+	padding-top: 8px;
 }
 
 .buttonRU {
@@ -55,4 +78,8 @@
 .pRU {
 	
 }
-.logout{width:71px;height: 43px}
+
+.logout {
+	width: 71px;
+	height: 43px
+}
