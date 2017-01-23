@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/tiles.css">
 <link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" href="css/group.css">
+<link rel="stylesheet" href="css/button.css">
 
 <title>Pro100.game.ua</title>
 <meta name="description" content="">
@@ -124,8 +125,7 @@
 
 			<div id="userSettings" class="modal">
 
-				<form:form class="modal-content animate" action="saveUser"
-					method="post">
+				<form class="modal-content animate">
 					<div class="imgcontainer">
 						<span
 							onclick="document.getElementById('userSettings').style.display='none'"
@@ -158,6 +158,9 @@
 				<button type="button"
 					onclick="document.getElementById('userSettings').style.display='none'"
 					class="cancelbtn">Cancel</button>
+				<span class="pswb"><form:form action="user/${user.id}" method=get>
+						<button class="button" type="submit">User Page</button>
+					</form:form></span>
 
 			</div>
 		</form:form>
@@ -165,7 +168,7 @@
 
 	</div>
 
-	</form:form>
+	</form>
 	</div>
 
 
