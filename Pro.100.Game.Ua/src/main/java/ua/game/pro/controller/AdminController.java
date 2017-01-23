@@ -11,7 +11,7 @@ public class AdminController {
 	
 	@RequestMapping("/admin")
 	public String newAuthor() {
-		return "admin";
+		return "views-admin-admin";
 	}
 
 
