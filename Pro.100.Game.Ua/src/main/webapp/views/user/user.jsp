@@ -31,6 +31,11 @@
 
 					<div class="modal-content animate">
 						<div class="imgcontainer">
+							<span
+								onclick="document.getElementById('savephoto').style.display='none'"
+								class="close" title="Close Modal">&times;</span> 
+						</div>
+						<div class="imgcontainer">
 							<p>imgcontainer</p>
 						</div>
 

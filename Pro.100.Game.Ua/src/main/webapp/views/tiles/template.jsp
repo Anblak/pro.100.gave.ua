@@ -123,9 +123,12 @@
 			<div id="audio" class="modal">
 
 				<div class="modal-content animate">
-					<div class="imgcontainer">
-						<p>imgcontainer</p>
-					</div>
+				
+				<div class="imgcontainer">
+							<span
+								onclick="document.getElementById('audio').style.display='none'"
+								class="close" title="Close Modal">&times;</span> 
+						</div>
 
 					<div class="container">
 
