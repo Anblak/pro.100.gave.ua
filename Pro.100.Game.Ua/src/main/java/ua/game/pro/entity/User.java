@@ -29,7 +29,7 @@ public class User implements UserDetails {
 	private String email;
 	private String password;
 	private int phone;
-	
+	private String pathImage;
     private boolean enabled;
 	private String uuid;
 	
@@ -62,6 +62,20 @@ public class User implements UserDetails {
 
 
 	
+	public String getPathImage() {
+		return pathImage;
+	}
+
+
+
+
+	public void setPathImage(String pathImage) {
+		this.pathImage = pathImage;
+	}
+
+
+
+
 	public String getUuid() {
 		return uuid;
 	}

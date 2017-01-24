@@ -200,6 +200,14 @@ public class UserController {
 
 		return "views-filecontent-profile";
 	}
+	
+	@RequestMapping(value = "/saveImage", method = RequestMethod.POST)
+	public String saveImage(Principal principal,@RequestParam MultipartFile image){
+
+		userService.saveImage(principal, image);
+
+		return "redirect:/profile";
+	}
 
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
 	public String saveImage(Principal principal, @RequestParam MultipartFile multipartFile, Model model,
@@ -312,5 +320,7 @@ public class UserController {
 		return "views-user-user";
 
 	}
+	
+	
 
 }
