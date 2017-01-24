@@ -115,7 +115,40 @@
 
 
 		<sec:authorize access="isAuthenticated()">
+			<!------------- audio ------------>
+			<button
+				onclick="document.getElementById('id01').style.display='block'"
+				style="width: auto;">audio</button>
 
+			<div id="id01" class="modal">
+
+				<div class="modal-content animate">
+					<div class="imgcontainer">
+						<p>imgcontainer</p>
+					</div>
+
+					<div class="container">
+
+						<p>container</p>
+
+						
+						<audio controls> 
+						<source src="http://localhost:8080/Pro.100.Game.Ua/resources/audio/Freatelli.ogg" type="audio/ogg; codecs=vorbis">
+						<source	src="audio/Freatelli.mp3"
+							type="audio/mpeg"> Тег audio не поддерживается вашим
+						браузером. . </audio>
+						<a
+							href="http://localhost:8080/Pro.100.Game.Ua/resources/Freatelli.mp3">Скачайте
+							музыку</a>
+					</div>
+					<div class="container" style="background-color: #f1f1f1">
+						<button type="button"
+							onclick="document.getElementById('id01').style.display='none'"
+							class="cancelbtn">Cancel</button>
+
+					</div>
+				</div>
+			</div>
 			<!------------- user ------------>
 			<button
 				onclick="document.getElementById('userSettings').style.display='block'"
