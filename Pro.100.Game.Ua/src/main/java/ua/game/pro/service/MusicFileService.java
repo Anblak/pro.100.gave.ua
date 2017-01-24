@@ -16,6 +16,6 @@ public interface MusicFileService {
 	MusicFile findOne(int id);
 	void delete(int id);
 	
-	public void saveImage(MultipartFile multipartFile);
+	public void saveMusic(MultipartFile multipartFile);
 
 }

@@ -44,7 +44,7 @@ public class MusicFileServiceImpl implements MusicFileService{
 	}
 
 	@Override
-	public void saveImage(MultipartFile multipartFile) {
+	public void saveMusic(MultipartFile multipartFile) {
 		MusicFile musicFile= new MusicFile();
 		String path = System.getProperty("catalina.home") + "/resources/img/"+ multipartFile.getOriginalFilename();
 		musicFile.setPath("resources/img/" + multipartFile.getOriginalFilename());
