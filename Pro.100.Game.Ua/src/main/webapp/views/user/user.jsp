@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
+	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,8 +16,22 @@
 						<div class="container">
 						<div>
 						<label><img
-							src="img/useranon.png" alt="Avatar" class="avatar"></label>
+							src="${user.pathImage}" alt="img/useranon.png" class="avatar"></label>
 							</div>
+							
+							
+							
+						<br>
+			<button
+				onclick="document.getElementById('id01').style.display='block'"
+				style="width: auto;">Save photo</button>
+				<form:form action="./saveImage?${_csrf.parameterName}=${_csrf.token}"
+							method="post" enctype="multipart/form-data">
+							<input type="file" name="image">
+							<button>save image</button>
+						</form:form>
+			<div id="id01" class="modal">
+						
 							
 							<label><b>name</b>: ${userT.name}</label>
 

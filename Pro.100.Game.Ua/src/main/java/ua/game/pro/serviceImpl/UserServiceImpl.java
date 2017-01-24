@@ -86,7 +86,7 @@ public class UserServiceImpl implements UserService, UserDetailsService{
         String path = System.getProperty("catalina.home") + "/resources/"
                 + user.getName() + "/" + multipartFile.getOriginalFilename();
 
-        user.setPathImage("resources/" + user.getName()+"img" + "/" + multipartFile.getOriginalFilename());
+        user.setPathImage("resources/" + user.getName() + "/" + multipartFile.getOriginalFilename());
 
         File file = new File(path);
 
@@ -94,7 +94,7 @@ public class UserServiceImpl implements UserService, UserDetailsService{
             file.mkdirs();
             try {
                 FileUtils.cleanDirectory
-                        (new File(System.getProperty("catalina.home") + "/resources/" + user.getName()+"img" + "/"));
+                        (new File(System.getProperty("catalina.home") + "/resources/" + user.getName() + "/"));
             } catch (IOException e) {
                 e.printStackTrace();
             }

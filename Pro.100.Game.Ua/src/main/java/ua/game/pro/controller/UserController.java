@@ -216,7 +216,7 @@ try{
 
 		userService.saveImage(principal, image);
 
-		return "redirect:/profile";
+		return "redirect:/user";
 	}
 
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
@@ -315,7 +315,6 @@ try{
 	@RequestMapping(value = "/user{id}", method = RequestMethod.GET)
 	public String newProfesor(Principal principal, @PathVariable String id, Model model) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
-
 		User userStore = userService.findOne(Integer.parseInt(id));
 
 		model.addAttribute("userT", userStore);
