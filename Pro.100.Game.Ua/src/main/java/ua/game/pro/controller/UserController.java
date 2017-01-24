@@ -158,6 +158,8 @@ public class UserController {
 	// =====================================================================
 	@RequestMapping("/profile")
 	public String profile(Principal principal, Model model) {
+try{
+	
 
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		model.addAttribute("user", user);
@@ -199,6 +201,14 @@ public class UserController {
 		// }
 
 		return "views-filecontent-profile";
+		
+		
+			
+		} catch (NullPointerException e) {
+			return "views-base-home";
+		} catch (Exception e) {
+			return "views-filecontent-profile";
+		}
 	}
 
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
