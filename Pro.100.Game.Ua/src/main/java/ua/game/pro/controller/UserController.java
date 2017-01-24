@@ -158,61 +158,60 @@ public class UserController {
 	// =====================================================================
 	@RequestMapping("/profile")
 	public String profile(Principal principal, Model model) {
-try{
-	
+		try {
 
-		User user = userService.findOne(Integer.parseInt(principal.getName()));
-		model.addAttribute("user", user);
-		HashMap<Integer, String> profesorMap;
+			User user = userService.findOne(Integer.parseInt(principal.getName()));
+			model.addAttribute("user", user);
+			HashMap<Integer, String> profesorMap;
 
-		// System.out.println(user.getGroup());
+			// System.out.println(user.getGroup());
 
-		// String list = "<form:form method=\"POST\" commandName=\"profesor\"
-		// action=\"profesort\"><form:select path=\"string\" itemLable=\"name\"
-		// itemValue=\"id\"> <form:option value=\"-\" label=\"--Select
-		// profesor\" /><form:options items=\"${profesorMap}\"
-		// /></form:select><button>submit</button> </form:form>";
-		// System.out.println(list);
-		if (user.getGroup() != null) {
+			// String list = "<form:form method=\"POST\"
+			// commandName=\"profesor\"
+			// action=\"profesort\"><form:select path=\"string\"
+			// itemLable=\"name\"
+			// itemValue=\"id\"> <form:option value=\"-\" label=\"--Select
+			// profesor\" /><form:options items=\"${profesorMap}\"
+			// /></form:select><button>submit</button> </form:form>";
+			// System.out.println(list);
+			if (user.getGroup() != null) {
 
-			// model.addAttribute("list", list);
-			System.out.println(user.getGroup());
-			profesorMap = new Parset().ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()),
-					user);
+				// model.addAttribute("list", list);
+				System.out.println(user.getGroup());
+				profesorMap = new Parset()
+						.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()), user);
 
-		} else {
-			profesorMap = new HashMap<>();
-			// profesorMap.put(0, "null");
-		}
+			} else {
+				profesorMap = new HashMap<>();
+				// profesorMap.put(0, "null");
+			}
 
-		model.addAttribute("profesorMap", profesorMap);
-		model.addAttribute("profesor", new StringWrapper());
-		// model.addAttribute("uuidBody", uuidBody);
+			model.addAttribute("profesorMap", profesorMap);
+			model.addAttribute("profesor", new StringWrapper());
+			// model.addAttribute("uuidBody", uuidBody);
 
-		// model.addAttribute("profesorID", new StringWrapper());
+			// model.addAttribute("profesorID", new StringWrapper());
 
-		//
-		// try {
-		// model.addAttribute("profesors", new Profesor());
-		// model.addAttribute("profesorsDTOs",
-		// DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
-		// } catch (Exception e) {
-		// System.out.println(e.getMessage());
-		// }
+			//
+			// try {
+			// model.addAttribute("profesors", new Profesor());
+			// model.addAttribute("profesorsDTOs",
+			// DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
+			// } catch (Exception e) {
+			// System.out.println(e.getMessage());
+			// }
 
-		return "views-filecontent-profile";
-		
-		
-			
+			return "views-filecontent-profile";
+
 		} catch (NullPointerException e) {
 			return "views-base-home";
 		} catch (Exception e) {
 			return "views-filecontent-profile";
 		}
 	}
-	
+
 	@RequestMapping(value = "/saveImage", method = RequestMethod.POST)
-	public String saveImage(Principal principal,@RequestParam MultipartFile image){
+	public String saveImage(Principal principal, @RequestParam MultipartFile image) {
 
 		userService.saveImage(principal, image);
 
@@ -314,22 +313,31 @@ try{
 
 	@RequestMapping(value = "/user{id}", method = RequestMethod.GET)
 	public String newProfesor(Principal principal, @PathVariable String id, Model model) {
-		User user = userService.findOne(Integer.parseInt(principal.getName()));
-		User userStore = userService.findOne(Integer.parseInt(id));
 
-		model.addAttribute("userT", userStore);
-		model.addAttribute("user", user);
-		if (userStore.getGroup() != null && user.getGroup() != null) {
+		
 
-			if (userStore.getGroup().getId() == user.getGroup().getId()) {
-				model.addAttribute("groupUID", user.getGroup());
+		try {
+
+			User user = userService.findOne(Integer.parseInt(principal.getName()));
+
+
+			User userStore = userService.findOne(Integer.parseInt(id));
+
+			model.addAttribute("userT", userStore);
+			model.addAttribute("user", user);
+			if (userStore.getGroup() != null && user.getGroup() != null) {
+
+				if (userStore.getGroup().getId() == user.getGroup().getId()) {
+					model.addAttribute("groupUID", user.getGroup());
+				}
 			}
+
+			return "views-user-user";
+		} catch (NullPointerException e) {
+			return "views-base-home";
+		} catch (Exception e) {
+			return "views-user-user";
 		}
-
-		return "views-user-user";
-
 	}
-	
-	
 
 }
