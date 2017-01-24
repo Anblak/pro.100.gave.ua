@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mysql.fabric.xmlrpc.base.Value;
-
 import resources.creatorHTMLTag.CreatorHTMLTag;
 import ua.game.pro.entity.FileUser;
+import ua.game.pro.entity.GroupOfUsers;
 import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
@@ -35,20 +34,27 @@ public class GroupController {
 
 	@RequestMapping(value = "/group", method = RequestMethod.GET)
 	public String outPrintGrup(Model model, Principal principal) {
-		User user = userService.findOne(Integer.parseInt(principal.getName()));
-		String groupName = user.getGroup().getName();
 
-		String input = creator.p(groupName, "p", "")
-				+ creator.div(creator.form(creator.button("profesor", "buttonNext", "submit"), "profesor", "GET"),
-						"","wrapperButton")
-				+ creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deletegroup", "GET"),
-						"","wrapperButton");
+		try {
 
-		String div = creator.div(input, "", "div");
-		model.addAttribute("user", user);
-		model.addAttribute("body", div);
+			User user = userService.findOne(Integer.parseInt(principal.getName()));
+			String groupName = user.getGroup().getName();
+			model.addAttribute("user", user);
+			String input = creator.p(groupName, "p", "")
+					+ creator.div(creator.form(creator.button("profesor", "buttonNext", "submit"), "profesor", "GET"),
+							"", "wrapperButton")
+					+ creator.div(
+							creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deletegroup", "GET"), "",
+							"wrapperButton");
+			String div = creator.div(input, "", "div");
+			model.addAttribute("body", div);
+			return "views-filecontent-group";
+		} catch (NullPointerException e) {
+			return "views-base-home";
+		} catch (Exception e) {
+			return "views-filecontent-group";
+		}
 
-		return "views-filecontent-group";
 	}
 
 	@RequestMapping(value = "profesor", method = RequestMethod.GET)
@@ -61,11 +67,11 @@ public class GroupController {
 
 				String input = creator.p(profesor.getName(), "p", "")
 						+ creator.div(creator.form(creator.button("Profesor for Group", "buttonNext", "submit"),
-								"" + profesor.getId(), "get"), "display:inline-block","wrapperButton")
+								"" + profesor.getId(), "get"), "display:inline-block", "wrapperButton")
 						+ creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deleteprofesor",
-								"GET"), "display:inline-block","wrapperButton");
+								"GET"), "display:inline-block", "wrapperButton");
 				body += (" " + creator.div(input, "", "div") + " ");
-				
+
 			}
 
 		}

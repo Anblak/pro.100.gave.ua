@@ -1,8 +1,10 @@
 package ua.game.pro.controller;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,22 +15,39 @@ import resources.exceptions.ProjectExceptions;
 import resources.parset.Parset;
 import resources.wrapper.BaseActionWrapper;
 import resources.wrapper.StringWrapper;
+import ua.game.pro.entity.User;
+import ua.game.pro.service.UserService;
 
 @Controller
 public class MathController {
 
 	private StringWrapper lg = new StringWrapper();
+	@Autowired
+	private UserService userService;
 
 	@RequestMapping("/math")
-	public String Math(@ModelAttribute String string, Model model) {
+	public String Math(@ModelAttribute String string, Model model, Principal principal) {
+
 		// "img/LeftBodyDiv"+lg.getString()+".png"
 		model.addAttribute("heder", ("img/heder" + lg.getString() + ".png"));
 		model.addAttribute("LeftBodyDiv", ("img/LeftBodyDiv" + lg.getString() + ".png"));
-//		model.addAttribute("lg",
-//				"<div class=\"tiles\" > <form action=\"ua\" method=get class=\"formUA\"> <button class=\"buttonUA\" id=\"buttonUA\" style=\"\"> <p class=\"pUA\">UA</p></button></form><form action=\"ru\" method=get class=\"formRU\"><button class=\"buttonRU\" id=\"buttonRU\" style=\"\"><p class=\"pRU\">RU</p></button></form></div>");
+		// model.addAttribute("lg",
+		// "<div class=\"tiles\" > <form action=\"ua\" method=get
+		// class=\"formUA\"> <button class=\"buttonUA\" id=\"buttonUA\"
+		// style=\"\"> <p class=\"pUA\">UA</p></button></form><form
+		// action=\"ru\" method=get class=\"formRU\"><button class=\"buttonRU\"
+		// id=\"buttonRU\" style=\"\"><p
+		// class=\"pRU\">RU</p></button></form></div>");
 		// model.addAttribute("lg", "do");
-
-		return "views-math-math";
+		try {
+			User user = userService.findOne(Integer.parseInt(principal.getName()));
+			model.addAttribute("user", user);
+			return "views-math-math";
+		} catch (NullPointerException e) {
+			return "views-math-math";
+		} catch (Exception e) {
+			return "views-math-math";
+		}
 	}
 
 	@RequestMapping("/ru")
