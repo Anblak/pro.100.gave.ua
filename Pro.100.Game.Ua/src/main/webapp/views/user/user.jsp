@@ -15,7 +15,7 @@
 			<!-- info -->
 			<div class="container">
 				<div>
-					<label><img src="${user.pathImage}" alt="img/useranon.png"
+					<label><img src="http://localhost:8080/Pro.100.Game.Ua/${user.pathImage}" alt="img/useranon.png"
 						class="avatar"></label>
 				</div>
 

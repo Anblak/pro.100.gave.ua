@@ -212,10 +212,10 @@ public class UserController {
 
 	@RequestMapping(value = "/saveImage", method = RequestMethod.POST)
 	public String saveImage(Principal principal, @RequestParam MultipartFile image) {
-
+		User user= userService.findOne(Integer.parseInt(principal.getName()));
 		userService.saveImage(principal, image);
 
-		return "redirect:/user";
+		return "redirect:/user"+user.getId();
 	}
 
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
