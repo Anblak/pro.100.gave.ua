@@ -9,6 +9,7 @@ input[type=text], input[type=password], input[type=email], input[type=file]
 	border: 1px solid #ccc;
 	box-sizing: border-box;
 }
+
 .profilebutton {
 	width: auto;
 	padding: 10px 18px;
@@ -18,7 +19,6 @@ img {
 	width: 100px;
 	height: 100px
 }
-
 
 /* Set a style for all buttons */
 button {
@@ -79,6 +79,7 @@ span.pswb {
 	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 	padding-top: 60px;
 }
+
 .modalM {
 	display: inline-block; /* Hidden by default */
 	position: fixed; /* Stay in place */
@@ -146,6 +147,9 @@ to {
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 400px) {
+	.modal {
+		width: 400px;
+	}
 	span.psw {
 		display: inline-block;
 		float: none;
@@ -161,4 +165,5 @@ to {
 	.profilebutton {
 		width: 100%;
 	}
+	
 }

@@ -123,12 +123,12 @@
 			<div id="audio" class="modal">
 
 				<div class="modal-content animate">
-				
-				<div class="imgcontainer">
-							<span
-								onclick="document.getElementById('audio').style.display='none'"
-								class="close" title="Close Modal">&times;</span> 
-						</div>
+
+					<div class="imgcontainer">
+						<span
+							onclick="document.getElementById('audio').style.display='none'"
+							class="close" title="Close Modal">&times;</span>
+					</div>
 
 					<div class="container">
 
@@ -162,14 +162,53 @@
 			<div id="userSettings" class="modal">
 
 				<div class="modal-content animate">
+
 					<div class="imgcontainer">
 						<span
 							onclick="document.getElementById('userSettings').style.display='none'"
 							class="close" title="Close Modal">&times;</span> <img
 							src="img/useranon.png" alt="Avatar" class="avatar">
+
+
 					</div>
 
 					<div class="container">
+						<!------------- add new photo ------------>
+						<button class="profilebutton"
+							onclick="document.getElementById('savephoto').style.display='block'"
+							style="">add new Photo</button>
+
+						<div id="savephoto" class="modal">
+
+							<div class="modal-content animate">
+								<div class="imgcontainer">
+									<span
+										onclick="document.getElementById('savephoto').style.display='none'"
+										class="close" title="Close Modal">&times;</span>
+								</div>
+								<div class="imgcontainer">
+									<p>imgcontainer</p>
+								</div>
+
+								<div class="container">
+
+									<p>container</p>
+									<form:form
+										action="./saveImage?${_csrf.parameterName}=${_csrf.token}"
+										method="post" enctype="multipart/form-data">
+										<input type="file" name="image">
+										<button>save image</button>
+									</form:form>
+
+								</div>
+								<div class="container" style="background-color: #f1f1f1">
+									<button type="button"
+										onclick="document.getElementById('savephoto').style.display='none'"
+										class="cancelbtn">Cancel</button>
+
+								</div>
+							</div>
+						</div>
 						<!-- info -->
 						<div class="container">
 							<label><b>name</b>: ${user.name}</label>
