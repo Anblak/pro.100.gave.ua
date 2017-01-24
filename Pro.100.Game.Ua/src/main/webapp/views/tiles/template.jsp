@@ -134,7 +134,7 @@
 						
 						<audio controls> 
 						<source src="http://localhost:8080/Pro.100.Game.Ua/resources/audio/Freatelli.ogg" type="audio/ogg; codecs=vorbis">
-						<source	src="http://localhost:8080/Pro.100.Game.Ua/resources/audio/Freatelli.mp3"
+						<source	src="audio/Freatelli.mp3"
 							type="audio/mpeg"> Тег audio не поддерживается вашим
 						браузером. . </audio>
 						<a
