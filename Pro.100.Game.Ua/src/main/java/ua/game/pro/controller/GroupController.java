@@ -103,6 +103,8 @@ public class GroupController {
 
 	@RequestMapping(value = "{idg}/{id}/{idu}", method = RequestMethod.GET)
 	public String outPrintFile(Model model, Principal principal, @PathVariable int idu, @PathVariable int id) {
+		
+		try{
 		User user = userService.findOne(idu);
 		String body = "";
 
@@ -135,6 +137,12 @@ public class GroupController {
 
 		model.addAttribute("body", body);
 		return "views-filecontent-group";
+		
+		} catch (NullPointerException e) {
+			return "views-base-home";
+		} catch (Exception e) {
+			return "views-filecontent-group";
+		}
 	}
 
 }

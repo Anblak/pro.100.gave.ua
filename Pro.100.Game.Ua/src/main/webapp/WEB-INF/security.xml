@@ -14,7 +14,6 @@
         <security:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
 
 
-
         <security:logout logout-url="/logout" logout-success-url="/"/>
         
         <security:remember-me key="myApp" user-service-ref="userDetailsService"/>
