@@ -1,7 +1,7 @@
 function audioPlayer() {
 	var currentSong = 0;
-	var pauses = document.getElementById('stopMusic');
-	$("#audioPlayer")[0].src;
+	$("#audioPlayer")[0].controls = true;
+	$("#audioPlayer")[0].src = $("#playlist li")[currentSong].src = $("#playlist li a")[currentSong].href;
 	$("#audioPlayer")[0].pause();
 	$("#playlist li a")
 			.click(
@@ -39,12 +39,18 @@ function audioPlayer() {
 	// Находим кнопку и прикрепляем метод на событие onclick
 
 	$("#audioPlayer")[0].addEventListener("pause", function() {
-
+		$("#playlist li").removeClass("current-song");
 		$("#playerMusic")[0].innerHTML = ""
 		// $("#divButtonStop")[currentSong].style = "display:none;";
 		// $("#divButtonStop")[currentSong].innerHTML = "";
-	},false);
+	}, false);
 
+	$("#audioPlayer")[0].addEventListener("play", function() {
+		$("#playlist li:eq(" + currentSong + ")").addClass("current-song");
+		$("#playerMusic")[0].innerHTML = ""
+		// $("#divButtonStop")[currentSong].style = "display:none;";
+		// $("#divButtonStop")[currentSong].innerHTML = "";
+	}, false);
 }
 
 // HTMLAudioElement.prototype.stop = function() {
