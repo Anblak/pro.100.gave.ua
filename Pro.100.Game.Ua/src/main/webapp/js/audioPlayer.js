@@ -45,12 +45,17 @@ function audioPlayer() {
 		// $("#divButtonStop")[currentSong].innerHTML = "";
 	}, false);
 
-	$("#audioPlayer")[0].addEventListener("play", function() {
-		$("#playlist li:eq(" + currentSong + ")").addClass("current-song");
-		$("#playerMusic")[0].innerHTML = ""
-		// $("#divButtonStop")[currentSong].style = "display:none;";
-		// $("#divButtonStop")[currentSong].innerHTML = "";
-	}, false);
+	$("#audioPlayer")[0]
+			.addEventListener(
+					"play",
+					function() {
+						$("#playlist li:eq(" + currentSong + ")").addClass(
+								"current-song");
+						$("#playerMusic")[0].innerHTML = $("#playlist li a div")[currentSong].innerHTML;
+						// $("#divButtonStop")[currentSong].style =
+						// "display:none;";
+						// $("#divButtonStop")[currentSong].innerHTML = "";
+					}, false);
 }
 
 // HTMLAudioElement.prototype.stop = function() {
