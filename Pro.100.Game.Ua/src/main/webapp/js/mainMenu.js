@@ -9,6 +9,7 @@ function menuLeftClose() {
 	document.getElementById('leftIndecatorMenu').style.left = "0px";
 	document.getElementById('leftIndecatorMenu').style.width = "15px";
 	document.getElementById('leftIndecatorMenu').style.opacity = "0";
+
 }
 function menuController() {
 	if (document.getElementById('leftIndecatorMenu').style.left == "300px") {
