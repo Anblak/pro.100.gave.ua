@@ -109,7 +109,7 @@
 		<sec:authorize access="isAuthenticated()">
 
 			<!------------- audio ------------>
-			<button
+			<button class="audioButton"
 				onclick="document.getElementById('audio').style.display='block'"
 				style="width: auto;">audio</button>
 
