@@ -10,7 +10,7 @@
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/summertime" />
 			<property name="hibernate.connection.username" value="root" />
 
-			<property name="hibernate.connection.password" value="1234" /><!-- yfpfh1998 -->
+			<property name="hibernate.connection.password" value="kerpich" /><!-- kerpich -->
 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />

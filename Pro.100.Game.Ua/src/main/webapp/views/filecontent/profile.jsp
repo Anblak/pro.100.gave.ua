@@ -13,10 +13,12 @@
 
 <body>
 	<div>
-		${groupUID.name}<br>${user.name}${user.email}${user.phone} <br> ${nameException}
+		${groupUID.name}<br>${user.name}${user.email}${user.phone} <br>
+		${nameException}
 	</div>
 
-	<button onclick="document.getElementById('creategroup').style.display='block'"
+	<button
+		onclick="document.getElementById('creategroup').style.display='block'"
 		style="width: auto;">Create Group</button>
 
 	<div id="creategroup" class="modal">
@@ -24,7 +26,8 @@
 		<form:form modelAttribute="groupOfUsers" action="createGroup"
 			class="modal-content animate" method="post">
 			<div class="imgcontainer">
-				<span onclick="document.getElementById('creategroup').style.display='none'"
+				<span
+					onclick="document.getElementById('creategroup').style.display='none'"
 					class="close" title="Close Modal">&times;</span> <img
 					src="img/group.png" alt="Avatar" class="avatar">
 			</div>
@@ -36,7 +39,7 @@
 					placeholder="name ${nameException}" required>
 
 
-				<button  type="submit">Create</button>
+				<button type="submit">Create</button>
 				<!--  <input type="checkbox" checked="checked"> Remember me-->
 
 			</div>
@@ -62,42 +65,44 @@
 	<br>
 	<!--  	<p>${uuidBody}</p>-->
 
-<sec:authorize access="hasRole('ROLE_CREATOR')">
-	<br>
-	<button onclick="document.getElementById('createprofesor').style.display='block'"
-		style="width: auto;">add Profesor</button>
+	<sec:authorize access="hasRole('ROLE_CREATOR')">
+		<br>
+		<button
+			onclick="document.getElementById('createprofesor').style.display='block'"
+			style="width: auto;">add Profesor</button>
 
-	<div id="createprofesor" class="modal">
+		<div id="createprofesor" class="modal">
 
-		<form:form modelAttribute="profesor" action="newProfesor"
-			class="modal-content animate" method="post">
-			<div class="imgcontainer">
-				<span onclick="document.getElementById('createprofesor').style.display='none'"
-					class="close" title="Close Modal">&times;</span> <img
-					src="img/useranon.png" alt="Avatar" class="avatar">
-			</div>
+			<form:form modelAttribute="profesor" action="newProfesor"
+				class="modal-content animate" method="post">
+				<div class="imgcontainer">
+					<span
+						onclick="document.getElementById('createprofesor').style.display='none'"
+						class="close" title="Close Modal">&times;</span> <img
+						src="img/useranon.png" alt="Avatar" class="avatar">
+				</div>
 
-			<div class="container">
+				<div class="container">
 
-				<label><b>Profesor Full Name</b></label> <input type="text"
-					name="name"
-					class="validate[required,custom[name],length[0,100]] feedback-input"
-					placeholder="name ${nameException}" required>
+					<label><b>Profesor Full Name</b></label> <input type="text"
+						name="name"
+						class="validate[required,custom[name],length[0,100]] feedback-input"
+						placeholder="name ${nameException}" required>
 
 
-				<button  type="submit">Create</button>
-				<!--  <input type="checkbox" checked="checked"> Remember me-->
+					<button type="submit">Create</button>
+					<!--  <input type="checkbox" checked="checked"> Remember me-->
 
-			</div>
-			<div class="container" style="background-color: #f1f1f1">
-				<button type="button"
-					onclick="document.getElementById('createprofesor').style.display='none'"
-					class="cancelbtn">Cancel</button>
+				</div>
+				<div class="container" style="background-color: #f1f1f1">
+					<button type="button"
+						onclick="document.getElementById('createprofesor').style.display='none'"
+						class="cancelbtn">Cancel</button>
 
-			</div>
-		</form:form>
-	</div>
-	
+				</div>
+			</form:form>
+		</div>
+
 	</sec:authorize>
 	<%-- 	<form:form modelAttribute="profesor" action="newProfesor" method="post"> --%>
 	<!-- 		<input name="name" placeholder="name"> -->
@@ -116,61 +121,61 @@
 	<%-- 	</form:form> --%>
 	<%-- 	${profesorID} --%>
 
-<sec:authorize access="hasRole('ROLE_CREATOR')">
-	<div>
-		<!--${list}  -->
+	<sec:authorize access="hasRole('ROLE_CREATOR')">
+		<div>
+			<!--${list}  -->
 
 
-		<button
-			onclick="document.getElementById('addfile').style.display='block'"
-			style="width: auto;">add File</button>
+			<button
+				onclick="document.getElementById('addfile').style.display='block'"
+				style="width: auto;">add File</button>
 
-		<div id="addfile" class="modal">
+			<div id="addfile" class="modal">
 
-			<form:form class="modal-content animate" action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
-				method='post' enctype='multipart/form-data'>
-				<div class="imgcontainer">
-					<span
-						onclick="document.getElementById('addfile').style.display='none'"
-						class="close" title="Close Modal">&times;</span> <img
-						src="img/file.png" alt="Avatar" class="avatar">
-				</div>
+				<form:form class="modal-content animate"
+					action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
+					method='post' enctype='multipart/form-data'>
+					<div class="imgcontainer">
+						<span
+							onclick="document.getElementById('addfile').style.display='none'"
+							class="close" title="Close Modal">&times;</span> <img
+							src="img/file.png" alt="Avatar" class="avatar">
+					</div>
 
-				<div class="container">
+					<div class="container">
 
-					<label><b></b></label> <input type='file'
-						name='multipartFile'>
-					<form:form  class="modal-content animate" method="POST" commandName="profesor">
-						<form:select path="string" itemLable="name" itemValue="id">
-							<form:option value="-" label="Select profesor" />
-							<form:options items="${profesorMap}" />
-						</form:select>
-						<button type="submit">safe file</button>
+						<label><b></b></label> <input type='file' name='multipartFile'>
+						<form:form class="modal-content animate" method="POST"
+							commandName="profesor">
+							<form:select path="string" itemLable="name" itemValue="id">
+								<form:option value="-" label="Select profesor" />
+								<form:options items="${profesorMap}" />
+							</form:select>
+							<button type="submit">safe file</button>
 
-				<div class="container" style="background-color: #f1f1f1">
-					<button type="button"
-						onclick="document.getElementById('addfile').style.display='none'"
-						class="cancelbtn">Cancel</button>
-					</form:form>
+							<div class="container" style="background-color: #f1f1f1">
+								<button type="button"
+									onclick="document.getElementById('addfile').style.display='none'"
+									class="cancelbtn">Cancel</button>
+						</form:form>
 
-				</div>
-
-				</div>
+					</div>
+			</div>
 			</form:form>
 		</div>
-		</sec:authorize>
-<%-- 		<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}' --%>
-<%-- 			method='post' enctype='multipart/form-data'> --%>
-<!-- 			<input type='file' name='multipartFile'> -->
-<%-- 			<form:form method="POST" commandName="profesor"> --%>
-<%-- 				<form:select path="string" itemLable="name" itemValue="id"> --%>
-<%-- 					<form:option value="-" label="--Select profesor" /> --%>
-<%-- 					<form:options items="${profesorMap}" /> --%>
-<%-- 				</form:select> --%>
-<!-- 				<button class="button">safe file</button> -->
+	</sec:authorize>
+	<%-- 		<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}' --%>
+	<%-- 			method='post' enctype='multipart/form-data'> --%>
+	<!-- 			<input type='file' name='multipartFile'> -->
+	<%-- 			<form:form method="POST" commandName="profesor"> --%>
+	<%-- 				<form:select path="string" itemLable="name" itemValue="id"> --%>
+	<%-- 					<form:option value="-" label="--Select profesor" /> --%>
+	<%-- 					<form:options items="${profesorMap}" /> --%>
+	<%-- 				</form:select> --%>
+	<!-- 				<button class="button">safe file</button> -->
 
-<%-- 			</form:form> --%>
-<%-- 		</form:form> --%>
+	<%-- 			</form:form> --%>
+	<%-- 		</form:form> --%>
 	</div>
 
 
