@@ -34,12 +34,12 @@
 
 .leftIndecatorMenu {
 	width: 15px;
-	top: 0px; height : 178.5%;
+	top: 0px; height : 100%;
 	background: black;
-	position: absolute;
+	position: fixed;
 	border-left: 100px;
 	opacity: 0;
-	height: 178.5%;
+	height: 170%;
 }
 
 .mainFutterDiv {
