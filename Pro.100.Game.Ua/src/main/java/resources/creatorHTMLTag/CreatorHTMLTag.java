@@ -186,6 +186,11 @@ public class CreatorHTMLTag {
 				+ "' formmethod='" + formmethod + "' formaction='" + formaction + "' >" + input + "</button>";
 	}
 
+	public String button(String input, String clas, String name, String id, String type) {
+		return " <button class='" + clas + "'id='" + id + "' name='" + name + "'type='" + type + "'>" + input
+				+ "</button>";
+	}
+
 	/**
 	 * 
 	 * @param input

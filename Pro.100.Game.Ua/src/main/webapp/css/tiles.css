@@ -4,9 +4,23 @@
 	margin: 0px;
 }
 
-.divPlayList{
-		
-	height:400px;
+.buttonStop {
+	width: auto;
+	background: red;
+}
+
+.divButtonStop {
+	width: auto;
+	background: blue;
+	display: none;
+}
+
+.stopButton {
+	background: red;
+}
+
+.divPlayList {
+	height: 400px;
 	overflow-x: hidden;
 }
 
@@ -57,7 +71,6 @@ body {
 #playlist .current-song div {
 	margin: 0px;
 }
-
 
 .musicDiv {
 	background: green;

@@ -139,9 +139,8 @@
 
 							<center>
 
-								<audio src="" controls id="audioPlayer"> Sorry, your
-								browser doesn't support html5! </audio>
-
+								<audio src="" id="audioPlayer"> Sorry, your browser
+								doesn't support html5! </audio>
 							</center>
 						</div>
 						<div class="container divPlayList">

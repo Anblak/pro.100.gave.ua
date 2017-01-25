@@ -29,19 +29,18 @@ public class HomeController {
 
 			User user = userService.findOne(Integer.parseInt(principal.getName()));
 			model.addAttribute("user", user);
-/*add music in model*/
+			/* add music in model */
 			String fileMusic = "";
 			ArrayList<MusicFile> list = (ArrayList<MusicFile>) musicFileService.findAll();
 			for (int i = 0; i < list.size(); i++) {
 				if (i == 0) {
 					fileMusic += creator.li(creator.a(list.get(i).getPath(), "", "",
-							creator.div(list.get(i).getName(), "", "container musicDiv")), "current-song");
+							creator.div(list.get(i).getName(), "", "container musicDiv")), "");
 				} else {
 					fileMusic += creator.li(creator.a(list.get(i).getPath(), "", "",
 							creator.div(list.get(i).getName(), "", "container musicDiv")), "");
 				}
 
-				
 			}
 
 			// creator.li(creator.a(href, "", "", creator.div(input, ""
@@ -58,7 +57,7 @@ public class HomeController {
 			// class="container musicDiv">test2</div></a></li>
 
 			model.addAttribute("music", fileMusic);
-			/*end add music in model*/
+			/* end add music in model */
 		}
 		return "views-base-home";
 	}
