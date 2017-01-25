@@ -54,16 +54,7 @@
 
 
 
-	<%-- 	<form:form modelAttribute="groupOfUsers" action="createGroup" --%>
-	<%-- 		method="post"> --%>
-	<!-- 		<input name="name" -->
-	<!-- 			class="validate[required,custom[name],length[0,100]] feedback-input" -->
-	<%-- 			placeholder="name ${nameException}"> --%>
-	<!-- 		<button class="button">create group</button> -->
-	<%-- 	</form:form> --%>
-
-	<br>
-	<!--  	<p>${uuidBody}</p>-->
+	
 
 	<sec:authorize access="hasRole('ROLE_CREATOR')">
 		<br>
@@ -104,23 +95,7 @@
 		</div>
 
 	</sec:authorize>
-	<%-- 	<form:form modelAttribute="profesor" action="newProfesor" method="post"> --%>
-	<!-- 		<input name="name" placeholder="name"> -->
-	<!-- 		<button class="button">new profesor</button> -->
-	<%-- 	</form:form> --%>
-
-
-	<%-- 	<form:form method="POST" commandName="profesorID" action="saveProfesor"> --%>
-
-	<%-- 		<form:select path="string" itemLable="name" itemValue="id"> --%>
-	<%-- 			<form:option value="-" label="--Select profesor" /> --%>
-	<%-- 			<form:options items="${profesorMap}" /> --%>
-	<%-- 		</form:select> --%>
-
-	<!-- 		<input type="submit" value="Submit" /> -->
-	<%-- 	</form:form> --%>
-	<%-- 	${profesorID} --%>
-
+	
 	<sec:authorize access="hasRole('ROLE_CREATOR')">
 		<div>
 			<!--${list}  -->
@@ -164,18 +139,7 @@
 			</form:form>
 		</div>
 	</sec:authorize>
-	<%-- 		<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}' --%>
-	<%-- 			method='post' enctype='multipart/form-data'> --%>
-	<!-- 			<input type='file' name='multipartFile'> -->
-	<%-- 			<form:form method="POST" commandName="profesor"> --%>
-	<%-- 				<form:select path="string" itemLable="name" itemValue="id"> --%>
-	<%-- 					<form:option value="-" label="--Select profesor" /> --%>
-	<%-- 					<form:options items="${profesorMap}" /> --%>
-	<%-- 				</form:select> --%>
-	<!-- 				<button class="button">safe file</button> -->
 
-	<%-- 			</form:form> --%>
-	<%-- 		</form:form> --%>
 	</div>
 
 
