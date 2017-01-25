@@ -5,6 +5,7 @@ import java.util.List;
 
 import ua.game.pro.entity.FileUser;
 import ua.game.pro.entity.GroupOfUsers;
+import ua.game.pro.entity.MusicFile;
 import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 
@@ -82,6 +83,25 @@ public class DTOUtilMapper {
 			fileUserDTOs.add(fileUserDTO);
 		}
 		return fileUserDTOs;
+	}
+	
+	public static List<MusicFileDTO> musicFileToMusicFileDTO(List<MusicFile>musicFiles){
+		
+		List<MusicFileDTO>musicFileDTOs=new ArrayList<>();
+		
+		for(MusicFile musicFile : musicFiles){
+			
+			MusicFileDTO musicFileDTO = new MusicFileDTO();
+			
+			musicFileDTO.setId(musicFile.getId());
+			musicFileDTO.setName(musicFile.getName());
+			musicFileDTO.setPathMusic(musicFile.getPath());
+			
+			musicFileDTOs.add(musicFileDTO);
+			
+		}
+		
+		return musicFileDTOs;
 	}
 	
 
