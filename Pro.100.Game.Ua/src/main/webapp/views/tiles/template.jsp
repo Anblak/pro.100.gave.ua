@@ -121,7 +121,7 @@
 
 					<!------------- user ------------>
 					<button
-						onclick="document.getElementById('userSettings').style.display='block'"
+						onclick="document.getElementById('userSettings').style.display='block';menuLeftClose()"
 						style="" class="userSettings">
 						<img class="imgUserSettings" src="img/useranon.png" />
 						<div>
@@ -227,7 +227,7 @@
 
 			<!------------- audio ------------>
 			<button class="audioButton"
-				onclick="document.getElementById('audio').style.display='block'"
+				onclick="document.getElementById('audio').style.display='block';menuLeftClose()"
 				style="width: auto;">audio</button>
 
 			<div id="audio" class="modal">
