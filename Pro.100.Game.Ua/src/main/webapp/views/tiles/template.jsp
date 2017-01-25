@@ -116,113 +116,113 @@
 
 
 
-				<sec:authorize access="isAuthenticated()">
 
 
-					<!------------- user ------------>
-					<button
-						onclick="document.getElementById('userSettings').style.display='block';menuLeftClose()"
-						style="" class="userSettings">
-						<img class="imgUserSettings" src="img/useranon.png" />
-						<div>
-							<br>${user.name} <br>
 
-						</div>
-					</button>
-
-					<div id="userSettings" class="modal">
-
-						<div class="modal-content animate">
-
-							<div class="imgcontainer">
-								<span
-									onclick="document.getElementById('userSettings').style.display='none'"
-									class="close" title="Close Modal">&times;</span> <img
-									src="img/useranon.png" alt="Avatar" class="avatar">
-
-
-							</div>
-
-							<div class="container">
-								<!------------- add new photo ------------>
-								<button class="profilebutton"
-									onclick="document.getElementById('savephoto').style.display='block'"
-									style="">add new Photo</button>
-
-								<div id="savephoto" class="modal">
-
-									<div class="modal-content animate">
-										<div class="imgcontainer">
-											<span
-												onclick="document.getElementById('savephoto').style.display='none'"
-												class="close" title="Close Modal">&times;</span>
-										</div>
-										<div class="imgcontainer">
-											<p>imgcontainer</p>
-										</div>
-
-										<div class="container">
-
-											<p>container</p>
-											<form:form
-												action="./saveImage?${_csrf.parameterName}=${_csrf.token}"
-												method="post" enctype="multipart/form-data">
-												<input type="file" name="image">
-												<button>save image</button>
-											</form:form>
-
-										</div>
-										<div class="container" style="background-color: #f1f1f1">
-											<button type="button"
-												onclick="document.getElementById('savephoto').style.display='none'"
-												class="cancelbtn">Cancel</button>
-
-										</div>
-									</div>
-								</div>
-								<!-- info -->
-								<div class="container">
-									<label><b>name</b>: ${user.name}</label>
-
-								</div>
-								<div class="container">
-									<label><b>email</b>:${user.email}</label>
-								</div>
-								<div class="container">
-									<label><b>phone</b>:${user.phone}</label>
-								</div>
-								<div class="container">
-									<sec:authorize access="hasRole('ROLE_CREATOR')">
-										<label><div class="uidGroup">
-												<b>uidGroup: </b>
-												<p class="pu">http://localhost:8080/</p>
-												<p class="pu">Pro.100.Game.Ua/confirmAdd/</p>
-												<p class="pu">${user.uuid}</p>
-											</div></label>
-									</sec:authorize>
-								</div>
-							</div>
-							<form:form action="logout" method="post" id="formlogaut">
-								<button type="submit" form="formlogaut">logout</button>
-							</form:form>
-							<!-- cancel -->
-							<div class="container" style="background-color: #f1f1f1">
-								<form action="user${user.id}" method="get" id="formprofile">
-									<button type="button"
-										onclick="document.getElementById('userSettings').style.display='none'"
-										class="cancelbtn">Cancel</button>
-									<span class="pwn">
-										<button class="profilebutton" form="formprofile">profile</button>
-									</span>
-								</form>
-
-							</div>
-
-						</div>
-
-						<!--  <input type="checkbox" checked="checked"> Remember me-->
+				<!------------- user ------------>
+				<button
+					onclick="document.getElementById('userSettings').style.display='block';menuLeftClose()"
+					style="" class="userSettings">
+					<img class="imgUserSettings" src="img/useranon.png" />
+					<div>
+						<br>${user.name} <br>
 
 					</div>
+				</button>
+
+				<div id="userSettings" class="modal">
+
+					<div class="modal-content animate">
+
+						<div class="imgcontainer">
+							<span
+								onclick="document.getElementById('userSettings').style.display='none'"
+								class="close" title="Close Modal">&times;</span> <img
+								src="img/useranon.png" alt="Avatar" class="avatar">
+
+
+						</div>
+
+						<div class="container">
+							<!------------- add new photo ------------>
+							<button class="profilebutton"
+								onclick="document.getElementById('savephoto').style.display='block'"
+								style="">add new Photo</button>
+
+							<div id="savephoto" class="modal">
+
+								<div class="modal-content animate">
+									<div class="imgcontainer">
+										<span
+											onclick="document.getElementById('savephoto').style.display='none'"
+											class="close" title="Close Modal">&times;</span>
+									</div>
+									<div class="imgcontainer">
+										<p>imgcontainer</p>
+									</div>
+
+									<div class="container">
+
+										<p>container</p>
+										<form:form
+											action="./saveImage?${_csrf.parameterName}=${_csrf.token}"
+											method="post" enctype="multipart/form-data">
+											<input type="file" name="image">
+											<button>save image</button>
+										</form:form>
+
+									</div>
+									<div class="container" style="background-color: #f1f1f1">
+										<button type="button"
+											onclick="document.getElementById('savephoto').style.display='none'"
+											class="cancelbtn">Cancel</button>
+
+									</div>
+								</div>
+							</div>
+							<!-- info -->
+							<div class="container">
+								<label><b>name</b>: ${user.name}</label>
+
+							</div>
+							<div class="container">
+								<label><b>email</b>:${user.email}</label>
+							</div>
+							<div class="container">
+								<label><b>phone</b>:${user.phone}</label>
+							</div>
+							<div class="container">
+								<sec:authorize access="hasRole('ROLE_CREATOR')">
+									<label><div class="uidGroup">
+											<b>uidGroup: </b>
+											<p class="pu">http://localhost:8080/</p>
+											<p class="pu">Pro.100.Game.Ua/confirmAdd/</p>
+											<p class="pu">${user.uuid}</p>
+										</div></label>
+								</sec:authorize>
+							</div>
+						</div>
+						<form:form action="logout" method="post" id="formlogaut">
+							<button type="submit" form="formlogaut">logout</button>
+						</form:form>
+						<!-- cancel -->
+						<div class="container" style="background-color: #f1f1f1">
+							<form action="user${user.id}" method="get" id="formprofile">
+								<button type="button"
+									onclick="document.getElementById('userSettings').style.display='none'"
+									class="cancelbtn">Cancel</button>
+								<span class="pwn">
+									<button class="profilebutton" form="formprofile">profile</button>
+								</span>
+							</form>
+
+						</div>
+
+					</div>
+
+					<!--  <input type="checkbox" checked="checked"> Remember me-->
+
+				</div>
 			</div>
 
 			<!------------- audio ------------>
@@ -304,7 +304,7 @@
 				</div>
 			</div>
 			<marquee id="playerMusic"></marquee>
-			</sec:authorize>
+
 
 
 
@@ -312,8 +312,10 @@
 
 
 		</div>
-		<div onclick="menuController()" id="leftIndecatorMenu"
-			class="leftIndecatorMenu"></div>
+		<sec:authorize access="isAuthenticated()">
+			<div onclick="menuController()" id="leftIndecatorMenu"
+				class="leftIndecatorMenu"></div>
+		</sec:authorize>
 
 		<tiles:insertAttribute name="body" />
 	</div>
