@@ -12,13 +12,14 @@
 <link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" href="css/group.css">
 <link rel="stylesheet" href="css/button.css">
-
+<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
 <title>Pro100.game.ua</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <body>
+
 
 	<div class="tiles" style="">
 
@@ -133,22 +134,64 @@
 					<div class="container">
 
 						<p>container</p>
+						<div>
 
+							<center>
 
-						<audio controls> <source
-							src="http://localhost:8080/Pro.100.Game.Ua/resources/audio/Freatelli.ogg"
-							type="audio/ogg; codecs=vorbis"> <source
-							src="resources/Freatelli.mp3" type="audio/mpeg"> Тег audio
-						не поддерживается вашим браузером. . </audio>
-						<a
-							href="http://localhost:8080/Pro.100.Game.Ua/resources/Freatelli.mp3">Скачайте
-							музыку</a>
-					</div>
-					<div class="container" style="background-color: #f1f1f1">
-						<button type="button"
-							onclick="document.getElementById('audio').style.display='none'"
-							class="cancelbtn">Cancel</button>
+								<audio src="" controls id="audioPlayer"> Sorry, your
+								browser doesn't support html5! </audio>
 
+							</center>
+						</div>
+						<div class="container divPlayList">
+							<ul id="playlist">${music}</ul>
+						</div>
+
+						<div class="container" style="background-color: #f1f1f1">
+							<button type="button"
+								onclick="document.getElementById('audio').style.display='none'"
+								class="cancelbtn">Cancel</button>
+							<!------------- addMusic ------------>
+
+							<button class="profilebutton"
+								onclick="document.getElementById('savemusic').style.display='block'"
+								style="">add new Music</button>
+
+							<div id="savemusic" class="modal">
+
+								<div class="modal-content animate">
+									<div class="imgcontainer">
+										<span
+											onclick="document.getElementById('savemusic').style.display='none'"
+											class="close" title="Close Modal">&times;</span>
+									</div>
+									<div class="imgcontainer">
+										<p>imgcontainer</p>
+									</div>
+
+									<div class="container">
+
+										<p>container</p>
+										<form:form
+											action="./saveMusic?${_csrf.parameterName}=${_csrf.token}"
+											method="post" enctype="multipart/form-data">
+											<input type="file" name="multipartFile">
+											<button>save music</button>
+										</form:form>
+
+									</div>
+									<div class="container" style="background-color: #f1f1f1">
+										<button type="button"
+											onclick="document.getElementById('savemusic').style.display='none'"
+											class="cancelbtn">Cancel</button>
+
+									</div>
+								</div>
+							</div>
+
+							<!------------- endAddMusic ------------>
+
+						</div>
 					</div>
 				</div>
 			</div>
@@ -253,9 +296,6 @@
 
 			</div>
 	</div>
-
-
-
 	</sec:authorize>
 
 
@@ -283,6 +323,13 @@
 	<div>
 		<tiles:insertAttribute name="body" />
 	</div>
+
 	<script src="js/math.js"></script>
+	<script src="js/audioPlayer.js"></script>
+	<script>
+		audioPlayer();
+	</script>
+
+
 </body>
 </html>

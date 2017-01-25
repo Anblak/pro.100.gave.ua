@@ -13,50 +13,49 @@ import ua.game.pro.entity.MusicFile;
 import ua.game.pro.service.MusicFileService;
 
 @Service
-public class MusicFileServiceImpl implements MusicFileService{
+public class MusicFileServiceImpl implements MusicFileService {
 
 	@Autowired
-	private MusicFileDao musicFileDao; 
-	
-	
+	private MusicFileDao musicFileDao;
+
 	@Override
 	public void save(MusicFile musicFile) {
 		musicFileDao.save(musicFile);
-		
+
 	}
 
 	@Override
 	public List<MusicFile> findAll() {
-		
+
 		return musicFileDao.findAll();
 	}
 
 	@Override
 	public MusicFile findOne(int id) {
-		
+
 		return musicFileDao.findOne(id);
 	}
 
 	@Override
 	public void delete(int id) {
-		
+
 		musicFileDao.delete(id);
 	}
 
 	@Override
 	public void saveMusic(MultipartFile multipartFile) {
-		MusicFile musicFile= new MusicFile();
-		String path = System.getProperty("catalina.home") + "/resources/img/"+ multipartFile.getOriginalFilename();
-		musicFile.setPath("resources/img/" + multipartFile.getOriginalFilename());
-		File file=new File(path);
+		MusicFile musicFile = new MusicFile();
+		String path = System.getProperty("catalina.home") + "/resources/audio/" + multipartFile.getOriginalFilename();
+		musicFile.setPath("resources/audio/" + multipartFile.getOriginalFilename());
+		File file = new File(path);
 		try {
 			multipartFile.transferTo(file);
 		} catch (IllegalStateException e) {
-			
+
 		} catch (IOException e) {
-			
+
 		}
-		
+
 	}
 
 }

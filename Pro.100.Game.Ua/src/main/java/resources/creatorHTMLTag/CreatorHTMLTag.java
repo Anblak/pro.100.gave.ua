@@ -99,6 +99,18 @@ public class CreatorHTMLTag {
 	/**
 	 * 
 	 * @param input
+	 * @param clas
+	 * @return
+	 */
+
+	public String li(String input, String clas) {
+		String li = "<li " + "class='" + clas + "' >" + input + "</li>";
+		return li;
+	}
+
+	/**
+	 * 
+	 * @param input
 	 *            - наповення ul
 	 * @param clas
 	 *            - клас ul

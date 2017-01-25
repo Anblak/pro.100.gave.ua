@@ -29,11 +29,16 @@
 
     <mvc:resources mapping="/img/**" location="/img/"/>
     
-    <mvc:resources mapping="/audio/**" location="/audio/"/>
+
+    
+
 
 
 
     <mvc:resources mapping="/resources/**" location="file:${catalina.home}/resources/"/>
+    <mvc:resources mapping="/resources/img/**" location="file:${catalina.home}/resources/img/"/>
+    <mvc:resources mapping="/audio/**" location="file:${catalina.home}/resources/audio/"/>
+    
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="20000000"/>
