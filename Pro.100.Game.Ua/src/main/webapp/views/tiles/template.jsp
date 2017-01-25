@@ -121,7 +121,7 @@
 
 				<!------------- user ------------>
 				<button
-					onclick="document.getElementById('userSettings').style.display='block';menuLeftClose()"
+					onclick="document.getElementById('userSettingsm').style.display='block';menuLeftClose()"
 					style="" class="userSettings">
 					<img class="imgUserSettings" src="img/useranon.png" />
 					<div>
@@ -130,13 +130,13 @@
 					</div>
 				</button>
 
-				<div id="userSettings" class="modal">
+				<div id="userSettingsm" class="modal">
 
 					<div class="modal-content animate">
 
 						<div class="imgcontainer">
 							<span
-								onclick="document.getElementById('userSettings').style.display='none'"
+								onclick="document.getElementById('userSettingsm').style.display='none'"
 								class="close" title="Close Modal">&times;</span> <img
 								src="img/useranon.png" alt="Avatar" class="avatar">
 
@@ -146,15 +146,15 @@
 						<div class="container">
 							<!------------- add new photo ------------>
 							<button class="profilebutton"
-								onclick="document.getElementById('savephoto').style.display='block'"
+								onclick="document.getElementById('savephotom').style.display='block'"
 								style="">add new Photo</button>
 
-							<div id="savephoto" class="modal">
+							<div id="savephotom" class="modal">
 
 								<div class="modal-content animate">
 									<div class="imgcontainer">
 										<span
-											onclick="document.getElementById('savephoto').style.display='none'"
+											onclick="document.getElementById('savephotom').style.display='none'"
 											class="close" title="Close Modal">&times;</span>
 									</div>
 									<div class="imgcontainer">
@@ -174,7 +174,7 @@
 									</div>
 									<div class="container" style="background-color: #f1f1f1">
 										<button type="button"
-											onclick="document.getElementById('savephoto').style.display='none'"
+											onclick="document.getElementById('savephotom').style.display='none'"
 											class="cancelbtn">Cancel</button>
 
 									</div>
@@ -209,7 +209,7 @@
 						<div class="container" style="background-color: #f1f1f1">
 							<form action="user${user.id}" method="get" id="formprofile">
 								<button type="button"
-									onclick="document.getElementById('userSettings').style.display='none'"
+									onclick="document.getElementById('userSettingsm').style.display='none'"
 									class="cancelbtn">Cancel</button>
 								<span class="pwn">
 									<button class="profilebutton" form="formprofile">profile</button>
@@ -227,16 +227,16 @@
 
 			<!------------- audio ------------>
 			<button class="audioButton"
-				onclick="document.getElementById('audio').style.display='block';menuLeftClose()"
+				onclick="document.getElementById('audiom').style.display='block';menuLeftClose()"
 				style="width: auto;">audio</button>
 
-			<div id="audio" class="modal">
+			<div id="audiom" class="modal">
 
 				<div class="modal-content animate">
 
 					<div class="imgcontainer">
 						<span
-							onclick="document.getElementById('audio').style.display='none'"
+							onclick="document.getElementById('audiom').style.display='none'"
 							class="close" title="Close Modal">&times;</span>
 					</div>
 
@@ -247,30 +247,30 @@
 
 							<center>
 
-								<audio src="" id="audioPlayer"> Sorry, your browser
+								<audio src="" id="audioPlayerm"> Sorry, your browser
 								doesn't support html5! </audio>
 							</center>
 						</div>
 						<div class="container divPlayList">
-							<ul id="playlist">${music}</ul>
+							<ul id="playlistm">${music}</ul>
 						</div>
 
 						<div class="container" style="background-color: #f1f1f1">
 							<button type="button"
-								onclick="document.getElementById('audio').style.display='none'"
+								onclick="document.getElementById('audiom').style.display='none'"
 								class="cancelbtn">Cancel</button>
 							<!------------- addMusic ------------>
 
-							<button class="profilebutton"
-								onclick="document.getElementById('savemusic').style.display='block'"
+							<button class="profilebuttonm"
+								onclick="document.getElementById('savemusicm').style.display='block'"
 								style="">add new Music</button>
 
-							<div id="savemusic" class="modal">
+							<div id="savemusicm" class="modal">
 
 								<div class="modal-content animate">
 									<div class="imgcontainer">
 										<span
-											onclick="document.getElementById('savemusic').style.display='none'"
+											onclick="document.getElementById('savemusicm').style.display='none'"
 											class="close" title="Close Modal">&times;</span>
 									</div>
 									<div class="imgcontainer">
@@ -290,7 +290,7 @@
 									</div>
 									<div class="container" style="background-color: #f1f1f1">
 										<button type="button"
-											onclick="document.getElementById('savemusic').style.display='none'"
+											onclick="document.getElementById('savemusicm').style.display='none'"
 											class="cancelbtn">Cancel</button>
 
 									</div>
@@ -303,7 +303,7 @@
 					</div>
 				</div>
 			</div>
-			<marquee id="playerMusic"></marquee>
+			<marquee id="playerMusicm"></marquee>
 
 
 
@@ -326,8 +326,10 @@
 
 	<script src="js/mainMenu.js"></script>
 	<script src="js/audioPlayer.js"></script>
+	<link rel="stylesheet" href="css/media.css">
 	<script>
 		audioPlayer();
+		audioPlayerm();
 	</script>
 </body>
 </html>

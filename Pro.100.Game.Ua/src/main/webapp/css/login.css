@@ -146,23 +146,3 @@ to {
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 450px) {
-	.modal {
-		width: 450px;
-	}
-	span.psw {
-		display: inline-block;
-		float: none;
-	}
-	button.cancelbtn {
-		width: 100%;
-	}
-	img.avatar {
-		width: 50%;
-		height: 50%;
-		border-radius: 50%;
-	}
-	.profilebutton {
-		width: 100%;
-	}
-}

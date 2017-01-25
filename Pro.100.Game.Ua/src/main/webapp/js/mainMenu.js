@@ -3,9 +3,10 @@ function menuLeftOpen() {
 	document.getElementById('leftIndecatorMenu').style.left = "300px";
 	document.getElementById('leftIndecatorMenu').style.width = "100%";
 	document.getElementById('leftIndecatorMenu').style.opacity = "0.5";
-	document.getElementById('audio').style.display = 'none';
-	document.getElementById('userSettings').style.display = 'none';
-	document.getElementById('savephoto').style.display = 'none';
+	document.getElementById('audiom').style.display = 'none';
+	document.getElementById('userSettingsm').style.display = 'none';
+	document.getElementById('savephotom').style.display = 'none';
+	document.getElementById('savemusicm').style.display = 'none';
 }
 function menuLeftClose() {
 	document.getElementById('mainMenu').style.left = "-300px";
