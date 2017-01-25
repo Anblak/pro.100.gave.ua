@@ -116,6 +116,7 @@
 
 
 		<sec:authorize access="isAuthenticated()">
+
 			<!------------- audio ------------>
 			<button
 				onclick="document.getElementById('audio').style.display='block'"
@@ -296,6 +297,7 @@
 
 			</div>
 	</div>
+	<marquee id="playerMusic"></marquee>
 	</sec:authorize>
 
 

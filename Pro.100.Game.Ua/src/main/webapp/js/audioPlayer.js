@@ -1,37 +1,34 @@
 function audioPlayer() {
-								var currentSong = 0;
-								$("#audioPlayer")[0].src = $("#playlist li a")[0];
-								$("#audioPlayer")[0].pause();
-								$("#playlist li a").click(
-										function(e) {
-											e.preventDefault();
-											$("#audioPlayer")[0].src = this;
-											$("#audioPlayer")[0].play();
-											$("#playlist li").removeClass(
-													"current-song");
-											currentSong = $(this).parent()
-													.index();
-											$(this).parent().addClass(
-													"current-song");
-										});
+	var currentSong = 0;
+	$("#audioPlayer")[0].src = $("#playlist li a")[0];
+	$("#audioPlayer")[0].pause();
+	$("#playlist li a")
+			.click(
+					function(e) {
+						e.preventDefault();
+						$("#audioPlayer")[0].src = this;
+						$("#audioPlayer")[0].play();
+						$("#playlist li").removeClass("current-song");
 
-								$("#audioPlayer")[0]
-										.addEventListener(
-												"ended",
-												function() {
-													currentSong++;
-													if (currentSong == $("#playlist li a").length)
-														currentSong = 0;
-													$("#playlist li")
-															.removeClass(
-																	"current-song");
-													$(
-															"#playlist li:eq("
-																	+ currentSong
-																	+ ")")
-															.addClass(
-																	"current-song");
-													$("#audioPlayer")[0].src = $("#playlist li a")[currentSong].href;
-													$("#audioPlayer")[0].play();
-												});
-							}
+
+						currentSong = $(this).parent().index();
+						$(this).parent().addClass("current-song");
+						$("#playerMusic")[0].innerHTML = $("#playlist li a div")[currentSong].innerHTML;
+					});
+
+	$("#audioPlayer")[0]
+			.addEventListener(
+					"ended",
+					function() {
+						currentSong++;
+						if (currentSong == $("#playlist li a").length)
+							currentSong = 0;
+						$("#playlist li").removeClass("current-song");
+						$("#playlist li:eq(" + currentSong + ")").addClass(
+								"current-song");
+						$("#audioPlayer")[0].src = $("#playlist li a")[currentSong].href;
+						$("#audioPlayer")[0].play();
+						$("#playerMusic")[0].innerHTML = $("#playlist li a div")[currentSong].innerHTML;
+
+					});
+}
