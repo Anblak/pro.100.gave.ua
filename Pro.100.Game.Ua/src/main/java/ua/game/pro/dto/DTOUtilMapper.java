@@ -3,6 +3,8 @@ package ua.game.pro.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import ua.game.pro.entity.FileUser;
+import ua.game.pro.entity.GroupOfUsers;
 import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 
@@ -28,25 +30,25 @@ public class DTOUtilMapper {
 		return userDTOs;
 
 	}
-//	public static List<GroupDTO> groupToGroupDTO(List<Group> groups) {
-//
-//		List<GroupDTO> groupDTOs = new ArrayList<GroupDTO>();
-//
-//		for (Group group : groups) {
-//
-//			GroupDTO groupDTO = new GroupDTO();
-//			
-//			groupDTO.setId(group.getId());
-//			groupDTO.setName(group.getName());
-//			groupDTO.setUuid(group.getUuid());
-//			
-//			groupDTOs.add(groupDTO);
-//
-//		}
-//
-//		return groupDTOs;
-//
-//	}
+	public static List<GroupOfUsersDTO> groupToGroupDTO(List<GroupOfUsers> groupsOfUsers) {
+
+		List<GroupOfUsersDTO> groupOfUsersDTOs = new ArrayList<>();
+
+		for (GroupOfUsers groupOfUsers : groupsOfUsers) {
+
+			GroupOfUsersDTO groupOfUsersDTO = new GroupOfUsersDTO();
+			
+			groupOfUsersDTO.setId(groupOfUsers.getId());
+			groupOfUsersDTO.setName(groupOfUsers.getName());
+			groupOfUsersDTO.setUuid(groupOfUsers.getUuid());
+			
+			groupOfUsersDTOs.add(groupOfUsersDTO);
+
+		}
+
+		return groupOfUsersDTOs;
+
+	}
 	
 	public static List<ProfesorDTO> profesorToProfesorDTO(List<Profesor>profesors){		
 		List<ProfesorDTO> profesorDTOs=new ArrayList<ProfesorDTO>();
@@ -61,6 +63,25 @@ public class DTOUtilMapper {
 			
 		}
 		return profesorDTOs;
+	}
+	
+	public static List<FileUserDTO> fileUsertoFileUsersDTO(List<FileUser> fileUsers){
+		
+		List<FileUserDTO> fileUserDTOs=new ArrayList<>();
+		
+		for(FileUser fileUser : fileUsers){
+			
+			FileUserDTO fileUserDTO=new FileUserDTO();
+			
+			fileUserDTO.setId(fileUser.getId());
+			fileUserDTO.setName(fileUser.getName());
+			fileUserDTO.setPath(fileUser.getPath());
+			fileUserDTO.setProfesor(fileUser.getProfesor());
+			fileUserDTO.setUser(fileUser.getUser());
+			
+			fileUserDTOs.add(fileUserDTO);
+		}
+		return fileUserDTOs;
 	}
 	
 
