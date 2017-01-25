@@ -62,7 +62,7 @@
 	<br>
 	<!--  	<p>${uuidBody}</p>-->
 
-
+<sec:authorize access="hasRole('ROLE_CREATOR')">
 	<br>
 	<button onclick="document.getElementById('createprofesor').style.display='block'"
 		style="width: auto;">add Profesor</button>
@@ -97,6 +97,8 @@
 			</div>
 		</form:form>
 	</div>
+	
+	</sec:authorize>
 	<%-- 	<form:form modelAttribute="profesor" action="newProfesor" method="post"> --%>
 	<!-- 		<input name="name" placeholder="name"> -->
 	<!-- 		<button class="button">new profesor</button> -->
@@ -114,6 +116,7 @@
 	<%-- 	</form:form> --%>
 	<%-- 	${profesorID} --%>
 
+<sec:authorize access="hasRole('ROLE_CREATOR')">
 	<div>
 		<!--${list}  -->
 
@@ -155,6 +158,7 @@
 				</div>
 			</form:form>
 		</div>
+		</sec:authorize>
 <%-- 		<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}' --%>
 <%-- 			method='post' enctype='multipart/form-data'> --%>
 <!-- 			<input type='file' name='multipartFile'> -->
