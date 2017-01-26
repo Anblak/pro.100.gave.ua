@@ -330,12 +330,13 @@ public class UserController {
 		try {
 
 			User user = userService.findOne(Integer.parseInt(principal.getName()));
-
+			User userp=userService.fetchUserWithProfesors(Integer.parseInt(principal.getName()));
 
 			User userStore = userService.findOne(Integer.parseInt(id));
 
 			model.addAttribute("userT", userStore);
 			model.addAttribute("user", user);
+			model.addAttribute("userp", userp);
 			if (userStore.getGroup() != null && user.getGroup() != null) {
 
 				if (userStore.getGroup().getId() == user.getGroup().getId()) {
@@ -350,6 +351,8 @@ public class UserController {
 			return "views-user-user";
 		}
 	}
+	
+	
 	
 
   
