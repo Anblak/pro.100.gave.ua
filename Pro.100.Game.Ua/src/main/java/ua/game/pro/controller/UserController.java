@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import resources.file.File;
 import resources.parset.Parset;
 
 import resources.wrapper.StringWrapper;
@@ -212,8 +213,13 @@ public class UserController {
 
 	@RequestMapping(value = "/saveImage", method = RequestMethod.POST)
 	public String saveImage(Principal principal, @RequestParam MultipartFile image) {
+		
+		
+
 		User user= userService.findOne(Integer.parseInt(principal.getName()));
+		
 		userService.saveImage(principal, image);
+		
 
 		return "redirect:/user"+user.getId();
 	}

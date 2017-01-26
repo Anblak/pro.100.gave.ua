@@ -68,7 +68,6 @@ public class MediaController {
 						creator.div(list.get(i).getName(), "", "container musicDiv")), "");
 			}
 
-			
 		}
 
 		// creator.li(creator.a(href, "", "", creator.div(input, "" ,"container

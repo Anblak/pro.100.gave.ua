@@ -36,7 +36,7 @@
 
 
     <mvc:resources mapping="/resources/**" location="file:${catalina.home}/resources/"/>
-    <mvc:resources mapping="/resources/img/**" location="file:${catalina.home}/resources/img/"/>
+    <mvc:resources mapping="/photo/**/" location="file:${catalina.home}/resources/img/"/>
     <mvc:resources mapping="/audio/**" location="file:${catalina.home}/resources/audio/"/>
     
 
