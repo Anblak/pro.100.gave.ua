@@ -2,6 +2,7 @@ package ua.game.pro.controller;
 
 import java.security.Principal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -214,10 +215,13 @@ public class UserController {
 	}
 	  @RequestMapping(value = "/buyProfesor/{id}", method = RequestMethod.GET)
 	    public String buyBook(Principal principal, @PathVariable String id) {
-
+			User user = userService.findOne(Integer.parseInt(principal.getName()));
+			
+	  
+		 
 	        userService.buyProfesor(principal, id);
 	        
-
+		  
 	        return "redirect:/profile";
 	    }
 
