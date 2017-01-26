@@ -74,6 +74,7 @@ public class UserController {
 
 		user.setUuid(uuid);
 		try {
+			user.setPathImage("img/useranon.png");
 			userService.save(user);
 		} catch (Exception e) {
 			if (e.getMessage().equals(UserValidationMessages.EMPTY_USERNAME_FIELD)
@@ -213,15 +214,12 @@ public class UserController {
 
 	@RequestMapping(value = "/saveImage", method = RequestMethod.POST)
 	public String saveImage(Principal principal, @RequestParam MultipartFile image) {
-		
-		
 
-		User user= userService.findOne(Integer.parseInt(principal.getName()));
-		
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
+
 		userService.saveImage(principal, image);
-		
 
-		return "redirect:/user"+user.getId();
+		return "redirect:/user" + user.getId();
 	}
 
 	@RequestMapping(value = "/saveFile", method = RequestMethod.POST)
@@ -320,12 +318,9 @@ public class UserController {
 	@RequestMapping(value = "/user{id}", method = RequestMethod.GET)
 	public String newProfesor(Principal principal, @PathVariable String id, Model model) {
 
-		
-
 		try {
 
 			User user = userService.findOne(Integer.parseInt(principal.getName()));
-
 
 			User userStore = userService.findOne(Integer.parseInt(id));
 
