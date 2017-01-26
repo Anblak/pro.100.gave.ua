@@ -88,7 +88,7 @@
 					<label><b>phone</b></label> <input name="phone" placeholder="phone"
 						type="text">
 
-					<button type="submit">Login</button>
+					<button type="submit">registration</button>
 					<!--  <input type="checkbox" checked="checked"> Remember me-->
 
 				</div>

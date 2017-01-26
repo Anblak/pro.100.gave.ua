@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import resources.creatorHTMLTag.CreatorHTMLTag;
 import resources.file.File;
 import resources.parset.Parset;
 
@@ -89,8 +90,9 @@ public class UserController {
 			return "views-base-registration";
 
 		}
-		String theme = "thank's for registration";
-		String mailBody = "gl & hf       http://localhost:8080/Pro.100.Game.Ua/confirm/" + uuid;
+		String theme = "Pro.100.Game.Ua";
+		String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='background:black;'><center><div style='background:yellow;width:400px;height:67px'><p>Welcome to site administration pro100 game.ua</p><p>if you want to continue to register at the site pro100 game.ua Click on the <a href='http://localhost:8080/Pro.100.Game.Ua/confirm/"
+				+ uuid + "'>link</a></p><div></center></html></body>";
 
 		mailSenderService.sendMail(theme, mailBody, user.getEmail());
 
