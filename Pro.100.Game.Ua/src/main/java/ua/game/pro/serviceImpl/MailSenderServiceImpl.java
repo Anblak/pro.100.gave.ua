@@ -11,6 +11,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -40,12 +41,14 @@ public class MailSenderServiceImpl implements MailSenderService{
                 });
         try {
             MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(USERNAME));
+            MimeMessageHelper  helper  =  new  MimeMessageHelper(message,  true);
+            helper.setFrom(new InternetAddress(USERNAME));
 
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(
                     email));
-            message.setSubject(theme, "UTF-8");
-            message.setText(mailBody);
+            helper.setSubject(theme);
+            helper.setText(mailBody,true);
+            
             synchronized (this) {
                 Transport.send(message);
             }

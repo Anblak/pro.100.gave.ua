@@ -88,7 +88,7 @@
 					<label><b>phone</b></label> <input name="phone" placeholder="phone"
 						type="text">
 
-					<button type="submit">Login</button>
+					<button type="submit">registration</button>
 					<!--  <input type="checkbox" checked="checked"> Remember me-->
 
 				</div>
@@ -193,7 +193,7 @@
 			<button
 				onclick="document.getElementById('userSettings').style.display='block'"
 				style="" class="userSettings">
-				<img class="imgUserSettings" src="img/useranon.png" />
+				<img class="imgUserSettings" src="${user.pathImage}" />
 			</button>
 
 			<div id="userSettings" class="modal">
@@ -204,7 +204,7 @@
 						<span
 							onclick="document.getElementById('userSettings').style.display='none'"
 							class="close" title="Close Modal">&times;</span> <img
-							src="img/useranon.png" alt="Avatar" class="avatar">
+							src="${user.pathImage}" alt="Avatar" class="avatar">
 
 
 					</div>
