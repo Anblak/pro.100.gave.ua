@@ -22,4 +22,7 @@ public interface UserService {
 	User findByUUID(String uuid);
 	public void saveImage(Principal principal, MultipartFile multipartFile);
 	
+	void buyProfesor(Principal principal, String id);
+	User fetchUserWithProfesors(int id);
+	
 }

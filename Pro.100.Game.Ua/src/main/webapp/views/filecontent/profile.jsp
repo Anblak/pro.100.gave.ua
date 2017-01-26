@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -88,6 +89,10 @@
 						name="name"
 						class="validate[required,custom[name],length[0,100]] feedback-input"
 						placeholder="name ${nameException}" required>
+						<input type="text"
+						name="price"
+						class="validate[required,custom[name],length[0,100]] feedback-input"
+						placeholder="price ${nameException}" required>
 
 
 					<button type="submit">Create</button>
@@ -163,6 +168,25 @@
 			</div>
 			</form:form>
 		</div>
+		
+		
+		<div>
+		
+		<c:forEach var="profesor" items="${profesors}">
+		${profesor.name} ${profesor.price} 
+			
+				<a href="buyProfesor/${profesor.id}">buy</a>
+			
+			<br>
+		</c:forEach>
+		</div>
+		<div>
+		
+		
+		
+		</div>
+		
+		
 	</sec:authorize>
 	<%-- 		<form:form action='./saveFile?${_csrf.parameterName}=${_csrf.token}' --%>
 	<%-- 			method='post' enctype='multipart/form-data'> --%>

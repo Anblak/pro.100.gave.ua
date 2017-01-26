@@ -9,6 +9,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -39,6 +42,10 @@ public class User implements UserDetails {
 	
 	@OneToMany(mappedBy = "user")
 	private List<FileUser> files;
+	
+	@ManyToMany
+	@JoinTable(name = "user_profesor", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "profesor_id"))
+	private List<Profesor> profesors;
 	
 	@Enumerated
 	private Role role;
@@ -188,6 +195,20 @@ public class User implements UserDetails {
 
 
 
+	public List<Profesor> getProfesors() {
+		return profesors;
+	}
+
+
+
+
+	public void setProfesors(List<Profesor> profesors) {
+		this.profesors = profesors;
+	}
+
+
+
+
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
 		authorities.add(new SimpleGrantedAuthority(role.name()));
@@ -223,5 +244,7 @@ public class User implements UserDetails {
 		
 		return enabled;
 	}
+	
+	
 	
 }

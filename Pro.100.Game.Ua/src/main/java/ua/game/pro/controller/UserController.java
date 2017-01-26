@@ -159,11 +159,12 @@ public class UserController {
 	@RequestMapping("/profile")
 	public String profile(Principal principal, Model model) {
 		try {
-
+			User userPro = userService.fetchUserWithProfesors(Integer.parseInt(principal.getName()));
+			
 			User user = userService.findOne(Integer.parseInt(principal.getName()));
 			model.addAttribute("user", user);
 			HashMap<Integer, String> profesorMap;
-
+			
 			// System.out.println(user.getGroup());
 
 			// String list = "<form:form method=\"POST\"
@@ -185,9 +186,11 @@ public class UserController {
 				profesorMap = new HashMap<>();
 				// profesorMap.put(0, "null");
 			}
-
+			
 			model.addAttribute("profesorMap", profesorMap);
 			model.addAttribute("profesor", new StringWrapper());
+			model.addAttribute("userPro", userPro);
+			model.addAttribute("profesors", profesorService.findAll());
 			// model.addAttribute("uuidBody", uuidBody);
 
 			// model.addAttribute("profesorID", new StringWrapper());
@@ -209,6 +212,14 @@ public class UserController {
 			return "views-filecontent-profile";
 		}
 	}
+	  @RequestMapping(value = "/buyProfesor/{id}", method = RequestMethod.GET)
+	    public String buyBook(Principal principal, @PathVariable String id) {
+
+	        userService.buyProfesor(principal, id);
+	        
+
+	        return "redirect:/profile";
+	    }
 
 	@RequestMapping(value = "/saveImage", method = RequestMethod.POST)
 	public String saveImage(Principal principal, @RequestParam MultipartFile image) {
@@ -339,5 +350,8 @@ public class UserController {
 			return "views-user-user";
 		}
 	}
+	
+
+  
 
 }

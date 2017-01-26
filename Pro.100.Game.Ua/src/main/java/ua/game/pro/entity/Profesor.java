@@ -6,9 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Profesor {
@@ -17,12 +19,17 @@ public class Profesor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	private int price;
 	
 	@OneToMany(mappedBy = "profesor")
 	private List<FileUser> files;
 	
 	@ManyToOne
 	private GroupOfUsers groupOfUsers;
+	
+	@ManyToMany
+	@JoinTable(name = "user_profesor", joinColumns = @JoinColumn(name = "profesor_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	private List<User> users;
 	
 	public Profesor() {
 	
@@ -63,6 +70,22 @@ public class Profesor {
 
 	public void setGroupOfUsers(GroupOfUsers groupOfUsers) {
 		this.groupOfUsers = groupOfUsers;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	
 	

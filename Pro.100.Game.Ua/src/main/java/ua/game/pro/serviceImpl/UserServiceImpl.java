@@ -16,8 +16,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import ua.game.pro.dao.ProfesorDao;
 import ua.game.pro.dao.UserDao;
 import ua.game.pro.entity.GroupOfUsers;
+import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.Role;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.UserService;
@@ -31,6 +33,8 @@ public class UserServiceImpl implements UserService, UserDetailsService{
 	private UserDao userDao;
     @Autowired
     private BCryptPasswordEncoder encoder;
+    @Autowired
+    private ProfesorDao profesorDao;
     
 	@Autowired
 	@Qualifier("userValidator")
@@ -103,6 +107,21 @@ public class UserServiceImpl implements UserService, UserDetailsService{
             System.out.println("error with file");
         }
     }
+
+	@Transactional
+	public void buyProfesor(Principal principal, String id) {
+		
+		User user = userDao.findOne(Integer.parseInt(principal.getName()));
+		
+		Profesor profesor = profesorDao.findOne(Integer.parseInt(id));
+		
+		user.getProfesors().add(profesor);
+	}
+
+	@Override
+	public User fetchUserWithProfesors(int id) {
+		return userDao.fetchUserWithProfesor(id);
+	}
 
 
 }

@@ -61,6 +61,7 @@ public class GroupController {
 	public String outPrintProfesor(Model model, Principal principal) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		List<Profesor> listProfesor = profesorService.findAll();
+		
 		String body = "";
 		for (Profesor profesor : listProfesor) {
 			if (profesor.getGroupOfUsers().getId() == user.getGroup().getId()) {
@@ -77,9 +78,12 @@ public class GroupController {
 		}
 
 		model.addAttribute("body", body);
-
+		
+		
 		return "views-filecontent-group";
 	}
+	
+	
 
 	@RequestMapping(value = "/{idp}", method = RequestMethod.GET)
 	public String outPrintUserOfGrup(Model model, Principal principal, @PathVariable String idp) {

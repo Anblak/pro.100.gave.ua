@@ -5,6 +5,7 @@ import ua.game.pro.entity.GroupOfUsers;
 public class ProfesorDTO {
 	private int id;
 	private String name;
+	private int price;
 	
 	private GroupOfUsers groupOfUsers;
 	
@@ -34,6 +35,14 @@ public class ProfesorDTO {
 
 	public void setGroupOfUsers(GroupOfUsers groupOfUsers) {
 		this.groupOfUsers = groupOfUsers;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	
 	
