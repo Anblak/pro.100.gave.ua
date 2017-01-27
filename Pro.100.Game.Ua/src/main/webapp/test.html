@@ -1,63 +1,15 @@
+<!DOCTYPE html>
 <html>
-<head>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>  
-
-</head>
-<body>
-<style>#p_prldr{
-position: fixed;
-left: 0;
-top: 0;
-right:0;
-bottom:0;
-background: green;
-
-z-index: 30;}
- 
-.contpre small{font-size:25px;}
- 
-.contpre{
-width: 250px;
-height: 100px;
-position: absolute;
-left: 50%;top: 48%;
-margin-left:-125px;
-margin-top:-75px;
-color:#fff;
-font-size:40px;
-letter-spacing:-2px;
-text-align:center;
-line-height:35px;}
- 
-#p_prldr .svg_anm {
-position: absolute;
-width: 41px;
-height: 41px;
-background: url(img/oval.svg) center center no-repeat;
-background-size:41px;    
-margin: -16px 0 0 -20px;}</style>
-<button id='button'>clic</button>
-<div id="p_prldr">
-<div class="contpre">
-<span id='svg_anm' class="svg_anm"></span><br>Wait<br><small>loading</small>
-</div>
-<script type="text/javascript">$(window).on('load', function () {
-    var $preloader = $('#p_prldr'),
-        $svg_anm   = $preloader.find('.svg_anm');
-    $svg_anm.fadeOut();
-    $preloader.delay(500).fadeOut('slow');
-	 
-	
-})
-$('#button').on('click', function () {
-document.getElementById('svg_anm').style='margin-left:-20px;';
-    var $preloader = $('#p_prldr'),
-        $svg_anm   = $preloader.find('.svg_anm');
-    $svg_anm.fadeIn();
-    $preloader.delay(0).fadeIn('slow');
-	
-	 
-	
-})
-;</script>
-</div></body></html>
+	<head>
+		<title>codebra</title>
+	</head>
+	<body>
+		<form method = "GET">
+			<select name = "name[]">
+				<option disabled>Да или нет?</option>
+				<option value = "Да">Да</option>
+			</select>
+			<input type = "submit" value = "Ответить">
+		</form>
+	</body>
+</html>
