@@ -346,10 +346,16 @@ public class UserController {
 
 	@RequestMapping(value = "/researchUserIntoMail", method = RequestMethod.GET)
 	public String researchUserIntoMail(@RequestParam String email, Model model) {
-
+		String uuid = UUID.randomUUID().toString();
 		StringWrapper string = new StringWrapper();
+		
+		
 		for (int i = 0; i < userService.findAll().size(); i++) {
 			if (userService.findAll().get(i).getEmail().equals(email)) {
+				User user = userService.findAll().get(i);
+				user.setUuid(uuid);
+	
+				userService.updateUser(user);
 				String theme = "Pro.100.Game.Ua";
 				String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='' ><center><div style='background:yellow;width:500px;height:auto'><p>Welcome to site <span>pro100.game.ua</span></p><p>If you want to change your password Click on the <a href='http://localhost:8080/Pro.100.Game.Ua/passwordResetRequest"
 						+ userService.findAll().get(i).getUuid()
@@ -374,11 +380,16 @@ public class UserController {
 		User user = null;
 
 		StringWrapper string = new StringWrapper();
+		
+		
 		for (int i = 0; i < userService.findAll().size(); i++) {
+
 			if (userService.findAll().get(i).getUuid().equals(id)) {
+				
 				user = userService.findAll().get(i);
-				System.out.println("id:use: " + user.getId());
+				
 			}
+			
 		}
 		String mailBody = "<center>		<div  id='passwordchange' class='modal' style='display:block' ><form  action='passwordResetRequestm"
 				+ user.getUuid()
@@ -400,7 +411,9 @@ public class UserController {
 		for (int i = 0; i < userService.findAll().size(); i++) {
 			if (userService.findAll().get(i).getUuid().equals(id)) {
 				user = userService.findAll().get(i);
-				System.out.println("id:use: " + user.getId());
+				user.setUuid("");
+				userService.updateUser(user);
+				
 			}
 		}
 
