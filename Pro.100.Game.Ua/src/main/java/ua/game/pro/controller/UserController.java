@@ -348,13 +348,12 @@ public class UserController {
 	public String researchUserIntoMail(@RequestParam String email, Model model) {
 		String uuid = UUID.randomUUID().toString();
 		StringWrapper string = new StringWrapper();
-		
-		
+
 		for (int i = 0; i < userService.findAll().size(); i++) {
 			if (userService.findAll().get(i).getEmail().equals(email)) {
 				User user = userService.findAll().get(i);
 				user.setUuid(uuid);
-	
+
 				userService.updateUser(user);
 				String theme = "Pro.100.Game.Ua";
 				String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='' ><center><div style='background:yellow;width:500px;height:auto'><p>Welcome to site <span>pro100.game.ua</span></p><p>If you want to change your password Click on the <a href='http://localhost:8080/Pro.100.Game.Ua/passwordResetRequest"
@@ -380,21 +379,21 @@ public class UserController {
 		User user = null;
 
 		StringWrapper string = new StringWrapper();
-		
-		
+
 		for (int i = 0; i < userService.findAll().size(); i++) {
 
 			if (userService.findAll().get(i).getUuid().equals(id)) {
-				
+
 				user = userService.findAll().get(i);
-				
+
 			}
-			
+
 		}
 		String mailBody = "<center>		<div  id='passwordchange' class='modal' style='display:block' ><form  action='passwordResetRequestm"
 				+ user.getUuid()
-				+ "' class='modal-content animate' method='get' style='width:450px;height:auto;'>					<div class='imgcontainer'>					<span						onclick='closeForm()'						class='close' title='Close Modal'>&times;</span><div ><p><br></p><p>Welcome to site <span>pro100.game.ua</span></p><br><p>user</p><br><p>name :"
-				+ user.getName() + "</p><br><p>email: " + user.getEmail() + "</p><br><p>phone: " + user.getPhone()
+				+ "' class='modal-content animate' method='get' style='width:450px;height:auto;'>					<div class='imgcontainer'><p><br></p><p>Welcome to site <span>pro100.game.ua</span></p><br><p>user</p>					<span						onclick='closeForm()'						class='close' title='Close Modal'>&times;</span><img src='"
+				+ user.getPathImage() + "' alt='Avatar' class='avatar'><div ><br><p>name :" + user.getName()
+				+ "</p><br><p>email: " + user.getEmail() + "</p><br><p>phone: " + user.getPhone()
 				+ "</p><br></div>	<div class='container'>		<p></p>					<p> <p><label>Enter the new password</label></p><input name='password'		type='password'  placeholder='password' id='inputPasswordOne' style='width:90%;height:50px;margin-left:5%;margin-right:5%' ></p>			<p> <p><label>repeat password:</label></p><input 				type='password' placeholder='repeat password' id='inputPasswordTwo' onchange='checkPassword()' style='width:90%;height:50px;margin-left:5%;margin-right:5%'></p>	<button type='submit' disabled='disabled' id='mainButton' ><div onclick='checkPassword()' style='width:100%' >password change</div></button>		<!--  <input type='checkbox' checked='checked'> Remember me--></div>		<div class='container' style='background-color: #f1f1f1'>					<button type='button'			onclick='closeForm()'				class='cancelbtn' style='width:100%'>Cancel</button>	</form>			<div id='info'></div>			</div>			</div></div></center><script>function closeForm(){document.getElementById('passwordchange').style.display='none';}function checkPassword(){if((document.getElementById('inputPasswordTwo').value==document.getElementById('inputPasswordOne').value)&&(document.getElementById('inputPasswordTwo').value!='')){document.getElementById('mainButton').disabled='';document.getElementById('info').innerHTML='ready';document.getElementById('info').style.color='green';}else{document.getElementById('mainButton').disabled='disabled';document.getElementById('info').style.color='red';document.getElementById('info').innerHTML='error:[Passwords do not match]';}}</script> ";
 		string.setString(mailBody);
 
@@ -413,7 +412,7 @@ public class UserController {
 				user = userService.findAll().get(i);
 				user.setUuid("");
 				userService.updateUser(user);
-				
+
 			}
 		}
 

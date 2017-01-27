@@ -17,9 +17,8 @@
 }
 
 .heder {
-	 	width: 1360px; 
-	 	height: 100px 
-	
+	width: 1360px;
+	height: 100px
 }
 
 .formul {
@@ -175,7 +174,7 @@
 }
 
 .formCalcul {
-	position: apsolute;
+	position: absolute;
 	top: 0px;
 	left: 0px;
 	width: 315px;
@@ -202,7 +201,17 @@
 .left {
 	width: 900px;
 	height: 750px;
-	position: absolute;
+	position:inherit;
 	top: 208px;
 	left: 8px;
+}
+
+.mainMathDiv {
+width: auto;
+height: auto;	
+margin-bottom: 5px;
+margin-left: 5px;
+}
+.fotter{
+	margin-top:10px; 
 }
