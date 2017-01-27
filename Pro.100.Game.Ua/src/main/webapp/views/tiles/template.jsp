@@ -156,7 +156,7 @@
 				<button
 					onclick="document.getElementById('userSettingsm').style.display='block';menuLeftClose()"
 					style="" class="userSettings">
-					<img class="imgUserSettings" src="img/useranon.png" />
+					<img class="imgUserSettings" src="${user.pathImage}" />
 					<div>
 						<br>${user.name} <br>
 
