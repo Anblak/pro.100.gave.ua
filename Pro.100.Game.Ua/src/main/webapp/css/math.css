@@ -1,5 +1,8 @@
 @CHARSET "UTF-8";
 
+
+
+
 .formCalcul {
 	
 }
@@ -15,6 +18,7 @@
 .input {
 	
 }
+
 
 .heder {
 	width: 1360px;
@@ -46,146 +50,146 @@
 }
 
 .button0 {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 268px;
-	left: 238px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 268px; */
+/* 	left: 238px; */
 }
 
 .button1 {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 53px;
-	left: 82px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 53px; */
+/* 	left: 82px; */
 }
 
 .button2 {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 53px;
-	left: 160px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 53px; */
+/* 	left: 160px; */
 }
 
 .button3 {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 53px;
-	left: 238px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 53px; */
+/* 	left: 238px; */
 }
 
 .button4 {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 124px;
-	left: 82px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 124px; */
+/* 	left: 82px; */
 }
 
 .button5 {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 124px;
-	left: 160px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 124px; */
+/* 	left: 160px; */
 }
 
 .button6 {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 124px;
-	left: 238px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 124px; */
+/* 	left: 238px; */
 }
 
 .button7 {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 196px;
-	left: 82px;
+	width: 73px;
+	height: 64px;
+/* 	position: absolute; */
+/* 	top: 196px; */
+/* 	left: 82px; */
 }
 
 .button8 {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 196px;
-	left: 160px;
+	width: 73px;
+	height: 64px;
+/* 	position: absolute; */
+/* 	top: 196px; */
+/* 	left: 160px; */
 }
 
 .button9 {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 196px;
-	left: 238px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 196px; */
+/* 	left: 238px; */
 }
 
 .buttonAlt {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 53px;
-	left: 0px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 53px; */
+/* 	left: 0px; */
 }
 
 .buttonAssociation {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 268px;
-	left: 0px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 268px; */
+/* 	left: 0px; */
 }
 
 .buttonBrackets {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 268px;
-	left: 160px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 268px; */
+/* 	left: 160px; */
 }
 
 .buttonOdds {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 124px;
-	left: 0px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 124px; */
+/* 	left: 0px; */
 }
 
 .buttonDecussation {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 196px;
-	left: 0px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 196px; */
+/* 	left: 0px; */
 }
 
 .buttonComa {
-	width: 77px;
-	height: 69px;
-	position: absolute;
-	top: 268px;
-	left: 82px;
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 268px; */
+/* 	left: 82px; */
 }
 
 .formCalcul {
-	position: absolute;
-	top: 0px;
-	left: 0px;
+/* 	position: absolute; */
+/* 	top: 0px; */
+/* 	left: 0px; */
 	width: 315px;
 	height: 50px;
 }
 
 .calcButton {
-	width: 316px;
+	width: 306px;
 	height: 64px;
 	position: absolute;
-	top: 342px;
+	top: 369px;
 	left: 0px;
 }
 
@@ -215,3 +219,15 @@ margin-left: 5px;
 .fotter{
 	margin-top:10px; 
 }
+
+.field{
+	width: 380px;
+	height: 500px;
+	
+	position: absolute;
+	left: 450px;
+	top:400px;
+	
+	padding: 0px;
+}
+
