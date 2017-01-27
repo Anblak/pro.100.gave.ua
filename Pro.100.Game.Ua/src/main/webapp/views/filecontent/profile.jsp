@@ -119,14 +119,16 @@
 
 					<div class="container">
 
-						<label><b></b></label> <input type='file' name='multipartFile' id="file" onchange="checkf()">
+						<label><b></b></label> <input type='file' name='multipartFile'
+							id="file" onchange="checkf()">
 						<form:form class="modal-content animate" method="POST"
 							commandName="profesor">
-							<form:select path="string" itemLable="name" itemValue="id" required="">
-								<form:option value="" label="" />
+							<form:select path="string" itemLable="name" itemValue="id">
+								<%-- 								<form:option value="" label="Select Profesor" /> --%>
 								<form:options items="${profesorMap}" />
 							</form:select>
-							<button  id="savef" disabled="disabled"  onmouseover="checkf()" >safe file</button>
+							<button id="savef" disabled="disabled" onmouseover="checkf()">safe
+								file</button>
 
 							<div class="container" style="background-color: #f1f1f1">
 								<button type="button"
@@ -135,8 +137,8 @@
 						</form:form>
 
 					</div>
+				</form:form>
 			</div>
-			</form:form>
 		</div>
 	</sec:authorize>
 
@@ -153,27 +155,20 @@
 	</sec:authorize>
 
 
-<script type="text/javascript">
+	<script type="text/javascript">
+		function checkf() {
 
+			if (document.getElementById('file').value == ''
+					&& document.getElementById('prof').value == '-') {
 
-function checkf() {
+				document.getElementById('savef').disabled = 'disabled';
 
+			} else {
 
-    if(document.getElementById('file').value == ''&&document.getElementById('prof').value=='-'){
-	
-		document.getElementById('savef').disabled='disabled';
-	
-	
-        
-    }else{
-	
-		document.getElementById('savef').disabled=''; 
+				document.getElementById('savef').disabled = '';
+			}
 		}
-	}
-	
-
-
-</script>
+	</script>
 
 
 
