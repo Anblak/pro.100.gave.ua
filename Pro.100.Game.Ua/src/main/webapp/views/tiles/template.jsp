@@ -9,37 +9,44 @@
 <html>
 <head>
 <link rel="stylesheet" href="css/load.css">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>  
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 <title><tiles:getAsString name="title" /></title>
 <link rel="stylesheet" href="css/template.css">
 </head>
 <body>
-<div id="p_prldr">
-<div class="contpre">
-<span class="svg_anm"></span><br>Wait<br><small>loading</small>
-</div>
-<script type="text/javascript">$(window).on('load', function () {
-    var $preloader = $('#p_prldr'),
-        $svg_anm   = $preloader.find('.svg_anm');
-    $svg_anm.fadeOut();
-    $preloader.delay(500).fadeOut('slow');
-	 
-	
-})
-$('#buttonActionLoad').on('click', function () {
-document.getElementById('svg_anm').style='margin-left:-20px;';
-    var $preloader = $('#p_prldr'),
-        $svg_anm   = $preloader.find('.svg_anm');
-    $svg_anm.fadeIn();
-    $preloader.delay(0).fadeIn('slow');
-	
-	 
-	
-})
-;</script>
-</div>
+
 	<div class="mainHeaderDiv">
+		<div id="p_prldr">
+			<div class="contpre">
+				<span class="svg_anm"></span><br>Wait<br>
+				<small>loading</small>
+			</div>
+			<script type="text/javascript">
+				$(window)
+						.on(
+								'load',
+								function() {
+									var $preloader = $('#p_prldr'), $svg_anm = $preloader
+											.find('.svg_anm');
+									$svg_anm.fadeOut();
+									$preloader.delay(500).fadeOut('slow');
+
+								});
+				$('#buttonActionLoad')
+						.on(
+								'click',
+								function() {
+									document.getElementById('svg_anm').style = 'margin-left:-20px;';
+									var $preloader = $('#p_prldr'), $svg_anm = $preloader
+											.find('.svg_anm');
+									$svg_anm.fadeIn();
+									$preloader.delay(0).fadeIn('slow');
+
+								});
+			</script>
+		</div>
 		<tiles:insertAttribute name="header"></tiles:insertAttribute>
 	</div>
 	<div id="mainBodyDiv" class="mainBodyDiv">

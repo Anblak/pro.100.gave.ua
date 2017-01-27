@@ -151,7 +151,7 @@
 			</form:form>
 		</div>
 
-		<p>${messages.string}+</p>
+		<p>${messages.string}</p>
 
 	</sec:authorize>
 
