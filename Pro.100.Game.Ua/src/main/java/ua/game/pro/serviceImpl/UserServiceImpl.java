@@ -70,6 +70,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		userDao.save(user);
 	}
 
+	public void updatePassword(User user) {
+		user.setPassword(encoder.encode(user.getPassword()));
+		userDao.save(user);
+
+	}
+
 	public User findByUUID(String uuid) {
 		return userDao.findByUUID(uuid);
 	}

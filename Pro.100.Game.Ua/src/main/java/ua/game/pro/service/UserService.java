@@ -25,6 +25,8 @@ public interface UserService {
 
 	User findByUUID(String uuid);
 
+	void updatePassword(User user);
+
 	public void saveImage(Principal principal, MultipartFile multipartFile);
 
 }

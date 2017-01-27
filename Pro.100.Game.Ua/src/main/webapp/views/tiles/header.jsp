@@ -22,7 +22,34 @@
 	<sec:authorize access="!isAuthenticated()">
 
 
+		<div id="returnpas" class="modal">
 
+			<form:form class="modal-content animate"
+				action="researchUserIntoMail" method="get">
+				<div class="imgcontainer">
+					<span
+						onclick="document.getElementById('returnpas').style.display='none'"
+						class="close" title="Close Modal">&times;</span> <img
+						src="img/useranon.png" alt="Avatar" class="avatar">
+				</div>
+
+				<div class="container">
+
+										 <label><b>email</b></label>
+					<input name="email" type="email" placeholder="email"> 
+					
+					<button type="submit">registration</button>
+					<!--  <input type="checkbox" checked="checked"> Remember me-->
+
+				</div>
+				<div class="container" style="background-color: #f1f1f1">
+					<button type="button"
+						onclick="document.getElementById('returnpas').style.display='none'"
+						class="cancelbtn">Cancel</button>
+
+				</div>
+			</form:form>
+		</div>
 
 		<button
 			onclick="document.getElementById('id01').style.display='block'"
@@ -54,7 +81,8 @@
 					<button type="button"
 						onclick="document.getElementById('id01').style.display='none'"
 						class="cancelbtn">Cancel</button>
-					<span class="psw">Forgot <a href="#">password?</a></span>
+					<span class="psw">Forgot <a href="#"
+						onclick="document.getElementById('returnpas').style.display='block';document.getElementById('id01').style.display='none';">password?</a></span>
 				</div>
 			</form:form>
 		</div>
@@ -101,7 +129,7 @@
 			</form:form>
 		</div>
 
-
+		<p>${messages.string}+</p>
 
 	</sec:authorize>
 

@@ -2,6 +2,7 @@ package ua.game.pro.controller;
 
 import java.security.Principal;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,7 +92,7 @@ public class UserController {
 
 		}
 		String theme = "Pro.100.Game.Ua";
-		String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='background:black;'><center><div style='background:yellow;width:400px;height:67px'><p>Welcome to site administration pro100.game.ua</p><p>if you want to continue to register at the site pro100.game.ua Click on the <a href='http://localhost:8080/Pro.100.Game.Ua/confirm/"
+		String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='background:black;'><center><div style='background:yellow;width:400px;height:70px'><p>Welcome to site administration pro100.game.ua</p><p>if you want to continue to register at the site pro100.game.ua Click on the <a href='http://localhost:8080/Pro.100.Game.Ua/confirm/"
 				+ uuid + "'>link</a></p><div></center></html></body>";
 
 		mailSenderService.sendMail(theme, mailBody, user.getEmail());
@@ -341,6 +342,73 @@ public class UserController {
 		} catch (Exception e) {
 			return "views-user-user";
 		}
+	}
+
+	@RequestMapping(value = "/researchUserIntoMail", method = RequestMethod.GET)
+	public String researchUserIntoMail(@RequestParam String email, Model model) {
+
+		StringWrapper string = new StringWrapper();
+		for (int i = 0; i < userService.findAll().size(); i++) {
+			if (userService.findAll().get(i).getEmail().equals(email)) {
+				String theme = "Pro.100.Game.Ua";
+				String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='' ><center><div style='background:yellow;width:500px;height:auto'><p>Welcome to site <span>pro100.game.ua</span></p><p>If you want to change your password Click on the <a href='http://localhost:8080/Pro.100.Game.Ua/passwordResetRequest"
+						+ userService.findAll().get(i).getId()
+						+ "'>link</a></p><p>and wait for the message</p></div></center> </body></html>";
+				string.setString("messages sent to email: " + userService.findAll().get(i).getEmail());
+				model.addAttribute("messages", string);
+				mailSenderService.sendMail(theme, mailBody, userService.findAll().get(i).getEmail());
+			} else {
+				string.setString("not found email: " + email);
+				model.addAttribute("messages", string);
+			}
+
+		}
+
+		return "views-tiles-template";
+
+	}
+
+	@RequestMapping(value = "/passwordResetRequest{id}", method = RequestMethod.GET)
+	public String passwordResetRequest(@PathVariable String id, Model model) {
+
+		User user = null;
+
+		StringWrapper string = new StringWrapper();
+		for (int i = 0; i < userService.findAll().size(); i++) {
+			if (userService.findAll().get(i).getId() == Integer.parseInt(id)) {
+				user = userService.findAll().get(i);
+				System.out.println("id:use: " + user.getId());
+			}
+		}
+		String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='' ><center>		<div  id='passwordchange' class='modal' style='display:block' ><form  action='passwordResetRequestm"
+				+ user.getId()
+				+ "' class='modal-content animate' method='get' style='width:450px;height:auto;'>					<div class='imgcontainer'>					<span						onclick='closeForm()'						class='close' title='Close Modal'>&times;</span><div ><p><br></p><p>Welcome to site <span>pro100.game.ua</span></p><br><p>user</p><br><p>name :"
+				+ user.getName() + "</p><br><p>email: " + user.getEmail() + "</p><br><p>phone: " + user.getPhone()
+				+ "</p><br></div>	<div class='container'>		<p></p>					<p> <p><label>Enter the new password</label></p><input name='password'		type='password'  placeholder='password' id='inputPasswordOne' style='width:90%;height:50px;margin-left:5%;margin-right:5%' ></p>			<p> <p><label>repeat password:</label></p><input 				type='password' placeholder='repeat password' id='inputPasswordTwo' onchange='checkPassword()' style='width:90%;height:50px;margin-left:5%;margin-right:5%'></p>	<button type='submit' disabled='disabled' id='mainButton' ><div onclick='checkPassword()' style='width:100%' >password change</div></button>		<!--  <input type='checkbox' checked='checked'> Remember me--></div>		<div class='container' style='background-color: #f1f1f1'>					<button type='button'			onclick='closeForm()'				class='cancelbtn' style='width:100%'>Cancel</button>	</form>			<div id='info'></div>			</div>			</div></div></center><script>function closeForm(){document.getElementById('passwordchange').style.display='none';}function checkPassword(){if((document.getElementById('inputPasswordTwo').value==document.getElementById('inputPasswordOne').value)&&(document.getElementById('inputPasswordTwo').value!='')){document.getElementById('mainButton').disabled='';document.getElementById('info').innerHTML='ready';document.getElementById('info').style.color='green';}else{document.getElementById('mainButton').disabled='disabled';document.getElementById('info').style.color='red';document.getElementById('info').innerHTML='error:[Passwords do not match]';}}</script> </body></html>";
+		string.setString(mailBody);
+
+		model.addAttribute("messages", string);
+		return "views-tiles-template";
+	}
+
+	@RequestMapping(value = "/passwordResetRequestm{id}", method = RequestMethod.GET)
+	public String recoverPassword(@PathVariable String id, @RequestParam String password, Model model) {
+
+		User user = null;
+
+		StringWrapper string = new StringWrapper();
+		for (int i = 0; i < userService.findAll().size(); i++) {
+			if (userService.findAll().get(i).getId() == Integer.parseInt(id)) {
+				user = userService.findAll().get(i);
+				System.out.println("id:use: " + user.getId());
+			}
+		}
+
+		user.setPassword(password);
+		userService.updatePassword(user);
+		string.setString("Password Reset");
+		model.addAttribute("messages", string);
+		return "views-tiles-template";
 	}
 
 }
