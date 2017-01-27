@@ -9,7 +9,12 @@
 <link rel="stylesheet" href="css/group.css">
 <link rel="stylesheet" href="css/button.css">
 <link rel="stylesheet" href="css/media.css">
+<link rel="stylesheet" href="css/load.css">
 <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+
 
 
 
@@ -18,7 +23,12 @@
 
 
 
-
+	<div id="p_prldr" style="opacity: 0; display: none">
+		<div class="contpre">
+			<span id="svg_anm"></span><br>Wait<br>
+			<small>loading</small>
+		</div>
+	</div>
 	<sec:authorize access="!isAuthenticated()">
 
 
@@ -29,19 +39,31 @@
 				<div class="imgcontainer">
 					<span
 						onclick="document.getElementById('returnpas').style.display='none'"
-						class="close" title="Close Modal">&times;</span> <img
-						src="img/useranon.png" alt="Avatar" class="avatar">
+						class="close" title="Close Modal">&times;</span>
 				</div>
 
 				<div class="container">
 
-										 <label><b>email</b></label>
-					<input name="email" type="email" placeholder="email"> 
-					
-					<button type="submit">registration</button>
+					<label><b>email</b></label> <input name="email" type="email"
+						placeholder="email">
+
+					<button type="submit" id='buttonActionLoad'>registration</button>
 					<!--  <input type="checkbox" checked="checked"> Remember me-->
 
 				</div>
+				<script type="text/javascript">
+					$('#buttonActionLoad')
+							.on(
+									'click',
+									function() {
+										document.getElementById('svg_anm').style = 'margin-left:-20px;';
+										var $preloader = $('#p_prldr'), $svg_anm = $preloader
+												.find('.svg_anm');
+										$svg_anm.fadeIn();
+										$preloader.delay(0).fadeIn('slow');
+
+									});
+				</script>
 				<div class="container" style="background-color: #f1f1f1">
 					<button type="button"
 						onclick="document.getElementById('returnpas').style.display='none'"
