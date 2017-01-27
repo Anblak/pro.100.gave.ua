@@ -119,14 +119,14 @@
 
 					<div class="container">
 
-						<label><b></b></label> <input type='file' name='multipartFile'>
+						<label><b></b></label> <input type='file' name='multipartFile' id="file" onchange="checkf()">
 						<form:form class="modal-content animate" method="POST"
 							commandName="profesor">
-							<form:select path="string" itemLable="name" itemValue="id">
-								<form:option value="-" label="Select profesor" />
+							<form:select path="string" itemLable="name" itemValue="id" required="">
+								<form:option value="" label="" />
 								<form:options items="${profesorMap}" />
 							</form:select>
-							<button type="submit">safe file</button>
+							<button  id="savef" disabled="disabled"  onmouseover="checkf()" >safe file</button>
 
 							<div class="container" style="background-color: #f1f1f1">
 								<button type="button"
@@ -153,7 +153,27 @@
 	</sec:authorize>
 
 
+<script type="text/javascript">
 
+
+function checkf() {
+
+
+    if(document.getElementById('file').value == ''&&document.getElementById('prof').value=='-'){
+	
+		document.getElementById('savef').disabled='disabled';
+	
+	
+        
+    }else{
+	
+		document.getElementById('savef').disabled=''; 
+		}
+	}
+	
+
+
+</script>
 
 
 

@@ -8,7 +8,7 @@
 	
 	
 	<link rel="stylesheet" href="css/home.css">
-<div class="container">	
+<div class="container1">	
 <sec:authentication property="name" />
 
 <sec:authorize access="isAuthenticated()">

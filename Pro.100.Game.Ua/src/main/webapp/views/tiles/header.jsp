@@ -283,8 +283,8 @@
 									<form:form
 										action="./saveImage?${_csrf.parameterName}=${_csrf.token}"
 										method="post" enctype="multipart/form-data">
-										<input type="file" name="image">
-										<button>save image</button>
+										<input type="file" name="image" id="image" onchange="check()">
+										<button id="save" style="disabled;" onmouseover="check()">save image</button>
 									</form:form>
 
 								</div>
@@ -345,7 +345,26 @@
 </div>
 </sec:authorize>
 
+<script type="text/javascript">
 
+
+function check() {
+
+
+    if(document.getElementById('image').value == ''){
+	
+		document.getElementById('save').disabled='disabled';
+	
+	
+        
+    }else{
+	
+		document.getElementById('save').disabled=''; 
+		}
+	}
+
+
+</script>
 
 <!-- 		<div class="lgWrapper" style=""> -->
 <!-- 			<div class="wrapperlg" style=""> -->
