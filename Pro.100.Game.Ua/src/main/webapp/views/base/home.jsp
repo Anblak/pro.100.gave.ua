@@ -11,19 +11,16 @@
 <div class="container1">	
 <sec:authentication property="name" />
 
-<sec:authorize access="isAuthenticated()">
 
-	
-</sec:authorize>
 
-<sec:authorize access="!isAuthenticated()">
+
 	
 	
 	<br>
 	<a href="math">math</a>
 	
 	
-</sec:authorize>
+
 
 
 <sec:authorize access="hasRole('ROLE_ADMIN')">
