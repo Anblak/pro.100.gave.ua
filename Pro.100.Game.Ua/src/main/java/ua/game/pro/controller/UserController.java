@@ -1,8 +1,10 @@
 package ua.game.pro.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.TreeMap;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,7 @@ import ua.game.pro.dto.DTOUtilMapper;
 import ua.game.pro.editor.ProfesorEditor;
 import ua.game.pro.entity.GroupOfUsers;
 import ua.game.pro.entity.Profesor;
+import ua.game.pro.entity.Role;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
 import ua.game.pro.service.GroupOfUsersService;
@@ -54,6 +57,8 @@ public class UserController {
 
 	@Autowired
 	private MailSenderService mailSenderService;
+
+	private CreatorHTMLTag creator = new CreatorHTMLTag();
 
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
@@ -169,28 +174,30 @@ public class UserController {
 			model.addAttribute("user", user);
 			HashMap<Integer, String> profesorMap;
 
-			// System.out.println(user.getGroup());
+			if (user.getRole() != Role.ROLE_USER && user.getRole() != Role.ROLE_ADMIN) {
 
-			// String list = "<form:form method=\"POST\"
-			// commandName=\"profesor\"
-			// action=\"profesort\"><form:select path=\"string\"
-			// itemLable=\"name\"
-			// itemValue=\"id\"> <form:option value=\"-\" label=\"--Select
-			// profesor\" /><form:options items=\"${profesorMap}\"
-			// /></form:select><button>submit</button> </form:form>";
-			// System.out.println(list);
-			if (user.getGroup() != null) {
-
-				// model.addAttribute("list", list);
 				System.out.println(user.getGroup());
 				profesorMap = new Parset()
 						.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()), user);
 
 			} else {
 				profesorMap = new HashMap<>();
-				// profesorMap.put(0, "null");
+
+			}
+			// groupUserAdd
+			TreeMap<Integer, String> map = new TreeMap<>();
+			for (User forUser : userService.findAll()) {
+				if (forUser.getRole() == Role.ROLE_USER) {
+					map.put(forUser.getId(), forUser.getName());
+				}
 			}
 
+			StringWrapper string = new StringWrapper();
+			string.setString(
+					creator.form(creator.selectAll(map, "idUser", "5") + creator.button("submit", "button", "submit"),
+							"addInGroupMessage", "get"));
+			model.addAttribute("groupUserAdd", string);
+			// end groupUserAdd
 			model.addAttribute("profesorMap", profesorMap);
 			model.addAttribute("profesor", new StringWrapper());
 			// model.addAttribute("uuidBody", uuidBody);
@@ -303,6 +310,7 @@ public class UserController {
 	@RequestMapping("/confirmAdd/{uuid}")
 	public String newUserInGroup(Principal principal, @PathVariable String uuid) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
+		user.setRole(Role.ROLE_USER_IN_GROUP);
 		userService.update(user, groupOfUsersService.findByUUID(uuid));
 
 		return "redirect:/profile";
@@ -421,6 +429,57 @@ public class UserController {
 		string.setString("Password Reset");
 		model.addAttribute("messages", string);
 		return "views-tiles-template";
+	}
+
+	@RequestMapping(value = "/addInGroupMessage", method = RequestMethod.GET)
+	public String invited(@RequestParam String[] idUser, Principal principal) {
+
+		User userCreator = userService.findOne(Integer.parseInt(principal.getName()));
+
+		ArrayList<User> users = new ArrayList<>();
+		for (String string : idUser) {
+			users.add(userService.findOne(Integer.parseInt(string)));
+		}
+
+		for (int i = 0; i < users.size(); i++) {
+			String uuid = UUID.randomUUID().toString();
+			User user = users.get(i);
+
+			user.setUuid(uuid);
+			users.get(i).setUuid(uuid);
+			userService.updateUser(user);
+
+		}
+
+		for (User user : users) {
+
+			userService.updateUser(user);
+			String theme = "Pro.100.Game.Ua";
+			String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='' ><center><div style='background:yellow;width:500px;height:auto'>"
+					+ "<p>Welcome to site <span>pro100.game.ua</span></p>"
+					+ "<p>You are invited to a group ___ , if you want to accept the invitation Click on the  "
+					+ "<a href='http://localhost:8080/Pro.100.Game.Ua/addInGroup" + userCreator.getGroup().getId() + "/"
+					+ user.getUuid() + "'>link</a></p><p>and wait for the message</p></div></center> </body></html>";
+
+			mailSenderService.sendMail(theme, mailBody, user.getEmail());
+
+		}
+		return "views-filecontent-profile";
+
+	}
+
+	@RequestMapping(value = "/addInGroup{id}/{uuid}", method = RequestMethod.GET)
+	public String takeInvited(@PathVariable String uuid, @PathVariable String id) {
+
+		User user = userService.findByUUID(uuid);
+
+		GroupOfUsers group = groupOfUsersService.findOne(Integer.parseInt(id));
+
+		user.setUuid("");
+
+		userService.update(user, group);
+
+		return "redirect:/";
 	}
 
 }

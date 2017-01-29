@@ -4,12 +4,17 @@
 		<title>codebra</title>
 	</head>
 	<body>
-		<form method = "GET">
-			<select name = "name[]">
-				<option disabled>Да или нет?</option>
-				<option value = "Да">Да</option>
-			</select>
-			<input type = "submit" value = "Ответить">
-		</form>
+		
+		  <form action="handler.php"  method="get">
+			<p><select  multiple="multiple" size="5" name="User">
+				<option value="2">Чебурашка</option>
+				<option value="3">Крокодил Гена</option>
+    <option value="4">Шапокляк</option>
+    <option value="5">Крыса Лариса</option>
+    </select></p>
+	<input type = "submit" value = "Ответить">
+  </form>
+			
+		
 	</body>
 </html>

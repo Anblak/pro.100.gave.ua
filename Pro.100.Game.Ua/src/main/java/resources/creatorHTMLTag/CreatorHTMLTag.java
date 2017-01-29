@@ -1,5 +1,8 @@
 package resources.creatorHTMLTag;
 
+import java.util.Map.Entry;
+import java.util.TreeMap;
+
 import resources.file.File;
 
 /**
@@ -259,5 +262,23 @@ public class CreatorHTMLTag {
 	public String form(String input, String action, String method) {
 
 		return " <form action='" + action + "' method='" + method + "' >" + input + "</form>";
+	}
+
+	public String select(TreeMap<Integer, String> map, String nameSelect) {
+		String body = "<select name = '" + nameSelect + "'>";
+		for (Entry<Integer, String> entry : map.entrySet()) {
+			body += "<option value = '" + entry.getKey() + "'>" + entry.getValue() + "</option>";
+		}
+		body += "</select>";
+		return body;
+	}
+
+	public String selectAll(TreeMap<Integer, String> map, String nameSelect, String size) {
+		String body = "<select multiple='multiple' size='" + size + "' name = '" + nameSelect + "'>";
+		for (Entry<Integer, String> entry : map.entrySet()) {
+			body += "<option value = '" + entry.getKey() + "'>" + entry.getValue() + "</option>";
+		}
+		body += "</select>";
+		return body;
 	}
 }
