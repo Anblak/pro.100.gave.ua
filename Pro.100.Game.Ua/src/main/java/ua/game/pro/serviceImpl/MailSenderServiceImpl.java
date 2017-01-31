@@ -20,8 +20,8 @@ import ua.game.pro.service.MailSenderService;
 @Service
 public class MailSenderServiceImpl implements MailSenderService{
 
-    private final static String USERNAME = "anazariks@gmail.com";// назва почти з якої буде розсилка
-    private final static String PASSWORD = "yfpfh1998";// пароль до цієї почти
+    private final static String USERNAME = "mail@gmail.com";// mail
+    private final static String PASSWORD = "************";// password
 
     @Async
     public void sendMail(String theme, String mailBody, String email) {
