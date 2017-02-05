@@ -328,7 +328,42 @@
 								onclick="document.getElementById('userSettings').style.display='none'"
 								class="cancelbtn">Cancel</button>
 							<span class="pwn">
+								<form action="user${user.id}" method="get" id="formprofile">
 								<button class="profilebutton" form="formprofile">profile</button>
+								</form>
+								
+							</span>
+								<span class="pwn">
+								<button class="profilebutton"
+								onclick="document.getElementById('chat').style.display='block'"
+								style="">chat</button>
+
+							<div id="chat" class="modal">
+
+								<div class="modal-content animate">
+									<div class="imgcontainer">
+										<span
+											onclick="document.getElementById('chat').style.display='none'"
+											class="close" title="Close Modal">&times;</span>
+									</div>
+									<div class="imgcontainer">
+										<p>imgcontainer</p>
+									</div>
+
+									<div class="container">
+
+										<p>container</p>
+										
+
+									</div>
+									<div class="container" style="background-color: #f1f1f1">
+										<button type="button"
+											onclick="document.getElementById('chat').style.display='none'"
+											class="cancelbtn" form="">Cancel</button>
+
+									</div>
+								</div>
+							</div>
 							</span>
 						</form>
 

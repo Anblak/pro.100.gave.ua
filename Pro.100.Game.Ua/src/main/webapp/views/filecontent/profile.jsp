@@ -121,6 +121,51 @@
 				</form:form>
 			</div>
 		</sec:authorize>
+		<sec:authorize access="hasRole('ROLE_USER_IN_GROUP')">
+			<div>
+				<!--${list}  -->
+
+
+				<button
+					onclick="document.getElementById('addfile').style.display='block'"
+					style="width: auto;">add File</button>
+
+				<div id="addfile" class="modal">
+
+					<form:form class="modal-content animate"
+						action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
+						method='post' enctype='multipart/form-data'>
+						<div class="imgcontainer">
+							<span
+								onclick="document.getElementById('addfile').style.display='none'"
+								class="close" title="Close Modal">&times;</span> <img
+								src="img/file.png" alt="Avatar" class="avatar">
+						</div>
+
+						<div class="container">
+
+							<label><b></b></label> <input type='file' name='multipartFile'
+								id="file" onchange="checkf()">
+							<form:form class="modal-content animate" method="POST"
+								commandName="profesor">
+								<form:select path="string" itemLable="name" itemValue="id">
+									<%-- 								<form:option value="" label="Select Profesor" /> --%>
+									<form:options items="${profesorMap}" />
+								</form:select>
+								<button id="savef" disabled="disabled" onmouseover="checkf()">safe
+									file</button>
+
+								<div class="container" style="background-color: #f1f1f1">
+									<button type="button"
+										onclick="document.getElementById('addfile').style.display='none'"
+										class="cancelbtn">Cancel</button>
+							</form:form>
+
+						</div>
+					</form:form>
+				</div>
+			</div>
+		</sec:authorize>
 
 		<sec:authorize access="hasRole('ROLE_CREATOR')">
 			<div>

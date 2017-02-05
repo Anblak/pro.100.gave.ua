@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import resources.creatorHTMLTag.CreatorHTMLTag;
 import ua.game.pro.entity.FileUser;
@@ -57,7 +58,7 @@ public class GroupController {
 
 	}
 
-	@RequestMapping(value = "profesor", method = RequestMethod.GET)
+	@RequestMapping(value = "/profesor", method = RequestMethod.GET)
 	public String outPrintProfesor(Model model, Principal principal) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		List<Profesor> listProfesor = profesorService.findAll();
@@ -91,7 +92,7 @@ public class GroupController {
 			if (profesor.getGroupOfUsers().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
 				String input = creator.p(user2.getName(), "p", "")
 						+ creator.form(creator.button("go in file user", "buttonNext", "submit"),
-								"" + user.getGroup().getId() + "/" + idp + "/" + user2.getId(), "GET");
+								"file" + profesor.getId() + "k" + user2.getId()+"", "GET");
 
 				body += (" " + creator.div(input, "", "div") + " ");
 			}
@@ -101,43 +102,56 @@ public class GroupController {
 		return "views-filecontent-group";
 	}
 
-	@RequestMapping(value = "{idg}/{id}/{idu}", method = RequestMethod.GET)
-	public String outPrintFile(Model model, Principal principal, @PathVariable int idu, @PathVariable int id) {
-		
-		try{
-		User user = userService.findOne(idu);
-		String body = "";
+	@RequestMapping(value = "file{idpath}", method = RequestMethod.GET)
+	public String outPrintFile(Model model, Principal principal,@PathVariable(value="idpath") String idpath) {
+		int idp,idu;
+		String idps="",idus="";
+		boolean tempBoolean=true;
+		for (int i = 0; i < idpath.length(); i++) {
+			if(tempBoolean&&idpath.charAt(i)!='k'){
+				idps+=idpath.charAt(i);
+				tempBoolean=false;
+			}else if(!tempBoolean&&idpath.charAt(i)!='k'){
+				idus+=idpath.charAt(i);
+			}
+		}
+		idp=Integer.parseInt(idps);
+		idu=Integer.parseInt(idus);
+System.out.println("idu "+ idu+" idp "+ idp);
+		try {
+			User user = userService.findOne((idu));
+			String body = "";
 
-		Profesor profesor = profesorService.findOne(id);
+			Profesor profesor = profesorService.findOne((idp));
 
-		for (FileUser fileUser : fileUserService.findAll()) {
-			if (fileUser != null && user != null && profesor != null) {
+			for (FileUser fileUser : fileUserService.findAll()) {
+				if (fileUser != null && user != null && profesor != null) {
 
-				if (fileUser.getUser().getId() == user.getId()) {
+					if (fileUser.getUser().getId() == user.getId()) {
 
-					if (fileUser.getProfesor().getId() == profesor.getId()) {
+						if (fileUser.getProfesor().getId() == profesor.getId()) {
 
-						if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
-							String input = creator.a("/Pro.100.Game.Ua/" + fileUser.getPath(), "", "",
-									(creator.p(fileUser.getName(), "p", "")));
-							;
-							body += " " + (creator.div(input, "", "div") + " ");
-							// creator.button((creator.p(fileUser.getName(),
-							// "p", "width:150px;height: 17px;")), "", "",
-							// fileUser.getPath(), "submit", "", "");
-							//
-							// creator.a(fileUser.getPath(), "", "",
-							// (creator.p(fileUser.getName(), "p",
-							// "width:150px;height: 17px;")));
+							if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
+								String input = creator.a("/Pro.100.Game.Ua/" + fileUser.getPath(), "", "",
+										(creator.p(fileUser.getName(), "p", "")));
+								;
+								body += " " + (creator.div(input, "", "div") + " ");
+								// creator.button((creator.p(fileUser.getName(),
+								// "p", "width:150px;height: 17px;")), "", "",
+								// fileUser.getPath(), "submit", "", "");
+								//
+								// creator.a(fileUser.getPath(), "", "",
+								// (creator.p(fileUser.getName(), "p",
+								// "width:150px;height: 17px;")));
+							}
 						}
 					}
 				}
 			}
-		}
 
-		model.addAttribute("body", body);
-		return "views-filecontent-group";
-		
+			model.addAttribute("body", body);
+			return "views-filecontent-group";
+
 		} catch (NullPointerException e) {
 			return "views-base-home";
 		} catch (Exception e) {
