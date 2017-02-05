@@ -92,7 +92,7 @@ public class GroupController {
 			if (profesor.getGroupOfUsers().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
 				String input = creator.p(user2.getName(), "p", "")
 						+ creator.form(creator.button("go in file user", "buttonNext", "submit"),
-								"file" + profesor.getId() + "k" + user2.getId()+"", "GET");
+								"file" + profesor.getId() + "&" + user2.getId()+"", "GET");
 
 				body += (" " + creator.div(input, "", "div") + " ");
 			}
@@ -108,10 +108,10 @@ public class GroupController {
 		String idps="",idus="";
 		boolean tempBoolean=true;
 		for (int i = 0; i < idpath.length(); i++) {
-			if(tempBoolean&&idpath.charAt(i)!='k'){
+			if(tempBoolean&&idpath.charAt(i)!='&'){
 				idps+=idpath.charAt(i);
 				tempBoolean=false;
-			}else if(!tempBoolean&&idpath.charAt(i)!='k'){
+			}else if(!tempBoolean&&idpath.charAt(i)!='&'){
 				idus+=idpath.charAt(i);
 			}
 		}
