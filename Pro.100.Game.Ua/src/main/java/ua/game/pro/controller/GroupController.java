@@ -117,7 +117,7 @@ public class GroupController {
 		}
 		idp=Integer.parseInt(idps);
 		idu=Integer.parseInt(idus);
-System.out.println("idu "+ idu+" idp "+ idp);
+
 		try {
 			User user = userService.findOne((idu));
 			String body = "";
