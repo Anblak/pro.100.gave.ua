@@ -68,7 +68,7 @@ public class GroupController {
 
 				String input = creator.p(profesor.getName(), "p", "")
 						+ creator.div(creator.form(creator.button("Profesor for Group", "buttonNext", "submit"),
-								"" + profesor.getId(), "get"), "display:inline-block", "wrapperButton")
+								"userinprofesor" +profesor.getId(), "get"), "display:inline-block", "wrapperButton")
 						+ creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deleteprofesor",
 								"GET"), "display:inline-block", "wrapperButton");
 				body += (" " + creator.div(input, "", "div") + " ");
@@ -82,8 +82,8 @@ public class GroupController {
 		return "views-filecontent-group";
 	}
 
-	@RequestMapping(value = "/{idp}", method = RequestMethod.GET)
-	public String outPrintUserOfGrup(Model model, Principal principal, @PathVariable String idp) {
+	@RequestMapping(value = "/userinprofesor{idp}", method = RequestMethod.GET)
+	public String outPrintUserOfGrup(Model model, Principal principal, @PathVariable(value="idp") String idp) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		String body = "";
 		Profesor profesor = profesorService.findOne(Integer.parseInt(idp));

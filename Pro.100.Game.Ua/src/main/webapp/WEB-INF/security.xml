@@ -3,7 +3,7 @@
        xmlns:security="http://www.springframework.org/schema/security"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
-
+       
     <import resource="appContext.xml"/>
 
   <security:http use-expressions="true" auto-config="true" >   

@@ -38,7 +38,7 @@ function audioPlayer() {
 					});
 	// Находим кнопку и прикрепляем метод на событие onclick
 
-	$("#audioPlayer")[0].addEventListener("pause", function() {
+	
 		$("#playlist li").removeClass("current-song");
 		$("#playerMusic")[0].innerHTML = ""
 		// $("#divButtonStop")[currentSong].style = "display:none;";
