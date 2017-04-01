@@ -43,9 +43,8 @@ public class User implements UserDetails {
 	@Enumerated
 	private Role role;
 	
-	
 	public User() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 

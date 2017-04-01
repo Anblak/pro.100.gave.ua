@@ -43,7 +43,7 @@ function audioPlayer() {
 		$("#playerMusic")[0].innerHTML = ""
 		// $("#divButtonStop")[currentSong].style = "display:none;";
 		// $("#divButtonStop")[currentSong].innerHTML = "";
-	}, false);
+			}, false);
 
 	$("#audioPlayer")[0]
 			.addEventListener(
@@ -118,6 +118,7 @@ function audioPlayerm() {
 						// $("#divButtonStop")[currentSong].innerHTML = "";
 					}, false);
 }
+
 
 // HTMLAudioElement.prototype.stop = function() {
 // this.pause();

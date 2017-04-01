@@ -60,29 +60,25 @@ public class FileUserServiceImpl implements FileUserService {
 
 		resources.file.File file = new resources.file.File();
 
-//		FileUser fileUser = new FileUser(multipartFile.getOriginalFilename(),
-//				"resources/" + file.newFolder(user.getGroup().getId(),  profesor, user.getId())
-//						+ multipartFile.getOriginalFilename());
-		
-		FileUser fileUser =new FileUser(multipartFile.getOriginalFilename(), "resources/" + file.newFolder(user.getGroup().getId(),  profesor, user.getId())
-						+ multipartFile.getOriginalFilename(), user, profesorDao.findOne(profesor));
-//newFolder(users.getGroup().getId(), profesor.getId(), users.getId())
+		// FileUser fileUser = new FileUser(multipartFile.getOriginalFilename(),
+		// "resources/" + file.newFolder(user.getGroup().getId(), profesor,
+		// user.getId())
+		// + multipartFile.getOriginalFilename());
+
+		FileUser fileUser = new FileUser(multipartFile.getOriginalFilename(), "resources/"
+				+ file.newFolder(user.getGroup().getId(), profesor, user.getId()) + multipartFile.getOriginalFilename(),
+				user, profesorDao.findOne(profesor));
+		// newFolder(users.getGroup().getId(), profesor.getId(), users.getId())
 		save(fileUser);
-		
+
 		String path = System.getProperty("catalina.home") + "/resources/"
-				+ file.newFolder(user.getGroup().getId(),  profesor, user.getId())
-				+ multipartFile.getOriginalFilename();
+				+ file.newFolder(user.getGroup().getId(), profesor, user.getId()) + multipartFile.getOriginalFilename();
 
 		File filePath = new File(path);
 
 		try {
 			filePath.mkdirs();
-//			try {
-////				FileUtils.cleanDirectory(new File(System.getProperty("catalina.home") + "/resources/"
-////						+ file.newFolder(1, 1, users.getId())));
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
+
 			multipartFile.transferTo(filePath);
 		} catch (IOException e) {
 			System.out.println("error with file");
