@@ -1,0 +1,233 @@
+@CHARSET "UTF-8";
+
+
+
+
+.formCalcul {
+	
+}
+
+.answer {
+	
+}
+
+.body {
+	
+}
+
+.input {
+	
+}
+
+
+.heder {
+	width: 1360px;
+	height: 100px
+}
+
+.formul {
+	width: 310px;
+	height: 19px;
+	border: 1px
+}
+
+.formulP {
+	width: 310px;
+	height: 21px;
+	margin: auto;
+}
+
+.space {
+	width: 310px;
+	height: 19px;
+	border: 1px
+}
+
+.spaceP {
+	width: 310px;
+	height: 21px;
+	margin: auto;
+}
+
+.button0 {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 268px; */
+/* 	left: 238px; */
+}
+
+.button1 {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 53px; */
+/* 	left: 82px; */
+}
+
+.button2 {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 53px; */
+/* 	left: 160px; */
+}
+
+.button3 {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 53px; */
+/* 	left: 238px; */
+}
+
+.button4 {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 124px; */
+/* 	left: 82px; */
+}
+
+.button5 {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 124px; */
+/* 	left: 160px; */
+}
+
+.button6 {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 124px; */
+/* 	left: 238px; */
+}
+
+.button7 {
+	width: 73px;
+	height: 64px;
+/* 	position: absolute; */
+/* 	top: 196px; */
+/* 	left: 82px; */
+}
+
+.button8 {
+	width: 73px;
+	height: 64px;
+/* 	position: absolute; */
+/* 	top: 196px; */
+/* 	left: 160px; */
+}
+
+.button9 {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 196px; */
+/* 	left: 238px; */
+}
+
+.buttonAlt {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 53px; */
+/* 	left: 0px; */
+}
+
+.buttonAssociation {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 268px; */
+/* 	left: 0px; */
+}
+
+.buttonBrackets {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 268px; */
+/* 	left: 160px; */
+}
+
+.buttonOdds {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 124px; */
+/* 	left: 0px; */
+}
+
+.buttonDecussation {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 196px; */
+/* 	left: 0px; */
+}
+
+.buttonComa {
+	width: 73px;
+	height: 65px;
+/* 	position: absolute; */
+/* 	top: 268px; */
+/* 	left: 82px; */
+}
+
+.formCalcul {
+/* 	position: absolute; */
+/* 	top: 0px; */
+/* 	left: 0px; */
+	width: 315px;
+	height: 50px;
+}
+
+.calcButton {
+	width: 306px;
+	height: 64px;
+	position: absolute;
+	top: 369px;
+	left: 0px;
+}
+
+.answer {
+	width: 400px;
+	height: 600px;
+	margin: auto;
+	position: absolute;
+	top: 62px;
+	left: 39px;
+}
+
+.left {
+	width: 900px;
+	height: 750px;
+	position:inherit;
+	top: 208px;
+	left: 8px;
+}
+
+.mainMathDiv {
+width: auto;
+height: auto;	
+margin-bottom: 5px;
+margin-left: 5px;
+}
+.fotter{
+	margin-top:10px; 
+}
+
+.field{
+	width: 380px;
+	height: 500px;
+	
+	position: absolute;
+	left: 450px;
+	top:400px;
+	
+	padding: 0px;
+}
+

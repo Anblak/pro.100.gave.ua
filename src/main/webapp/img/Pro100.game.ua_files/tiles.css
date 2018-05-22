@@ -1,0 +1,121 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0px;
+}
+
+body {
+	width: 100%;
+	margin: 0pxl;
+}
+
+.pu {
+	display: inline-block;
+}
+
+.uidGroup {
+	
+}
+
+.imgUserSettings {
+	width: auto;
+	height: 50%;
+	margin: 0px;
+}
+
+.userSettings {
+	background: green;
+	width: auto;
+	height: 100px;
+	margin: auto;
+}
+
+.avatarUser {
+	width: 25%;
+	height: 100px;
+}
+
+#playlist {
+	list-style: none;
+}
+
+#playlist li a {
+	color: black;
+	text-decoration: none;
+}
+
+#playlist .current-song a {
+	color: blue;
+}
+
+#playlist .current-song div {
+	margin: 0px;
+}
+
+
+.musicDiv {
+	background: green;
+	margin: 8px;
+}
+
+.tiles {
+	width: 100%;
+	height: 100px;
+	background: green;
+	margin: 0px;
+}
+
+.buttonUA {
+	display: inline-block;
+	border-color: white; /* color borderUA */
+	border-style: solid;
+	width: 40px;
+	height: 40px;
+}
+
+.wrapperlg {
+	height: 40px;
+	width: 84px;
+	background: green;
+	margin: auto;
+}
+
+.lgWrapper {
+	height: 49px;
+	width: 100px;
+	background: green;
+	padding-top: 8px;
+}
+
+.buttonRU {
+	display: inline-block;
+	border-color: white; /* color borderRU */
+	border-style: solid;
+	width: 40px;
+	height: 40px;
+}
+
+.formUA {
+	display: inline-block;
+}
+
+.formRU {
+	display: inline-block;
+}
+
+.pUA {
+	
+}
+
+.pRU {
+	
+}
+
+.pRU {
+	
+}
+
+.logout {
+	width: 71px;
+	height: 43px
+}
