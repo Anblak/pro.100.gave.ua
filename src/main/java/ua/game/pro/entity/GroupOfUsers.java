@@ -1,79 +1,80 @@
 package ua.game.pro.entity;
 
+import javax.persistence.*;
 import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class GroupOfUsers {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String name;
-	private String uuid;
-	
-	@OneToMany(mappedBy = "group")
-	private List<User> users;
-	
-	@OneToMany(mappedBy = "groupOfUsers")
-	private List<Profesor> profesors;
-	
-	public GroupOfUsers() {
-		// TODO Auto-generated constructor stub
-	}
 
-	public GroupOfUsers(String name) {
-		super();
-		this.name = name;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String name;
+    private String uuid;
 
-	public int getId() {
-		return id;
-	}
+    @OneToMany(mappedBy = "group")
+    private List<User> users;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @OneToMany(mappedBy = "groupOfUsers")
+    private List<Professor> professors;
 
-	public String getName() {
-		return name;
-	}
+    @OneToMany(mappedBy = "groupOfUsers")
+    private List<FileUser> fileUsers;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public GroupOfUsers() {
+    }
 
-	public String getUuid() {
-		return uuid;
-	}
+    public GroupOfUsers(String name) {
+        super();
+        this.name = name;
+    }
 
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public List<User> getUsers() {
-		return users;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public List<Profesor> getProfesors() {
-		return profesors;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setProfesors(List<Profesor> profesors) {
-		this.profesors = profesors;
-	}
-	
-	
-	
-	
-	
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public List<Professor> getProfessors() {
+        return professors;
+    }
+
+    public void setProfessors(List<Professor> professors) {
+        this.professors = professors;
+    }
+
+
+    public List<FileUser> getFileUsers() {
+        return fileUsers;
+    }
+
+    public void setFileUsers(List<FileUser> fileUsers) {
+        this.fileUsers = fileUsers;
+    }
 }

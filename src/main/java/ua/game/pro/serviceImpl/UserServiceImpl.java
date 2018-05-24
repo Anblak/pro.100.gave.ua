@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,10 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import resources.exceptions.ProjectExceptions;
 import ua.game.pro.dao.UserDao;
 import ua.game.pro.entity.GroupOfUsers;
-import ua.game.pro.entity.Role;
+import ua.game.pro.entity.enums.Role;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.UserService;
 import ua.game.pro.validator.Validator;
@@ -42,6 +40,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
 		user.setRole(Role.ROLE_USER);
 		user.setPassword(encoder.encode(user.getPassword()));
+		user.setEnabled(true);
 		userDao.save(user);
 	}
 
@@ -66,8 +65,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	}
 
 	public void update(User user, GroupOfUsers group) {
-		user.setRole(Role.ROLE_USER_IN_GROUP);
-		user.setGroup(group);
+		user.setGroupOfUsers(group);
 		userDao.save(user);
 	}
 
@@ -78,7 +76,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	}
 
 	public User findByUUID(String uuid) {
-		return userDao.findByUUID(uuid);
+		return userDao.findByUuid(uuid);
 	}
 
 	public void updateUser(User user) {

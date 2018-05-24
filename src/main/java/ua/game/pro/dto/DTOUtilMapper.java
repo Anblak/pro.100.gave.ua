@@ -3,12 +3,8 @@ package ua.game.pro.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import ua.game.pro.entity.FileUser;
-import ua.game.pro.entity.GroupOfUsers;
-import ua.game.pro.entity.MusicFile;
-import ua.game.pro.entity.Profesor;
-import ua.game.pro.entity.User;
-
+import ua.game.pro.entity.*;
+import ua.game.pro.entity.Professor;
 
 
 public class DTOUtilMapper {
@@ -51,58 +47,21 @@ public class DTOUtilMapper {
 
 	}
 	
-	public static List<ProfesorDTO> profesorToProfesorDTO(List<Profesor>profesors){		
-		List<ProfesorDTO> profesorDTOs=new ArrayList<ProfesorDTO>();
+	public static List<ProfessorDTO> profesorToProfesorDTO(List<Professor> professors){
+		List<ProfessorDTO> profesorDTOs=new ArrayList<ProfessorDTO>();
 		
-		for (Profesor profesor : profesors) {
+		for (Professor professor : professors) {
 			
-			ProfesorDTO profesorDTO=new ProfesorDTO();
-			profesorDTO.setName(profesor.getName());
-			profesorDTO.setId(profesor.getId());
-			profesorDTO.setGroupOfUsers(profesor.getGroupOfUsers());
+			ProfessorDTO profesorDTO=new ProfessorDTO();
+			profesorDTO.setName(professor.getName());
+			profesorDTO.setId(professor.getId());
+			profesorDTO.setGroupOfUsers(professor.getGroupOfUsers());
 			profesorDTOs.add(profesorDTO);
 			
 		}
 		return profesorDTOs;
 	}
-	
-	public static List<FileUserDTO> fileUsertoFileUsersDTO(List<FileUser> fileUsers){
-		
-		List<FileUserDTO> fileUserDTOs=new ArrayList<>();
-		
-		for(FileUser fileUser : fileUsers){
-			
-			FileUserDTO fileUserDTO=new FileUserDTO();
-			
-			fileUserDTO.setId(fileUser.getId());
-			fileUserDTO.setName(fileUser.getName());
-			fileUserDTO.setPath(fileUser.getPath());
-			fileUserDTO.setProfesor(fileUser.getProfesor());
-			fileUserDTO.setUser(fileUser.getUser());
-			
-			fileUserDTOs.add(fileUserDTO);
-		}
-		return fileUserDTOs;
-	}
-	
-	public static List<MusicFileDTO> musicFileToMusicFileDTO(List<MusicFile>musicFiles){
-		
-		List<MusicFileDTO>musicFileDTOs=new ArrayList<>();
-		
-		for(MusicFile musicFile : musicFiles){
-			
-			MusicFileDTO musicFileDTO = new MusicFileDTO();
-			
-			musicFileDTO.setId(musicFile.getId());
-			musicFileDTO.setName(musicFile.getName());
-			musicFileDTO.setPathMusic(musicFile.getPath());
-			
-			musicFileDTOs.add(musicFileDTO);
-			
-		}
-		
-		return musicFileDTOs;
-	}
+
 	
 
 	

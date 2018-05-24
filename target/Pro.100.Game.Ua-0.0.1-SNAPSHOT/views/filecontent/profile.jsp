@@ -91,7 +91,7 @@
 
 			<div id="createprofesor" class="modal">
 
-				<form:form modelAttribute="profesor" action="newProfesor"
+				<form:form modelAttribute="professor" action="newProfesor"
 					class="modal-content animate" method="post">
 					<div class="imgcontainer">
 						<span
@@ -147,9 +147,9 @@
 							<label><b></b></label> <input type='file' name='multipartFile'
 								id="file" onchange="checkf()">
 							<form:form class="modal-content animate" method="POST"
-								commandName="profesor">
+								commandName="professor">
 								<form:select path="string" itemLable="name" itemValue="id">
-									<%-- 								<form:option value="" label="Select Profesor" /> --%>
+									<%-- 								<form:option value="" label="Select Professor" /> --%>
 									<form:options items="${profesorMap}" />
 								</form:select>
 								<button id="savef" disabled="disabled" onmouseover="checkf()">safe
@@ -193,9 +193,9 @@
 							<label><b></b></label> <input type='file' name='multipartFile'
 								id="file" onchange="checkf()">
 							<form:form class="modal-content animate" method="POST"
-								commandName="profesor">
+								commandName="professor">
 								<form:select path="string" itemLable="name" itemValue="id">
-									<%-- 								<form:option value="" label="Select Profesor" /> --%>
+									<%-- 								<form:option value="" label="Select Professor" /> --%>
 									<form:options items="${profesorMap}" />
 								</form:select>
 								<button id="savef" disabled="disabled" onmouseover="checkf()">safe
@@ -284,7 +284,7 @@
 
 
 
-	<%-- 	<form:form method="POST" commandName="profesor" action="safeFile"> --%>
+	<%-- 	<form:form method="POST" commandName="professor" action="safeFile"> --%>
 
 	<%-- 		<form:select path="name" itemLable="name" itemValue="id"> --%>
 	<%-- 			<form:option value="-" label="--Select phone" /> --%>

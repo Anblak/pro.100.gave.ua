@@ -3,7 +3,6 @@ package ua.game.pro.controller;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.UUID;
 
@@ -20,28 +19,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import resources.creatorHTMLTag.CreatorHTMLTag;
-import resources.file.File;
 import resources.parset.Parset;
 
 import resources.wrapper.StringWrapper;
 import ua.game.pro.dto.DTOUtilMapper;
 
-import ua.game.pro.editor.ProfesorEditor;
+import ua.game.pro.editor.ProfessorEditor;
 import ua.game.pro.entity.GroupOfUsers;
-import ua.game.pro.entity.Profesor;
-import ua.game.pro.entity.Role;
+import ua.game.pro.entity.Professor;
+import ua.game.pro.entity.enums.Role;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
 import ua.game.pro.service.GroupOfUsersService;
 import ua.game.pro.service.MailSenderService;
-import ua.game.pro.service.ProfesorService;
+import ua.game.pro.service.ProfessorService;
 import ua.game.pro.service.UserService;
 import ua.game.pro.validator.GroupOfUsersValidationMessages;
 import ua.game.pro.validator.UserValidationMessages;
 
 @Controller
 public class UserController {
-	private String profesor;
+	private String professor;
 
 	@Autowired
 	private UserService userService;
@@ -53,7 +51,7 @@ public class UserController {
 	private GroupOfUsersService groupOfUsersService;
 
 	@Autowired
-	private ProfesorService profesorService;
+	private ProfessorService professorService;
 
 	@Autowired
 	private MailSenderService mailSenderService;
@@ -62,7 +60,7 @@ public class UserController {
 
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
-		binder.registerCustomEditor(Profesor.class, new ProfesorEditor(profesorService));
+		binder.registerCustomEditor(Professor.class, new ProfessorEditor(professorService));
 	}
 
 	@RequestMapping("/registration")
@@ -100,7 +98,7 @@ public class UserController {
 		String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='background:black;'><center><div style='background:yellow;width:400px;height:70px'><p>Welcome to site administration pro100.game.ua</p><p>if you want to continue to register at the site pro100.game.ua Click on the <a href='http://localhost:8080/Pro.100.Game.Ua/confirm/"
 				+ uuid + "'>link</a></p><div></center></html></body>";
 
-		mailSenderService.sendMail(theme, mailBody, user.getEmail());
+//		mailSenderService.sendMail(theme, mailBody, user.getEmail());
 
 		return "redirect:/";
 	}
@@ -129,7 +127,7 @@ public class UserController {
 	public String profile(Model model, Principal principal) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 		HashMap<Integer, String> profesorMap = new Parset()
-				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()), user);
+				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(professorService.findAll()), user);
 		model.addAttribute("profesor", new StringWrapper());
 		model.addAttribute("profesorsMap", profesorMap);
 
@@ -140,8 +138,8 @@ public class UserController {
 	public String profile(@ModelAttribute StringWrapper profesor, Model model) {
 
 		model.addAttribute("profesor", profesor);
-		this.profesor = profesor.getString();
-		model.addAttribute("test", this.profesor);
+		this.professor = profesor.getString();
+		model.addAttribute("test", this.professor);
 		// String formAddFile="<form:form
 		// action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
 		// method='post' enctype='multipart/form-data'> <input type='file'
@@ -155,12 +153,12 @@ public class UserController {
 	// public String saveImage(Principal principal, @RequestParam FileWrapper
 	// fileWrapper, Model model) {
 	//
-	// Profesor profesor =
-	// profesorService.findOne(Integer.parseInt(fileWrapper.getProfesor()));
+	// Professor professor =
+	// professorService.findOne(Integer.parseInt(fileWrapper.getProfessor()));
 	//
 	// User user = userService.findOne(Integer.parseInt(principal.getName()));
 	//
-	// fileUserService.saveFile(fileWrapper.getMultipartFile(), user, profesor);
+	// fileUserService.saveFile(fileWrapper.getMultipartFile(), user, professor);
 	//
 	// return "redirect:/profile";
 	// }
@@ -176,9 +174,9 @@ public class UserController {
 
 			if (user.getRole() != Role.ROLE_USER && user.getRole() != Role.ROLE_ADMIN) {
 
-				System.out.println(user.getGroup());
+
 				profesorMap = new Parset()
-						.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()), user);
+						.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(professorService.findAll()), user);
 
 			} else {
 				profesorMap = new HashMap<>();
@@ -206,9 +204,9 @@ public class UserController {
 
 			//
 			// try {
-			// model.addAttribute("profesors", new Profesor());
+			// model.addAttribute("profesors", new Professor());
 			// model.addAttribute("profesorsDTOs",
-			// DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
+			// DTOUtilMapper.profesorToProfesorDTO(professorService.findAll()));
 			// } catch (Exception e) {
 			// System.out.println(e.getMessage());
 			// }
@@ -242,7 +240,7 @@ public class UserController {
 
 		fileUserService.saveFile(multipartFile, user, profesorID);
 
-		// Profesor profesorr= new Profesor("test");
+		// Professor profesorr= new Professor("test");
 		// profesorr.setId(1);
 
 		// User user =
@@ -255,7 +253,7 @@ public class UserController {
 	@RequestMapping(value = "/saveProfesor", method = RequestMethod.POST)
 	public String profesor(@RequestParam StringWrapper profesorID, Model model) {
 		model.addAttribute("profesorID", profesorID);
-		// this.profesor = profesor.getName();
+		// this.professor = professor.getName();
 		return "views-filecontent-profile";
 	}
 
@@ -263,7 +261,7 @@ public class UserController {
 	// public String saveFile(@RequestParam MultipartFile multipartFile,
 	// Principal principal, Model model) {
 	//
-	// int profesorID = Integer.parseInt(profesor);
+	// int profesorID = Integer.parseInt(professor);
 	//
 	// User user = userService.findOne(Integer.parseInt(principal.getName()));
 	//
@@ -290,7 +288,6 @@ public class UserController {
 
 		String uuidBody = "http://localhost:8080/Pro.100.Game.Ua/confirmAdd/" + uuid;
 
-		GroupOfUsers groupOfUsers2 = user.getGroup();
 		model.addAttribute("groupUID", groupOfUsers);
 
 		// }else{
@@ -310,17 +307,16 @@ public class UserController {
 	@RequestMapping("/confirmAdd/{uuid}")
 	public String newUserInGroup(Principal principal, @PathVariable String uuid) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
-		user.setRole(Role.ROLE_USER_IN_GROUP);
 		userService.update(user, groupOfUsersService.findByUUID(uuid));
 
 		return "redirect:/profile";
 	}
 
 	@RequestMapping(value = "/newProfesor", method = RequestMethod.POST)
-	public String newProfesor(Principal principal, @ModelAttribute Profesor profesor, Model model) {
+	public String newProfesor(Principal principal, @ModelAttribute Professor professor, Model model) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
-		profesor.setGroupOfUsers(user.getGroup());
-		profesorService.save(profesor);
+		professor.setGroupOfUsers(user.getGroupOfUsers());
+		professorService.save(professor);
 
 		return "redirect:/profile";
 
@@ -337,10 +333,10 @@ public class UserController {
 
 			model.addAttribute("userT", userStore);
 			model.addAttribute("user", user);
-			if (userStore.getGroup() != null && user.getGroup() != null) {
+			if (userStore.getGroupOfUsers() != null && user.getGroupOfUsers() != null) {
 
-				if (userStore.getGroup().getId() == user.getGroup().getId()) {
-					model.addAttribute("groupUID", user.getGroup());
+				if (userStore.getGroupOfUsers().getId() == user.getGroupOfUsers().getId()) {
+					model.addAttribute("groupUID", user.getGroupOfUsers());
 				}
 			}
 
@@ -458,7 +454,7 @@ public class UserController {
 			String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='' ><center><div style='background:yellow;width:500px;height:auto'>"
 					+ "<p>Welcome to site <span>pro100.game.ua</span></p>"
 					+ "<p>You are invited to a group ___ , if you want to accept the invitation Click on the  "
-					+ "<a href='http://localhost:8080/Pro.100.Game.Ua/addInGroup" + userCreator.getGroup().getId() + "/"
+					+ "<a href='http://localhost:8080/Pro.100.Game.Ua/addInGroup" + userCreator.getGroupOfUsers().getId() + "/"
 					+ user.getUuid() + "'>link</a></p><p>and wait for the message</p></div></center> </body></html>";
 
 			mailSenderService.sendMail(theme, mailBody, user.getEmail());

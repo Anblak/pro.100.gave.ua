@@ -14,7 +14,7 @@ public interface GroupOfUsersService {
 	GroupOfUsers findOne(int id);
 	void delete(int id,User user);
 	
-//	GroupOfUsers findByUUID(String uuid,User user);
+//	GroupOfUsers findByUuid(String uuid,User user);
 	GroupOfUsers findByUUID(String uuid);
 	
 }

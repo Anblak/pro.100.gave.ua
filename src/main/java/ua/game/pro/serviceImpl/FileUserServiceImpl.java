@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import ua.game.pro.dao.FileUserDao;
-import ua.game.pro.dao.ProfesorDao;
+import ua.game.pro.dao.ProfessorDao;
 import ua.game.pro.dao.UserDao;
 import ua.game.pro.entity.FileUser;
 
@@ -25,7 +25,7 @@ public class FileUserServiceImpl implements FileUserService {
 	private FileUserDao fileDao;
 
 	@Autowired
-	private ProfesorDao profesorDao;
+	private ProfessorDao professorDao;
 
 	@Autowired
 	private UserDao userDao;
@@ -63,14 +63,14 @@ public class FileUserServiceImpl implements FileUserService {
 //		FileUser fileUser = new FileUser(multipartFile.getOriginalFilename(),
 //				"resources/" + file.newFolder(user.getGroup().getId(),  profesor, user.getId())
 //						+ multipartFile.getOriginalFilename());
-		
-		FileUser fileUser =new FileUser(multipartFile.getOriginalFilename(), "resources/" + file.newFolder(user.getGroup().getId(),  profesor, user.getId())
-						+ multipartFile.getOriginalFilename(), user, profesorDao.findOne(profesor));
+//		TODO uncomment this shit <3
+//		FileUser fileUser =new FileUser(multipartFile.getOriginalFilename(), "resources/" + file.newFolder(user.getGroupOfUsers().getId(),  profesor, user.getId())
+//						+ multipartFile.getOriginalFilename(), user, professorDao.findOne(profesor));
 //newFolder(users.getGroup().getId(), profesor.getId(), users.getId())
-		save(fileUser);
+//		save(fileUser);
 		
 		String path = System.getProperty("catalina.home") + "/resources/"
-				+ file.newFolder(user.getGroup().getId(),  profesor, user.getId())
+				+ file.newFolder(user.getGroupOfUsers().getId(),  profesor, user.getId())
 				+ multipartFile.getOriginalFilename();
 
 		File filePath = new File(path);

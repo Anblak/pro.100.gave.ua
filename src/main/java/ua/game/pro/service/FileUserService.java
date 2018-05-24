@@ -1,12 +1,10 @@
 package ua.game.pro.service;
 
-import java.security.Principal;
 import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import ua.game.pro.entity.FileUser;
-import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 
 

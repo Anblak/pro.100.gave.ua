@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-public class Profesor {
+public class Professor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,11 +24,11 @@ public class Profesor {
 	@ManyToOne
 	private GroupOfUsers groupOfUsers;
 	
-	public Profesor() {
+	public Professor() {
 	
 	}
 
-	public Profesor(String name) {
+	public Professor(String name) {
 		super();
 		this.name = name;
 	}
