@@ -4,6 +4,7 @@
 /home/anblak/Documents/DIPLOMA/pro.100.gave.ua/src/main/java/ua/game/pro/dto/ProfessorDTO.java
 /home/anblak/Documents/DIPLOMA/pro.100.gave.ua/src/main/java/math/softserve/BaseActions/BaseActions.java
 /home/anblak/Documents/DIPLOMA/pro.100.gave.ua/src/main/java/ua/game/pro/entity/GroupOfUsers.java
+/home/anblak/Documents/DIPLOMA/pro.100.gave.ua/src/main/java/ua/game/pro/controller/AdminRestController.java
 /home/anblak/Documents/DIPLOMA/pro.100.gave.ua/src/main/java/ua/game/pro/dto/GroupOfUsersDTO.java
 /home/anblak/Documents/DIPLOMA/pro.100.gave.ua/src/main/java/ua/game/pro/entity/User.java
 /home/anblak/Documents/DIPLOMA/pro.100.gave.ua/src/main/java/ua/game/pro/service/GroupOfUsersService.java

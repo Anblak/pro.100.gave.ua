@@ -25,7 +25,6 @@ public class User implements UserDetails {
     private boolean enabled;
     private String uuid;
 
-
     @ManyToOne
     private GroupOfUsers groupOfUsers;
 

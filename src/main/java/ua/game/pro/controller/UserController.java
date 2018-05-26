@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import resources.creatorHTMLTag.CreatorHTMLTag;
+import resources.exceptions.ProjectExceptions;
 import resources.parset.Parset;
 
 import resources.wrapper.StringWrapper;
 import ua.game.pro.dto.DTOUtilMapper;
 
+import ua.game.pro.dto.UserDTO;
 import ua.game.pro.editor.ProfessorEditor;
 import ua.game.pro.entity.GroupOfUsers;
 import ua.game.pro.entity.Professor;
@@ -73,14 +75,21 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
-	public String saveUser(@ModelAttribute User user, Model model) {
-
+	public String saveUser(@ModelAttribute UserDTO newUser, Model model, Principal principal) throws ProjectExceptions {
+		if(!userService.findOne(Integer.parseInt(principal.getName())).getRole().equals(Role.ROLE_ADMIN)) {
+			throw new ProjectExceptions("VAM TUT NE RADI");
+		}
 		String uuid = UUID.randomUUID().toString();
-
+		User user = new User();
 		user.setUuid(uuid);
+		user.setRole(Role.findByKey(newUser.getRole()));
+		user.setPhone(newUser.getPhone());
+		user.setEmail(newUser.getEmail());
+		user.setName(newUser.getName());
 		try {
 			user.setPathImage("img/useranon.png");
 			userService.save(user);
+			System.out.println("cho za nah");
 		} catch (Exception e) {
 			if (e.getMessage().equals(UserValidationMessages.EMPTY_USERNAME_FIELD)
 					|| e.getMessage().equals(UserValidationMessages.NAME_ALREADY_EXIST)) {
@@ -100,7 +109,7 @@ public class UserController {
 
 //		mailSenderService.sendMail(theme, mailBody, user.getEmail());
 
-		return "redirect:/";
+		return "redirect:/admin";
 	}
 
 	@RequestMapping(value = "/confirm/{uuid}", method = RequestMethod.GET)
@@ -131,7 +140,8 @@ public class UserController {
 		model.addAttribute("profesor", new StringWrapper());
 		model.addAttribute("profesorsMap", profesorMap);
 
-		return "views-filecontent-some";
+		return "views-filecontent-some" +
+				"";
 	}
 
 	@RequestMapping("/profesort")
@@ -238,7 +248,7 @@ public class UserController {
 
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
 
-		fileUserService.saveFile(multipartFile, user, profesorID);
+		fileUserService.saveFile(multipartFile, user.getGroupOfUsers(), profesorID);
 
 		// Professor profesorr= new Professor("test");
 		// profesorr.setId(1);

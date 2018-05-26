@@ -41,6 +41,7 @@ ua/game/pro/dto/FileUserDTO.class
 ua/game/pro/controller/HomeController.class
 math/softserve/StringReader/CalculatorOneFormula/CalculatorOneFormula.class
 ua/game/pro/validator/UserValidationException.class
+ua/game/pro/controller/AdminRestController.class
 ua/game/pro/editor/ProfessorEditor.class
 math/softserve/StringReader/Function/FunctionReader.class
 resources/file/File.class

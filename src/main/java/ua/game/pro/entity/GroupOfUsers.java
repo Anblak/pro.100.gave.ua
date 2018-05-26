@@ -12,7 +12,7 @@ public class GroupOfUsers {
     private String name;
     private String uuid;
 
-    @OneToMany(mappedBy = "group")
+    @OneToMany(mappedBy = "groupOfUsers")
     private List<User> users;
 
     @OneToMany(mappedBy = "groupOfUsers")

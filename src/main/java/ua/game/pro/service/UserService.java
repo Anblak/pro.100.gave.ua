@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import ua.game.pro.entity.GroupOfUsers;
 import ua.game.pro.entity.User;
+import ua.game.pro.entity.enums.Role;
 
 public interface UserService {
 

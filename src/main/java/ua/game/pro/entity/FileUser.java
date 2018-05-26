@@ -23,12 +23,51 @@ public class FileUser {
     private GroupOfUsers groupOfUsers;
 	
 	public FileUser() {
-		
 	}
 
 	public FileUser(String name, String path, Professor professor) {
 		this.name = name;
 		this.path = path;
 		this.professor = professor;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
+	public GroupOfUsers getGroupOfUsers() {
+		return groupOfUsers;
+	}
+
+	public void setGroupOfUsers(GroupOfUsers groupOfUsers) {
+		this.groupOfUsers = groupOfUsers;
 	}
 }

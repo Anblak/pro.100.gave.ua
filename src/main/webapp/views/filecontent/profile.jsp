@@ -121,7 +121,7 @@
 				</form:form>
 			</div>
 		</sec:authorize>
-		<sec:authorize access="hasRole('ROLE_USER_IN_GROUP')">
+		<sec:authorize access="hasRole('ROLE_USER')">
 			<div>
 				<!--${list}  -->
 

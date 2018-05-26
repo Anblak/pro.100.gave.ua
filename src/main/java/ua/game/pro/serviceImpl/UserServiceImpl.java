@@ -1,10 +1,5 @@
 package ua.game.pro.serviceImpl;
 
-import java.io.File;
-import java.io.IOException;
-import java.security.Principal;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,96 +9,102 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-
 import ua.game.pro.dao.UserDao;
 import ua.game.pro.entity.GroupOfUsers;
-import ua.game.pro.entity.enums.Role;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.UserService;
 import ua.game.pro.validator.Validator;
 
+import java.io.File;
+import java.io.IOException;
+import java.security.Principal;
+import java.util.List;
+import java.util.UUID;
+
 @Service("userDetailsService")
 public class UserServiceImpl implements UserService, UserDetailsService {
 
-	@Autowired
-	private UserDao userDao;
-	@Autowired
-	private BCryptPasswordEncoder encoder;
+    @Autowired
+    private UserDao userDao;
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 
-	@Autowired
-	@Qualifier("userValidator")
-	private Validator validator;
+    @Autowired
+    @Qualifier("userValidator")
+    private Validator validator;
 
-	public void save(User user) throws Exception {
+    public void save(User user) throws Exception {
+//        validator.validate(user);
 
-		validator.validate(user);
+        String pass = UUID.randomUUID().toString().substring(0, 8);
 
-		user.setRole(Role.ROLE_USER);
-		user.setPassword(encoder.encode(user.getPassword()));
-		user.setEnabled(true);
-		userDao.save(user);
-	}
+        user.setPassword(encoder.encode(pass));
 
-	public List<User> findAll() {
-		return userDao.findAll();
-	}
+        System.out.println(pass);
+        user.setEnabled(true); //TODO remove
+        userDao.save(user);
+    }
 
-	public User findOne(int id) {
-		return userDao.findOne(id);
-	}
+    public List<User> findAll() {
+        return userDao.findAll();
+    }
 
-	public void delete(int id) {
-		userDao.delete(id);
-	}
+    public User findOne(int id) {
+        return userDao.findOne(id);
+    }
 
-	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-		return userDao.findByName(name);
-	}
+    public void delete(int id) {
+        userDao.delete(id);
+    }
 
-	public User findByName(String name) {
-		return userDao.findByName(name);
-	}
+    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+        return userDao.findByName(name);
+    }
 
-	public void update(User user, GroupOfUsers group) {
-		user.setGroupOfUsers(group);
-		userDao.save(user);
-	}
+    public User findByName(String name) {
+        return userDao.findByName(name);
+    }
 
-	public void updatePassword(User user) {
-		user.setPassword(encoder.encode(user.getPassword()));
-		userDao.save(user);
+    public void update(User user, GroupOfUsers group) {
+        user.setGroupOfUsers(group);
+        userDao.save(user);
+    }
 
-	}
+    public void updatePassword(User user) {
+        user.setPassword(encoder.encode(user.getPassword()));
+        userDao.save(user);
 
-	public User findByUUID(String uuid) {
-		return userDao.findByUuid(uuid);
-	}
+    }
 
-	public void updateUser(User user) {
-		userDao.save(user);
-	}
+    public User findByUUID(String uuid) {
+        return userDao.findByUuid(uuid);
+    }
 
-	@Transactional
-	public void saveImage(Principal principal, MultipartFile multipartFile) {
-		resources.file.File actionFile = new resources.file.File();
+    public void updateUser(User user) {
+        userDao.save(user);
+    }
 
-		User user = userDao.findOne(Integer.parseInt(principal.getName()));
+    @Transactional
+    public void saveImage(Principal principal, MultipartFile multipartFile) {
+        resources.file.File actionFile = new resources.file.File();
 
-		String path = System.getProperty("catalina.home") + "/resources/img/" + user.getId()
-				+ actionFile.teg(multipartFile.getOriginalFilename());
+        User user = userDao.findOne(Integer.parseInt(principal.getName()));
 
-		File file = new File(path);
+        String path = System.getProperty("catalina.home") + "/resources/img/" + user.getId()
+                + actionFile.teg(multipartFile.getOriginalFilename());
 
-		try {
-			file.mkdirs();
+        File file = new File(path);
 
-			multipartFile.transferTo(file);
-			user.setPathImage("photo/" + user.getId() + actionFile.teg(multipartFile.getOriginalFilename()));
-			userDao.save(user);
-		} catch (IOException e) {
-			System.out.println("error with file");
-		}
+        try {
+            file.mkdirs();
 
-	}
+            multipartFile.transferTo(file);
+            user.setPathImage("photo/" + user.getId() + actionFile.teg(multipartFile.getOriginalFilename()));
+            userDao.save(user);
+        } catch (IOException e) {
+            System.out.println("error with file");
+        }
+
+    }
 
 }

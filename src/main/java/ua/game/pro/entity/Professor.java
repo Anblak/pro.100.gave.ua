@@ -18,7 +18,7 @@ public class Professor {
 	private int id;
 	private String name;
 	
-	@OneToMany(mappedBy = "profesor")
+	@OneToMany(mappedBy = "professor")
 	private List<FileUser> files;
 	
 	@ManyToOne
