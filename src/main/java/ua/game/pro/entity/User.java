@@ -4,13 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -34,7 +28,7 @@ public class User implements UserDetails {
 	private String uuid;
 	
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private GroupOfUsers group;
 	
 	@OneToMany(mappedBy = "user")

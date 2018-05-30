@@ -13,6 +13,8 @@ public interface FileUserService {
 
     List<FileUser> findAll();
 
+    List<FileUser> findAll(List<Integer> ids);
+
     FileUser findOne(int id);
 
     void delete(int id);

@@ -31,8 +31,11 @@ public class FileUserServiceImpl implements FileUserService {
 
     @Override
     public void save(FileUser file) {
-
         fileDao.save(file);
+    }
+
+    public List<FileUser> findAll(List<Integer> ids){
+        return fileDao.findAll(ids);
     }
 
     @Override
