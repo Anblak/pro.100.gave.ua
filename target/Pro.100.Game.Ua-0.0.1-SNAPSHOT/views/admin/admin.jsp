@@ -1,28 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<div>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
 <h1>Adminka</h1>
-    <fieldset>
-        ${usernameException}${emailException}${passwordException}
-        <form:form modelAttribute="newUser" action="saveUser" method="post">
-            <form:select path="role" items="${roles}" itemLabel="nameForHumans" itemValue="nameForHumans">
-            </form:select>
-            <input name="name" class="validate[required,custom[username],length[0,100]] feedback-input" placeholder="name ${usernameException}">
-            <input name="email" class="validate[required,custom[email],length[0,100]] feedback-input" type="email" placeholder="email ${emailException}">
-            <input name="phone" placeholder="phone">
-            <button>save user</button>
-        </form:form>
-    </fieldset>
-    <a href="/logout">dadada</a>
-</div>
-
-
-
-
-
-
 <link rel="stylesheet" href="css/admin.css">
 
 

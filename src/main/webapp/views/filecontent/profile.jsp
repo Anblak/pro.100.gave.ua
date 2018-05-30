@@ -91,7 +91,7 @@
 
 			<div id="createprofesor" class="modal">
 
-				<form:form modelAttribute="professor" action="newProfesor"
+				<form:form modelAttribute="profesor" action="newProfesor"
 					class="modal-content animate" method="post">
 					<div class="imgcontainer">
 						<span
@@ -121,7 +121,7 @@
 				</form:form>
 			</div>
 		</sec:authorize>
-		<sec:authorize access="hasRole('ROLE_USER')">
+		<sec:authorize access="hasRole('ROLE_USER_IN_GROUP')">
 			<div>
 				<!--${list}  -->
 
@@ -147,9 +147,9 @@
 							<label><b></b></label> <input type='file' name='multipartFile'
 								id="file" onchange="checkf()">
 							<form:form class="modal-content animate" method="POST"
-								commandName="professor">
+								commandName="profesor">
 								<form:select path="string" itemLable="name" itemValue="id">
-									<%-- 								<form:option value="" label="Select Professor" /> --%>
+									<%-- 								<form:option value="" label="Select Profesor" /> --%>
 									<form:options items="${profesorMap}" />
 								</form:select>
 								<button id="savef" disabled="disabled" onmouseover="checkf()">safe
@@ -193,9 +193,9 @@
 							<label><b></b></label> <input type='file' name='multipartFile'
 								id="file" onchange="checkf()">
 							<form:form class="modal-content animate" method="POST"
-								commandName="professor">
+								commandName="profesor">
 								<form:select path="string" itemLable="name" itemValue="id">
-									<%-- 								<form:option value="" label="Select Professor" /> --%>
+									<%-- 								<form:option value="" label="Select Profesor" /> --%>
 									<form:options items="${profesorMap}" />
 								</form:select>
 								<button id="savef" disabled="disabled" onmouseover="checkf()">safe
@@ -284,7 +284,7 @@
 
 
 
-	<%-- 	<form:form method="POST" commandName="professor" action="safeFile"> --%>
+	<%-- 	<form:form method="POST" commandName="profesor" action="safeFile"> --%>
 
 	<%-- 		<form:select path="name" itemLable="name" itemValue="id"> --%>
 	<%-- 			<form:option value="-" label="--Select phone" /> --%>

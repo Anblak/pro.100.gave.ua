@@ -25,7 +25,7 @@ public class MathController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping("/math")
+	@RequestMapping("/math/softserve")
 	public String Math(@ModelAttribute String string, Model model, Principal principal) {
 
 		// "img/LeftBodyDiv"+lg.getString()+".png"

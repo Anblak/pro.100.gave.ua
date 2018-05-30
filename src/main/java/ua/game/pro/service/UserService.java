@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import resources.exceptions.ProjectExceptions;
 import ua.game.pro.entity.GroupOfUsers;
 import ua.game.pro.entity.User;
-import ua.game.pro.entity.enums.Role;
 
 public interface UserService {
 
@@ -27,6 +27,6 @@ public interface UserService {
 
 	void updatePassword(User user);
 
-	void saveImage(Principal principal, MultipartFile multipartFile);
+	public void saveImage(Principal principal, MultipartFile multipartFile);
 
 }

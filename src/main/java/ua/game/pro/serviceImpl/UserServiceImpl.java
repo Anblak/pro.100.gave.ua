@@ -11,15 +11,14 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import ua.game.pro.dao.UserDao;
 import ua.game.pro.entity.GroupOfUsers;
+import ua.game.pro.entity.Role;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.UserService;
 import ua.game.pro.validator.Validator;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.security.Principal;
 import java.util.List;
-import java.util.UUID;
 
 @Service("userDetailsService")
 public class UserServiceImpl implements UserService, UserDetailsService {
@@ -34,14 +33,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private Validator validator;
 
     public void save(User user) throws Exception {
-//        validator.validate(user);
 
-        String pass = UUID.randomUUID().toString().substring(0, 8);
+        validator.validate(user);
 
-        user.setPassword(encoder.encode(pass));
-
-        System.out.println(pass);
-        user.setEnabled(true); //TODO remove
+        user.setRole(Role.ROLE_USER);
+        user.setPassword(encoder.encode(user.getPassword()));
         userDao.save(user);
     }
 
@@ -66,7 +62,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     public void update(User user, GroupOfUsers group) {
-        user.setGroupOfUsers(group);
+        user.setRole(Role.ROLE_USER_IN_GROUP);
+        user.setGroup(group);
         userDao.save(user);
     }
 
@@ -77,7 +74,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     public User findByUUID(String uuid) {
-        return userDao.findByUuid(uuid);
+        return userDao.findByUUID(uuid);
     }
 
     public void updateUser(User user) {
@@ -97,14 +94,15 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
         try {
             file.mkdirs();
-
             multipartFile.transferTo(file);
             user.setPathImage("photo/" + user.getId() + actionFile.teg(multipartFile.getOriginalFilename()));
             userDao.save(user);
+
         } catch (IOException e) {
             System.out.println("error with file");
         }
-
     }
+
+
 
 }

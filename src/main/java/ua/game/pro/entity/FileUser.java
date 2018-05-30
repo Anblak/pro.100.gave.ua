@@ -15,20 +15,30 @@ public class FileUser {
 	private String name;
 
 	private String path;
-
+	
 	@ManyToOne
-	private Professor professor;
-
-    @ManyToOne
-    private GroupOfUsers groupOfUsers;
+	private User user;
+	
+	@ManyToOne
+	private Profesor profesor;
 	
 	public FileUser() {
+		
 	}
 
-	public FileUser(String name, String path, Professor professor) {
+	public FileUser(String name, String path, User user, Profesor profesor) {
+		super();
 		this.name = name;
 		this.path = path;
-		this.professor = professor;
+		this.user = user;
+		this.profesor = profesor;
+	}
+
+	public FileUser(String name,  String path) {
+		super();
+		this.name = name;
+	
+		this.path = path;
 	}
 
 	public int getId() {
@@ -47,6 +57,7 @@ public class FileUser {
 		this.name = name;
 	}
 
+
 	public String getPath() {
 		return path;
 	}
@@ -55,19 +66,22 @@ public class FileUser {
 		this.path = path;
 	}
 
-	public Professor getProfessor() {
-		return professor;
+	public User getUser() {
+		return user;
 	}
 
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public GroupOfUsers getGroupOfUsers() {
-		return groupOfUsers;
+	public Profesor getProfesor() {
+		return profesor;
 	}
 
-	public void setGroupOfUsers(GroupOfUsers groupOfUsers) {
-		this.groupOfUsers = groupOfUsers;
+	public void setProfesor(Profesor profesor) {
+		this.profesor = profesor;
 	}
+	
+	
+	
 }

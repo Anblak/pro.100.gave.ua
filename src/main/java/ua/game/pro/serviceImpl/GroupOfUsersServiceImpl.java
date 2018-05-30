@@ -5,11 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import ua.game.pro.dao.GroupOfUsersDao;
 import ua.game.pro.dao.UserDao;
 import ua.game.pro.entity.GroupOfUsers;
-import ua.game.pro.entity.enums.Role;
+import ua.game.pro.entity.Role;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.GroupOfUsersService;
 import ua.game.pro.validator.Validator;
@@ -32,7 +33,7 @@ public class GroupOfUsersServiceImpl implements GroupOfUsersService {
 		validator.validate(group);
 		user.setRole(Role.ROLE_CREATOR);
 		groupDao.save(group);
-		user.setGroupOfUsers(group);
+		user.setGroup(group);
 		userDao.save(user);
 	}
 
@@ -53,13 +54,14 @@ public class GroupOfUsersServiceImpl implements GroupOfUsersService {
 		user.setRole(Role.ROLE_USER);
 		groupDao.delete(id);
 		userDao.save(user);
+
 	}
 
 //	@Override
-//	public GroupOfUsers findByUuid(String uuid,User user) {
+//	public GroupOfUsers findByUUID(String uuid,User user) {
 //		
 //		userDao.save(user);
-//		return groupDao.findByUuid(uuid);
+//		return groupDao.findByUUID(uuid);
 //	}
 	
 	@Override

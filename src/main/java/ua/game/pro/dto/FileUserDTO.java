@@ -1,7 +1,7 @@
 package ua.game.pro.dto;
 
 
-import ua.game.pro.entity.Professor;
+import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 
 public class FileUserDTO {
@@ -10,7 +10,7 @@ public class FileUserDTO {
     private String name;
     private String path;
     private User user;
-    private Professor professor;
+    private Profesor profesor;
 
     public FileUserDTO() {
     }
@@ -48,12 +48,12 @@ public class FileUserDTO {
         this.user = user;
     }
 
-    public Professor getProfessor() {
-        return professor;
+    public Profesor getProfesor() {
+        return profesor;
     }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
     }
 
 

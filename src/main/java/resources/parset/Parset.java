@@ -6,16 +6,21 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
-import ua.game.pro.dto.ProfessorDTO;
+import ua.game.pro.dto.ProfesorDTO;
 import ua.game.pro.entity.User;
 
 /**
- *
+ * 
  * @author prometej
  *
  */
 public class Parset {
-
+	/**
+	 * 
+	 * @param set
+	 *            - HashSet<Integer>
+	 * @return String з елементів HashSet<Integer>
+	 */
 	public String HashSetIntegerToString(HashSet<Integer> set) {
 		Iterator iterator = set.iterator();
 		String string = "(";
@@ -32,33 +37,54 @@ public class Parset {
 		return string;
 	}
 
+	/**
+	 * 
+	 * @param list
+	 *            - ArrayList<HashSet<Integer>>
+	 * @return - String з елементів ArrayList<HashSet<Integer>>
+	 */
 	public String ArrayListHashSetIntegerToString(ArrayList<HashSet<Integer>> list) {
 		String tempStringList = "";
 		for (int i = 0; i < list.size(); i++) {
-			tempStringList += " <p> spaceпїЅ [" + (parsetChar(i + 1) + "]:{" + HashSetIntegerToString(list.get(i)) + "} </p>");
+			tempStringList += " <p> space№ [" + (parsetChar(i + 1) + "]:{" + HashSetIntegerToString(list.get(i)) + "} </p>");
 		}
 		return tempStringList;
 	}
 
-
+	/**
+	 * 
+	 * @param list
+	 *            - ArrayList<HashSet<Integer>>
+	 * @param index
+	 *            - до якого елемента записувати в String
+	 * @return - String з елементів ArrayList<HashSet<Integer>>
+	 */
 	public String ArrayListHashSetIntegerToStringStart(ArrayList<HashSet<Integer>> list, int index) {
 		String tempStringList = "";
 		for (int i = 0; i < index; i++) {
-			tempStringList += " <p> spaceпїЅ [" + (parsetChar(i + 1) + "]:{" + HashSetIntegerToString(list.get(i)) + "} </p> ");
+			tempStringList += " <p> space№ [" + (parsetChar(i + 1) + "]:{" + HashSetIntegerToString(list.get(i)) + "} </p> ");
 		}
 		return tempStringList;
 	}
 
-
+	/**
+	 * 
+	 * @param list
+	 *            - ArrayList<HashSet<Integer>>
+	 * @param index
+	 *            - з якого елемента записувати в String
+	 * @return - String з елементів ArrayList<HashSet<Integer>>
+	 */
 	public String ArrayListHashSetIntegerToStringEnd(ArrayList<HashSet<Integer>> list, int index) {
 		String tempStringList = "";
 		for (int i = (index), j = 1; i < list.size(); i++, j++) {
-			tempStringList += "<p>  rezaltActionпїЅ ["
+			tempStringList += "<p>  rezaltAction№ ["
 					+ (parsetChar(j) + "]:{" + HashSetIntegerToString(list.get(i)) + "} </p> ");
 		}
 		return tempStringList;
 	}
 
+	// 990
 	public String parsetChar(int tempInt) {
 		String tempStringInt = "";
 		if (tempInt <= 999 && tempInt >= 100) {
@@ -112,18 +138,18 @@ public class Parset {
 		}
 		return tempStringInt;
 	}
-	public HashMap<Integer, String> ArrayListToMap(List<ProfessorDTO> list){
+	public HashMap<Integer, String> ArrayListToMap(List<ProfesorDTO> list){
 		HashMap<Integer, String> map = new HashMap<Integer, String>();
-		for (ProfessorDTO profesorDTO : list) {
+		for (ProfesorDTO profesorDTO : list) {
 			map.put(profesorDTO.getId(), profesorDTO.getName());
 		}
 		
 		return map;
 	}
-	public HashMap<Integer, String> ArrayListToMap(List<ProfessorDTO> list, User user){
+	public HashMap<Integer, String> ArrayListToMap(List<ProfesorDTO> list,User user){
 		HashMap<Integer, String> map = new HashMap<Integer, String>();
-		for (ProfessorDTO profesorDTO : list) {
-			if(profesorDTO.getGroupOfUsers().getId()==user.getGroupOfUsers().getId()){
+		for (ProfesorDTO profesorDTO : list) {
+			if(profesorDTO.getGroupOfUsers().getId()==user.getGroup().getId()){
 				
 			map.put(profesorDTO.getId(), profesorDTO.getName());
 			}

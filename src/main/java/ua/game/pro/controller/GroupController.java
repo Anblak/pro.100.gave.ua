@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import resources.creatorHTMLTag.CreatorHTMLTag;
 import ua.game.pro.entity.FileUser;
-import ua.game.pro.entity.Professor;
+import ua.game.pro.entity.Profesor;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
 import ua.game.pro.service.GroupOfUsersService;
-import ua.game.pro.service.ProfessorService;
+import ua.game.pro.service.ProfesorService;
 import ua.game.pro.service.UserService;
 
 import java.security.Principal;
@@ -28,7 +28,7 @@ public class GroupController {
     @Autowired
     private FileUserService fileUserService;
     @Autowired
-    private ProfessorService professorService;
+    private ProfesorService profesorService;
 
     @RequestMapping(value = "/group", method = RequestMethod.GET)
     public String outPrintGrup(Model model, Principal principal) {
@@ -36,7 +36,7 @@ public class GroupController {
         try {
 
             User user = userService.findOne(Integer.parseInt(principal.getName()));
-            String groupName = user.getGroupOfUsers().getName();
+            String groupName = user.getGroup().getName();
             model.addAttribute("user", user);
             String input = creator.p(groupName, "p", "")
                     + creator.div(creator.form(creator.button("profesor", "buttonNext", "submit"), "profesor", "GET"),
@@ -58,14 +58,14 @@ public class GroupController {
     @RequestMapping(value = "/profesor", method = RequestMethod.GET)
     public String outPrintProfesor(Model model, Principal principal) {
         User user = userService.findOne(Integer.parseInt(principal.getName()));
-        List<Professor> listProfessor = professorService.findAll();
+        List<Profesor> listProfesor = profesorService.findAll();
         String body = "";
-        for (Professor professor : listProfessor) {
-            if (professor.getGroupOfUsers().getId() == user.getGroupOfUsers().getId()) {
+        for (Profesor profesor : listProfesor) {
+            if (profesor.getGroupOfUsers().getId() == user.getGroup().getId()) {
 
-                String input = creator.p(professor.getName(), "p", "")
-                        + creator.div(creator.form(creator.button("Professor for Group", "buttonNext", "submit"),
-                        "" + professor.getId(), "get"), "display:inline-block", "wrapperButton")
+                String input = creator.p(profesor.getName(), "p", "")
+                        + creator.div(creator.form(creator.button("Profesor for Group", "buttonNext", "submit"),
+                        "" + profesor.getId(), "get"), "display:inline-block", "wrapperButton")
                         + creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deleteprofesor",
                         "GET"), "display:inline-block", "wrapperButton");
                 body += (" " + creator.div(input, "", "div") + " ");
@@ -83,13 +83,13 @@ public class GroupController {
     public String outPrintUserOfGrup(Model model, Principal principal, @PathVariable String idp) {
         User user = userService.findOne(Integer.parseInt(principal.getName()));
         String body = "";
-        Professor professor = professorService.findOne(Integer.parseInt(idp));
+        Profesor profesor = profesorService.findOne(Integer.parseInt(idp));
 
         for (User user2 : userService.findAll()) {
-            if (professor.getGroupOfUsers().getId() == user2.getGroupOfUsers().getId() && user2.getGroupOfUsers() != null) {
+            if (profesor.getGroupOfUsers().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
                 String input = creator.p(user2.getName(), "p", "")
                         + creator.form(creator.button("go in file user", "buttonNext", "submit"),
-                        "file" + professor.getId() + "&" + user2.getId() + "", "GET");
+                        "file" + profesor.getId() + "&" + user2.getId() + "", "GET");
 
                 body += (" " + creator.div(input, "", "div") + " ");
             }
@@ -119,30 +119,30 @@ public class GroupController {
             User user = userService.findOne((idu));
             String body = "";
 
-            Professor professor = professorService.findOne((idp));
+            Profesor profesor = profesorService.findOne((idp));
 
             for (FileUser fileUser : fileUserService.findAll()) {
-                if (fileUser != null && user != null && professor != null) {
+                if (fileUser != null && user != null && profesor != null) {
 
-//                    if (fileUser.getUser().getId() == user.getId()) {
-//
-//                        if (fileUser.getProfessor().getId() == professor.getId()) {
-//
-//                            if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
-//                                String input = creator.a("/Pro.100.Game.Ua/" + fileUser.getPath(), "", "",
-//                                        (creator.p(fileUser.getName(), "p", "")));
-//                                ;
-//                                body += " " + (creator.div(input, "", "div") + " ");
-//                                // creator.button((creator.p(fileUser.getName(),
-//                                // "p", "width:150px;height: 17px;")), "", "",
-//                                // fileUser.getPath(), "submit", "", "");
-//                                //
-//                                // creator.a(fileUser.getPath(), "", "",
-//                                // (creator.p(fileUser.getName(), "p",
-//                                // "width:150px;height: 17px;")));
-//                            }
-//                        }
-//                    }
+                    if (fileUser.getUser().getId() == user.getId()) {
+
+                        if (fileUser.getProfesor().getId() == profesor.getId()) {
+
+                            if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
+                                String input = creator.a("/Pro.100.Game.Ua/" + fileUser.getPath(), "", "",
+                                        (creator.p(fileUser.getName(), "p", "")));
+                                ;
+                                body += " " + (creator.div(input, "", "div") + " ");
+                                // creator.button((creator.p(fileUser.getName(),
+                                // "p", "width:150px;height: 17px;")), "", "",
+                                // fileUser.getPath(), "submit", "", "");
+                                //
+                                // creator.a(fileUser.getPath(), "", "",
+                                // (creator.p(fileUser.getName(), "p",
+                                // "width:150px;height: 17px;")));
+                            }
+                        }
+                    }
                 }
             }
 

@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface GroupOfUsersService {
 
-
     void save(GroupOfUsers group, User user) throws Exception;
 
     List<GroupOfUsers> findAll();
@@ -17,7 +16,6 @@ public interface GroupOfUsersService {
 
     void delete(int id, User user);
 
-    //	GroupOfUsers findByUuid(String uuid,User user);
     GroupOfUsers findByUUID(String uuid);
 
 }
