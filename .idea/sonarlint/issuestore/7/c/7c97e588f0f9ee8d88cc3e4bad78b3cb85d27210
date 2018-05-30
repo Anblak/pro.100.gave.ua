@@ -1,0 +1,6 @@
+
+Ysquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ÓãĞ˜¹,
+Jsquid:S1481")Remove this unused "user" local variable.(ÕÉÚ°ıÿÿÿÿ8†ÎÑ˜¹,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÂğÄùùÿÿÿÿ8†ÎÑ˜¹,
+Ysquid:S1854"8Remove this useless assignment to local variable "user".(ÕÉÚ°ıÿÿÿÿ8†ÎÑ˜¹,
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(†®Äš

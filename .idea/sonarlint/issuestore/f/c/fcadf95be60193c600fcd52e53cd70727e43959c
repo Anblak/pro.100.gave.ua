@@ -1,0 +1,7 @@
+
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(©şêÜúÿÿÿÿ8£§Áœº,
+lsquid:UselessImportCheck"CRemove this unused import 'org.springframework.stereotype.Service'.(¼º¡Ú8Æ³Âœº,
+rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(€µ®ûÿÿÿÿ
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÈâÙº,
+|squid:UselessImportCheck"SRemove this unused import 'org.apache.kafka.common.serialization.StringSerializer'.(Ş ¾ş8æâÙº,

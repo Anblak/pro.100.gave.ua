@@ -1,0 +1,20 @@
+
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Ë½
+0squid:S1643"Use a StringBuilder instead.(Ñƒ
+csquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àûÛ6
+6squid:S1643"Use a StringBuilder instead.(È”°Ôøÿÿÿÿ
+6squid:S1643"Use a StringBuilder instead.(È”°Ôøÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤ãıøÿÿÿÿ
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÂõ¯
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¼•¤º
+1squid:S1643"Use a StringBuilder instead.(øô¬À
+0squid:S1643"Use a StringBuilder instead.(‘³—O
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¼•¤º
+€squid:S1319"kThe type of the "set" object should be an interface such as "Set" rather than the implementation "HashSet".(´Ë½
+ƒsquid:S1319"oThe type of the "list" object should be an interface such as "List" rather than the implementation "ArrayList".(àûÛ6
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Şï¥îıÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€—úÿÿÿÿ
+‰squid:S1319"oThe type of the "list" object should be an interface such as "List" rather than the implementation "ArrayList".(Şï¥îıÿÿÿÿ
+‰squid:S1319"oThe type of the "list" object should be an interface such as "List" rather than the implementation "ArrayList".(¤ãıøÿÿÿÿ
+‚squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(ÏÂõ¯
+‡squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(€—úÿÿÿÿ

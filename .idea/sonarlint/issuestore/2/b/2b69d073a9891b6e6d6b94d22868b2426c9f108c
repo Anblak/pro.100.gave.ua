@@ -1,0 +1,4 @@
+
+rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(€µž®ûÿÿÿÿ
+^squid:UselessImportCheck"<Remove this unused import 'ua.game.pro.dao.GroupOfUsersDao'.(¿¿âü
+^squid:UselessImportCheck"<Remove this unused import 'ua.game.pro.entity.GroupOfUsers'.(Íå² 

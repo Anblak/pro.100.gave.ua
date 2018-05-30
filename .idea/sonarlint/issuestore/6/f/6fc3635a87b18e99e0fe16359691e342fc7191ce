@@ -1,0 +1,18 @@
+
+isquid:S2068"U'PASSWORD' detected in this expression, review this potentially hardcoded credential.(Êï±
+ysquid:S3008"_Rename this field "EMPTY_USERNAME_FIELD" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğâşûÿÿÿÿ
+ssquid:S3008"_Rename this field "EMPTY_PASSWORD_FIELD" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êï±
+qsquid:S3008"\Rename this field "EMPTY_EMAIl_FIELD" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ÒÏ÷
+wsquid:S3008"]Rename this field "NAME_ALREADY_EXIST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÅšòÀıÿÿÿÿ
+ssquid:S3008"^Rename this field "EMAIL_ALREADY_EXIST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆÛ¼ˆ
+Tsquid:S1444":Make this "public static EMPTY_USERNAME_FIELD" field final(Ğâşûÿÿÿÿ
+Nsquid:S1444":Make this "public static EMPTY_PASSWORD_FIELD" field final(Êï±
+Lsquid:S1444"7Make this "public static EMPTY_EMAIl_FIELD" field final(¶ÒÏ÷
+Rsquid:S1444"8Make this "public static NAME_ALREADY_EXIST" field final(ÅšòÀıÿÿÿÿ
+Nsquid:S1444"9Make this "public static EMAIL_ALREADY_EXIST" field final(ÆÛ¼ˆ
+‘"squid:ClassVariableVisibilityCheck"`Make EMPTY_USERNAME_FIELD a static final constant or non-public and provide accessors if needed.(Ğâşûÿÿÿÿ
+‹"squid:ClassVariableVisibilityCheck"`Make EMPTY_PASSWORD_FIELD a static final constant or non-public and provide accessors if needed.(Êï±
+‰"squid:ClassVariableVisibilityCheck"]Make EMPTY_EMAIl_FIELD a static final constant or non-public and provide accessors if needed.(¶ÒÏ÷
+"squid:ClassVariableVisibilityCheck"^Make NAME_ALREADY_EXIST a static final constant or non-public and provide accessors if needed.(ÅšòÀıÿÿÿÿ
+‹"squid:ClassVariableVisibilityCheck"_Make EMAIL_ALREADY_EXIST a static final constant or non-public and provide accessors if needed.(ÆÛ¼ˆ
+Osquid:S1118":Add a private constructor to hide the implicit public one.(ÀÎâÆ

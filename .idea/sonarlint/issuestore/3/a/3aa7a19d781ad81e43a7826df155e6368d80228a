@@ -1,0 +1,9 @@
+
+8squid:S1148"#Use a logger to log this exception.(Ñ½€ˆ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(ğ¨Å
+Osquid:S1161":Add the "@Override" annotation above this method signature(‡èú×
+hsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ªÔÓÃ
+rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(€µ®ûÿÿÿÿ
+hsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(°íó‡
+jsquid:S2068"U'PASSWORD' detected in this expression, review this potentially hardcoded credential.(°íó‡

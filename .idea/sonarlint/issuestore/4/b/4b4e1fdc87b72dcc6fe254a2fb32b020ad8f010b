@@ -1,0 +1,41 @@
+
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Å÷†–
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ã÷êÝ
+Csquid:S1066"/Merge this if statement with the enclosing one.(®†§K
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ïÓïöÿÿÿÿÿ
+Wsquid:S2259"BA "NullPointerException" could be thrown; "user" is nullable here.(—Ôôª
+fsquid:S1192"RDefine a constant instead of duplicating this literal "redirect:/profile" 5 times.(”¾Ž
+Bsquid:S1481"-Remove this unused "uuidBody" local variable.(ËÀ­°
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(âžØ„
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ê¤”Šúÿÿÿÿ
+Qsquid:S1854"<Remove this useless assignment to local variable "uuidBody".(ËÀ­°
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Æ‘Û˜ùÿÿÿÿ
+tsquid:S1192"ZDefine a constant instead of duplicating this literal "views-filecontent-profile" 5 times.(†´‹Åøÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ˆ¼à”
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¡Õ±š
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(”ÔÅ¦
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¦ªùÙÿÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(×Œüèûÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÈïÀ¨ýÿÿÿÿ
+`squid:S1192"KDefine a constant instead of duplicating this literal "redirect:/" 3 times.(äÔ¶½
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ü®™Ì
+Lsquid:S1481"2Remove this unused "groupOfUsers2" local variable.(ëÞ³óýÿÿÿÿ
+csquid:S1192"IDefine a constant instead of duplicating this literal "messages" 4 times.(“¢äòüÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(–Á—Íúÿÿÿÿ
+Qsquid:UselessImportCheck"/Remove this unused import 'java.util.Iterator'.(¥ÍòÕ
+[squid:S1854"ARemove this useless assignment to local variable "groupOfUsers2".(ëÞ³óýÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ù”µ­
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(óïÂ‹
+esquid:S1192"PDefine a constant instead of duplicating this literal "views-base-home" 3 times.(Ô×âÀ
+csquid:S1192"IDefine a constant instead of duplicating this literal "profesor" 3 times.(ø³ºýÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ò»„øÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ò‡ø›ÿÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Í³µÒýÿÿÿÿ
+Vsquid:S2259"BA "NullPointerException" could be thrown; "user" is nullable here.(¾ÒÓ1
+qsquid:S1450"WRemove the "profesor" field and declare it as a local variable in the relevant methods.(›ÑÈýÿÿÿÿ
+jsquid:S1192"PDefine a constant instead of duplicating this literal "Pro.100.Game.Ua" 3 times.(²Êõ„þÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(”ÔÅ¦
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Æ‘Û˜ùÿÿÿÿ
