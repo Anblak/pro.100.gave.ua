@@ -70,8 +70,8 @@ public class FileUserServiceImpl implements FileUserService {
                 + file.newFolder(user.getGroup().getId(), profesor, user.getId()) +  uuid + "/"
                 + multipartFile.getOriginalFilename();
 
-        File filePath = new File(path);
 
+        File filePath = new File(path);
         try {
             filePath.mkdirs();
             multipartFile.transferTo(filePath);
@@ -81,7 +81,10 @@ public class FileUserServiceImpl implements FileUserService {
         }
 
         try {
-            kafkaService.sendMessage(filePath, fileUser, user.getGroup().getId());
+            if (multipartFile.getContentType()
+                    .equals("application/vnd.openxmlformats-officedocument.wordprocessingml.document")) {
+                kafkaService.sendMessage(filePath, fileUser, user.getGroup().getId());
+            }
         } catch (Exception e) {
             System.out.println("kafka problems");
             e.printStackTrace();

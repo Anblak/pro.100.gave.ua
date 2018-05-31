@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -9,34 +9,33 @@
 
 <link rel="stylesheet" href="css/home.css">
 <div class="container1">
-	<sec:authentication property="name" />
-
-
-
-
-
-
-	<br> <a href="math">math</a>
-
-
-
-
-
+	<div class = "mainText">
+		<h4>Hey, dear user</h4>
+		<h3>On this web-application u can:</h3>
+		<ul>
+			<li>Create your own group of users</li>
+			<li>Users in group can share files between themself</li>
+			<li>And find files very quickly</li>
+		</ul>
+	</div>
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
 
 		<a href="admin">admin page</a>
-
+		<br> <a href="math">math</a>
 	</sec:authorize>
 
 	<sec:authorize access="hasRole('ROLE_USER')">
 		<a href="profile">profile</a>
+		<br> <a href="math">math</a>
 	</sec:authorize>
 
 	<sec:authorize access="hasRole('ROLE_CREATOR')">
 		<a href="profile">profile</a>
+		<br> <a href="math">math</a>
 	</sec:authorize>
 	<sec:authorize access="hasRole('ROLE_USER_IN_GROUP')">
 		<a href="profile">profile</a>
+		<br> <a href="math">math</a>
 	</sec:authorize>
 
 
