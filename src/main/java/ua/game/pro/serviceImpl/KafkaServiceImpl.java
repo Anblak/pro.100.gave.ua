@@ -8,6 +8,7 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.springframework.stereotype.Service;
 import ua.game.pro.dto.KafkaMessage;
 import ua.game.pro.entity.FileUser;
 import ua.game.pro.service.KafkaService;
@@ -17,7 +18,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-
+@Service
 public class KafkaServiceImpl implements KafkaService {
     private static final String TOPIC = "summertime";
     private KafkaProducer<String, String> producer;
@@ -33,7 +34,7 @@ public class KafkaServiceImpl implements KafkaService {
     }
 
     @Override
-    public void sendMessage(File file, FileUser fileUser, Integer gorupId) throws JsonProcessingException {
+    public void sendMessage(File file, FileUser fileUser, Integer groupID) throws JsonProcessingException {
         StringBuilder stringBuilder = new StringBuilder();
         try (FileInputStream fis = new FileInputStream(file.getAbsolutePath())) {
             XWPFDocument document = new XWPFDocument(fis);
@@ -47,7 +48,7 @@ public class KafkaServiceImpl implements KafkaService {
         }
         try {
             producer.send(new ProducerRecord<>(TOPIC, objectMapper
-                    .writeValueAsString(new KafkaMessage(fileUser.getId(), stringBuilder.toString(), gorupId))));
+                    .writeValueAsString(new KafkaMessage(fileUser.getId(), stringBuilder.toString(), groupID))));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

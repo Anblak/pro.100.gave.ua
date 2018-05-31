@@ -64,7 +64,4 @@ public class Profesor {
 	public void setGroupOfUsers(GroupOfUsers groupOfUsers) {
 		this.groupOfUsers = groupOfUsers;
 	}
-	
-	
-
 }
