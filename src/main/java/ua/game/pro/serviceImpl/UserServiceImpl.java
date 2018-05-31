@@ -16,7 +16,8 @@ import ua.game.pro.entity.User;
 import ua.game.pro.service.UserService;
 import ua.game.pro.validator.Validator;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
         user.setRole(Role.ROLE_USER);
         user.setPassword(encoder.encode(user.getPassword()));
-        user.setEnabled(true);
+
         userDao.save(user);
     }
 
@@ -103,7 +104,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             System.out.println("error with file");
         }
     }
-
 
 
 }

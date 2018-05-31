@@ -23,7 +23,7 @@ public class MediaController {
 	private CreatorHTMLTag creator = new CreatorHTMLTag();
 
 	@RequestMapping(value = "/saveMusic", method = RequestMethod.POST)
-	public String addMusic(Model model, @RequestParam MultipartFile multipartFile) {
+	public String addMusic(@RequestParam MultipartFile multipartFile) {
 
 		String name = "";
 		String fullNameFile = multipartFile.getOriginalFilename();
@@ -69,19 +69,6 @@ public class MediaController {
 			}
 
 		}
-
-		// creator.li(creator.a(href, "", "", creator.div(input, "" ,"container
-		// musicDiv")),"current-song");
-
-		// <li class="current-song"><
-		//
-		// a href="resources/test1.mp3"><div
-		// class="container musicDiv">test1</div></a></li>
-		//
-		// <li><
-		// a href="resources/test2.mp3"><div
-		// class="container musicDiv">test2</div></a></li>
-
 		model.addAttribute("music", fileMusic);
 		return "redirect:/";
 

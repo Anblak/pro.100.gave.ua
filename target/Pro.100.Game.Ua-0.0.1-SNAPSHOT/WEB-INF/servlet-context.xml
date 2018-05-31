@@ -20,7 +20,6 @@
         </property>
     </bean>
 
-
     <mvc:annotation-driven/>
 
     <mvc:resources mapping="/css/**" location="/css/"/>
@@ -28,30 +27,13 @@
     <mvc:resources mapping="/js/**" location="/js/"/>
 
     <mvc:resources mapping="/img/**" location="/img/"/>
-    
-
-    
-
-
-
 
     <mvc:resources mapping="/resources/**" location="file:${catalina.home}/resources/"/>
     <mvc:resources mapping="/photo/**/" location="file:${catalina.home}/resources/img/"/>
     <mvc:resources mapping="/audio/**" location="file:${catalina.home}/resources/audio/"/>
-    
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="20000000"/>
     </bean>
-
-
-<!--     <mvc:annotation-driven> -->
-<!--         <mvc:message-converters> -->
-<!--             <bean class="org.springframework.http.converter.StringHttpMessageConverter"/> -->
-<!--             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/> -->
-<!--         </mvc:message-converters> -->
-<!--     </mvc:annotation-driven> -->
-
-
 
 </beans>

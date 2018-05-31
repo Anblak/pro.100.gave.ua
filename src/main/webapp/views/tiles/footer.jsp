@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
-<footer><center><p>pruvet,moy drug</p></center> </footer>
+<footer><center><p>Made by Kryzhanivskyi N.</p></center> </footer>

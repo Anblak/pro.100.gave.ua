@@ -15,12 +15,6 @@ import ua.game.pro.entity.User;
  *
  */
 public class Parset {
-	/**
-	 * 
-	 * @param set
-	 *            - HashSet<Integer>
-	 * @return String з елементів HashSet<Integer>
-	 */
 	public String HashSetIntegerToString(HashSet<Integer> set) {
 		Iterator iterator = set.iterator();
 		String string = "(";
@@ -37,48 +31,29 @@ public class Parset {
 		return string;
 	}
 
-	/**
-	 * 
-	 * @param list
-	 *            - ArrayList<HashSet<Integer>>
-	 * @return - String з елементів ArrayList<HashSet<Integer>>
-	 */
+
 	public String ArrayListHashSetIntegerToString(ArrayList<HashSet<Integer>> list) {
 		String tempStringList = "";
 		for (int i = 0; i < list.size(); i++) {
-			tempStringList += " <p> space№ [" + (parsetChar(i + 1) + "]:{" + HashSetIntegerToString(list.get(i)) + "} </p>");
+			tempStringList += " <p> spaceпїЅ [" + (parsetChar(i + 1) + "]:{" + HashSetIntegerToString(list.get(i)) + "} </p>");
 		}
 		return tempStringList;
 	}
 
-	/**
-	 * 
-	 * @param list
-	 *            - ArrayList<HashSet<Integer>>
-	 * @param index
-	 *            - до якого елемента записувати в String
-	 * @return - String з елементів ArrayList<HashSet<Integer>>
-	 */
+
 	public String ArrayListHashSetIntegerToStringStart(ArrayList<HashSet<Integer>> list, int index) {
 		String tempStringList = "";
 		for (int i = 0; i < index; i++) {
-			tempStringList += " <p> space№ [" + (parsetChar(i + 1) + "]:{" + HashSetIntegerToString(list.get(i)) + "} </p> ");
+			tempStringList += " <p> spaceпїЅ [" + (parsetChar(i + 1) + "]:{" + HashSetIntegerToString(list.get(i)) + "} </p> ");
 		}
 		return tempStringList;
 	}
 
-	/**
-	 * 
-	 * @param list
-	 *            - ArrayList<HashSet<Integer>>
-	 * @param index
-	 *            - з якого елемента записувати в String
-	 * @return - String з елементів ArrayList<HashSet<Integer>>
-	 */
+
 	public String ArrayListHashSetIntegerToStringEnd(ArrayList<HashSet<Integer>> list, int index) {
 		String tempStringList = "";
 		for (int i = (index), j = 1; i < list.size(); i++, j++) {
-			tempStringList += "<p>  rezaltAction№ ["
+			tempStringList += "<p>  rezaltActionпїЅ ["
 					+ (parsetChar(j) + "]:{" + HashSetIntegerToString(list.get(i)) + "} </p> ");
 		}
 		return tempStringList;

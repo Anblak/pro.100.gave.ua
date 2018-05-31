@@ -16,8 +16,7 @@ public class BaseActions {
 		
 		FunctionString functionString = new FunctionString();
 		HashSet<Integer> set;
-		
-		
+
 		try{
 			set = functionString.stringFunction(formul, space);
 			this.space=functionString.space;

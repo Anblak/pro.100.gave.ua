@@ -1,221 +1,169 @@
 package ua.game.pro.entity;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import javax.persistence.*;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 
 @Entity
 public class User implements UserDetails {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String name;
-	private String email;
-	private String password;
-	private int phone;
-	private String pathImage;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String name;
+    private String email;
+    private String password;
+    private int phone;
+    private String pathImage;
     private boolean enabled;
-	private String uuid;
-	
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	private GroupOfUsers group;
-	
-	@OneToMany(mappedBy = "user")
-	private List<FileUser> files;
-	
-	@Enumerated
-	private Role role;
-	
-	
-	public User() {
-		// TODO Auto-generated constructor stub
-	}
-	
+    private String uuid;
 
 
+    @ManyToOne
+    private GroupOfUsers groupOfUsers;
 
-	public User(String name, String email, String password, int phone) {
-		super();
-		this.name = name;
-		this.email = email;
-		this.password = password;
-		this.phone = phone;
-	}
+    @OneToMany(mappedBy = "user")
+    private List<FileUser> files;
 
+    @Enumerated
+    private Role role;
 
 
-	
-	public String getPathImage() {
-		return pathImage;
-	}
+    public User() {
+        // TODO Auto-generated constructor stub
+    }
 
+    public User(String name, String email, String password, int phone) {
+        super();
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+    }
 
 
+    public String getPathImage() {
+        return pathImage;
+    }
 
-	public void setPathImage(String pathImage) {
-		this.pathImage = pathImage;
-	}
 
+    public void setPathImage(String pathImage) {
+        this.pathImage = pathImage;
+    }
 
 
+    public String getUuid() {
+        return uuid;
+    }
 
-	public String getUuid() {
-		return uuid;
-	}
 
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
+    public Role getRole() {
+        return role;
+    }
 
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public int getPhone() {
+        return phone;
+    }
 
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public GroupOfUsers getGroup() {
+        return groupOfUsers;
+    }
 
+    public void setGroup(GroupOfUsers group) {
+        this.groupOfUsers = group;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public List<FileUser> getFiles() {
+        return files;
+    }
 
+    public void setFiles(List<FileUser> files) {
+        this.files = files;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+        authorities.add(new SimpleGrantedAuthority(role.name()));
+        return authorities;
+    }
 
+    public String getUsername() {
 
-	public String getEmail() {
-		return email;
-	}
+        return String.valueOf(id);
+    }
 
+    public boolean isAccountNonExpired() {
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+        return true;
+    }
 
+    public boolean isAccountNonLocked() {
 
-	public String getPassword() {
-		return password;
-	}
+        return true;
+    }
 
+    public boolean isCredentialsNonExpired() {
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
+        return true;
+    }
 
+    public boolean isEnabled() {
 
-	public Role getRole() {
-		return role;
-	}
+        return enabled;
+    }
 
-	public void setRole(Role role) {
-		this.role = role;
-	}
-	
-	
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
-	public int getPhone() {
-		return phone;
-	}
-
-
-	public void setPhone(int phone) {
-		this.phone = phone;
-	}
-
-
-
-
-	public GroupOfUsers getGroup() {
-		return group;
-	}
-
-
-
-
-	public void setGroup(GroupOfUsers group) {
-		this.group = group;
-	}
-
-
-
-
-	public List<FileUser> getFiles() {
-		return files;
-	}
-
-
-
-
-	public void setFiles(List<FileUser> files) {
-		this.files = files;
-	}
-
-
-
-
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
-		authorities.add(new SimpleGrantedAuthority(role.name()));
-		return authorities;
-	}
-
-
-	public String getUsername() {
-		
-		return String.valueOf(id);
-	}
-
-
-	public boolean isAccountNonExpired() {
-		
-		return true;
-	}
-
-
-	public boolean isAccountNonLocked() {
-		
-		return true;
-	}
-
-
-	public boolean isCredentialsNonExpired() {
-		
-		return true;
-	}
-
-
-	public boolean isEnabled() {
-		
-		return enabled;
-	}
-	
 }

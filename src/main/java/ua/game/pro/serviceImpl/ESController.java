@@ -11,6 +11,7 @@ import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ua.game.pro.dao.UserDao;
 import ua.game.pro.entity.FileUser;
 import ua.game.pro.service.ESService;
 import ua.game.pro.service.FileUserService;
@@ -38,7 +39,7 @@ public class ESController implements ESService {
 
     public List<FileUser> findFiles(String searchText, Integer groupId) {
         List<Integer> ids = new ArrayList<>();
-        List<FileUser> fileUsers = new ArrayList<>();
+
         String[] includeFields = new String[]{"id"};
         String[] excludeFields = new String[]{"_type"};
 
@@ -55,10 +56,8 @@ public class ESController implements ESService {
         SearchResponse searchResponse = client.search(searchRequest).actionGet();
 
         Arrays.stream(searchResponse.getHits().getHits()).forEach(searchHitFields ->
-                searchHitFields.getSource().forEach((s, o) -> {
-                    fileUsers.add(fileUserService.findOne((int) o));
-                })
+                searchHitFields.getSource().forEach((s, o) -> ids.add((int) o))
         );
-        return fileUsers;
+        return fileUserService.findAll(ids);
     }
 }

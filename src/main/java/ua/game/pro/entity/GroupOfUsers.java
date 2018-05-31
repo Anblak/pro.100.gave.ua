@@ -1,12 +1,10 @@
 package ua.game.pro.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class GroupOfUsers {
@@ -17,7 +15,8 @@ public class GroupOfUsers {
 	private String name;
 	private String uuid;
 	
-	@OneToMany(mappedBy = "group")
+	@OneToMany(mappedBy = "groupOfUsers")
+    @JsonIgnore
 	private List<User> users;
 	
 	@OneToMany(mappedBy = "groupOfUsers")

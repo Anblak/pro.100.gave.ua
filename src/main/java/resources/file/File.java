@@ -3,21 +3,6 @@ package resources.file;
 import resources.exceptions.ProjectExceptions;
 import resources.parset.Parset;
 
-/*
-import java.io.File;
-
-public class Main{
-    public static void main(String [] args){
-        java.io.File file = new java.io.File("D:\\test.txt"); // создаем объект на файл test.txt
-        if(file.exists()){ // если файл существует, то переименовываем его
-            file.renameTo(new java.io.File("D:\\main.java"));
-        }
-        else{
-            System.out.println("File not found!");
-        }
-    }
-}
-*/
 /**
  * 
  * @author prometej
@@ -44,7 +29,7 @@ public class File {
 			throws ProjectExceptions {
 		String newName = newFolder(grup, profesor, user);
 		java.io.File file = new java.io.File(refFile + oldName);
-		if (file.exists()) { // если файл существует, то переименовываем его
+		if (file.exists()) {
 			file.renameTo(new java.io.File(refFile + newName + oldName));
 			return true;
 		} else {
@@ -65,7 +50,7 @@ public class File {
 	public String renameFile(String ref, int id, String oldName) throws ProjectExceptions {
 		String newName = "" + id + teg(oldName);
 		java.io.File file = new java.io.File(ref + oldName);
-		if (file.exists()) { // если файл существует, то переименовываем его
+		if (file.exists()) {
 			file.renameTo(new java.io.File(newName));
 			return ref + newName;
 		} else {
@@ -113,18 +98,7 @@ public class File {
 		return (parset.parsetChar(grup) + "/" + parset.parsetChar(profesor) + "/" + parset.parsetChar(user) + "/");
 	}
 
-	/**
-	 * 
-	 * @param grup
-	 *            - id.grup
-	 * @param profesor
-	 *            - id.profesor
-	 * @param user
-	 *            - id.user
-	 * @param oldName
-	 *            - початкове імя файлу
-	 * @return string : {[id.grup].[id.rpfesor].[id.user].[початкове імя файлу]}
-	 */
+
 	public String Name(String grup, String profesor, String user, String oldName) {
 
 		return (grup + "." + profesor + "." + user + "." + oldName);

@@ -1,21 +1,21 @@
 package ua.game.pro.dto;
 
 public class KafkaMessage {
-    private Long id;
+    private Integer id;
     private String text;
-    private Long groupId;
+    private Integer groupId;
 
-    public KafkaMessage(Long id, String text, Long groupId) {
+    public KafkaMessage(Integer id, String text, Integer groupId) {
         this.id = id;
         this.text = text;
         this.groupId = groupId;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -27,11 +27,11 @@ public class KafkaMessage {
         this.text = text;
     }
 
-    public Long getGroupId() {
+    public Integer getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(Long groupId) {
+    public void setGroupId(Integer groupId) {
         this.groupId = groupId;
     }
 }

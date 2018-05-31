@@ -66,11 +66,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/registration")
-	public String newUser(Model model) {
-		// model.addAttribute("userDTOs",
-		// DTOUtilMapper.usersToUsersDTO(userService.findAll()));
-		// model.addAttribute("user", new User());
-
+	public String newUser() {
 		return "views-base-registration";
 	}
 
@@ -97,7 +93,7 @@ public class UserController {
 
 		}
 		String theme = "Pro.100.Game.Ua";
-		String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='background:black;'><center><div style='background:yellow;width:400px;height:70px'><p>Welcome to site administration pro100.game.ua</p><p>if you want to continue to register at the site pro100.game.ua Click on the <a href='http://localhost:8080/Pro.100.Game.Ua/confirm/"
+		String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='background:black;'><center><div style='background:yellow;width:400px;height:70px'><p>Welcome to site administration pro100.game.ua</p><p>if you want to continue to register at the site pro100.game.ua Click on the <a href='http://localhost:8080/confirm/"
 				+ uuid + "'>link</a></p><div></center></html></body>";
 
 		mailSenderService.sendMail(theme, mailBody, user.getEmail());
@@ -124,17 +120,6 @@ public class UserController {
 		return "redirect:/registration";
 	}
 
-	// =====================================================================
-	@RequestMapping("/some")
-	public String profile(Model model, Principal principal) {
-		User user = userService.findOne(Integer.parseInt(principal.getName()));
-		HashMap<Integer, String> profesorMap = new Parset()
-				.ArrayListToMap(DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()), user);
-		model.addAttribute("profesor", new StringWrapper());
-		model.addAttribute("profesorsMap", profesorMap);
-
-		return "views-filecontent-some";
-	}
 
 	@RequestMapping("/profesort")
 	public String profile(@ModelAttribute StringWrapper profesor, Model model) {
@@ -142,30 +127,11 @@ public class UserController {
 		model.addAttribute("profesor", profesor);
 		this.profesor = profesor.getString();
 		model.addAttribute("test", this.profesor);
-		// String formAddFile="<form:form
-		// action='./saveFile?${_csrf.parameterName}=${_csrf.token}'
-		// method='post' enctype='multipart/form-data'> <input type='file'
-		// name='multipartFile'> <button>safe file</button> </form:form> ";
-		// model.addAttribute("saveFileForm", formAddFile);
+
 		return "views-filecontent-profile";
 
 	}
 
-	// @RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	// public String saveImage(Principal principal, @RequestParam FileWrapper
-	// fileWrapper, Model model) {
-	//
-	// Profesor profesor =
-	// profesorService.findOne(Integer.parseInt(fileWrapper.getProfesor()));
-	//
-	// User user = userService.findOne(Integer.parseInt(principal.getName()));
-	//
-	// fileUserService.saveFile(fileWrapper.getMultipartFile(), user, profesor);
-	//
-	// return "redirect:/profile";
-	// }
-
-	// =====================================================================
 	@RequestMapping("/profile")
 	public String profile(Principal principal, Model model) {
 		try {
@@ -200,19 +166,6 @@ public class UserController {
 			// end groupUserAdd
 			model.addAttribute("profesorMap", profesorMap);
 			model.addAttribute("profesor", new StringWrapper());
-			// model.addAttribute("uuidBody", uuidBody);
-
-			// model.addAttribute("profesorID", new StringWrapper());
-
-			//
-			// try {
-			// model.addAttribute("profesors", new Profesor());
-			// model.addAttribute("profesorsDTOs",
-			// DTOUtilMapper.profesorToProfesorDTO(profesorService.findAll()));
-			// } catch (Exception e) {
-			// System.out.println(e.getMessage());
-			// }
-
 			return "views-filecontent-profile";
 
 		} catch (NullPointerException e) {
@@ -242,13 +195,6 @@ public class UserController {
 
 		fileUserService.saveFile(multipartFile, user, profesorID);
 
-		// Profesor profesorr= new Profesor("test");
-		// profesorr.setId(1);
-
-		// User user =
-		// userService.findOne(Integer.parseInt(principal.getName()));
-		// fileUserService.saveFile(multipartFile, user,profesorr);
-
 		return "redirect:/profile";
 	}
 
@@ -259,27 +205,11 @@ public class UserController {
 		return "views-filecontent-profile";
 	}
 
-	// @RequestMapping(value = "/saveFile", method = RequestMethod.POST)
-	// public String saveFile(@RequestParam MultipartFile multipartFile,
-	// Principal principal, Model model) {
-	//
-	// int profesorID = Integer.parseInt(profesor);
-	//
-	// User user = userService.findOne(Integer.parseInt(principal.getName()));
-	//
-	// fileUserService.saveFile(multipartFile, user, profesorID);
-	//
-	// return "redirect:/profile";
-	// }
-
 	@RequestMapping(value = "/createGroup", method = RequestMethod.POST)
 	public String createGroup(Principal principal, @ModelAttribute GroupOfUsers groupOfUsers, Model model) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
-		// if(user.getGroup().equals(null)){
 		String uuid = UUID.randomUUID().toString();
-
 		groupOfUsers.setUuid(uuid);
-
 		try {
 			groupOfUsersService.save(groupOfUsers, user);
 		} catch (Exception e) {
@@ -287,15 +217,9 @@ public class UserController {
 				model.addAttribute("nameException", e.getMessage());
 			}
 		}
-
-		String uuidBody = "http://localhost:8080/Pro.100.Game.Ua/confirmAdd/" + uuid;
-
-		GroupOfUsers groupOfUsers2 = user.getGroup();
+//		String uuidBody = "http://localhost:8080/Pro.100.Game.Ua/confirmAdd/" + uuid;
 		model.addAttribute("groupUID", groupOfUsers);
 
-		// }else{
-		//
-		// }
 		return "redirect:/profile";
 	}
 
@@ -391,11 +315,8 @@ public class UserController {
 		for (int i = 0; i < userService.findAll().size(); i++) {
 
 			if (userService.findAll().get(i).getUuid().equals(id)) {
-
 				user = userService.findAll().get(i);
-
 			}
-
 		}
 		String mailBody = "<center>		<div  id='passwordchange' class='modal' style='display:block' ><form  action='passwordResetRequestm"
 				+ user.getUuid()
@@ -433,14 +354,11 @@ public class UserController {
 
 	@RequestMapping(value = "/addInGroupMessage", method = RequestMethod.GET)
 	public String invited(@RequestParam String[] idUser, Principal principal) {
-
 		User userCreator = userService.findOne(Integer.parseInt(principal.getName()));
-
 		ArrayList<User> users = new ArrayList<>();
 		for (String string : idUser) {
 			users.add(userService.findOne(Integer.parseInt(string)));
 		}
-
 		for (int i = 0; i < users.size(); i++) {
 			String uuid = UUID.randomUUID().toString();
 			User user = users.get(i);
@@ -470,15 +388,10 @@ public class UserController {
 
 	@RequestMapping(value = "/addInGroup{id}/{uuid}", method = RequestMethod.GET)
 	public String takeInvited(@PathVariable String uuid, @PathVariable String id) {
-
 		User user = userService.findByUUID(uuid);
-
 		GroupOfUsers group = groupOfUsersService.findOne(Integer.parseInt(id));
-
 		user.setUuid("");
-
 		userService.update(user, group);
-
 		return "redirect:/";
 	}
 

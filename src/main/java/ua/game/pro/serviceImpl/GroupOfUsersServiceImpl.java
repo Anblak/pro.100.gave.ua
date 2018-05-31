@@ -57,13 +57,6 @@ public class GroupOfUsersServiceImpl implements GroupOfUsersService {
 
 	}
 
-//	@Override
-//	public GroupOfUsers findByUUID(String uuid,User user) {
-//		
-//		userDao.save(user);
-//		return groupDao.findByUUID(uuid);
-//	}
-	
 	@Override
 	public GroupOfUsers findByUUID(String uuid) {
 		

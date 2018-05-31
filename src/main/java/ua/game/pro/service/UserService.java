@@ -27,6 +27,6 @@ public interface UserService {
 
 	void updatePassword(User user);
 
-	public void saveImage(Principal principal, MultipartFile multipartFile);
+	void saveImage(Principal principal, MultipartFile multipartFile);
 
 }

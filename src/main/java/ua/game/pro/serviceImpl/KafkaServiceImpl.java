@@ -9,6 +9,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import ua.game.pro.dto.KafkaMessage;
+import ua.game.pro.entity.FileUser;
 import ua.game.pro.service.KafkaService;
 
 import java.io.File;
@@ -32,7 +33,7 @@ public class KafkaServiceImpl implements KafkaService {
     }
 
     @Override
-    public void sendMessage(File file) throws JsonProcessingException {
+    public void sendMessage(File file, FileUser fileUser, Integer gorupId) throws JsonProcessingException {
         StringBuilder stringBuilder = new StringBuilder();
         try (FileInputStream fis = new FileInputStream(file.getAbsolutePath())) {
             XWPFDocument document = new XWPFDocument(fis);
@@ -46,7 +47,7 @@ public class KafkaServiceImpl implements KafkaService {
         }
         try {
             producer.send(new ProducerRecord<>(TOPIC, objectMapper
-                    .writeValueAsString(new KafkaMessage(1L, stringBuilder.toString(), 1L))));
+                    .writeValueAsString(new KafkaMessage(fileUser.getId(), stringBuilder.toString(), gorupId))));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

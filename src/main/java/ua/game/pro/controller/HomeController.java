@@ -43,19 +43,6 @@ public class HomeController {
 
 			}
 
-			// creator.li(creator.a(href, "", "", creator.div(input, ""
-			// ,"container
-			// musicDiv")),"current-song");
-
-			// <li class="current-song"><
-			//
-			// a href="resources/test1.mp3"><div
-			// class="container musicDiv">test1</div></a></li>
-			//
-			// <li><
-			// a href="resources/test2.mp3"><div
-			// class="container musicDiv">test2</div></a></li>
-
 			model.addAttribute("music", fileMusic);
 			/* end add music in model */
 		}
@@ -64,19 +51,16 @@ public class HomeController {
 
 	@RequestMapping(value = "/home", method = RequestMethod.POST)
 	public String anton() {
-
 		return "redirect:/home";
 	}
 
 	@RequestMapping("/loginpage")
 	public String login() {
-
 		return "views-base-loginpage";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public String logout() {
-
 		return "redirect:/";
 	}
 }

@@ -20,11 +20,10 @@ import java.util.List;
 
 @Controller
 public class GroupController {
-    CreatorHTMLTag creator = new CreatorHTMLTag();
+
+    private CreatorHTMLTag creator = new CreatorHTMLTag();
     @Autowired
     private UserService userService;
-    @Autowired
-    private GroupOfUsersService groupService;
     @Autowired
     private FileUserService fileUserService;
     @Autowired
@@ -34,7 +33,6 @@ public class GroupController {
     public String outPrintGrup(Model model, Principal principal) {
 
         try {
-
             User user = userService.findOne(Integer.parseInt(principal.getName()));
             String groupName = user.getGroup().getName();
             model.addAttribute("user", user);
@@ -80,7 +78,7 @@ public class GroupController {
     }
 
     @RequestMapping(value = "/{idp}", method = RequestMethod.GET)
-    public String outPrintUserOfGrup(Model model, Principal principal, @PathVariable String idp) {
+    public String outPrintUserOfGroup(Model model, Principal principal, @PathVariable String idp) {
         User user = userService.findOne(Integer.parseInt(principal.getName()));
         String body = "";
         Profesor profesor = profesorService.findOne(Integer.parseInt(idp));
@@ -129,17 +127,10 @@ public class GroupController {
                         if (fileUser.getProfesor().getId() == profesor.getId()) {
 
                             if (fileUser.getUser().getGroup().getId() == user.getGroup().getId()) {
-                                String input = creator.a("/Pro.100.Game.Ua/" + fileUser.getPath(), "", "",
+                                String input = creator.a("" + fileUser.getPath(), "", "",
                                         (creator.p(fileUser.getName(), "p", "")));
-                                ;
+
                                 body += " " + (creator.div(input, "", "div") + " ");
-                                // creator.button((creator.p(fileUser.getName(),
-                                // "p", "width:150px;height: 17px;")), "", "",
-                                // fileUser.getPath(), "submit", "", "");
-                                //
-                                // creator.a(fileUser.getPath(), "", "",
-                                // (creator.p(fileUser.getName(), "p",
-                                // "width:150px;height: 17px;")));
                             }
                         }
                     }
@@ -157,46 +148,3 @@ public class GroupController {
     }
 
 }
-
-// @Autowired
-// private UserService userService;
-//
-// @Autowired
-// private GroupService groupService;
-//
-// @InitBinder
-// protected void initBinder(WebDataBinder binder){
-// binder.registerCustomEditor(User.class, new UserEditor(userService));
-// }
-//
-//
-// @RequestMapping("/group")
-// public String group() {
-//
-// return "group";
-// }
-//
-// @RequestMapping(value = "/savegroup", method = RequestMethod.POST)
-// public String newGroup(Model model,@ModelAttribute Group group) {
-//
-// String uuid = UUID.randomUUID().toString();
-//
-// group.setUuid(uuid);
-//
-// groupService.save(group);
-//
-//
-//
-//
-// return "group";
-// }
-//
-// @RequestMapping("/deleteGroup/{id}")
-// public String de(@PathVariable int id) {
-//
-// groupService.delete(id);
-//
-// return "redirect:/group";
-// }
-//
-// }
