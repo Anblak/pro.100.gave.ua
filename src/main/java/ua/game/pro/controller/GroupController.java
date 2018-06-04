@@ -84,7 +84,7 @@ public class GroupController {
         Profesor profesor = profesorService.findOne(Integer.parseInt(idp));
 
         for (User user2 : userService.findAll()) {
-            if (profesor.getGroupOfUsers().getId() == user2.getGroup().getId() && user2.getGroup() != null) {
+            if (user2.getGroup() != null && profesor.getGroupOfUsers().getId() == user2.getGroup().getId()) {
                 String input = creator.p(user2.getName(), "p", "")
                         + creator.form(creator.button("go in file user", "buttonNext", "submit"),
                         "file" + profesor.getId() + "&" + user2.getId() + "", "GET");
