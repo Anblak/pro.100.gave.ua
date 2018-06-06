@@ -13,7 +13,7 @@ ${usernameException}${emailException}${passwordException}
 <form:form modelAttribute="user" action="saveUser" method="post">
 <input name="name" class="validate[required,custom[username],length[0,100]] feedback-input" placeholder="name ${usernameException}">
 <input name="email" class="validate[required,custom[email],length[0,100]] feedback-input" type="email" placeholder="email ${emailException}">
-<input name="password" class="validate[required,custom[password],length[0,100]] feedback-input" type="password"" placeholder="password ${passwordException}">
+<input name="password" class="validate[required,custom[password],length[0,100]] feedback-input" type="password" placeholder="password ${passwordException}">
 <input name="phone" placeholder="phone">
 <button>save user</button>
 </form:form>

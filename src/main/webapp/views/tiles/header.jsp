@@ -314,9 +314,7 @@
                             <label>
                                 <div class="uidGroup">
                                     <b>uidGroup: </b>
-                                    <p class="pu">http://localhost:8080/</p>
-                                    <p class="pu">Pro.100.Game.Ua/confirmAdd/</p>
-                                    <p class="pu">${user.group.uuid}</p>
+                                    <p class="pu">http://localhost:8080/confirmAdd/${user.group.uuid}</p>
                                 </div>
                             </label>
                         </sec:authorize>

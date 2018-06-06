@@ -64,7 +64,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     public void update(User user, GroupOfUsers group) {
-        user.setRole(Role.ROLE_USER_IN_GROUP);
         user.setGroup(group);
         userDao.save(user);
     }

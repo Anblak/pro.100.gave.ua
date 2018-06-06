@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import resources.creatorHTMLTag.CreatorHTMLTag;
 import ua.game.pro.entity.FileUser;
 import ua.game.pro.entity.Profesor;
+import ua.game.pro.entity.Role;
 import ua.game.pro.entity.User;
 import ua.game.pro.service.FileUserService;
 import ua.game.pro.service.GroupOfUsersService;
@@ -37,11 +38,16 @@ public class GroupController {
             String groupName = user.getGroup().getName();
             model.addAttribute("user", user);
             String input = creator.p(groupName, "p", "")
-                    + creator.div(creator.form(creator.button("profesor", "buttonNext", "submit"), "profesor", "GET"),
-                    "", "wrapperButton")
-                    + creator.div(
-                    creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deletegroup", "GET"), "",
-                    "wrapperButton");
+                    + creator.div(creator.form(creator.button("profesor", "buttonNext", "submit"),
+                    "profesor", "GET"),
+                    "", "wrapperButton");
+
+            if(user.getRole().equals(Role.ROLE_CREATOR)){
+               input = input + creator.div(
+                        creator.form(creator.button("DELETE", "buttonDelete", "submit"),
+                                "deleteGroup/" + user.getGroup().getId(), "GET"), "",
+                        "wrapperButton");
+            }
             String div = creator.div(input, "", "div");
             model.addAttribute("body", div);
             return "views-filecontent-group";
@@ -63,13 +69,13 @@ public class GroupController {
 
                 String input = creator.p(profesor.getName(), "p", "")
                         + creator.div(creator.form(creator.button("Profesor for Group", "buttonNext", "submit"),
-                        "" + profesor.getId(), "get"), "display:inline-block", "wrapperButton")
-                        + creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"), "deleteprofesor",
+                        "" + profesor.getId(), "get"), "display:inline-block", "wrapperButton");
+                        if(user.getRole().equals(Role.ROLE_CREATOR))
+                        input = input + creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"),
+                                "deleteprofesor/" + profesor.getId(),
                         "GET"), "display:inline-block", "wrapperButton");
                 body += (" " + creator.div(input, "", "div") + " ");
-
             }
-
         }
 
         model.addAttribute("body", body);
@@ -84,7 +90,8 @@ public class GroupController {
         Profesor profesor = profesorService.findOne(Integer.parseInt(idp));
 
         for (User user2 : userService.findAll()) {
-            if (user2.getGroup() != null && profesor.getGroupOfUsers().getId() == user2.getGroup().getId()) {
+            if (user2.getGroup() != null && profesor.getGroupOfUsers().getId() == user2.getGroup().getId()
+                    && user.getFiles().size() != 0) {
                 String input = creator.p(user2.getName(), "p", "")
                         + creator.form(creator.button("go in file user", "buttonNext", "submit"),
                         "file" + profesor.getId() + "&" + user2.getId() + "", "GET");

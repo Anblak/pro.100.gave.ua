@@ -12,10 +12,10 @@ public class GroupOfUsers {
     private String name;
     private String uuid;
 
-    @OneToMany(mappedBy = "groupOfUsers", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "groupOfUsers")
     private List<User> users;
 
-    @OneToMany(mappedBy = "groupOfUsers", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "groupOfUsers")
     private List<Profesor> profesors;
 
     public GroupOfUsers() {

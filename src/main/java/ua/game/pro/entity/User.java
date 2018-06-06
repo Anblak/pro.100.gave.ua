@@ -28,7 +28,7 @@ public class User implements UserDetails {
     @ManyToOne
     private GroupOfUsers groupOfUsers;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<FileUser> files;
 
     @Enumerated

@@ -226,6 +226,7 @@ public class UserController {
 	@RequestMapping("/deleteGroup/{id}")
 	public String deleteGroup(Principal principal, @PathVariable int id) {
 		User user = userService.findOne(Integer.parseInt(principal.getName()));
+		if(user.getGroup().getId() == id && user.getRole().equals(Role.ROLE_CREATOR))
 		groupOfUsersService.delete(id, user);
 
 		return "redirect:/profile";
@@ -392,6 +393,15 @@ public class UserController {
 		GroupOfUsers group = groupOfUsersService.findOne(Integer.parseInt(id));
 		user.setUuid("");
 		userService.update(user, group);
+		return "redirect:/";
+	}
+
+	@RequestMapping(value = "/deleteprofesor/{id}", method = RequestMethod.GET)
+	public String deleteProfessor(@PathVariable Integer id, Principal principal) {
+		User user = userService.findOne(Integer.parseInt(principal.getName()));
+		if(user.getGroup().getProfesors().contains(profesorService.findOne(id)) && user.getRole().equals(Role.ROLE_CREATOR))
+		profesorService.delete(id);
+
 		return "redirect:/";
 	}
 
