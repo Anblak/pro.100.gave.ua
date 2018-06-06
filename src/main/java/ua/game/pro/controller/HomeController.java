@@ -51,6 +51,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/home", method = RequestMethod.POST)
 	public String anton() {
+
 		return "redirect:/home";
 	}
 

@@ -288,7 +288,7 @@ public class UserController {
 
 				userService.updateUser(user);
 				String theme = "Pro.100.Game.Ua";
-				String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='' ><center><div style='background:yellow;width:500px;height:auto'><p>Welcome to site <span>pro100.game.ua</span></p><p>If you want to change your password Click on the <a href='http://localhost:8080/Pro.100.Game.Ua/passwordResetRequest"
+				String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='' ><center><div style='background:yellow;width:500px;height:auto'><p>Welcome to site <span>pro100.game.ua</span></p><p>If you want to change your password Click on the <a href='http://localhost:8080/passwordResetRequest"
 						+ userService.findAll().get(i).getUuid()
 						+ "'>link</a></p><p>and wait for the message</p></div></center> </body></html>";
 				string.setString("messages sent to email: " + userService.findAll().get(i).getEmail());
@@ -376,7 +376,7 @@ public class UserController {
 			String mailBody = "<html lang='uk'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body style='' ><center><div style='background:yellow;width:500px;height:auto'>"
 					+ "<p>Welcome to site <span>pro100.game.ua</span></p>"
 					+ "<p>You are invited to a group ___ , if you want to accept the invitation Click on the  "
-					+ "<a href='http://localhost:8080/Pro.100.Game.Ua/addInGroup" + userCreator.getGroup().getId() + "/"
+					+ "<a href='http://localhost:8080/addInGroup" + userCreator.getGroup().getId() + "/"
 					+ user.getUuid() + "'>link</a></p><p>and wait for the message</p></div></center> </body></html>";
 
 			mailSenderService.sendMail(theme, mailBody, user.getEmail());
