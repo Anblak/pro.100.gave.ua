@@ -42,12 +42,12 @@ public class GroupController {
                     "profesor", "GET"),
                     "", "wrapperButton");
 
-            if(user.getRole().equals(Role.ROLE_CREATOR)){
-               input = input + creator.div(
-                        creator.form(creator.button("DELETE", "buttonDelete", "submit"),
-                                "deleteGroup/" + user.getGroup().getId(), "GET"), "",
-                        "wrapperButton");
-            }
+//            if(user.getRole().equals(Role.ROLE_CREATOR)){
+//               input = input + creator.div(
+//                        creator.form(creator.button("DELETE", "buttonDelete", "submit"),
+//                                "deleteGroup/" + user.getGroup().getId(), "GET"), "",
+//                        "wrapperButton");
+//            }
             String div = creator.div(input, "", "div");
             model.addAttribute("body", div);
             return "views-filecontent-group";
@@ -70,10 +70,10 @@ public class GroupController {
                 String input = creator.p(profesor.getName(), "p", "")
                         + creator.div(creator.form(creator.button("Profesor for Group", "buttonNext", "submit"),
                         "" + profesor.getId(), "get"), "display:inline-block", "wrapperButton");
-                        if(user.getRole().equals(Role.ROLE_CREATOR))
-                        input = input + creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"),
-                                "deleteprofesor/" + profesor.getId(),
-                        "GET"), "display:inline-block", "wrapperButton");
+//                        if(user.getRole().equals(Role.ROLE_CREATOR))
+//                        input = input + creator.div(creator.form(creator.button("DELETE", "buttonDelete", "submit"),
+//                                "deleteprofesor/" + profesor.getId(),
+//                        "GET"), "display:inline-block", "wrapperButton");
                 body += (" " + creator.div(input, "", "div") + " ");
             }
         }
