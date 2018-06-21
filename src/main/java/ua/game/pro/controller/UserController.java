@@ -392,6 +392,7 @@ public class UserController {
 		User user = userService.findByUUID(uuid);
 		GroupOfUsers group = groupOfUsersService.findOne(Integer.parseInt(id));
 		user.setUuid("");
+		user.setRole(Role.ROLE_USER_IN_GROUP);
 		userService.update(user, group);
 		return "redirect:/";
 	}
